@@ -1,0 +1,20 @@
+questions to ask Professor Gou:
+
+*ask about dining phil. problem with monitors:
+-when chopsticks are being used and a thread goes to wait state via the condition.wait() call, 
+does it go to the condition variable waiting queue and also to the wait-state queue, or are those two one in the same?
+
+*ask about this paragraph from the OS concepts book, chapter 6.6
+
+It is important to admit that we have not completely eliminated busy
+waiting with this definition of the wait() and signal() operations. Rather,
+we have moved busy waiting from the entry section to the critical sections
+of application programs. Furthermore, we have limited busy waiting to the
+critical sections of the wait() and signal() operations, and these sections are
+short (if properly coded, they should be no more than about ten instructions).
+Thus, the critical section is almost never occupied, and busy waiting occurs
+276 Chapter 6 Synchronization Tools
+rarely, and then for only a short time. An entirely different situation exists
+with application programs whose critical sections may be long (minutes or
+even hours) or may almost always be occupied. In such cases, busy waiting
+is extremely inefficient.
