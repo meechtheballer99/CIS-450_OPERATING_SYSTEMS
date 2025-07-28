@@ -1,0 +1,2446 @@
+
+<!-- saved from url=(0053)https://www.virtualbox.org/manual/ch01.html#soft-keyb -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Chapter&nbsp;1.&nbsp;First Steps</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="https://www.virtualbox.org/manual/index.html" title="Oracle® VM VirtualBox®"><link rel="up" href="https://www.virtualbox.org/manual/index.html" title="Oracle® VM VirtualBox®"><link rel="prev" href="https://www.virtualbox.org/manual/pr01.html" title="Preface"><link rel="next" href="https://www.virtualbox.org/manual/ch02.html" title="Chapter 2. Installation Details"><style type="text/css"><!--
+   body
+   {
+     font-family:  Verdana, Sans-serif, Arial, 'Trebuchet MS', 'Times New Roman';
+     font-size: small;
+   }
+   h2.title
+   {
+     font-family: Verdana, Sans-serif, Arial, 'Trebuchet MS', 'Times New Roman';
+     margin: 5px 0 0;
+     padding: 1px 5px 1px;
+     border: 1px solid #6b89d4;
+     -moz-border-radius: 0.3em;
+     background: #e6edff;
+   }
+   .titlepage
+   {
+     text-align: center;
+   }
+   .refsynopsisdiv, .refsect1, .refsect2, .refsect3
+   {
+     text-align: left;
+   }
+   .warning
+   {
+     padding: 5px;
+     border: 1px solid #ff0011;
+     -moz-border-radius: 0.3em;
+     background: #ffbbbb;
+   }
+   .warning .title { margin: 0px 0px 5px 0px; }
+   .warning p { margin: 1px; }
+   .note
+   {
+     padding: 1px 5px 1px;
+     border: 1px solid #84c43b;
+     -moz-border-radius: 0.3em;
+     background: #d7e9a7;
+   }
+   .note .title { margin: 0px 0px 5px 0px; }
+   .note p { margin: 1px; }
+   .cmdsynopsis
+   {
+     font-family: monospace;
+   }
+   .refsynopsisdiv        > .cmdsynopsis p, .refsect1        > .cmdsynopsis p,
+   .refsynopsisdiv .sect2 > .cmdsynopsis p, .refsect1 .sect2 > .cmdsynopsis p
+   {
+     margin-top: 0px;
+     margin-bottom: 0px;
+   }
+   .cmdsynopsis p
+   {
+     padding-left: 3.4em;
+     text-indent: -2.2em;
+   }
+   p.nextcommand
+   {
+     margin-top:    0px;
+     margin-bottom: 0px;
+   }
+   p.lastcommand
+   {
+     margin-top:    0px;
+   }
+   .refentry * h3
+   {
+     font-size: large;
+   }
+   .refentry * h4
+   {
+     font-size: larger;
+   }
+   .refentry * h5
+   {
+     font-size: larger;
+   }
+
+  --></style></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="Introduction"></a>Chapter&nbsp;1.&nbsp;First Steps</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#virt-why-useful">1.1. Why is Virtualization Useful?</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#virtintro">1.2. Some Terminology</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#features-overview">1.3. Features Overview</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#hostossupport">1.4. Supported Host Operating Systems</a></span></dt><dd><dl><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#hostcpurequirements">1.4.1. Host CPU Requirements</a></span></dt></dl></dd><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#intro-installing">1.5. Installing Oracle VM VirtualBox and Extension Packs</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#intro-starting">1.6. Starting Oracle VM VirtualBox</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#gui-createvm">1.7. Creating Your First Virtual Machine</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#intro-running">1.8. Running Your Virtual Machine</a></span></dt><dd><dl><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#intro-starting-vm-first-time">1.8.1. Starting a New VM for the First Time</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#keyb_mouse_normal">1.8.2. Capturing and Releasing Keyboard and Mouse</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#specialcharacters">1.8.3. Typing Special Characters</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#intro-removable-media-changing">1.8.4. Changing Removable Media</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#intro-resize-window">1.8.5. Resizing the Machine's Window</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#intro-save-machine-state">1.8.6. Saving the State of the Machine</a></span></dt></dl></dd><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#gui-vmgroups">1.9. Using VM Groups</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#snapshots">1.10. Snapshots</a></span></dt><dd><dl><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#snapshots-take-restore-delete">1.10.1. Taking, Restoring, and Deleting Snapshots</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#snapshots-contents">1.10.2. Snapshot Contents</a></span></dt></dl></dd><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#configbasics">1.11. Virtual Machine Configuration</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#intro-removing">1.12. Removing and Moving Virtual Machines</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#clone">1.13. Cloning Virtual Machines</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#ovf">1.14. Importing and Exporting Virtual Machines</a></span></dt><dd><dl><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#ovf-about">1.14.1. About the OVF Format</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#ovf-import-appliance">1.14.2. Importing an Appliance in OVF Format</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#ovf-export-appliance">1.14.3. Exporting an Appliance in OVF Format</a></span></dt></dl></dd><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-integration">1.15. Integrating with Oracle Cloud Infrastructure</a></span></dt><dd><dl><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-integration-steps">1.15.1. Preparing for Oracle Cloud Infrastructure Integration</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-create-api-keypair">1.15.2. Creating an API Signing Key Pair</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-upload-public-key">1.15.3. Uploading the Public Key to Oracle Cloud Infrastructure</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-create-cloud-profile">1.15.4. Creating a Cloud Profile</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-using-cloud-profile-manager">1.15.5. Using the Cloud Profile Manager</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-vbox-oci-tasks">1.15.6. Using Oracle VM VirtualBox With Oracle Cloud Infrastructure</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-export-oci">1.15.7. Exporting an Appliance to Oracle Cloud Infrastructure</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-import-oci">1.15.8. Importing an Instance from Oracle Cloud Infrastructure</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-new-vm">1.15.9. Creating New Cloud Instances from a Custom Image</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#cloud-using-cli">1.15.10. Using VBoxManage Commands With Oracle Cloud Infrastructure</a></span></dt></dl></dd><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#globalsettings">1.16. Global Settings</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#frontends">1.17. Alternative Front-Ends</a></span></dt><dt><span class="sect1"><a href="https://www.virtualbox.org/manual/ch01.html#soft-keyb">1.18. Soft Keyboard</a></span></dt><dd><dl><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#soft-keyb-using">1.18.1. Using the Soft Keyboard</a></span></dt><dt><span class="sect2"><a href="https://www.virtualbox.org/manual/ch01.html#soft-keyb-custom">1.18.2. Creating a Custom Keyboard Layout</a></span></dt></dl></dd></dl></div><p>
+    Welcome to Oracle VM VirtualBox.
+  </p><p>
+    Oracle VM VirtualBox is a cross-platform virtualization application. What
+    does that mean? For one thing, it installs on your existing Intel or
+    AMD-based computers, whether they are running Windows, Mac OS X,
+    Linux, or Oracle Solaris operating systems (OSes). Secondly, it
+    extends the capabilities of your existing computer so that it can
+    run multiple OSes, inside multiple virtual machines, at the same
+    time. As an example, you can run Windows and Linux on your Mac, run
+    Windows Server 2016 on your Linux server, run Linux on your Windows
+    PC, and so on, all alongside your existing applications. You can
+    install and run as many virtual machines as you like. The only
+    practical limits are disk space and memory.
+  </p><p>
+    Oracle VM VirtualBox is deceptively simple yet also very powerful. It can
+    run everywhere from small embedded systems or desktop class machines
+    all the way up to datacenter deployments and even Cloud
+    environments.
+  </p><p>
+    The following screenshot shows how Oracle VM VirtualBox, installed on an
+    Apple Mac OS X computer, is running Windows Server 2016 in a virtual
+    machine window.
+  </p><div class="figure"><a name="fig-win2016-intro"></a><p class="title"><b>Figure&nbsp;1.1.&nbsp;Windows Server 2016 Virtual Machine, Displayed on a Mac OS X Host</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="496"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/vm-vista-running.png" align="middle" width="496" alt="Windows Server 2016 Virtual Machine, Displayed on a Mac OS X Host"></td></tr></tbody></table></div></div><p>
+    In this User Manual, we will begin simply with a quick introduction
+    to virtualization and how to get your first virtual machine running
+    with the easy-to-use Oracle VM VirtualBox graphical user interface.
+    Subsequent chapters will go into much more detail covering more
+    powerful tools and features, but fortunately, it is not necessary to
+    read the entire User Manual before you can use Oracle VM VirtualBox.
+  </p><p>
+    You can find a summary of Oracle VM VirtualBox's capabilities in
+    <a href="https://www.virtualbox.org/manual/ch01.html#features-overview" title="1.3. Features Overview">Section&nbsp;1.3, “Features Overview”</a>. For existing Oracle VM VirtualBox
+    users who just want to find out what is new in this release, see the
+    <a href="https://www.virtualbox.org/manual/ch15.html" title="Chapter 15. Change Log">Chapter&nbsp;15, <i>Change Log</i></a>.
+  </p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="virt-why-useful"></a>1.1.&nbsp;Why is Virtualization Useful?</h2></div></div></div><p>
+      The techniques and features that Oracle VM VirtualBox provides are
+      useful in the following scenarios:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Running multiple operating systems
+          simultaneously.</strong></span> Oracle VM VirtualBox enables you to run
+          more than one OS at a time. This way, you can run software
+          written for one OS on another, such as Windows software on
+          Linux or a Mac, without having to reboot to use it. Since you
+          can configure what kinds of <span class="emphasis"><em>virtual</em></span>
+          hardware should be presented to each such OS, you can install
+          an old OS such as DOS or OS/2 even if your real computer's
+          hardware is no longer supported by that OS.
+        </p></li><li><p>
+          <span class="bold"><strong>Easier software
+          installations.</strong></span> Software vendors can use virtual
+          machines to ship entire software configurations. For example,
+          installing a complete mail server solution on a real machine
+          can be a tedious task. With Oracle VM VirtualBox, such a complex
+          setup, often called an <span class="emphasis"><em>appliance</em></span>, can be
+          packed into a virtual machine. Installing and running a mail
+          server becomes as easy as importing such an appliance into
+          Oracle VM VirtualBox.
+        </p></li><li><p>
+          <span class="bold"><strong>Testing and disaster
+          recovery.</strong></span> Once installed, a virtual machine and its
+          virtual hard disks can be considered a
+          <span class="emphasis"><em>container</em></span> that can be arbitrarily frozen,
+          woken up, copied, backed up, and transported between hosts.
+        </p><p>
+          On top of that, with the use of another Oracle VM VirtualBox feature
+          called <span class="emphasis"><em>snapshots</em></span>, one can save a
+          particular state of a virtual machine and revert back to that
+          state, if necessary. This way, one can freely experiment with
+          a computing environment. If something goes wrong, such as
+          problems after installing software or infecting the guest with
+          a virus, you can easily switch back to a previous snapshot and
+          avoid the need of frequent backups and restores.
+        </p><p>
+          Any number of snapshots can be created, allowing you to travel
+          back and forward in virtual machine time. You can delete
+          snapshots while a VM is running to reclaim disk space.
+        </p></li><li><p>
+          <span class="bold"><strong>Infrastructure consolidation.</strong></span>
+          Virtualization can significantly reduce hardware and
+          electricity costs. Most of the time, computers today only use
+          a fraction of their potential power and run with low average
+          system loads. A lot of hardware resources as well as
+          electricity is thereby wasted. So, instead of running many
+          such physical computers that are only partially used, one can
+          pack many virtual machines onto a few powerful hosts and
+          balance the loads between them.
+        </p></li></ul></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="virtintro"></a>1.2.&nbsp;Some Terminology</h2></div></div></div><p>
+      When dealing with virtualization, and also for understanding the
+      following chapters of this documentation, it helps to acquaint
+      oneself with a bit of crucial terminology, especially the
+      following terms:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Host operating system (host
+          OS).</strong></span> This is the OS of the physical computer on
+          which Oracle VM VirtualBox was installed. There are versions of
+          Oracle VM VirtualBox for Windows, Mac OS X, Linux, and Oracle
+          Solaris hosts. See <a href="https://www.virtualbox.org/manual/ch01.html#hostossupport" title="1.4. Supported Host Operating Systems">Section&nbsp;1.4, “Supported Host Operating Systems”</a>.
+        </p><p>
+          Most of the time, this manual discusses all Oracle VM VirtualBox
+          versions together. There may be platform-specific differences
+          which we will point out where appropriate.
+        </p></li><li><p>
+          <span class="bold"><strong>Guest operating system (guest
+          OS).</strong></span> This is the OS that is running inside the
+          virtual machine. Theoretically, Oracle VM VirtualBox can run any x86
+          OS such as DOS, Windows, OS/2, FreeBSD, and OpenBSD. But to
+          achieve near-native performance of the guest code on your
+          machine, we had to go through a lot of optimizations that are
+          specific to certain OSes. So while your favorite OS
+          <span class="emphasis"><em>may</em></span> run as a guest, we officially support
+          and optimize for a select few, which include the most common
+          OSes.
+        </p><p>
+          See <a href="https://www.virtualbox.org/manual/ch03.html#guestossupport" title="3.1. Supported Guest Operating Systems">Section&nbsp;3.1, “Supported Guest Operating Systems”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Virtual machine (VM).</strong></span> This is
+          the special environment that Oracle VM VirtualBox creates for your
+          guest OS while it is running. In other words, you run your
+          guest OS <span class="emphasis"><em>in</em></span> a VM. Normally, a VM is shown
+          as a window on your computer's desktop. Depending on which of
+          the various frontends of Oracle VM VirtualBox you use, the VM might
+          be shown in full screen mode or remotely on another computer.
+        </p><p>
+          Internally, Oracle VM VirtualBox treats a VM as a set of parameters
+          that specify its behavior. Some parameters describe hardware
+          settings, such as the amount of memory and number of CPUs
+          assigned. Other parameters describe the state information,
+          such as whether the VM is running or saved.
+        </p><p>
+          You can view these VM settings in the VirtualBox Manager
+          window, the <span class="bold"><strong>Settings</strong></span> dialog,
+          and by running the <span><strong class="command">VBoxManage</strong></span> command. See
+          <a href="https://www.virtualbox.org/manual/ch08.html" title="Chapter 8. VBoxManage">Chapter&nbsp;8, <i>VBoxManage</i></a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Guest Additions.</strong></span> This refers
+          to special software packages which are shipped with
+          Oracle VM VirtualBox but designed to be installed
+          <span class="emphasis"><em>inside</em></span> a VM to improve performance of the
+          guest OS and to add extra features. See
+          <a href="https://www.virtualbox.org/manual/ch04.html" title="Chapter 4. Guest Additions">Chapter&nbsp;4, <i>Guest Additions</i></a>.
+        </p></li></ul></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="features-overview"></a>1.3.&nbsp;Features Overview</h2></div></div></div><p>
+      The following is a brief outline of Oracle VM VirtualBox's main
+      features:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Portability.</strong></span> Oracle VM VirtualBox
+          runs on a large number of 64-bit host operating systems. See
+          <a href="https://www.virtualbox.org/manual/ch01.html#hostossupport" title="1.4. Supported Host Operating Systems">Section&nbsp;1.4, “Supported Host Operating Systems”</a>.
+        </p><p>
+          Oracle VM VirtualBox is a so-called <span class="emphasis"><em>hosted</em></span>
+          hypervisor, sometimes referred to as a <span class="emphasis"><em>type
+          2</em></span> hypervisor. Whereas a
+          <span class="emphasis"><em>bare-metal</em></span> or <span class="emphasis"><em>type 1</em></span>
+          hypervisor would run directly on the hardware, Oracle VM VirtualBox
+          requires an existing OS to be installed. It can thus run
+          alongside existing applications on that host.
+        </p><p>
+          To a very large degree, Oracle VM VirtualBox is functionally
+          identical on all of the host platforms, and the same file and
+          image formats are used. This enables you to run virtual
+          machines created on one host on another host with a different
+          host OS. For example, you can create a virtual machine on
+          Windows and then run it under Linux.
+        </p><p>
+          In addition, virtual machines can easily be imported and
+          exported using the Open Virtualization Format (OVF), an
+          industry standard created for this purpose. You can even
+          import OVFs that were created with a different virtualization
+          software. See <a href="https://www.virtualbox.org/manual/ch01.html#ovf" title="1.14. Importing and Exporting Virtual Machines">Section&nbsp;1.14, “Importing and Exporting Virtual Machines”</a>.
+        </p><p>
+          For users of Oracle Cloud Infrastructure the functionality extends to exporting and
+          importing virtual machines to and from the cloud. This
+          simplifies development of applications and deployment to the
+          production environment. See
+          <a href="https://www.virtualbox.org/manual/ch01.html#cloud-export-oci" title="1.15.7. Exporting an Appliance to Oracle Cloud Infrastructure">Section&nbsp;1.15.7, “Exporting an Appliance to Oracle Cloud Infrastructure”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Guest Additions: shared folders,
+          seamless windows, 3D virtualization.</strong></span> The
+          Oracle VM VirtualBox Guest Additions are software packages which can
+          be installed <span class="emphasis"><em>inside</em></span> of supported guest
+          systems to improve their performance and to provide additional
+          integration and communication with the host system. After
+          installing the Guest Additions, a virtual machine will support
+          automatic adjustment of video resolutions, seamless windows,
+          accelerated 3D graphics and more. See
+          <a href="https://www.virtualbox.org/manual/ch04.html" title="Chapter 4. Guest Additions">Chapter&nbsp;4, <i>Guest Additions</i></a>.
+        </p><p>
+          In particular, Guest Additions provide for <span class="emphasis"><em>shared
+          folders</em></span>, which let you access files on the host
+          system from within a guest machine. See
+          <a href="https://www.virtualbox.org/manual/ch04.html#sharedfolders" title="4.3. Shared Folders">Section&nbsp;4.3, “Shared Folders”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Great hardware support.</strong></span> Among
+          other features, Oracle VM VirtualBox supports the following:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              <span class="bold"><strong>Guest multiprocessing
+              (SMP).</strong></span> Oracle VM VirtualBox can present up to 32
+              virtual CPUs to each virtual machine, irrespective of how
+              many CPU cores are physically present on your host.
+            </p></li><li><p>
+              <span class="bold"><strong>USB device support.</strong></span>
+              Oracle VM VirtualBox implements a virtual USB controller and
+              enables you to connect arbitrary USB devices to your
+              virtual machines without having to install device-specific
+              drivers on the host. USB support is not limited to certain
+              device categories. See <a href="https://www.virtualbox.org/manual/ch03.html#settings-usb" title="3.11.1. USB Settings">Section&nbsp;3.11.1, “USB Settings”</a>.
+            </p></li><li><p>
+              <span class="bold"><strong>Hardware compatibility.</strong></span>
+              Oracle VM VirtualBox virtualizes a vast array of virtual
+              devices, among them many devices that are typically
+              provided by other virtualization platforms. That includes
+              IDE, SCSI, and SATA hard disk controllers, several virtual
+              network cards and sound cards, virtual serial and parallel
+              ports and an Input/Output Advanced Programmable Interrupt
+              Controller (I/O APIC), which is found in many computer
+              systems. This enables easy cloning of disk images from
+              real machines and importing of third-party virtual
+              machines into Oracle VM VirtualBox.
+            </p></li><li><p>
+              <span class="bold"><strong>Full ACPI support.</strong></span> The
+              Advanced Configuration and Power Interface (ACPI) is fully
+              supported by Oracle VM VirtualBox. This enables easy cloning of
+              disk images from real machines or third-party virtual
+              machines into Oracle VM VirtualBox. With its unique
+              <span class="emphasis"><em>ACPI power status support</em></span>,
+              Oracle VM VirtualBox can even report to ACPI-aware guest OSes
+              the power status of the host. For mobile systems running
+              on battery, the guest can thus enable energy saving and
+              notify the user of the remaining power, for example in
+              full screen modes.
+            </p></li><li><p>
+              <span class="bold"><strong>Multiscreen resolutions.</strong></span>
+              Oracle VM VirtualBox virtual machines support screen resolutions
+              many times that of a physical screen, allowing them to be
+              spread over a large number of screens attached to the host
+              system.
+            </p></li><li><p>
+              <span class="bold"><strong>Built-in iSCSI support.</strong></span>
+              This unique feature enables you to connect a virtual
+              machine directly to an iSCSI storage server without going
+              through the host system. The VM accesses the iSCSI target
+              directly without the extra overhead that is required for
+              virtualizing hard disks in container files. See
+              <a href="https://www.virtualbox.org/manual/ch05.html#storage-iscsi" title="5.10. iSCSI Servers">Section&nbsp;5.10, “iSCSI Servers”</a>.
+            </p></li><li><p>
+              <span class="bold"><strong>PXE Network boot.</strong></span> The
+              integrated virtual network cards of Oracle VM VirtualBox fully
+              support remote booting using the Preboot Execution
+              Environment (PXE).
+            </p></li></ul></div></li><li><p>
+          <span class="bold"><strong>Multigeneration branched
+          snapshots.</strong></span> Oracle VM VirtualBox can save arbitrary
+          snapshots of the state of the virtual machine. You can go back
+          in time and revert the virtual machine to any such snapshot
+          and start an alternative VM configuration from there,
+          effectively creating a whole snapshot tree. See
+          <a href="https://www.virtualbox.org/manual/ch01.html#snapshots" title="1.10. Snapshots">Section&nbsp;1.10, “Snapshots”</a>. You can create and delete
+          snapshots while the virtual machine is running.
+        </p></li><li><p>
+          <span class="bold"><strong>VM groups.</strong></span> Oracle VM VirtualBox
+          provides a groups feature that enables the user to organize
+          and control virtual machines collectively, as well as
+          individually. In addition to basic groups, it is also possible
+          for any VM to be in more than one group, and for groups to be
+          nested in a hierarchy. This means you can have groups of
+          groups. In general, the operations that can be performed on
+          groups are the same as those that can be applied to individual
+          VMs: Start, Pause, Reset, Close (Save state, Send Shutdown,
+          Poweroff), Discard Saved State, Show in File System, Sort.
+        </p></li><li><p>
+          <span class="bold"><strong>Clean architecture and unprecedented
+          modularity.</strong></span> Oracle VM VirtualBox has an extremely modular
+          design with well-defined internal programming interfaces and a
+          clean separation of client and server code. This makes it easy
+          to control it from several interfaces at once. For example,
+          you can start a VM simply by clicking on a button in the
+          Oracle VM VirtualBox graphical user interface and then control that
+          machine from the command line, or even remotely. See
+          <a href="https://www.virtualbox.org/manual/ch01.html#frontends" title="1.17. Alternative Front-Ends">Section&nbsp;1.17, “Alternative Front-Ends”</a>.
+        </p><p>
+          Due to its modular architecture, Oracle VM VirtualBox can also
+          expose its full functionality and configurability through a
+          comprehensive <span class="bold"><strong>software development kit
+          (SDK),</strong></span> which enables integration of Oracle VM VirtualBox
+          with other software systems. See
+          <a href="https://www.virtualbox.org/manual/ch11.html" title="Chapter 11. Oracle VM VirtualBox Programming Interfaces">Chapter&nbsp;11, <i>Oracle VM VirtualBox Programming Interfaces</i></a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Remote machine display.</strong></span> The
+          VirtualBox Remote Desktop Extension (VRDE) enables
+          high-performance remote access to any running virtual machine.
+          This extension supports the Remote Desktop Protocol (RDP)
+          originally built into Microsoft Windows, with special
+          additions for full client USB support.
+        </p><p>
+          The VRDE does not rely on the RDP server that is built into
+          Microsoft Windows. Instead, the VRDE is plugged directly into
+          the virtualization layer. As a result, it works with guest
+          OSes other than Windows, even in text mode, and does not
+          require application support in the virtual machine either. The
+          VRDE is described in detail in <a href="https://www.virtualbox.org/manual/ch07.html#vrde" title="7.1. Remote Display (VRDP Support)">Section&nbsp;7.1, “Remote Display (VRDP Support)”</a>.
+        </p><p>
+          On top of this special capacity, Oracle VM VirtualBox offers you
+          more unique features:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              <span class="bold"><strong>Extensible RDP
+              authentication.</strong></span> Oracle VM VirtualBox already supports
+              Winlogon on Windows and PAM on Linux for RDP
+              authentication. In addition, it includes an easy-to-use
+              SDK which enables you to create arbitrary interfaces for
+              other methods of authentication. See
+              <a href="https://www.virtualbox.org/manual/ch07.html#vbox-auth" title="7.1.5. RDP Authentication">Section&nbsp;7.1.5, “RDP Authentication”</a>.
+            </p></li><li><p>
+              <span class="bold"><strong>USB over RDP.</strong></span> Using RDP
+              virtual channel support, Oracle VM VirtualBox also enables you
+              to connect arbitrary USB devices locally to a virtual
+              machine which is running remotely on an Oracle VM VirtualBox RDP
+              server. See <a href="https://www.virtualbox.org/manual/ch07.html#usb-over-rdp" title="7.1.4. Remote USB">Section&nbsp;7.1.4, “Remote USB”</a>.
+            </p></li></ul></div></li></ul></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hostossupport"></a>1.4.&nbsp;Supported Host Operating Systems</h2></div></div></div><p>
+      Currently, Oracle VM VirtualBox runs on the following host OSes:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Windows hosts (64-bit):</strong></span>
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              Windows 8.1
+            </p></li><li><p>
+              Windows 10 RTM (1507 / 2015 LTSB) build 10240
+            </p></li><li><p>
+              Windows 10 Anniversary Update (1607 / 2016 LTSB) build
+              14393
+            </p></li><li><p>
+              Windows 10 Fall Creators Update (1709) build 16299
+            </p></li><li><p>
+              Windows 10 April 2018 Update (1803) build 17134
+            </p></li><li><p>
+              Windows 10 October 2018 Update (1809 / 2019 LTSC) build
+              17763
+            </p></li><li><p>
+              Windows 10 May 2019 Update (19H1 / 1903) build 18362
+            </p></li><li><p>
+              Windows 10 November 2019 Update (19H2 / 1909) build 18363
+            </p></li><li><p>
+              Windows Server 2012
+            </p></li><li><p>
+              Windows Server 2012 R2
+            </p></li><li><p>
+              Windows Server 2016
+            </p></li><li><p>
+              Windows Server 2019
+            </p></li></ul></div></li><li><p>
+          <span class="bold"><strong>Mac OS X hosts (64-bit):</strong></span>
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              10.13 (High Sierra)
+            </p></li><li><p>
+              10.14 (Mojave)
+            </p></li><li><p>
+              10.15 (Catalina)
+            </p></li></ul></div><p>
+          Intel hardware is required. See also
+          <a href="https://www.virtualbox.org/manual/ch14.html" title="Chapter 14. Known Limitations">Chapter&nbsp;14, <i>Known Limitations</i></a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Linux hosts (64-bit).</strong></span>
+          Includes the following:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              Ubuntu 18.04 LTS, 19.03 and 19.10
+            </p></li><li><p>
+              Debian GNU/Linux 9 ("Stretch") and 10 ("Buster")
+            </p></li><li><p>
+              Oracle Linux 6, 7 and 8
+            </p></li><li><p>
+              CentOS/Red Hat Enterprise Linux 6, 7 and 8
+            </p></li><li><p>
+              Fedora 30 and 31
+            </p></li><li><p>
+              Gentoo Linux
+            </p></li><li><p>
+              SUSE Linux Enterprise server 12 and 15
+            </p></li><li><p>
+              openSUSE Leap 15.1
+            </p></li></ul></div><p>
+          It should be possible to use Oracle VM VirtualBox on most systems
+          based on Linux kernel 2.6, 3.x, 4.x or 5.x using either the
+          Oracle VM VirtualBox installer or by doing a manual installation.
+          See <a href="https://www.virtualbox.org/manual/ch02.html#install-linux-host" title="2.3. Installing on Linux Hosts">Section&nbsp;2.3, “Installing on Linux Hosts”</a>. However, the
+          formally tested and supported Linux distributions are those
+          for which we offer a dedicated package.
+        </p><p>
+          Note that Linux 2.4-based host OSes are no longer supported.
+        </p></li><li><p>
+          <span class="bold"><strong>Oracle Solaris hosts (64-bit
+          only).</strong></span> The following versions are supported with
+          the restrictions listed in <a href="https://www.virtualbox.org/manual/ch14.html" title="Chapter 14. Known Limitations">Chapter&nbsp;14, <i>Known Limitations</i></a>:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              Oracle Solaris 11
+            </p></li></ul></div></li></ul></div><p>
+      Note that any feature which is marked as
+      <span class="emphasis"><em>experimental</em></span> is not supported. Feedback and
+      suggestions about such features are welcome.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="hostcpurequirements"></a>1.4.1.&nbsp;Host CPU Requirements</h3></div></div></div><p>
+        SSE2 (Streaming SIMD Extensions 2) support is required for host
+        CPUs.
+      </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro-installing"></a>1.5.&nbsp;Installing Oracle VM VirtualBox and Extension Packs</h2></div></div></div><p>
+      Oracle VM VirtualBox comes in many different packages, and installation
+      depends on your host OS. If you have installed software before,
+      installation should be straightforward. On each host platform,
+      Oracle VM VirtualBox uses the installation method that is most common
+      and easy to use. If you run into trouble or have special
+      requirements, see <a href="https://www.virtualbox.org/manual/ch02.html" title="Chapter 2. Installation Details">Chapter&nbsp;2, <i>Installation Details</i></a> for details
+      about the various installation methods.
+    </p><p>
+      Oracle VM VirtualBox is split into the following components:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Base package.</strong></span> The base
+          package consists of all open source components and is licensed
+          under the GNU General Public License V2.
+        </p></li><li><p>
+          <span class="bold"><strong>Extension packs.</strong></span> Additional
+          extension packs can be downloaded which extend the
+          functionality of the Oracle VM VirtualBox base package. Currently,
+          Oracle provides a single extension pack, available from:
+          <a href="http://www.virtualbox.org/" target="_top">http://www.virtualbox.org</a>. The extension pack
+          provides the following added functionality:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              The virtual USB 2.0 (EHCI) device. See
+              <a href="https://www.virtualbox.org/manual/ch03.html#settings-usb" title="3.11.1. USB Settings">Section&nbsp;3.11.1, “USB Settings”</a>.
+            </p></li><li><p>
+              The virtual USB 3.0 (xHCI) device. See
+              <a href="https://www.virtualbox.org/manual/ch03.html#settings-usb" title="3.11.1. USB Settings">Section&nbsp;3.11.1, “USB Settings”</a>.
+            </p></li><li><p>
+              VirtualBox Remote Desktop Protocol (VRDP) support. See
+              <a href="https://www.virtualbox.org/manual/ch07.html#vrde" title="7.1. Remote Display (VRDP Support)">Section&nbsp;7.1, “Remote Display (VRDP Support)”</a>.
+            </p></li><li><p>
+              Host webcam passthrough. See
+              <a href="https://www.virtualbox.org/manual/ch09.html#webcam-passthrough" title="9.5. Webcam Passthrough">Section&nbsp;9.5, “Webcam Passthrough”</a>.
+            </p></li><li><p>
+              Intel PXE boot ROM.
+            </p></li><li><p>
+              Disk image encryption with AES algorithm. See
+              <a href="https://www.virtualbox.org/manual/ch09.html#diskencryption" title="9.28. Encryption of Disk Images">Section&nbsp;9.28, “Encryption of Disk Images”</a>.
+            </p></li><li><p>
+              Cloud integration features. See <a href="https://www.virtualbox.org/manual/ch01.html#ovf" title="1.14. Importing and Exporting Virtual Machines">Section&nbsp;1.14, “Importing and Exporting Virtual Machines”</a>.
+            </p></li></ul></div><p>
+          Oracle VM VirtualBox extension packages have a
+          <code class="filename">.vbox-extpack</code> file name extension. To
+          install an extension, simply double-click on the package file
+          and a <span class="bold"><strong>Network Operations
+          Manager</strong></span> window is shown to guide you through the
+          required steps.
+        </p><p>
+          To view the extension packs that are currently installed,
+          start the VirtualBox Manager, as shown in
+          <a href="https://www.virtualbox.org/manual/ch01.html#intro-starting" title="1.6. Starting Oracle VM VirtualBox">Section&nbsp;1.6, “Starting Oracle VM VirtualBox”</a>. From the
+          <span class="bold"><strong>File</strong></span> menu, select
+          <span class="bold"><strong>Preferences</strong></span>. In the window
+          that displays, go to the
+          <span class="bold"><strong>Extensions</strong></span> category. This
+          shows you the extensions which are currently installed, and
+          enables you to remove a package or add a new package.
+        </p><p>
+          Alternatively, you can use the <span><strong class="command">VBoxManage</strong></span>
+          command line. See <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-extpack" title="8.41. VBoxManage extpack">Section&nbsp;8.41, “VBoxManage extpack”</a>.
+        </p></li></ul></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro-starting"></a>1.6.&nbsp;Starting Oracle VM VirtualBox</h2></div></div></div><p>
+      After installation, you can start Oracle VM VirtualBox as follows:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          On a Windows host, in the
+          <span class="bold"><strong>Programs</strong></span> menu, click on the
+          item in the <span class="bold"><strong>VirtualBox</strong></span> group.
+          On some Windows platforms, you can also enter
+          <span><strong class="command">VirtualBox</strong></span> in the search box of the
+          <span class="bold"><strong>Start</strong></span> menu.
+        </p></li><li><p>
+          On a Mac OS X host, in the Finder, double-click on the
+          <span class="bold"><strong>VirtualBox</strong></span> item in the
+          Applications folder. You may want to drag this item onto your
+          Dock.
+        </p></li><li><p>
+          On a Linux or Oracle Solaris host, depending on your desktop
+          environment, an Oracle VM VirtualBox item may have been placed in
+          either the System or System Tools group of your
+          <span class="bold"><strong>Applications</strong></span> menu.
+          Alternatively, you can enter <span><strong class="command">VirtualBox</strong></span> in
+          a terminal window.
+        </p></li></ul></div><p>
+      When you start Oracle VM VirtualBox for the first time, a window like
+      the following is displayed:
+    </p><div class="figure"><a name="fig-vbox-manager-initial"></a><p class="title"><b>Figure&nbsp;1.2.&nbsp;VirtualBox Manager Window, After Initial Startup</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/virtualbox-main-empty.png" align="middle" width="354" alt="VirtualBox Manager Window, After Initial Startup"></td></tr></tbody></table></div></div><p>
+      This window is called the <span class="bold"><strong>VirtualBox
+      Manager</strong></span>. The left pane will later list all your virtual
+      machines. Since you have not yet created any virtual machines,
+      this list is empty. The <span class="bold"><strong>Tools</strong></span>
+      button provides access to user tools, such as the Virtual Media
+      Manager.
+    </p><p>
+      The pane on the right displays the properties of the currently
+      selected virtual machine. Since you do not have any machines yet,
+      the pane displays a welcome message.
+    </p><p>
+      The buttons on the right pane are used to create and work with
+      VMs.
+    </p><p>
+      The following figure gives an idea of what Oracle VM VirtualBox might
+      look like after you have created some VMs.
+    </p><div class="figure"><a name="fig-vbox-manager-populated"></a><p class="title"><b>Figure&nbsp;1.3.&nbsp;VirtualBox Manager Window, After Creating Virtual Machines</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/virtualbox-main.png" align="middle" width="425" alt="VirtualBox Manager Window, After Creating Virtual Machines"></td></tr></tbody></table></div></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="gui-createvm"></a>1.7.&nbsp;Creating Your First Virtual Machine</h2></div></div></div><p>
+      Click <span class="bold"><strong>New</strong></span> in the VirtualBox
+      Manager window. A wizard is shown, to guide you through setting up
+      a new virtual machine (VM).
+    </p><div class="figure"><a name="fig-new-vm-name"></a><p class="title"><b>Figure&nbsp;1.4.&nbsp;Creating a New Virtual Machine: Name and Operating System</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/create-vm-1.png" align="middle" width="354" alt="Creating a New Virtual Machine: Name and Operating System"></td></tr></tbody></table></div></div><p>
+      On the following pages, the wizard will ask you for the bare
+      minimum of information that is needed to create a VM, in
+      particular:
+    </p><div class="orderedlist"><ol type="1"><li><p>
+          The <span class="bold"><strong>Name</strong></span> of the VM you choose
+          is shown in the machine list of the VirtualBox Manager window
+          and is also used for the VM's files on disk.
+        </p><p>
+          Be sure to assign each VM an informative name that describes
+          the OS and software running on the VM. For example,
+          <code class="literal">Windows 10 with Visio</code>.
+        </p></li><li><p>
+          The <span class="bold"><strong>Machine Folder</strong></span> is the
+          location where VMs are stored on your computer. The default
+          folder location is shown.
+        </p></li><li><p>
+          For <span class="bold"><strong>Operating System Type</strong></span>,
+          select the OS that you want to install. The supported OSes are
+          grouped. If you want to install something very unusual that is
+          not listed, select <span class="bold"><strong>Other</strong></span>.
+          Depending on your selection, Oracle VM VirtualBox will enable or
+          disable certain VM settings that your guest OS may require.
+          This is particularly important for 64-bit guests. See
+          <a href="https://www.virtualbox.org/manual/ch03.html#intro-64bitguests" title="3.1.2. 64-bit Guests">Section&nbsp;3.1.2, “64-bit Guests”</a>. It is therefore
+          recommended to always set it to the correct value.
+        </p></li><li><p>
+          On the next page, select the <span class="bold"><strong>Memory
+          (RAM)</strong></span> that Oracle VM VirtualBox should allocate every
+          time the virtual machine is started. The amount of memory
+          given here will be taken away from your host machine and
+          presented to the guest OS, which will report this size as the
+          virtual computer's installed RAM.
+        </p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Caution</h3><p>
+            Choose this setting carefully. The memory you give to the VM
+            will not be available to your host OS while the VM is
+            running, so do not specify more than you can spare.
+          </p><p>
+            For example, if your host machine has 4 GB of RAM and you
+            enter 2048 MB as the amount of RAM for a particular virtual
+            machine, you will only have 2 GB left for all the other
+            software on your host while the VM is running. If you run
+            two VMs at the same time, even more memory will be allocated
+            for the second VM, which may not even be able to start if
+            that memory is not available.
+          </p><p>
+            On the other hand, you should specify as much as your guest
+            OS and your applications will require to run properly. A
+            guest OS may require at least 1 or 2 GB of memory to install
+            and boot up. For best performance, more memory than that may
+            be required.
+          </p></div><p>
+          Always ensure that the host OS has enough RAM remaining. If
+          insufficient RAM remains, the system might excessively swap
+          memory to the hard disk, which effectively brings the host
+          system to a standstill.
+        </p><p>
+          As with the other settings, you can change this setting later,
+          after you have created the VM.
+        </p></li><li><p>
+          Next, you must specify a <span class="bold"><strong>Virtual Hard
+          Disk</strong></span> for your VM.
+        </p><p>
+          There are many and potentially complicated ways in which
+          Oracle VM VirtualBox can provide hard disk space to a VM, see
+          <a href="https://www.virtualbox.org/manual/ch05.html" title="Chapter 5. Virtual Storage">Chapter&nbsp;5, <i>Virtual Storage</i></a>, but the most common way is to use
+          a large image file on your physical hard disk, whose contents
+          Oracle VM VirtualBox presents to your VM as if it were a complete
+          hard disk. This file then represents an entire hard disk, so
+          you can even copy it to another host and use it with another
+          Oracle VM VirtualBox installation.
+        </p><p>
+          The wizard displays the following window:
+        </p><div class="figure"><a name="fig-new-vm-hard-disk"></a><p class="title"><b>Figure&nbsp;1.5.&nbsp;Creating a New Virtual Machine: Hard Disk</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/create-vm-2.png" align="middle" width="354" alt="Creating a New Virtual Machine: Hard Disk"></td></tr></tbody></table></div></div><p>
+          At this screen, you have the following options:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+              To create a new, empty virtual hard disk, click the
+              <span class="bold"><strong>Create</strong></span> button.
+            </p></li><li><p>
+              You can pick an <span class="emphasis"><em>existing</em></span> disk image
+              file.
+            </p><p>
+              The drop-down list presented in the window lists all disk
+              images which are currently remembered by Oracle VM VirtualBox.
+              These disk images are currently attached to a virtual
+              machine, or have been attached to a virtual machine.
+            </p><p>
+              Alternatively, click on the small
+              <span class="bold"><strong>folder icon</strong></span> next to the
+              drop-down list. In the displayed file dialog, you can
+              click <span class="bold"><strong>Add</strong></span> to select any
+              disk image file on your host disk.
+            </p></li></ul></div><p>
+          If you are using Oracle VM VirtualBox for the first time, you will
+          want to create a new disk image. Click the
+          <span class="bold"><strong>Create</strong></span> button.
+        </p><p>
+          This displays another window, the <span class="bold"><strong>Create
+          Virtual Hard Disk Wizard</strong></span> wizard. This wizard helps
+          you to create a new disk image file in the new virtual
+          machine's folder.
+        </p><p>
+          Oracle VM VirtualBox supports the following types of image files:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+              A <span class="bold"><strong>dynamically allocated
+              file</strong></span> only grows in size when the guest actually
+              stores data on its virtual hard disk. Therefore, this file
+              is small initially. As the drive is filled with data, the
+              file grows to the specified size.
+            </p></li><li><p>
+              A <span class="bold"><strong>fixed-size file</strong></span>
+              immediately occupies the file specified, even if only a
+              fraction of that virtual hard disk space is actually in
+              use. While occupying much more space, a fixed-size file
+              incurs less overhead and is therefore slightly faster than
+              a dynamically allocated file.
+            </p></li></ul></div><p>
+          For details about the differences, see
+          <a href="https://www.virtualbox.org/manual/ch05.html#vdidetails" title="5.2. Disk Image Files (VDI, VMDK, VHD, HDD)">Section&nbsp;5.2, “Disk Image Files (VDI, VMDK, VHD, HDD)”</a>.
+        </p><p>
+          To prevent your physical hard disk (host OS) from filling up,
+          Oracle VM VirtualBox limits the size of the image file. But the
+          image file must be large enough to hold the contents of the
+          guest OS and the applications you want to install. For a
+          Windows or Linux guest, you will probably need several
+          gigabytes for any serious use. The limit of the image file
+          size can be changed later, see
+          <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-modifymedium" title="8.22. VBoxManage modifymedium">Section&nbsp;8.22, “VBoxManage modifymedium”</a>.
+        </p><div class="figure"><a name="fig-new-vm-vdi"></a><p class="title"><b>Figure&nbsp;1.6.&nbsp;Creating a New Virtual Machine: File Location and Size</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/create-vdi-1.png" align="middle" width="354" alt="Creating a New Virtual Machine: File Location and Size"></td></tr></tbody></table></div></div><p>
+          After having selected or created your image file, click
+          <span class="bold"><strong>Next</strong></span> to go to the next page.
+        </p></li><li><p>
+          Click <span class="bold"><strong>Create</strong></span>, to create your
+          new virtual machine. The virtual machine is displayed in the
+          list on the left side of the VirtualBox Manager window, with
+          the name that you entered initially.
+        </p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+        After becoming familiar with the use of wizards, consider using
+        the Expert Mode available in some wizards. Where available, this
+        is selectable using a button, and speeds up the process of using
+        wizards.
+      </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro-running"></a>1.8.&nbsp;Running Your Virtual Machine</h2></div></div></div><p>
+      To start a virtual machine, you have several options:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Double-click on the VM's entry in the list in the VirtualBox
+          Manager window.
+        </p></li><li><p>
+          Select the VM's entry in the list in the VirtualBox Manager
+          window, and click <span class="bold"><strong>Start</strong></span> at
+          the top of the window.
+        </p></li><li><p>
+          Go to the <code class="filename">VirtualBox VMs</code> folder in your
+          system user's home directory. Find the subdirectory of the
+          machine you want to start and double-click on the machine
+          settings file. This file has a <code class="filename">.vbox</code> file
+          extension.
+        </p></li></ul></div><p>
+      Starting a virtual machine displays a new window, and the virtual
+      machine which you selected will boot up. Everything which would
+      normally be seen on the virtual system's monitor is shown in the
+      window. See the screenshot image in
+      <a href="https://www.virtualbox.org/manual/ch01.html" title="Chapter 1. First Steps">Chapter&nbsp;1, <i>First Steps</i></a>.
+    </p><p>
+      In general, you can use the virtual machine as you would use a
+      real computer. There are couple of points worth mentioning
+      however.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="intro-starting-vm-first-time"></a>1.8.1.&nbsp;Starting a New VM for the First Time</h3></div></div></div><p>
+        When a VM is started for the first time, the
+        <span class="bold"><strong>First Start Wizard</strong></span>, is
+        displayed. This wizard helps you to select an installation
+        medium. Since the VM is created empty, it would otherwise behave
+        just like a real computer with no OS installed. It will do
+        nothing and display an error message that no bootable OS was
+        found.
+      </p><p>
+        For this reason, the wizard helps you to select a medium to
+        install an OS from.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            If you have physical CD or DVD media from which you want to
+            install your guest OS, such as a Windows installation CD or
+            DVD, put the media into your host's CD or DVD drive.
+          </p><p>
+            In the wizard's drop-down list of installation media, select
+            <span class="bold"><strong>Host Drive</strong></span> with the correct
+            drive letter. In the case of a Linux host, choose a device
+            file. This will allow your VM to access the media in your
+            host drive, and you can proceed to install from there.
+          </p></li><li><p>
+            If you have downloaded installation media from the Internet
+            in the form of an ISO image file such as with a Linux
+            distribution, you would normally burn this file to an empty
+            CD or DVD and proceed as described above. With
+            Oracle VM VirtualBox however, you can skip this step and mount the
+            ISO file directly. Oracle VM VirtualBox will then present this
+            file as a CD or DVD-ROM drive to the virtual machine, much
+            like it does with virtual hard disk images.
+          </p><p>
+            In this case, the wizard's drop-down list contains a list of
+            installation media that were previously used with
+            Oracle VM VirtualBox.
+          </p><p>
+            If your medium is not in the list, especially if you are
+            using Oracle VM VirtualBox for the first time, click the small
+            folder icon next to the drop-down list to display a standard
+            file dialog. Here you can pick an image file on your host
+            disks.
+          </p></li></ul></div><p>
+        After completing the choices in the wizard, you will be able to
+        install your OS.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="keyb_mouse_normal"></a>1.8.2.&nbsp;Capturing and Releasing Keyboard and Mouse</h3></div></div></div><p>
+        Oracle VM VirtualBox provides a virtual USB tablet device to new
+        virtual machines through which mouse events are communicated to
+        the guest OS. If you are running a modern guest OS that can
+        handle such devices, mouse support may work out of the box
+        without the mouse being <span class="emphasis"><em>captured</em></span> as
+        described below. See <a href="https://www.virtualbox.org/manual/ch03.html#settings-motherboard" title="3.5.1. Motherboard Tab">Section&nbsp;3.5.1, “Motherboard Tab”</a>.
+      </p><p>
+        Otherwise, if the virtual machine detects only standard PS/2
+        mouse and keyboard devices, since the OS in the virtual machine
+        does not know that it is not running on a real computer, it
+        expects to have exclusive control over your keyboard and mouse.
+        But unless you are running the VM in full screen mode, your VM
+        needs to share keyboard and mouse with other applications and
+        possibly other VMs on your host.
+      </p><p>
+        After installing a guest OS and before you install the Guest
+        Additions, described later, either your VM or the rest of your
+        computer can "own" the keyboard and the mouse. Both cannot own
+        the keyboard and mouse at the same time. You will see a
+        <span class="emphasis"><em>second</em></span> mouse pointer which is always
+        confined to the limits of the VM window. You activate the VM by
+        clicking inside it.
+      </p><p>
+        To return ownership of keyboard and mouse to your host OS,
+        Oracle VM VirtualBox reserves a special key on your keyboard: the
+        <span class="emphasis"><em>Host key</em></span>. By default, this is the
+        <span class="emphasis"><em>right Ctrl key</em></span> on your keyboard. On a Mac
+        host, the default Host key is the left Command key. You can
+        change this default in the Oracle VM VirtualBox Global Settings. See
+        <a href="https://www.virtualbox.org/manual/ch01.html#globalsettings" title="1.16. Global Settings">Section&nbsp;1.16, “Global Settings”</a>. The current setting for the
+        Host key is always displayed at the bottom right of your VM
+        window.
+      </p><div class="figure"><a name="fig-host-key"></a><p class="title"><b>Figure&nbsp;1.7.&nbsp;Host Key Setting on the Virtual Machine Task Bar</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="248"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/vm-hostkey.png" align="middle" width="248" alt="Host Key Setting on the Virtual Machine Task Bar"></td></tr></tbody></table></div></div><p>
+        This means the following:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Your <span class="bold"><strong>keyboard</strong></span> is owned by
+            the VM if the VM window on your host desktop has the
+            keyboard focus. If you have many windows open in your guest
+            OS, the window that has the focus in your VM is used. This
+            means that if you want to enter text within your VM, click
+            on the title bar of your VM window first.
+          </p><p>
+            To release keyboard ownership, press the Host key. As
+            explained above, this is typically the right Ctrl key.
+          </p><p>
+            Note that while the VM owns the keyboard, some key
+            sequences, such as Alt+Tab, will no longer be seen by the
+            host, but will go to the guest instead. After you press the
+            Host key to reenable the host keyboard, all key presses will
+            go through the host again, so that sequences such as Alt+Tab
+            will no longer reach the guest. For technical reasons it may
+            not be possible for the VM to get all keyboard input even
+            when it does own the keyboard. Examples of this are the
+            Ctrl+Alt+Del sequence on Windows hosts or single keys
+            grabbed by other applications on X11 hosts such as the GNOME
+            desktop Locate Pointer feature.
+          </p></li><li><p>
+            Your <span class="bold"><strong>mouse</strong></span> is owned by the
+            VM only after you have clicked in the VM window. The host
+            mouse pointer will disappear, and your mouse will drive the
+            guest's pointer instead of your normal mouse pointer.
+          </p><p>
+            Note that mouse ownership is independent of that of the
+            keyboard. Even after you have clicked on a titlebar to be
+            able to enter text into the VM window, your mouse is not
+            necessarily owned by the VM yet.
+          </p><p>
+            To release ownership of your mouse by the VM, press the Host
+            key.
+          </p></li></ul></div><p>
+        As this behavior is inconvenient, Oracle VM VirtualBox provides a set
+        of tools and device drivers for guest systems called the
+        Oracle VM VirtualBox Guest Additions. These tools make VM keyboard and
+        mouse operations much more seamless. Most importantly, the Guest
+        Additions suppress the second "guest" mouse pointer and make
+        your host mouse pointer work directly in the guest. See
+        <a href="https://www.virtualbox.org/manual/ch04.html" title="Chapter 4. Guest Additions">Chapter&nbsp;4, <i>Guest Additions</i></a>.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="specialcharacters"></a>1.8.3.&nbsp;Typing Special Characters</h3></div></div></div><p>
+        Some OSes expect certain key combinations to initiate certain
+        procedures. The key combinations that you type into a VM might
+        target the host OS, the Oracle VM VirtualBox software, or the guest
+        OS. The recipient of these keypresses depends on a number of
+        factors, including the key combination itself.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Host OSes reserve certain key combinations for themselves.
+            For example, you cannot use the
+            <span class="bold"><strong>Ctrl+Alt+Delete</strong></span> combination
+            to reboot the guest OS in your VM because this key
+            combination is usually hard-wired into the host OS. So, even
+            though both the Windows and Linux OSes intercept this key
+            combination, only the host OS would be rebooted.
+          </p><p>
+            On Linux and Oracle Solaris hosts, which use the X Window
+            System, the key combination
+            <span class="bold"><strong>Ctrl+Alt+Backspace</strong></span> normally
+            resets the X server and restarts the entire graphical user
+            interface. As the X server intercepts this combination,
+            pressing it will usually restart your
+            <span class="emphasis"><em>host</em></span> graphical user interface and kill
+            all running programs, including Oracle VM VirtualBox, in the
+            process.
+          </p><p>
+            On Linux hosts supporting virtual terminals, the key
+            combination <span class="bold"><strong>Ctrl+Alt+Fx</strong></span>,
+            where Fx is one of the function keys from F1 to F12,
+            normally enables you to switch between virtual terminals. As
+            with <span class="bold"><strong>Ctrl+Alt+Delete</strong></span>, these
+            combinations are intercepted by the host OS and therefore
+            always switch terminals on the <span class="emphasis"><em>host</em></span>.
+          </p><p>
+            If, instead, you want to send these key combinations to the
+            <span class="emphasis"><em>guest</em></span> OS in the virtual machine, you
+            will need to use one of the following methods:
+          </p><div class="itemizedlist"><ul type="circle"><li><p>
+                Use the items in the
+                <span class="bold"><strong>Input</strong></span>,
+                <span class="bold"><strong>Keyboard</strong></span> menu of the
+                virtual machine window. This menu includes the settings
+                <span class="bold"><strong>Insert Ctrl+Alt+Delete</strong></span>
+                and <span class="bold"><strong>Insert
+                Ctrl+Alt+Backspace</strong></span>. However, the latter
+                setting affects only Linux guests or Oracle Solaris
+                guests.
+              </p><p>
+                This menu also includes an option for inserting the Host
+                key combination.
+              </p></li><li><p>
+                Use special key combinations with the Host key, which is
+                normally the right Control key. Oracle VM VirtualBox then
+                translates the following key combinations for the VM:
+              </p><div class="itemizedlist"><ul type="square"><li><p>
+                    <span class="bold"><strong>Host key + Del</strong></span>
+                    sends <span class="bold"><strong>Ctrl+Alt+Del</strong></span>
+                    to reboot the guest OS.
+                  </p></li><li><p>
+                    <span class="bold"><strong>Host key +
+                    Backspace</strong></span> sends
+                    <span class="bold"><strong>Ctrl+Alt+Backspace</strong></span>
+                    to restart the graphical user interface of a Linux
+                    or Oracle Solaris guest.
+                  </p></li><li><p>
+                    <span class="bold"><strong>Host key + Function
+                    key</strong></span>. For example, use this key
+                    combination to simulate
+                    <span class="bold"><strong>Ctrl+Alt+Fx</strong></span> to
+                    switch between virtual terminals in a Linux guest.
+                  </p></li></ul></div></li></ul></div></li><li><p>
+            For some other keyboard combinations such as
+            <span class="bold"><strong>Alt+Tab</strong></span> to switch between
+            open windows, Oracle VM VirtualBox enables you to configure
+            whether these combinations will affect the host or the
+            guest, if a virtual machine currently has the focus. This is
+            a global setting for all virtual machines and can be found
+            under <span class="bold"><strong>File</strong></span>,
+            <span class="bold"><strong>Preferences</strong></span>,
+            <span class="bold"><strong>Input</strong></span>.
+          </p></li><li><p>
+            A soft keyboard can be used to input key combinations in the
+            guest. See <a href="https://www.virtualbox.org/manual/ch01.html#soft-keyb" title="1.18. Soft Keyboard">Section&nbsp;1.18, “Soft Keyboard”</a>.
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="intro-removable-media-changing"></a>1.8.4.&nbsp;Changing Removable Media</h3></div></div></div><p>
+        While a virtual machine is running, you can change removable
+        media in the <span class="bold"><strong>Devices</strong></span> menu of
+        the VM's window. Here you can select in detail what
+        Oracle VM VirtualBox presents to your VM as a CD, DVD, or floppy
+        drive.
+      </p><p>
+        The settings are the same as those available for the VM in the
+        <span class="bold"><strong>Settings</strong></span> dialog of the
+        Oracle VM VirtualBox main window. But as the
+        <span class="bold"><strong>Settings</strong></span> dialog is disabled
+        while the VM is in the Running or Saved state, the
+        <span class="bold"><strong>Devices</strong></span> menu saves you from
+        having to shut down and restart the VM every time you want to
+        change media.
+      </p><p>
+        Using the <span class="bold"><strong>Devices</strong></span> menu, you can
+        attach the host drive to the guest or select a floppy or DVD
+        image, as described in <a href="https://www.virtualbox.org/manual/ch03.html#settings-storage" title="3.7. Storage Settings">Section&nbsp;3.7, “Storage Settings”</a>.
+      </p><p>
+        The <span class="bold"><strong>Devices</strong></span> menu also includes
+        an option for creating a virtual ISO (VISO) from selected files
+        on the host.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="intro-resize-window"></a>1.8.5.&nbsp;Resizing the Machine's Window</h3></div></div></div><p>
+        You can resize the VM's window while that VM is running. When
+        you do, the window is scaled as follows:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            If you have <span class="bold"><strong>scaled mode</strong></span>
+            enabled, then the virtual machine's screen will be scaled to
+            the size of the window. This can be useful if you have many
+            machines running and want to have a look at one of them
+            while it is running in the background. Alternatively, it
+            might be useful to enlarge a window if the VM's output
+            screen is very small, for example because you are running an
+            old OS in it.
+          </p><p>
+            To enable scaled mode, press <span class="bold"><strong>Host key
+            + C</strong></span>, or select <span class="bold"><strong>Scaled
+            Mode</strong></span> from the
+            <span class="bold"><strong>View</strong></span> menu in the VM window.
+            To leave scaled mode, press <span class="bold"><strong>Host key +
+            C </strong></span>again.
+          </p><p>
+            The aspect ratio of the guest screen is preserved when
+            resizing the window. To ignore the aspect ratio, press
+            <span class="bold"><strong>Shift</strong></span> during the resize
+            operation.
+          </p><p>
+            See <a href="https://www.virtualbox.org/manual/ch14.html" title="Chapter 14. Known Limitations">Chapter&nbsp;14, <i>Known Limitations</i></a> for additional remarks.
+          </p></li><li><p>
+            If you have the Guest Additions installed and they support
+            automatic <span class="bold"><strong>resizing</strong></span>, the
+            Guest Additions will automatically adjust the screen
+            resolution of the guest OS. For example, if you are running
+            a Windows guest with a resolution of 1024x768 pixels and you
+            then resize the VM window to make it 100 pixels wider, the
+            Guest Additions will change the Windows display resolution
+            to 1124x768.
+          </p><p>
+            See <a href="https://www.virtualbox.org/manual/ch04.html" title="Chapter 4. Guest Additions">Chapter&nbsp;4, <i>Guest Additions</i></a>.
+          </p></li><li><p>
+            Otherwise, if the window is bigger than the VM's screen, the
+            screen will be centered. If it is smaller, then scroll bars
+            will be added to the machine window.
+          </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="intro-save-machine-state"></a>1.8.6.&nbsp;Saving the State of the Machine</h3></div></div></div><p>
+        When you click on the <span class="bold"><strong>Close</strong></span>
+        button of your virtual machine window, at the top right of the
+        window, just like you would close any other window on your
+        system, Oracle VM VirtualBox asks you whether you want to save or
+        power off the VM. As a shortcut, you can also press
+        <span class="bold"><strong>Host key + Q</strong></span>.
+      </p><div class="figure"><a name="fig-vm-close"></a><p class="title"><b>Figure&nbsp;1.8.&nbsp;Closing Down a Virtual Machine</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/vm-close.png" align="middle" width="354" alt="Closing Down a Virtual Machine"></td></tr></tbody></table></div></div><p>
+        The difference between the three options is crucial. They mean
+        the following:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            <span class="bold"><strong>Save the machine state:</strong></span>
+            With this option, Oracle VM VirtualBox
+            <span class="emphasis"><em>freezes</em></span> the virtual machine by
+            completely saving its state to your local disk.
+          </p><p>
+            When you start the VM again later, you will find that the VM
+            continues exactly where it was left off. All your programs
+            will still be open, and your computer resumes operation.
+            Saving the state of a virtual machine is thus in some ways
+            similar to suspending a laptop computer by closing its lid.
+          </p></li><li><p>
+            <span class="bold"><strong>Send the shutdown signal.</strong></span>
+            This will send an ACPI shutdown signal to the virtual
+            machine, which has the same effect as if you had pressed the
+            power button on a real computer. This should trigger a
+            proper shutdown mechanism from within the VM.
+          </p></li><li><p>
+            <span class="bold"><strong>Power off the machine:</strong></span> With
+            this option, Oracle VM VirtualBox also stops running the virtual
+            machine, but <span class="emphasis"><em>without</em></span> saving its state.
+          </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>
+              This is equivalent to pulling the power plug on a real
+              computer without shutting it down properly. If you start
+              the machine again after powering it off, your OS will have
+              to reboot completely and may begin a lengthy check of its
+              virtual system disks. As a result, this should not
+              normally be done, since it can potentially cause data loss
+              or an inconsistent state of the guest system on disk.
+            </p></div><p>
+            As an exception, if your virtual machine has any snapshots,
+            see <a href="https://www.virtualbox.org/manual/ch01.html#snapshots" title="1.10. Snapshots">Section&nbsp;1.10, “Snapshots”</a>, you can use this option to
+            quickly <span class="bold"><strong>restore the current
+            snapshot</strong></span> of the virtual machine. In that case,
+            powering off the machine will not disrupt its state, but any
+            changes made since that snapshot was taken will be lost.
+          </p></li></ul></div><p>
+        The <span class="bold"><strong>Discard</strong></span> button in the
+        VirtualBox Manager window discards a virtual machine's saved
+        state. This has the same effect as powering it off, and the same
+        warnings apply.
+      </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="gui-vmgroups"></a>1.9.&nbsp;Using VM Groups</h2></div></div></div><p>
+      VM groups enable the user to create ad hoc groups of VMs, and to
+      manage and perform functions on them collectively, as well as
+      individually.
+    </p><p>
+      The following figure shows VM groups displayed in VirtualBox
+      Manager.
+    </p><div class="figure"><a name="fig-vm-groups"></a><p class="title"><b>Figure&nbsp;1.9.&nbsp;Groups of Virtual Machines</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/vm-groups.png" align="middle" width="354" alt="Groups of Virtual Machines"></td></tr></tbody></table></div></div><p>
+      The following features are available for groups:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Create a group using the VirtualBox Manager. Do one of the
+          following:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              Drag one VM on top of another VM.
+            </p></li><li><p>
+              Select multiple VMs and select
+              <span class="bold"><strong>Group</strong></span> from the
+              right-click menu.
+            </p></li></ul></div></li><li><p>
+          Create and manage a group using the command line. Do one of
+          the following:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              Create a group and assign a VM. For example:
+            </p><pre class="screen">VBoxManage modifyvm "vm01" --groups "/TestGroup"</pre><p>
+              This command creates a group "TestGroup" and attaches the
+              VM "vm01" to that group.
+            </p></li><li><p>
+              Detach a VM from the group, and delete the group if empty.
+              For example:
+            </p><pre class="screen">VBoxManage modifyvm "vm01" --groups ""</pre><p>
+              This command detaches all groups from the VM "vm01" and
+              deletes the empty group.
+            </p></li></ul></div></li><li><p>
+          Create multiple groups. For example:
+        </p><pre class="screen">VBoxManage modifyvm "vm01" --groups "/TestGroup,/TestGroup2"</pre><p>
+          This command creates the groups "TestGroup" and "TestGroup2",
+          if they do not exist, and attaches the VM "vm01" to both of
+          them.
+        </p></li><li><p>
+          Create nested groups, having a group hierarchy. For example:
+        </p><pre class="screen">VBoxManage modifyvm "vm01" --groups "/TestGroup/TestGroup2"</pre><p>
+          This command attaches the VM "vm01" to the subgroup
+          "TestGroup2" of the "TestGroup" group.
+        </p></li><li><p>
+          The following is a summary of group commands: Start, Pause,
+          Reset, Close (save state, send shutdown signal, poweroff),
+          Discard Saved State, Show in File System, Sort.
+        </p></li></ul></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="snapshots"></a>1.10.&nbsp;Snapshots</h2></div></div></div><p>
+      With snapshots, you can save a particular state of a virtual
+      machine for later use. At any later time, you can revert to that
+      state, even though you may have changed the VM considerably since
+      then. A snapshot of a virtual machine is thus similar to a machine
+      in Saved state, but there can be many of them, and these saved
+      states are preserved.
+    </p><p>
+      To see the snapshots of a virtual machine, click on the machine
+      name in VirtualBox Manager. Then click the
+      <span class="bold"><strong>List</strong></span> icon next to the machine
+      name, and select <span class="bold"><strong>Snapshots</strong></span>. Until
+      you take a snapshot of the machine, the list of snapshots will be
+      empty except for the <span class="bold"><strong>Current
+      State</strong></span> item, which represents the "now" point in the
+      lifetime of the virtual machine.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="snapshots-take-restore-delete"></a>1.10.1.&nbsp;Taking, Restoring, and Deleting Snapshots</h3></div></div></div><p>
+        There are three operations related to snapshots, as follows:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            <span class="bold"><strong>Take a snapshot</strong></span>. This makes
+            a copy of the machine's current state, to which you can go
+            back at any given time later.
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                If your VM is running, select <span class="bold"><strong>Take
+                Snapshot</strong></span> from the
+                <span class="bold"><strong>Machine</strong></span> pull-down menu
+                of the VM window.
+              </p></li><li><p>
+                If your VM is in either the Saved or the Powered Off
+                state, as displayed next to the VM name in the
+                Oracle VM VirtualBox main window, click the
+                <span class="bold"><strong>List</strong></span> icon next to the
+                machine name and select
+                <span class="bold"><strong>Snapshots</strong></span>. The
+                snapshots window is shown. Do one of the following:
+              </p><div class="itemizedlist"><ul type="circle"><li><p>
+                    Click the <span class="bold"><strong>Take</strong></span>
+                    icon.
+                  </p></li><li><p>
+                    Right-click on the <span class="bold"><strong>Current
+                    State </strong></span>item in the list and select
+                    <span class="bold"><strong>Take</strong></span>.
+                  </p></li></ul></div></li></ul></div><p>
+            In either case, a window is displayed prompting you for a
+            snapshot name. This name is purely for reference purposes to
+            help you remember the state of the snapshot. For example, a
+            useful name would be "Fresh installation from scratch, no
+            Guest Additions", or "Service Pack 3 just installed". You
+            can also add a longer text in the
+            <span class="bold"><strong>Description</strong></span> field.
+          </p><p>
+            Your new snapshot will then appear in the snapshots list.
+            Underneath your new snapshot, you will see an item called
+            <span class="bold"><strong>Current State</strong></span>, signifying
+            that the current state of your VM is a variation based on
+            the snapshot you took earlier. If you later take another
+            snapshot, you will see that they are displayed in sequence,
+            and that each subsequent snapshot is derived from an earlier
+            one.
+          </p><div class="figure"><a name="fig-snapshots-list"></a><p class="title"><b>Figure&nbsp;1.10.&nbsp;Snapshots List For a Virtual Machine</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/snapshots-1.png" align="middle" width="354" alt="Snapshots List For a Virtual Machine"></td></tr></tbody></table></div></div><p>
+            Oracle VM VirtualBox imposes no limits on the number of snapshots
+            you can take. The only practical limitation is disk space on
+            your host. Each snapshot stores the state of the virtual
+            machine and thus occupies some disk space. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#snapshots-contents" title="1.10.2. Snapshot Contents">Section&nbsp;1.10.2, “Snapshot Contents”</a> for details on what is
+            stored in a snapshot.
+          </p></li><li><p>
+            <span class="bold"><strong>Restore a snapshot</strong></span>. In the
+            list of snapshots, right-click on any snapshot you have
+            taken and select <span class="bold"><strong>Restore</strong></span>.
+            By restoring a snapshot, you go back or forward in time. The
+            current state of the machine is lost, and the machine is
+            restored to the exact state it was in when the snapshot was
+            taken.
+          </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+              Restoring a snapshot will affect the virtual hard drives
+              that are connected to your VM, as the entire state of the
+              virtual hard drive will be reverted as well. This means
+              also that all files that have been created since the
+              snapshot and all other file changes <span class="emphasis"><em>will be
+              lost. </em></span>In order to prevent such data loss while
+              still making use of the snapshot feature, it is possible
+              to add a second hard drive in
+              <span class="emphasis"><em>write-through</em></span> mode using the
+              <span><strong class="command">VBoxManage</strong></span> interface and use it to
+              store your data. As write-through hard drives are
+              <span class="emphasis"><em>not</em></span> included in snapshots, they
+              remain unaltered when a machine is reverted. See
+              <a href="https://www.virtualbox.org/manual/ch05.html#hdimagewrites" title="5.4. Special Image Write Modes">Section&nbsp;5.4, “Special Image Write Modes”</a>.
+            </p></div><p>
+            To avoid losing the current state when restoring a snapshot,
+            you can create a new snapshot before the restore operation.
+          </p><p>
+            By restoring an earlier snapshot and taking more snapshots
+            from there, it is even possible to create a kind of
+            alternate reality and to switch between these different
+            histories of the virtual machine. This can result in a whole
+            tree of virtual machine snapshots, as shown in the
+            screenshot above.
+          </p></li><li><p>
+            <span class="bold"><strong>Delete a snapshot</strong></span>. This
+            does not affect the state of the virtual machine, but only
+            releases the files on disk that Oracle VM VirtualBox used to store
+            the snapshot data, thus freeing disk space. To delete a
+            snapshot, right-click on the snapshot name in the snapshots
+            tree and select <span class="bold"><strong>Delete</strong></span>.
+            Snapshots can be deleted even while a machine is running.
+          </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+              Whereas taking and restoring snapshots are fairly quick
+              operations, deleting a snapshot can take a considerable
+              amount of time since large amounts of data may need to be
+              copied between several disk image files. Temporary disk
+              files may also need large amounts of disk space while the
+              operation is in progress.
+            </p></div><p>
+            There are some situations which cannot be handled while a VM
+            is running, and you will get an appropriate message that you
+            need to perform this snapshot deletion when the VM is shut
+            down.
+          </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="snapshots-contents"></a>1.10.2.&nbsp;Snapshot Contents</h3></div></div></div><p>
+        Think of a snapshot as a point in time that you have preserved.
+        More formally, a snapshot consists of the following:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The snapshot contains a complete copy of the VM settings,
+            including the hardware configuration, so that when you
+            restore a snapshot, the VM settings are restored as well.
+            For example, if you changed the hard disk configuration or
+            the VM's system settings, that change is undone when you
+            restore the snapshot.
+          </p><p>
+            The copy of the settings is stored in the machine
+            configuration, an XML text file, and thus occupies very
+            little space.
+          </p></li><li><p>
+            The complete state of all the virtual disks attached to the
+            machine is preserved. Going back to a snapshot means that
+            all changes that had been made to the machine's disks, file
+            by file and bit by bit, will be undone as well. Files that
+            were since created will disappear, files that were deleted
+            will be restored, changes to files will be reverted.
+          </p><p>
+            Strictly speaking, this is only true for virtual hard disks
+            in "normal" mode. You can configure disks to behave
+            differently with snapshots, see
+            <a href="https://www.virtualbox.org/manual/ch05.html#hdimagewrites" title="5.4. Special Image Write Modes">Section&nbsp;5.4, “Special Image Write Modes”</a>. In technical terms, it is
+            not the virtual disk itself that is restored when a snapshot
+            is restored. Instead, when a snapshot is taken,
+            Oracle VM VirtualBox creates differencing images which contain
+            only the changes since the snapshot were taken. When the
+            snapshot is restored, Oracle VM VirtualBox throws away that
+            differencing image, thus going back to the previous state.
+            This is both faster and uses less disk space. For the
+            details, which can be complex, see
+            <a href="https://www.virtualbox.org/manual/ch05.html#diffimages" title="5.5. Differencing Images">Section&nbsp;5.5, “Differencing Images”</a>.
+          </p><p>
+            Creating the differencing image as such does not occupy much
+            space on the host disk initially, since the differencing
+            image will initially be empty and grow dynamically later
+            with each write operation to the disk. The longer you use
+            the machine after having created the snapshot, however, the
+            more the differencing image will grow in size.
+          </p></li><li><p>
+            If you took a snapshot while the machine was running, the
+            memory state of the machine is also saved in the snapshot.
+            This is in the same way that memory can be saved when you
+            close a VM window. When you restore such a snapshot,
+            execution resumes at exactly the point when the snapshot was
+            taken.
+          </p><p>
+            The memory state file can be as large as the memory size of
+            the VM and will therefore occupy considerable disk space.
+          </p></li></ul></div></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configbasics"></a>1.11.&nbsp;Virtual Machine Configuration</h2></div></div></div><p>
+      When you select a virtual machine from the list in the VirtualBox
+      Manager window, you will see a summary of that machine's settings
+      on the right.
+    </p><p>
+      Clicking on <span class="bold"><strong>Settings</strong></span> displays a
+      window, where you can configure many of the properties of the
+      selected VM. But be careful when changing VM settings. It is
+      possible to change all VM settings after installing a guest OS,
+      but certain changes might prevent a guest OS from functioning
+      correctly if done after installation.
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+        The <span class="bold"><strong>Settings</strong></span> button is disabled
+        while a VM is either in the Running or Saved state. This is
+        because the <span class="bold"><strong>Settings</strong></span> dialog
+        enables you to change fundamental characteristics of the virtual
+        machine that is created for your guest OS. For example, the
+        guest OS may not perform well if half of its memory is taken
+        away. As a result, if the
+        <span class="bold"><strong>Settings</strong></span> button is disabled,
+        shut down the current VM first.
+      </p></div><p>
+      Oracle VM VirtualBox provides a wide range of parameters that can be
+      changed for a virtual machine. The various settings that can be
+      changed in the <span class="bold"><strong>Settings</strong></span> window
+      are described in detail in <a href="https://www.virtualbox.org/manual/ch03.html" title="Chapter 3. Configuring Virtual Machines">Chapter&nbsp;3, <i>Configuring Virtual Machines</i></a>. Even
+      more parameters are available when using the
+      <span><strong class="command">VBoxManage</strong></span> command line interface. See
+      <a href="https://www.virtualbox.org/manual/ch08.html" title="Chapter 8. VBoxManage">Chapter&nbsp;8, <i>VBoxManage</i></a>.
+    </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="intro-removing"></a>1.12.&nbsp;Removing and Moving Virtual Machines</h2></div></div></div><p>
+      You can remove a VM from Oracle VM VirtualBox or move the VM and its
+      associated files, such as disk images, to another location on the
+      host.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Removing a VM.</strong></span> To remove a
+          VM, right-click on the VM in the VirtualBox Manager's machine
+          list and select <span class="bold"><strong>Remove</strong></span>.
+        </p><p>
+          The confirmation dialog enables you to specify whether to only
+          remove the VM from the list of machines or to remove the files
+          associated with the VM.
+        </p><p>
+          Note that the <span class="bold"><strong>Remove</strong></span> menu
+          item is disabled while a VM is running.
+        </p></li><li><p>
+          <span class="bold"><strong>Moving a VM.</strong></span> To move a VM to
+          a new location on the host, right-click on the VM in the
+          VirtualBox Manager's machine list and select
+          <span class="bold"><strong>Move</strong></span>.
+        </p><p>
+          The file dialog prompts you to specify a new location for the
+          VM.
+        </p><p>
+          When you move a VM, Oracle VM VirtualBox configuration files are
+          updated automatically to use the new location on the host.
+        </p><p>
+          Note that the <span class="bold"><strong>Move</strong></span> menu item
+          is disabled while a VM is running.
+        </p><p>
+          You can also use the <span><strong class="command">VBoxManage movevm</strong></span>
+          command to move a VM. See <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-movevm" title="8.9. VBoxManage movevm">Section&nbsp;8.9, “VBoxManage movevm”</a>.
+        </p></li></ul></div><p>
+      For information about removing or moving a disk image file from
+      Oracle VM VirtualBox, see <a href="https://www.virtualbox.org/manual/ch05.html#vdis" title="5.3. The Virtual Media Manager">Section&nbsp;5.3, “The Virtual Media Manager”</a>.
+    </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="clone"></a>1.13.&nbsp;Cloning Virtual Machines</h2></div></div></div><p>
+      You can create a full copy or a linked copy of an existing VM.
+      This copy is called a <span class="emphasis"><em>clone</em></span>. You might use a
+      cloned VM to experiment with a VM configuration, to test different
+      guest OS levels, or to back up a VM.
+    </p><p>
+      The <span class="bold"><strong>Clone Virtual Machine</strong></span> wizard
+      guides you through the cloning process.
+    </p><div class="figure"><a name="fig-clone-wizard"></a><p class="title"><b>Figure&nbsp;1.11.&nbsp;The Clone Virtual Machine Wizard</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="354"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/clone-vm.png" align="middle" width="354" alt="The Clone Virtual Machine Wizard"></td></tr></tbody></table></div></div><p>
+      Start the wizard by clicking
+      <span class="bold"><strong>Clone</strong></span> in the right-click menu of
+      the VirtualBox Manager's machine list or in the
+      <span class="bold"><strong>Snapshots</strong></span> view of the selected
+      VM.
+    </p><p>
+      Specify a new <span class="bold"><strong>Name</strong></span> for the clone.
+      You can choose a <span class="bold"><strong>Path</strong></span> for the
+      cloned virtual machine, otherwise Oracle VM VirtualBox uses the default
+      machines folder.
+    </p><p>
+      The <span class="bold"><strong>Clone Type</strong></span> option specifies
+      whether to create a clone linked to the source VM or to create a
+      fully independent clone:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Full Clone:</strong></span> Copies all
+          dependent disk images to the new VM folder. A full clone can
+          operate fully without the source VM.
+        </p></li><li><p>
+          <span class="bold"><strong>Linked Clone:</strong></span> Creates new
+          differencing disk images based on the source VM disk images.
+          If you select the current state of the source VM as the clone
+          point, Oracle VM VirtualBox creates a new snapshot.
+        </p></li></ul></div><p>
+      The <span class="bold"><strong>Snapshots</strong></span> option specifies
+      whether to create a clone of the current machine state only or of
+      everything.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Everything:</strong></span> Clones the
+          current machine state and all its snapshots.
+        </p></li><li><p>
+          <span class="bold"><strong>Current Machine State and All
+          Children:</strong></span>. Clones a VM snapshot and all its child
+          snapshots.
+        </p></li></ul></div><p>
+      The following clone options are available:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>MAC Address Policy:</strong></span> Specifies
+          how to retain network card MAC addresses when cloning the VM.
+        </p><p>
+          For example, the <span class="bold"><strong>Generate New MAC
+          Addresses For All Network Adapters</strong></span> value assigns a
+          new MAC address to each network card during cloning. This is
+          the default setting. This is the best option when both the
+          source VM and the cloned VM must operate on the same network.
+          Other values enable you to retain the existing MAC addresses
+          in the cloned VM.
+        </p></li><li><p>
+          <span class="bold"><strong>Keep Disk Names:</strong></span> Retains the
+          disk image names when cloning the VM.
+        </p></li><li><p>
+          <span class="bold"><strong>Keep Hardware UUIDs:</strong></span> Retains
+          the hardware universally unique identifiers (UUIDs) when
+          cloning the VM.
+        </p></li></ul></div><p>
+      The duration of the clone operation depends on the size and number
+      of attached disk images. In addition, the clone operation saves
+      all the differencing disk images of a snapshot.
+    </p><p>
+      Note that the <span class="bold"><strong>Clone</strong></span> menu item is
+      disabled while a machine is running.
+    </p><p>
+      You can also use the <span><strong class="command">VBoxManage clonevm</strong></span> command
+      to clone a VM. See <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-clonevm" title="8.39. VBoxManage clonevm">Section&nbsp;8.39, “VBoxManage clonevm”</a>.
+    </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ovf"></a>1.14.&nbsp;Importing and Exporting Virtual Machines</h2></div></div></div><p>
+      Oracle VM VirtualBox can import and export virtual machines in the
+      following formats:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Open Virtualization Format
+          (OVF).</strong></span> This is the industry-standard format. See
+          <a href="https://www.virtualbox.org/manual/ch01.html#ovf-about" title="1.14.1. About the OVF Format">Section&nbsp;1.14.1, “About the OVF Format”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Cloud service formats.</strong></span> Export
+          to and import from cloud services such as Oracle Cloud Infrastructure is supported.
+          See <a href="https://www.virtualbox.org/manual/ch01.html#cloud-integration" title="1.15. Integrating with Oracle Cloud Infrastructure">Section&nbsp;1.15, “Integrating with Oracle Cloud Infrastructure”</a>.
+        </p></li></ul></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ovf-about"></a>1.14.1.&nbsp;About the OVF Format</h3></div></div></div><p>
+        OVF is a cross-platform standard supported by many
+        virtualization products which enables the creation of ready-made
+        virtual machines that can then be imported into a hypervisor
+        such as Oracle VM VirtualBox. Oracle VM VirtualBox makes OVF import and
+        export easy to do, using the VirtualBox Manager window or the
+        command-line interface.
+      </p><p>
+        Using OVF enables packaging of <span class="emphasis"><em>virtual
+        appliances</em></span>. These are disk images, together with
+        configuration settings that can be distributed easily. This way
+        one can offer complete ready-to-use software packages, including
+        OSes with applications, that need no configuration or
+        installation except for importing into Oracle VM VirtualBox.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+          The OVF standard is complex, and support in Oracle VM VirtualBox is
+          an ongoing process. In particular, no guarantee is made that
+          Oracle VM VirtualBox supports all appliances created by other
+          virtualization software. For a list of known limitations, see
+          <a href="https://www.virtualbox.org/manual/ch14.html" title="Chapter 14. Known Limitations">Chapter&nbsp;14, <i>Known Limitations</i></a>.
+        </p></div><p>
+        Appliances in OVF format can appear in the following variants:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            They can come in several files, as one or several disk
+            images, typically in the widely-used VMDK format. See
+            <a href="https://www.virtualbox.org/manual/ch05.html#vdidetails" title="5.2. Disk Image Files (VDI, VMDK, VHD, HDD)">Section&nbsp;5.2, “Disk Image Files (VDI, VMDK, VHD, HDD)”</a>. They also include a textual
+            description file in an XML dialect with an
+            <code class="filename">.ovf</code> extension. These files must then
+            reside in the same directory for Oracle VM VirtualBox to be able
+            to import them.
+          </p></li><li><p>
+            Alternatively, the above files can be packed together into a
+            single archive file, typically with an
+            <code class="filename">.ova</code> extension. Such archive files use
+            a variant of the TAR archive format and can therefore be
+            unpacked outside of Oracle VM VirtualBox with any utility that can
+            unpack standard TAR files.
+          </p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+          OVF cannot describe snapshots that were taken for a virtual
+          machine. As a result, when you export a virtual machine that
+          has snapshots, only the current state of the machine will be
+          exported. The disk images in the export will have a
+          <span class="emphasis"><em>flattened</em></span> state identical to the current
+          state of the virtual machine.
+        </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ovf-import-appliance"></a>1.14.2.&nbsp;Importing an Appliance in OVF Format</h3></div></div></div><p>
+        The following steps show how to import an appliance in OVF
+        format.
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Double-click on the OVF or OVA file.
+          </p><p>
+            Oracle VM VirtualBox creates file type associations automatically
+            for any OVF and OVA files on your host OS.
+          </p></li><li><p>
+            Select <span class="bold"><strong>File</strong></span>,
+            <span class="bold"><strong>Import Appliance</strong></span> from the
+            VirtualBox Manager window.
+          </p><p>
+            From the file dialog, go to the file with either the
+            <code class="filename">.ovf</code> or the <code class="filename">.ova</code>
+            file extension.
+          </p><p>
+            Click <span class="bold"><strong>Import</strong></span> to open the
+            <span class="bold"><strong>Appliance Settings</strong></span> screen.
+          </p><div class="figure"><a name="fig-import-appliance"></a><p class="title"><b>Figure&nbsp;1.12.&nbsp;Appliance Settings Screen for Import Appliance</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/ovf-import.png" align="middle" width="425" alt="Appliance Settings Screen for Import Appliance"></td></tr></tbody></table></div></div><p>
+            This screen shows the VMs described in the OVF or OVA file
+            and enables you to change the VM settings.
+          </p><p>
+            By default, membership of VM groups is preserved on import
+            for VMs that were initially exported from Oracle VM VirtualBox.
+            You can change this behavior by using the
+            <span class="bold"><strong>Primary Group</strong></span>
+            setting for the VM.
+          </p><p>
+            The following global settings apply to all of the VMs that
+            you import:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                <span class="bold"><strong>Base Folder:</strong></span> Specifies
+                the directory on the host in which to store the imported
+                VMs.
+              </p><p>
+                If an appliance has multiple VMs, you can specify a
+                different directory for each VM by editing the
+                <span class="bold"><strong>Base Folder</strong></span> setting for
+                the VM.
+              </p></li><li><p>
+                <span class="bold"><strong>MAC Address Policy:</strong></span>
+                Reinitializes the MAC addresses of network cards in your
+                VMs prior to import, by default. You can override the
+                default behavior and preserve the MAC addresses on
+                import.
+              </p></li><li><p>
+                <span class="bold"><strong>Import Hard Drives as
+                VDI:</strong></span> Imports hard drives in the VDI format
+                rather than in the default VMDK format.
+              </p></li></ul></div></li><li><p>
+            Click <span class="bold"><strong>Import</strong></span> to import the
+            appliance.
+          </p><p>
+            Oracle VM VirtualBox copies the disk images and creates local VMs
+            with the settings described on the
+            <span class="bold"><strong>Appliance Settings</strong></span> screen.
+            The imported VMs are shown in the list of VMs in VirtualBox
+            Manager.
+          </p><p>
+            Because disk images are large, the VMDK images that are
+            included with virtual appliances are shipped in a compressed
+            format that cannot be used directly by VMs. So, the images
+            are first unpacked and copied, which might take several
+            minutes.
+          </p></li></ol></div><p>
+        You can use the <span><strong class="command">VBoxManage import</strong></span> command to
+        import an appliance. See <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-import" title="8.10. VBoxManage import">Section&nbsp;8.10, “VBoxManage import”</a>.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ovf-export-appliance"></a>1.14.3.&nbsp;Exporting an Appliance in OVF Format</h3></div></div></div><p>
+        The following steps show how to export an appliance in OVF
+        format.
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Select <span class="bold"><strong>File</strong></span>,
+            <span class="bold"><strong> Export Appliance</strong></span> to open
+            the <span class="bold"><strong>Export Virtual
+            Appliance</strong></span> wizard.
+          </p><p>
+            From the initial window, you can combine several VMs into an
+            OVF appliance.
+          </p><p>
+            Select one or more VMs to export, and click
+            <span class="bold"><strong>Next</strong></span>.
+          </p></li><li><p>
+            The <span class="bold"><strong>Appliance Settings</strong></span>
+            screen enables you to select the following settings:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                <span class="bold"><strong>Format:</strong></span> Selects the
+                <span class="bold"><strong>Open Virtualization
+                Format</strong></span> value for the output files.
+              </p><p>
+                The <span class="bold"><strong>Oracle Cloud Infrastructure</strong></span> value exports
+                the appliance to Oracle Cloud Infrastructure. See
+                <a href="https://www.virtualbox.org/manual/ch01.html#cloud-export-oci" title="1.15.7. Exporting an Appliance to Oracle Cloud Infrastructure">Section&nbsp;1.15.7, “Exporting an Appliance to Oracle Cloud Infrastructure”</a>.
+              </p></li><li><p>
+                <span class="bold"><strong>File:</strong></span> Selects the
+                location in which to store the exported files.
+              </p></li><li><p>
+                <span class="bold"><strong>MAC Address Policy:</strong></span>
+                Specifies whether to retain or reassign network card MAC
+                addresses on export.
+              </p></li><li><p>
+                <span class="bold"><strong>Write Manifest File:</strong></span>
+                Enables you to include a manifest file in the exported
+                archive file.
+              </p></li><li><p>
+                <span class="bold"><strong>Include ISO Image
+                Files:</strong></span> Enables you to include ISO image files
+                in the exported archive file.
+              </p></li></ul></div></li><li><p>
+            Click <span class="bold"><strong>Next</strong></span> to show the
+            <span class="bold"><strong>Virtual System Settings</strong></span>
+            screen.
+          </p><p>
+            You can edit settings for the virtual appliance. For
+            example, you can change the name of the virtual appliance or
+            add product information, such as vendor details or license
+            text.
+          </p><p>
+            Double-click the appropriate field to change its value.
+          </p></li><li><p>
+            Click <span class="bold"><strong>Export</strong></span> to begin the
+            export process. Note that this operation might take several
+            minutes.
+          </p></li></ol></div><p>
+        You can use the <span><strong class="command">VBoxManage export</strong></span> command to
+        export an appliance. See <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-export" title="8.11. VBoxManage export">Section&nbsp;8.11, “VBoxManage export”</a>.
+      </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="cloud-integration"></a>1.15.&nbsp;Integrating with Oracle Cloud Infrastructure</h2></div></div></div><p>
+      This section describes how to use the features of Oracle VM VirtualBox
+      to integrate with Oracle Cloud Infrastructure.
+    </p><p>
+      Integrating with Oracle Cloud Infrastructure involves the following steps:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>Prepare for Oracle Cloud Infrastructure
+          Integration.</strong></span> Before using Oracle VM VirtualBox with Oracle Cloud Infrastructure
+          there are some initial configuration steps you may need to do.
+          See <a href="https://www.virtualbox.org/manual/ch01.html#cloud-integration-steps" title="1.15.1. Preparing for Oracle Cloud Infrastructure Integration">Section&nbsp;1.15.1, “Preparing for Oracle Cloud Infrastructure Integration”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Use Oracle VM VirtualBox with
+          Oracle Cloud Infrastructure.</strong></span> <a href="https://www.virtualbox.org/manual/ch01.html#cloud-vbox-oci-tasks" title="1.15.6. Using Oracle VM VirtualBox With Oracle Cloud Infrastructure">Section&nbsp;1.15.6, “Using Oracle VM VirtualBox With Oracle Cloud Infrastructure”</a>
+          describes how you can use Oracle VM VirtualBox with Oracle Cloud Infrastructure.
+        </p></li></ul></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-integration-steps"></a>1.15.1.&nbsp;Preparing for Oracle Cloud Infrastructure Integration</h3></div></div></div><p>
+        Perform the following configuration steps before using
+        Oracle VM VirtualBox to integrate with your Oracle Cloud Infrastructure account.
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            <span class="bold"><strong>Install the Extension Pack.</strong></span>
+            Cloud integration features are only available when you
+            install the Oracle VM VirtualBox Extension Pack. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#intro-installing" title="1.5. Installing Oracle VM VirtualBox and Extension Packs">Section&nbsp;1.5, “Installing Oracle VM VirtualBox and Extension Packs”</a>.
+          </p></li><li><p>
+            <span class="bold"><strong>Create a key pair.</strong></span> Generate
+            an API signing key pair that is used for API requests to
+            Oracle Cloud Infrastructure. See <a href="https://www.virtualbox.org/manual/ch01.html#cloud-create-api-keypair" title="1.15.2. Creating an API Signing Key Pair">Section&nbsp;1.15.2, “Creating an API Signing Key Pair”</a>.
+          </p><p>
+            Upload the public key of the key pair from your client
+            device to the cloud service. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#cloud-upload-public-key" title="1.15.3. Uploading the Public Key to Oracle Cloud Infrastructure">Section&nbsp;1.15.3, “Uploading the Public Key to Oracle Cloud Infrastructure”</a>.
+          </p></li><li><p>
+            <span class="bold"><strong>Create a cloud profile.</strong></span> The
+            cloud profile contains resource identifiers for your cloud
+            account, such as your user OCID, and details of your key
+            pair. See <a href="https://www.virtualbox.org/manual/ch01.html#cloud-create-cloud-profile" title="1.15.4. Creating a Cloud Profile">Section&nbsp;1.15.4, “Creating a Cloud Profile”</a>.
+          </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-create-api-keypair"></a>1.15.2.&nbsp;Creating an API Signing Key Pair</h3></div></div></div><p></p><p>
+        To use the cloud integration features of Oracle VM VirtualBox, you
+        must generate an API signing key pair that is used for API
+        requests to Oracle Cloud Infrastructure.
+      </p><p>
+        Your API requests are signed with your private key, and Oracle Cloud Infrastructure
+        uses the public key to verify the authenticity of the request.
+        You must upload the public key to the Oracle Cloud Infrastructure Console.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+          This key pair is not the same SSH key that you use to access
+          compute instances on Oracle Cloud Infrastructure.
+        </p></div><div class="orderedlist"><ol type="1"><li><p>
+            (Optional) Create a <code class="filename">.oci</code> directory to
+            store the key pair.
+          </p><pre class="screen">$ mkdir ~/.oci</pre><p>
+            The key pair is usually installed in the
+            <code class="filename">.oci</code> folder in your home directory. For
+            example, <code class="filename">~/.oci</code> on a Linux system.
+          </p></li><li><p>
+            Generate the private key.
+          </p><p>
+            Use the <span><strong class="command">openssl</strong></span> command.
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                To generate a private key with a passphrase:
+              </p><pre class="screen">$ openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 2048 </pre></li><li><p>
+                To generate a private key without a passphrase:
+              </p><pre class="screen">$ openssl genrsa -out ~/.oci/oci_api_key.pem 2048</pre></li></ul></div></li><li><p>
+            Change permissions for the private key.
+          </p><pre class="screen">$ chmod 600 ~/.oci/oci_api_key.pem</pre><p>
+            Generate the public key.
+          </p><pre class="screen">$ openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem</pre></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-upload-public-key"></a>1.15.3.&nbsp;Uploading the Public Key to Oracle Cloud Infrastructure</h3></div></div></div><p>
+        Use the following steps to upload your public key to Oracle Cloud Infrastructure.
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Log in to the Oracle Cloud Infrastructure Console.
+          </p></li><li><p>
+            Display the <span class="bold"><strong>User Settings</strong></span>
+            page.
+          </p><p>
+            Click <span class="bold"><strong>Profile</strong></span>,
+            <span class="bold"><strong>User Settings</strong></span>.
+          </p></li><li><p>
+            Display your current API signing keys.
+          </p><p>
+            Click <span class="bold"><strong>Resources</strong></span>,
+            <span class="bold"><strong>API Keys</strong></span>.
+          </p></li><li><p>
+            Upload the public key.
+          </p><p>
+            Click <span class="bold"><strong>Add Public Key</strong></span>.
+          </p><p>
+            The <span class="bold"><strong>Add Public Key</strong></span> dialog
+            is displayed.
+          </p><div class="figure"><a name="fig-upload-key-oci"></a><p class="title"><b>Figure&nbsp;1.13.&nbsp;Upload Public Key Dialog in Oracle Cloud Infrastructure Console</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/upload-key.png" align="middle" width="425" alt="Upload Public Key Dialog in Oracle Cloud Infrastructure Console"></td></tr></tbody></table></div></div><p>
+            Select one of the following options:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                <span class="bold"><strong>Choose Public Key File.</strong></span>
+                This option enables you to browse to the public key file
+                on your local hard disk.
+              </p></li><li><p>
+                <span class="bold"><strong>Paste Public Keys.</strong></span> This
+                option enables you to paste the contents of the public
+                key file into the window in the dialog box.
+              </p></li></ul></div><p>
+            Click <span class="bold"><strong>Add</strong></span> to upload the
+            public key.
+          </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-create-cloud-profile"></a>1.15.4.&nbsp;Creating a Cloud Profile</h3></div></div></div><p>
+        Oracle VM VirtualBox uses a <span class="emphasis"><em>cloud profile</em></span> to
+        connect to Oracle Cloud Infrastructure. A cloud profile is a text file that contains
+        details of your key files and Oracle Cloud Identifier (OCID)
+        resource identifiers for your cloud account, such as the
+        following:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            <span class="bold"><strong>Fingerprint of the public
+            key.</strong></span> To obtain the fingerprint, you can use the
+            <span><strong class="command">openssl</strong></span> command:
+          </p><pre class="screen">$ openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c</pre></li><li><p>
+            <span class="bold"><strong>Location of the private key on the
+            client device.</strong></span> Specify the full path to the
+            private key.
+          </p></li><li><p>
+            <span class="bold"><strong>(Optional) Passphrase for the private
+            key.</strong></span>. This is only required if the key is
+            encrypted.
+          </p></li><li><p>
+            <span class="bold"><strong>Region</strong></span>. Shown on the Oracle Cloud Infrastructure
+            Console. Click
+            <span class="bold"><strong>Administration</strong></span>,
+            <span class="bold"><strong>Tenancy Details</strong></span>.
+          </p></li><li><p>
+            <span class="bold"><strong>Tenancy OCID.</strong></span> Shown on the
+            Oracle Cloud Infrastructure Console. Click
+            <span class="bold"><strong>Administration</strong></span>,
+            <span class="bold"><strong>Tenancy Details</strong></span>.
+          </p><p>
+            A link enables you to copy the Tenancy OCID.
+          </p></li><li><p>
+            <span class="bold"><strong>Compartment OCID.</strong></span> Shown on
+            the Oracle Cloud Infrastructure Console. Click
+            <span class="bold"><strong>Identity</strong></span>,
+            <span class="bold"><strong>Compartments</strong></span>.
+          </p><p>
+            A link enables you to copy the Compartment OCID.
+          </p></li><li><p>
+            <span class="bold"><strong>User OCID.</strong></span> Shown on the
+            Oracle Cloud Infrastructure Console. Click
+            <span class="bold"><strong>Profile</strong></span>,
+            <span class="bold"><strong>User Settings</strong></span>.
+          </p><p>
+            A link enables you to copy the User OCID.
+          </p></li></ul></div><p>
+        You can create a cloud profile in the following ways:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Automatically, by using the <span class="bold"><strong>Cloud
+            Profile Manager</strong></span>. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#cloud-using-cloud-profile-manager" title="1.15.5. Using the Cloud Profile Manager">Section&nbsp;1.15.5, “Using the Cloud Profile Manager”</a>.
+          </p><p>
+            The Cloud Profile Manager is a component of Oracle VM VirtualBox
+            that enables you to create, edit, and manage cloud profiles
+            for your cloud service accounts.
+          </p></li><li><p>
+            Automatically, by using the <span><strong class="command">VBoxManage
+            cloudprofile</strong></span> command. See
+            <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-cloudprofile" title="8.44. VBoxManage cloudprofile">Section&nbsp;8.44, “VBoxManage cloudprofile”</a>.
+          </p></li><li><p>
+            Manually, by creating an <code class="filename">oci_config</code>
+            file in your Oracle VM VirtualBox global configuration directory.
+            For example, this is
+            <code class="filename">$HOME/.config/VirtualBox/oci_config</code> on
+            a Linux host.
+          </p></li><li><p>
+            Manually, by creating a <code class="filename">config</code> file in
+            your Oracle Cloud Infrastructure configuration directory. For example, this is
+            <code class="filename">$HOME/.oci/config</code> on a Linux host.
+          </p><p>
+            This is the same file that is used by the Oracle Cloud Infrastructure command line
+            interface.
+          </p><p>
+            Oracle VM VirtualBox automatically uses the
+            <code class="filename">config</code> file if no cloud profile file is
+            present in your global configuration directory.
+            Alternatively, you can import this file manually into the
+            Cloud Profile Manager.
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-using-cloud-profile-manager"></a>1.15.5.&nbsp;Using the Cloud Profile Manager</h3></div></div></div><p>
+        This section describes how to use the Cloud Profile Manager to
+        create a cloud profile.
+      </p><p>
+        To open the Cloud Profile Manager click
+        <span class="bold"><strong>File</strong></span>,
+        <span class="bold"><strong>Cloud Profile Manager</strong></span> in the
+        VirtualBox Manager window.
+      </p><div class="figure"><a name="fig-cloud-profile-manager"></a><p class="title"><b>Figure&nbsp;1.14.&nbsp;The Cloud Profile Manager</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/cloud-profile-manager.png" align="middle" width="425" alt="The Cloud Profile Manager"></td></tr></tbody></table></div></div><p>
+        You can use the Cloud Profile Manager in the following ways:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            To create a new cloud profile automatically
+          </p></li><li><p>
+            To create a cloud profile by importing settings from your
+            Oracle Cloud Infrastructure configuration file.
+          </p></li></ul></div><p>
+        Perform the following steps to create a new cloud profile
+        automatically, using the Cloud Profile Manager:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Click the <span class="bold"><strong>Add</strong></span> icon and
+            specify a <span class="bold"><strong>Name</strong></span> for the
+            profile.
+          </p></li><li><p>
+            Click <span class="bold"><strong>Properties</strong></span> and
+            specify the following property values for the profile:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                Compartment OCID
+              </p></li><li><p>
+                Fingerprint of the public key
+              </p></li><li><p>
+                Location of the private key on the client device
+              </p></li><li><p>
+                Region OCID
+              </p></li><li><p>
+                Tenancy OCID
+              </p></li><li><p>
+                User OCID
+              </p></li></ul></div><p>
+            Some of these are settings for your Oracle Cloud Infrastructure account, which you
+            can view from the Oracle Cloud Infrastructure Console.
+          </p></li><li><p>
+            Click <span class="bold"><strong>Apply</strong></span> to save your
+            changes.
+          </p><p>
+            The cloud profile settings are saved in the
+            <code class="filename">oci_config</code> file in your Oracle VM VirtualBox
+            global settings directory.
+          </p></li></ol></div><p>
+        Perform the following steps to import an existing Oracle Cloud Infrastructure
+        configuration file into the Cloud Profile Manager:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Ensure that a <code class="filename">config</code> file is present in
+            your Oracle Cloud Infrastructure configuration directory. For example, this is
+            <code class="filename">$HOME/.oci/config</code> on a Linux host.
+          </p></li><li><p>
+            Click the <span class="bold"><strong>Import</strong></span> icon to
+            open a dialog that prompts you to import cloud profiles from
+            external files.
+          </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>
+              This action overwrites any cloud profiles that are in your
+              Oracle VM VirtualBox global settings directory.
+            </p></div></li><li><p>
+            Click <span class="bold"><strong>Import</strong></span>.
+          </p><p>
+            Your cloud profile settings are saved to the
+            <code class="filename">oci_config</code> file in your Oracle VM VirtualBox
+            global settings directory.
+          </p></li><li><p>
+            Click <span class="bold"><strong>Properties</strong></span> to show
+            the cloud profile settings.
+          </p><p>
+            Double-click on the appropriate field to change the value.
+          </p></li><li><p>
+            Click <span class="bold"><strong>Apply</strong></span> to save your
+            changes.
+          </p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-vbox-oci-tasks"></a>1.15.6.&nbsp;Using Oracle VM VirtualBox With Oracle Cloud Infrastructure</h3></div></div></div><p>
+        This section describes how you can use Oracle VM VirtualBox with Oracle Cloud Infrastructure
+        to do the following tasks:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Export an Oracle VM VirtualBox VM to Oracle Cloud Infrastructure. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#cloud-export-oci" title="1.15.7. Exporting an Appliance to Oracle Cloud Infrastructure">Section&nbsp;1.15.7, “Exporting an Appliance to Oracle Cloud Infrastructure”</a>.
+          </p></li><li><p>
+            Import a cloud instance into Oracle VM VirtualBox. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#cloud-import-oci" title="1.15.8. Importing an Instance from Oracle Cloud Infrastructure">Section&nbsp;1.15.8, “Importing an Instance from Oracle Cloud Infrastructure”</a>.
+          </p></li><li><p>
+            Create a new cloud instance from a custom image stored on
+            Oracle Cloud Infrastructure. See <a href="https://www.virtualbox.org/manual/ch01.html#cloud-new-vm" title="1.15.9. Creating New Cloud Instances from a Custom Image">Section&nbsp;1.15.9, “Creating New Cloud Instances from a Custom Image”</a>.
+          </p></li><li><p>
+            Use the <span><strong class="command">VBoxManage</strong></span> commands to integrate
+            with Oracle Cloud Infrastructure and perform cloud operations. See
+            <a href="https://www.virtualbox.org/manual/ch01.html#cloud-using-cli" title="1.15.10. Using VBoxManage Commands With Oracle Cloud Infrastructure">Section&nbsp;1.15.10, “Using VBoxManage Commands With Oracle Cloud Infrastructure”</a>.
+          </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-export-oci"></a>1.15.7.&nbsp;Exporting an Appliance to Oracle Cloud Infrastructure</h3></div></div></div><p>
+        Oracle VM VirtualBox supports the export of VMs to an Oracle Cloud Infrastructure service.
+        The exported VM is stored on Oracle Cloud Infrastructure as a custom Linux image. You
+        can configure whether a cloud instance is created and started
+        after the export process has completed.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+          Before you export a VM to Oracle Cloud Infrastructure, you must prepare the VM as
+          described in <a href="https://www.virtualbox.org/manual/ch01.html#cloud-export-oci-prepare-vm" title="1.15.7.1. Preparing a VM for Export to Oracle Cloud Infrastructure">Section&nbsp;1.15.7.1, “Preparing a VM for Export to Oracle Cloud Infrastructure”</a>.
+        </p></div><p>
+        Use the following steps to export a VM to Oracle Cloud Infrastructure:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Select <span class="bold"><strong>File</strong></span>,
+            <span class="bold"><strong>Export Appliance</strong></span> to open
+            the <span class="bold"><strong>Export Virtual
+            Appliance</strong></span> wizard.
+          </p><p>
+            Select a VM to export and click
+            <span class="bold"><strong>Next</strong></span> to open the
+            <span class="bold"><strong>Appliance Settings</strong></span> screen.
+          </p></li><li><p>
+            From the <span class="bold"><strong>Format</strong></span> drop-down
+            list, select <span class="bold"><strong>Oracle Cloud Infrastructure</strong></span>.
+          </p><p>
+            In the <span class="bold"><strong>Account</strong></span> drop-down
+            list, select the cloud profile for your Oracle Cloud Infrastructure account.
+          </p><p>
+            The list after the <span class="bold"><strong>Account</strong></span>
+            field shows the profile settings for your cloud account.
+          </p><div class="figure"><a name="fig-export-appliance-oci"></a><p class="title"><b>Figure&nbsp;1.15.&nbsp;Appliance Settings Screen, Showing Cloud Profile and Machine Creation
+              Settings</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/export-appliance-oci.png" align="middle" width="425" alt="Appliance Settings Screen, Showing Cloud Profile and Machine Creation Settings"></td></tr></tbody></table></div></div><p>
+            In the <span class="bold"><strong>Machine Creation</strong></span>
+            field, select an option to configure settings for a cloud
+            instance created when you export to Oracle Cloud Infrastructure. The options
+            enable you to do one of the following:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                Configure settings for the cloud instance
+                <span class="emphasis"><em>after</em></span> you have finished exporting
+                the VM.
+              </p></li><li><p>
+                Configure settings for the cloud instance
+                <span class="emphasis"><em>before</em></span> you start to export the VM.
+              </p></li><li><p>
+                Do not create a cloud instance when you export the VM.
+              </p></li></ul></div><p>
+            Click <span class="bold"><strong>Next</strong></span> to make an API
+            request to the Oracle Cloud Infrastructure service and open the
+            <span class="bold"><strong>Virtual System Settings</strong></span>
+            screen.
+          </p></li><li><p>
+            (Optional) Edit storage settings used for the exported
+            virtual machine in Oracle Cloud Infrastructure. You can change the following
+            settings:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                The name of the bucket used to store the exported files.
+              </p></li><li><p>
+                Whether to store the custom image in Oracle Cloud Infrastructure.
+              </p></li><li><p>
+                The name for the custom image in Oracle Cloud Infrastructure.
+              </p></li><li><p>
+                The launch mode for the custom image.
+              </p><p>
+                <span class="bold"><strong>Paravirtualized</strong></span> mode
+                gives improved performance and should be suitable for
+                most Oracle VM VirtualBox VMs.
+              </p><p>
+                <span class="bold"><strong>Emulated</strong></span> mode is
+                suitable for legacy OS images.
+              </p></li></ul></div><p>
+            Click <span class="bold"><strong>Export</strong></span> to continue.
+          </p></li><li><p>
+            Depending on the selection in the
+            <span class="bold"><strong>Machine Creation</strong></span> field, the
+            <span class="bold"><strong>Cloud Virtual Machine
+            Settings</strong></span> screen may be displayed before or after
+            export. This screen enables you to configure settings for
+            the cloud instance, such as Shape and Disk Size.
+          </p><p>
+            Click <span class="bold"><strong>Create</strong></span>. The VM is
+            exported to Oracle Cloud Infrastructure.
+          </p><p>
+            Depending on the <span class="bold"><strong>Machine
+            Creation</strong></span> setting, a cloud instance may be started
+            after upload to Oracle Cloud Infrastructure is completed.
+          </p></li><li><p>
+            Monitor the export process by using the Oracle Cloud Infrastructure Console.
+          </p></li></ol></div><p>
+        You can also use the <span><strong class="command">VBoxManage export</strong></span>
+        command to export a VM to Oracle Cloud Infrastructure. See
+        <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-export-cloud" title="8.11.2. Export to Oracle Cloud Infrastructure">Section&nbsp;8.11.2, “Export to Oracle Cloud Infrastructure”</a>.
+      </p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="cloud-export-oci-prepare-vm"></a>1.15.7.1.&nbsp;Preparing a VM for Export to Oracle Cloud Infrastructure</h4></div></div></div><p>
+          Oracle Cloud Infrastructure provides the option to import a custom Linux image.
+          Before an Oracle VM VirtualBox image can be exported to Oracle Cloud Infrastructure, the
+          custom image needs to be prepared to ensure that instances
+          launched from the custom image can boot correctly and that
+          network connections will work. This section provides advice on
+          how to prepare a Linux image for export from Oracle VM VirtualBox.
+        </p><p>
+          The following list shows some tasks to consider when preparing
+          an Oracle Linux VM for export:
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+              <span class="bold"><strong>Use DHCP for network
+              addresses.</strong></span> Configure the VM to use a DHCP
+              server to allocate network addresses, rather than using a
+              static IP address. The Oracle Cloud Infrastructure instance will then be
+              allocated an IP address automatically.
+            </p></li><li><p>
+              <span class="bold"><strong>Do not specify a MAC
+              address.</strong></span> The network interface configuration
+              for the VM must not specify the MAC address.
+            </p><p>
+              Remove the HWADDR setting from the
+              <code class="filename">/etc/sysconfig/ifcfg-<em class="replaceable"><code>devicename</code></em></code>
+              network script.
+            </p></li><li><p>
+              <span class="bold"><strong>Disable persistent network device
+              naming rules.</strong></span> This means that the Oracle Cloud Infrastructure
+              instance will use the same network device names as the VM.
+            </p><div class="orderedlist"><ol type="1"><li><p>
+                  Change the GRUB kernel parameters.
+                </p><p>
+                  Add <code class="literal">net.ifnames=0</code> and
+                  <code class="literal">biosdevname=0</code> as kernel parameter
+                  values to the <code class="literal">GRUB_CMDLINE_LINUX</code>
+                  variable.
+                </p></li><li><p>
+                  Update the GRUB configuration.
+                </p><pre class="screen"># grub2-mkconfig -o /boot/grub2/grub.cfg</pre></li><li><p>
+                  Disable any <code class="literal">udev</code> rules for network
+                  device naming.
+                </p><p>
+                  For example, if an automated <code class="literal">udev</code>
+                  rule exists for <code class="literal">net-persistence</code>:
+                </p><pre class="screen"># cd /etc/udev/rules.d
+# rm -f 70-persistent-net.rules
+# ln -s /dev/null /etc/udev/rules.d/70-persistent-net.rules</pre></li></ol></div></li><li><p>
+              <span class="bold"><strong>Enable the serial
+              console.</strong></span> This enables you to troubleshoot the
+              instance when it is running on Oracle Cloud Infrastructure.
+            </p><div class="orderedlist"><ol type="1"><li><p>
+                  Edit the <code class="filename">/etc/default/grub</code> file,
+                  as follows:
+                </p><div class="itemizedlist"><ul type="circle"><li><p>
+                      Remove the <code class="literal">resume</code> setting from
+                      the kernel parameters. This setting slows down
+                      boot time significantly.
+                    </p></li><li><p>
+                      Replace <code class="literal">GRUB_TERMINAL="gfxterm"</code>
+                      with <code class="literal">GRUB_TERMINAL="console
+                      serial"</code>. This configures use of the
+                      serial console instead of a graphical terminal.
+                    </p></li><li><p>
+                      Add <code class="literal">GRUB_SERIAL_COMMAND="serial --unit=0
+                      --speed=115200"</code>. This configures the
+                      serial connection.
+                    </p></li><li><p>
+                      Add <code class="literal">console=tty0
+                      console=ttyS0,115200</code> to the
+                      <code class="literal">GRUB_CMDLINE_LINUX</code> variable.
+                      This adds the serial console to the Linux kernel
+                      boot parameters.
+                    </p></li></ul></div></li><li><p>
+                  Regenerate the GRUB configuration.
+                </p><pre class="screen"># grub2-mkconfig -o /boot/grub2/grub.cfg</pre></li><li><p>
+                  To verify the changes, reboot the machine and run the
+                  <span><strong class="command">dmesg</strong></span> command to look for the
+                  updated kernel parameters.
+                </p><pre class="screen"># dmesg |grep console=ttyS0</pre></li></ol></div></li><li><p>
+              <span class="bold"><strong>Enable paravirtualized device
+              support.</strong></span> You do this by adding the
+              <code class="literal">virtio</code> drivers to the
+              <code class="literal">initrd</code> for the VM.
+            </p><div class="orderedlist"><ol type="1"><li><p>
+                  This procedure works only on machines with a Linux
+                  kernel of version 3.4 or later. Check that the VM is
+                  running a supported kernel:
+                </p><pre class="screen"># uname -a</pre></li><li><p>
+                  Use the <code class="literal">dracut</code> tool to rebuild
+                  <code class="literal">initrd</code>. Add the
+                  <code class="literal">qemu</code> module, as follows:
+                </p><pre class="screen"># dracut –-logfile /var/log/Dracut.log –-force –-add qemu</pre></li><li><p>
+                  Verify that the <code class="literal">virtio</code> drivers are
+                  now present in <code class="literal">initrd</code>.
+                </p><pre class="screen"> # lsinitrd |grep virtio</pre></li></ol></div></li></ul></div><p>
+          For more information about importing a custom Linux image into
+          Oracle Cloud Infrastructure, see also:
+        </p><p>
+          <a href="https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/importingcustomimagelinux.htm" target="_top">https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/importingcustomimagelinux.htm</a>
+        </p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-import-oci"></a>1.15.8.&nbsp;Importing an Instance from Oracle Cloud Infrastructure</h3></div></div></div><p>
+        Perform the following steps to import a cloud instance from
+        Oracle Cloud Infrastructure into Oracle VM VirtualBox:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Select <span class="bold"><strong>File</strong></span>,
+            <span class="bold"><strong>Import Appliance</strong></span> to open
+            the <span class="bold"><strong>Import Virtual
+            Appliance</strong></span> wizard.
+          </p><p>
+            In the <span class="bold"><strong>Source</strong></span> drop-down
+            list, select <span class="bold"><strong>Oracle Cloud Infrastructure</strong></span>.
+          </p><p>
+            In the <span class="bold"><strong>Account</strong></span> drop-down
+            list, select the cloud profile for your Oracle Cloud Infrastructure account.
+          </p><p>
+            The list after the <span class="bold"><strong>Account</strong></span>
+            field shows the profile settings for your cloud account.
+          </p><p>
+            Choose the required cloud instance from the list in the
+            <span class="bold"><strong>Machines</strong></span> field.
+          </p><p>
+            Click <span class="bold"><strong>Next</strong></span> to make an API
+            request to the Oracle Cloud Infrastructure service and display the
+            <span class="bold"><strong>Appliance Settings</strong></span> screen.
+          </p></li><li><p>
+            (Optional) Edit settings for the new local virtual machine.
+          </p><p>
+            For example, you can edit the VM name and description.
+          </p><div class="figure"><a name="fig-import-instance-oci"></a><p class="title"><b>Figure&nbsp;1.16.&nbsp;Import Cloud Instance Screen, Showing Profile Settings and VM Settings</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/import-instance.png" align="middle" width="425" alt="Import Cloud Instance Screen, Showing Profile Settings and VM Settings"></td></tr></tbody></table></div></div><p>
+            Click <span class="bold"><strong>Import</strong></span> to import the
+            instance from Oracle Cloud Infrastructure.
+          </p></li><li><p>
+            Monitor the import process by using the Oracle Cloud Infrastructure Console.
+          </p></li></ol></div><p>
+        You can also use the <span><strong class="command">VBoxManage import</strong></span>
+        command to import an instance from Oracle Cloud Infrastructure. See
+        <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-import-cloud" title="8.10.2. Import from Oracle Cloud Infrastructure">Section&nbsp;8.10.2, “Import from Oracle Cloud Infrastructure”</a>.
+      </p><div class="simplesect" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="import-instance-sequence"></a>Importing an Instance: Overview of Events</h4></div></div></div><p>
+          The following describes the sequence of events when you import
+          an instance from Oracle Cloud Infrastructure.
+        </p><div class="itemizedlist"><ul type="disc"><li><p>
+              A custom image is created from the boot volume of the
+              instance.
+            </p></li><li><p>
+              The custom image is exported to an Oracle Cloud Infrastructure object and is
+              stored using Object Storage in the bucket specified by the
+              user.
+            </p></li><li><p>
+              The Oracle Cloud Infrastructure object is downloaded to the local host. The
+              object is a TAR archive which contains a boot volume of
+              the instance in QCOW2 format and a JSON file containing
+              metadata related to the instance.
+            </p></li><li><p>
+              The boot volume of the instance is extracted from the
+              archive and a new VMDK image is created by converting the
+              boot volume into the VMDK format. The VMDK image is
+              registered with Oracle VM VirtualBox.
+            </p></li><li><p>
+              A new VM is created using the VMDK image for the cloud
+              instance.
+            </p><p>
+              By default, the new VM is not started after import from
+              Oracle Cloud Infrastructure.
+            </p></li><li><p>
+              The downloaded TAR archive is deleted after a successful
+              import.
+            </p></li></ul></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-new-vm"></a>1.15.9.&nbsp;Creating New Cloud Instances from a Custom Image</h3></div></div></div><p>
+        You can use Oracle VM VirtualBox to create new instances from a custom
+        image on your cloud service.
+      </p><p>
+        <a href="https://www.virtualbox.org/manual/ch01.html#cloud-export-oci" title="1.15.7. Exporting an Appliance to Oracle Cloud Infrastructure">Section&nbsp;1.15.7, “Exporting an Appliance to Oracle Cloud Infrastructure”</a> describes how to create a
+        custom image when you are exporting a VM to Oracle Cloud Infrastructure. Using a
+        custom image means that you can quickly create cloud instances
+        without having to upload your image to the cloud service every
+        time.
+      </p><p>
+        Perform the following steps to create a new cloud instance on
+        Oracle Cloud Infrastructure:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Select <span class="bold"><strong>File</strong></span>,
+            <span class="bold"><strong>New Cloud VM</strong></span> to open the
+            <span class="bold"><strong>Create Cloud Virtual
+            Machine</strong></span> wizard.
+          </p></li><li><p>
+            From the <span class="bold"><strong>Destination</strong></span>
+            drop-down list, select
+            <span class="bold"><strong>Oracle Cloud Infrastructure</strong></span>.
+          </p><p>
+            In the <span class="bold"><strong>Account</strong></span> drop-down
+            list, select the cloud profile for your Oracle Cloud Infrastructure account.
+          </p><p>
+            The list after the <span class="bold"><strong>Account</strong></span>
+            field shows the profile settings for your cloud account.
+          </p><p>
+            In the <span class="bold"><strong>Images</strong></span> list, select
+            from the custom images available on Oracle Cloud Infrastructure.
+          </p><div class="figure"><a name="fig-newcloudvm"></a><p class="title"><b>Figure&nbsp;1.17.&nbsp;New Cloud VM Wizard, Showing List of Custom Images</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="425"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/newcloudvm.png" align="middle" width="425" alt="New Cloud VM Wizard, Showing List of Custom Images"></td></tr></tbody></table></div></div><p>
+            Click <span class="bold"><strong>Next</strong></span> to make an API
+            request to the Oracle Cloud Infrastructure service and open the
+            <span class="bold"><strong>Cloud Virtual Machine
+            Settings</strong></span> screen.
+          </p></li><li><p>
+            (Optional) Edit settings used for the new instance on Oracle Cloud Infrastructure.
+          </p><p>
+            For example, you can edit the Disk Size and Shape used for
+            the VM instance and the networking configuration.
+          </p><p>
+            Click <span class="bold"><strong>Create</strong></span> to create the
+            new cloud instance.
+          </p></li><li><p>
+            Monitor the instance creation process by using the Oracle Cloud Infrastructure
+            Console.
+          </p></li></ol></div><p>
+        You can also use the <span><strong class="command">VBoxManage cloud
+        instance</strong></span> command to create and manage instances on a
+        cloud service. See <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-cloud" title="8.45. VBoxManage cloud">Section&nbsp;8.45, “VBoxManage cloud”</a>.
+      </p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="cloud-using-cli"></a>1.15.10.&nbsp;Using VBoxManage Commands With Oracle Cloud Infrastructure</h3></div></div></div><p>
+        This section includes some examples of how
+        <span><strong class="command">VBoxManage</strong></span> commands can be used to integrate
+        with Oracle Cloud Infrastructure and perform common cloud operations.
+      </p><p>
+        <span class="bold"><strong>Creating a Cloud Profile</strong></span>
+      </p><p>
+        To create a cloud profile called <code class="literal">vbox-oci</code>:
+      </p><pre class="screen">VBoxManage cloudprofile --provider "OCI" --profile="vbox-oci" add \
+--clouduser="ocid1.user.oc1..."  --keyfile="/home/username/.oci/oci_api_key.pem" \
+--tenancy="ocid1.tenancy.oc1..."  --compartment="ocid1.compartment.oc1..."  --region="us-ashburn-1"
+</pre><p>
+        The new cloud profile is added to the
+        <code class="filename">oci_config</code> file in your Oracle VM VirtualBox
+        global configuration directory. For example, this is
+        <code class="filename">$HOME/.VirtualBox/oci_config</code> on a Windows
+        host.
+      </p><p>
+        <span class="bold"><strong>Listing Cloud Instances</strong></span>
+      </p><p>
+        To list the instances in your Oracle Cloud Infrastructure compartment:
+      </p><pre class="screen">VBoxManage cloud --provider="OCI" --profile="vbox-oci" list instances
+</pre><p>
+        <span class="bold"><strong>Exporting an Oracle VM VirtualBox VM to the
+        Cloud</strong></span>
+      </p><p>
+        To export a VM called <code class="literal">myVM</code> and create a cloud
+        instance called <code class="literal">myVM_Cloud</code>:
+      </p><pre class="screen">VBoxManage export myVM --output OCI:// --cloud 0 --vmname myVM_Cloud \
+--cloudprofile "vbox-oci" --cloudbucket myBucket \
+--cloudshape VM.Standard2.1 --clouddomain US-ASHBURN-AD-1 --clouddisksize 50  \
+--cloudocivcn ocid1.vcn.oc1... --cloudocisubnet ocid1.subnet.oc1... \
+--cloudkeepobject true --cloudlaunchinstance true --cloudpublicip true
+      </pre><p>
+        <span class="bold"><strong>Importing a Cloud Instance Into
+        Oracle VM VirtualBox</strong></span>
+      </p><p>
+        To import a cloud instance and create an Oracle VM VirtualBox VM
+        called <code class="literal">oci_Import</code>:
+      </p><pre class="screen">VBoxManage import OCI:// --cloud --vmname oci_Import --memory 4000
+--cpus 3 --ostype FreeBSD_64 --cloudprofile "vbox-oci"
+--cloudinstanceid ocid1.instance.oc1... --cloudbucket myBucket
+  </pre><p>
+        <span class="bold"><strong>Creating a New Cloud Instance From a
+        Custom Image</strong></span>
+      </p><p>
+        To create a new cloud instance from a custom image on Oracle Cloud Infrastructure:
+      </p><pre class="screen">VBoxManage cloud --provider="OCI" --profile="vbox-oci" instance create \
+--domain-name="oraclecloud.com" --image-id="ocid1.image.oc1..." --display-name="myInstance" \
+--shape="VM.Standard2.1" --subnet="ocid1.subnet.oc1..."</pre><p>
+        <span class="bold"><strong>Terminating a Cloud Instance</strong></span>
+      </p><p>
+        To terminate an instance in your compartment on Oracle Cloud Infrastructure:
+      </p><pre class="screen">VBoxManage cloud --provider="OCI" --profile="vbox-oci" instance terminate \
+--id="ocid1.instance.oc1..." </pre><p>
+        For more details about the available commands for cloud
+        operations, see <a href="https://www.virtualbox.org/manual/ch08.html#vboxmanage-cloud" title="8.45. VBoxManage cloud">Section&nbsp;8.45, “VBoxManage cloud”</a>.
+      </p></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="globalsettings"></a>1.16.&nbsp;Global Settings</h2></div></div></div><p>
+      The <span class="bold"><strong>Global Settings</strong></span> dialog can be
+      displayed using the <span class="bold"><strong>File</strong></span> menu, by
+      clicking the <span class="bold"><strong>Preferences</strong></span> item.
+      This dialog offers a selection of settings, most of which apply to
+      all virtual machines of the current user. The
+      <span class="bold"><strong>Extensions</strong></span> option applies to the
+      entire system.
+    </p><p>
+      The following settings are available:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>General.</strong></span> Enables the user to
+          specify the default folder or directory for VM files, and the
+          VRDP Authentication Library.
+        </p></li><li><p>
+          <span class="bold"><strong>Input.</strong></span> Enables the user to
+          specify the Host key. This is the key that toggles whether the
+          cursor is in the focus of the VM or the Host OS windows, see
+          <a href="https://www.virtualbox.org/manual/ch01.html#keyb_mouse_normal" title="1.8.2. Capturing and Releasing Keyboard and Mouse">Section&nbsp;1.8.2, “Capturing and Releasing Keyboard and Mouse”</a>. The Host key is also used
+          to trigger certain VM actions, see
+          <a href="https://www.virtualbox.org/manual/ch01.html#specialcharacters" title="1.8.3. Typing Special Characters">Section&nbsp;1.8.3, “Typing Special Characters”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Update.</strong></span> Enables the user to
+          specify various settings for Automatic Updates.
+        </p></li><li><p>
+          <span class="bold"><strong>Language.</strong></span> Enables the user to
+          specify the GUI language.
+        </p></li><li><p>
+          <span class="bold"><strong>Display.</strong></span> Enables the user to
+          specify the screen resolution, and its width and height. A
+          default scale factor can be specified for all guest screens.
+        </p></li><li><p>
+          <span class="bold"><strong>Network.</strong></span> Enables the user to
+          configure the details of NAT networks. See
+          <a href="https://www.virtualbox.org/manual/ch06.html#network_nat_service" title="6.4. Network Address Translation Service">Section&nbsp;6.4, “Network Address Translation Service”</a>.
+        </p></li><li><p>
+          <span class="bold"><strong>Extensions.</strong></span> Enables the user
+          to list and manage the installed extension packages.
+        </p></li><li><p>
+          <span class="bold"><strong>Proxy.</strong></span> Enables the user to
+          configure a HTTP Proxy Server.
+        </p></li></ul></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="frontends"></a>1.17.&nbsp;Alternative Front-Ends</h2></div></div></div><p>
+      As briefly mentioned in <a href="https://www.virtualbox.org/manual/ch01.html#features-overview" title="1.3. Features Overview">Section&nbsp;1.3, “Features Overview”</a>,
+      Oracle VM VirtualBox has a very flexible internal design that enables
+      you to use multiple interfaces to control the same virtual
+      machines. For example, you can start a virtual machine with the
+      VirtualBox Manager window and then stop it from the command line.
+      With Oracle VM VirtualBox's support for the Remote Desktop Protocol
+      (RDP), you can even run virtual machines remotely on a headless
+      server and have all the graphical output redirected over the
+      network.
+    </p><p>
+      The following front-ends are shipped in the standard
+      Oracle VM VirtualBox package:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="bold"><strong>VirtualBox.</strong></span> This is the
+          VirtualBox Manager, a graphical user interface that uses the
+          Qt toolkit. This interface is described throughout this
+          manual. While this is the simplest and easiest front-end to
+          use, some of the more advanced Oracle VM VirtualBox features are not
+          included.
+        </p></li><li><p>
+          <span class="bold"><strong>VBoxManage.</strong></span> A command-line
+          interface for automated and detailed control of every aspect
+          of Oracle VM VirtualBox. See
+          <a href="https://www.virtualbox.org/manual/ch08.html" title="Chapter 8. VBoxManage">Chapter&nbsp;8, <i>VBoxManage</i></a>.
+        </p></li><li><p>
+          <span class="bold"><strong>VBoxHeadless.</strong></span> A front-end
+          that produces no visible output on the host at all, but can
+          act as a RDP server if the VirtualBox Remote Desktop Extension
+          (VRDE) is installed and enabled for the VM. As opposed to the
+          other graphical interfaces, the headless front-end requires no
+          graphics support. This is useful, for example, if you want to
+          host your virtual machines on a headless Linux server that has
+          no X Window system installed. See
+          <a href="https://www.virtualbox.org/manual/ch07.html#vboxheadless" title="7.1.2. VBoxHeadless, the Remote Desktop Server">Section&nbsp;7.1.2, “VBoxHeadless, the Remote Desktop Server”</a>.
+        </p></li></ul></div><p>
+      If the above front-ends still do not satisfy your particular
+      needs, it is possible to create yet another front-end to the
+      complex virtualization engine that is the core of Oracle VM VirtualBox,
+      as the Oracle VM VirtualBox core neatly exposes all of its features in a
+      clean API. See <a href="https://www.virtualbox.org/manual/ch11.html" title="Chapter 11. Oracle VM VirtualBox Programming Interfaces">Chapter&nbsp;11, <i>Oracle VM VirtualBox Programming Interfaces</i></a>.
+    </p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="soft-keyb"></a>1.18.&nbsp;Soft Keyboard</h2></div></div></div><p>
+      Oracle VM VirtualBox provides a <span class="emphasis"><em>soft keyboard</em></span> that
+      enables you to input keyboard characters on the guest. A soft
+      keyboard is an on-screen keyboard that can be used as an
+      alternative to a physical keyboard. See
+      <a href="https://www.virtualbox.org/manual/ch01.html#soft-keyb-using" title="1.18.1. Using the Soft Keyboard">Section&nbsp;1.18.1, “Using the Soft Keyboard”</a> for details of how to use the
+      soft keyboard.
+    </p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Caution</h3><p>
+        For best results, ensure that the keyboard layout configured on
+        the guest OS matches the keyboard layout used by the soft
+        keyboard. Oracle VM VirtualBox does not do this automatically.
+      </p></div><div class="figure"><a name="fig-soft-keyb"></a><p class="title"><b>Figure&nbsp;1.18.&nbsp;Soft Keyboard in a Guest Virtual Machine</b></p><div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="496"><tbody><tr><td align="center"><img src="./ORACLE_VirtualBox_Manual_files/softkeybd.png" align="middle" width="496" alt="Soft Keyboard in a Guest Virtual Machine"></td></tr></tbody></table></div></div><p>
+      The soft keyboard can be used in the following scenarios:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          When the physical keyboard on the host is not the same as the
+          keyboard layout configured on the guest. For example, if the
+          guest is configured to use an international keyboard, but the
+          host keyboard is US English.
+        </p></li><li><p>
+          To send special key combinations to the guest. Note that some
+          common key combinations are also available in the
+          <span class="bold"><strong>Input</strong></span>,
+          <span class="bold"><strong>Keyboard</strong></span> menu of the guest VM
+          window. See <a href="https://www.virtualbox.org/manual/ch01.html#specialcharacters" title="1.8.3. Typing Special Characters">Section&nbsp;1.8.3, “Typing Special Characters”</a>.
+        </p></li><li><p>
+          For guests in kiosk mode, where a physical keyboard is not
+          present.
+        </p></li><li><p>
+          When using nested virtualization, the soft keyboard provides a
+          method of sending key presses to a guest.
+        </p></li></ul></div><p>
+      By default, the soft keyboard includes some common international
+      keyboard layouts. You can copy and modify these to meet your own
+      requirements. See <a href="https://www.virtualbox.org/manual/ch01.html#soft-keyb-custom" title="1.18.2. Creating a Custom Keyboard Layout">Section&nbsp;1.18.2, “Creating a Custom Keyboard Layout”</a>.
+    </p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="soft-keyb-using"></a>1.18.1.&nbsp;Using the Soft Keyboard</h3></div></div></div><div class="orderedlist"><ol type="1"><li><p>
+            Display the soft keyboard.
+          </p><p>
+            In the guest VM window, select
+            <span class="bold"><strong>Input</strong></span>,
+            <span class="bold"><strong>Keyboard</strong></span>,
+            <span class="bold"><strong>Soft Keyboard</strong></span>.
+          </p></li><li><p>
+            Select the required keyboard layout.
+          </p><p>
+            The name of the current keyboard layout is displayed in the
+            task bar of the soft keyboard window. This is the previous
+            keyboard layout that was used.
+          </p><p>
+            Click the <span class="bold"><strong>Layout List</strong></span> icon
+            in the task bar of the soft keyboard window. The
+            <span class="bold"><strong>Layout List</strong></span> window is
+            displayed.
+          </p><p>
+            Select the required keyboard layout from the entries in the
+            <span class="bold"><strong>Layout List</strong></span> window.
+          </p><p>
+            The keyboard display graphic is updated to show the
+            available input keys.
+          </p></li><li><p>
+            Use the soft keyboard to enter keyboard characters on the
+            guest.
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                Modifier keys such as Shift, Ctrl, and Alt are available
+                on the soft keyboard. Click once to select the modifier
+                key, click twice to lock the modifier key.
+              </p><p>
+                The <span class="bold"><strong>Reset the Keyboard and Release
+                All Keys</strong></span> icon can be used to release all
+                pressed modifier keys, both on the host and the guest.
+              </p></li><li><p>
+                To change the look of the soft keyboard, click the
+                <span class="bold"><strong>Settings</strong></span> icon in the
+                task bar. You can change colors used in the keyboard
+                graphic, and can hide or show sections of the keyboard,
+                such as the NumPad or multimedia keys.
+              </p></li></ul></div></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="soft-keyb-custom"></a>1.18.2.&nbsp;Creating a Custom Keyboard Layout</h3></div></div></div><p>
+        You can use one of the supplied default keyboard layouts as the
+        starting point to create a custom keyboard layout.
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+          To permananently save a custom keyboard layout, you must save
+          it to file. Otherwise, any changes you make are discarded when
+          you close down the <span class="bold"><strong>Soft
+          Keyboard</strong></span> window.
+        </p><p>
+          Custom keyboard layouts that you save are stored as an XML
+          file on the host, in the <code class="filename">keyboardLayouts</code>
+          folder in the global configuration data directory. For
+          example, in
+          <code class="filename">$HOME/.config/VirtualBox/keyboardLayouts</code>
+          on a Linux host.
+        </p></div><div class="orderedlist"><ol type="1"><li><p>
+            Display the <span class="bold"><strong>Layout List</strong></span>.
+          </p><p>
+            Click the <span class="bold"><strong>Layout List</strong></span> icon
+            in the task bar of the soft keyboard window.
+          </p></li><li><p>
+            Make a copy of an existing keyboard layout.
+          </p><p>
+            Highlight the required layout and click the
+            <span class="bold"><strong>Copy the Selected Layout</strong></span>
+            icon.
+          </p><p>
+            A new layout entry with a name suffix of
+            <code class="literal">-Copy</code> is created.
+          </p></li><li><p>
+            Edit the new keyboard layout.
+          </p><p>
+            Highlight the new layout in the <span class="bold"><strong>Layout
+            List</strong></span> and click the <span class="bold"><strong>Edit the
+            Selected Layout</strong></span> icon.
+          </p><p>
+            Enter a new name for the layout.
+          </p><p>
+            Edit keys in the new layout. Click on the key that you want
+            to edit and enter new key captions in the
+            <span class="bold"><strong>Captions</strong></span> fields.
+          </p><p>
+            The keyboard graphic is updated with the new captions.
+          </p></li><li><p>
+            (Optional) Save the layout to file. This means that your
+            custom keyboard layout will be available for future use.
+          </p><p>
+            Highlight the new layout in the <span class="bold"><strong>Layout
+            List</strong></span> and click the <span class="bold"><strong>Save the
+            Selected Layout into File</strong></span> icon.
+          </p><p>
+            Any custom layouts that you create can later be removed from
+            the Layout List, by highlighting and clicking the
+            <span class="bold"><strong>Delete the Selected Layout</strong></span>
+            icon.
+          </p></li></ol></div></div></div></div>
+</body></html>
