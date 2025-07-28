@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://ss64.com/nt/tar.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=768, initial-scale=1">
+<link rel="STYLESHEET" href="./TAR - Windows CMD - SS64.com_files/main.css" type="text/css">
+<title>TAR - Windows CMD - SS64.com</title>
+<!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+<script src="./TAR - Windows CMD - SS64.com_files/rules-p-LefJsSQUFAJuR.js.download" async=""></script><script src="./TAR - Windows CMD - SS64.com_files/quant.js.download" async="" type="text/javascript"></script><script async="" type="text/javascript" src="./TAR - Windows CMD - SS64.com_files/cmp2.js.download"></script><script async="" type="text/javascript" src="./TAR - Windows CMD - SS64.com_files/choice.js.download"></script><script type="text/javascript" async="true">
+(function() {
+  var host = window.location.hostname;
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://quantcast.mgr.consensu.org'
+    .concat('/choice/', 'LefJsSQUFAJuR', '/', host, '/choice.js')
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+
+<script type="text/javascript" src="./TAR - Windows CMD - SS64.com_files/hb_v2.js.download"></script><style type="text/css"> .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #368bd6 !important;    border-color: transparent !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #368bd6 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  } </style><script type="text/javascript" src="./TAR - Windows CMD - SS64.com_files/pbix.js.download"></script><script async="" src="./TAR - Windows CMD - SS64.com_files/r.js.download" type="text/javascript"></script></head><body><!-- #BeginLibraryItem "/Library/head_nt.lbi" --><div id="tnav"><ul>
+<li class="tbtn"><a href="https://ss64.com/">SS64</a></li>
+<li class="tbtn"><a href="https://ss64.com/nt">CMD <svg viewBox="0 0 13 20.1" width="13" height="13" style="transform: rotate(0deg);"><path d="M0 2.9l7.2 7.2-7.1 7.1L3 20.1l7.1-7.1 2.9-2.9L2.9 0 0 2.9"></path></svg></a></li>
+<li class="tbtn"><a href="https://ss64.com/nt/syntax.html">How-to <svg viewBox="0 0 13 20.1" width="13" height="13" style="transform: rotate(0deg);"><path d="M0 2.9l7.2 7.2-7.1 7.1L3 20.1l7.1-7.1 2.9-2.9L2.9 0 0 2.9"></path></svg></a></li>
+<li><div id="search"><form action="https://www.google.com/search" method="get">
+<input type="text" name="q" id="qu" size="27" maxlength="255">
+<input class="submit mousetrap" value="Search" id="btn" type="submit">
+<input type="hidden" name="sitesearch" value="ss64.com/nt/"></form></div></li>
+</ul></div><!-- #EndLibraryItem --><h1>TAR.exe</h1> 
+<p>Store, list or extract files in an archive (originally on tape - Tape ARchiver). <br>
+BSD TAR.exe was added to Windows 10 (1903) from  build 17063 or later.<br>
+</p>
+<pre>Syntax
+     List:    TAR <b>-t</b>f <i>archive-filename</i>
+              TAR <b>-t</b> [options] [<i>patterns</i>]
+
+     Extract: TAR <b>-x</b>f <i>archive-filename</i>
+              TAR <b>-x</b> [<i>options</i>] [<i>patterns</i>]
+
+     Create:  TAR <b>-c</b>f <i>archive-filename</i> [<i>filenames</i>...]
+              TAR <b>-c</b> [options] <b>[</b> <i>file</i> | <i>dir</i> | @<i>archive</i> | -C <i>dir</i> <b>]</b> <i>file</i>, <i>dir</i>
+
+     Update:  TAR <b>-r</b>f <i>archive-filename</i> [<i>filenames</i>...]
+              TAR <b>-r</b> [<i>options</i>] <b>[</b> <i>file</i> | <i>dir</i> | @<i>archive</i> | -C <i>dir</i> <b>]</b> <i>file</i>, <i>dir</i>
+
+     Help:    TAR --help
+
+The first option must be a mode specifier:
+   -c   Create
+   -r   Add/Replace
+   -t   List
+   -u   Update (alias for -r)
+   -x   Extract
+
+Common Options:
+   -b #         Use # 512-byte records per I/O block.
+   -f <i>filename</i>  Location of archive (default \\.\tape0).
+   -v           Verbose.
+   -w           Interactive.
+   <i>patterns</i>     If specified, only use entries that match.
+
+Create Options (when adding items to an archive):
+   -z      Compress archive with gzip.
+   -j      Compress archive with bzip2.
+   -J      Compress archive with xz.
+   --lzma  Compress archive with lzma.
+   --format {ustar|pax|cpio|shar}  Select archive format.
+   --exclude <i>pattern</i>  Skip files that match pattern.
+   -C <i>dir</i>     Change to <i>dir</i> before processing remaining files.
+   @<i>archive</i>   Add entries from <i>archive</i> to output.
+
+Extract Options:
+   -k    Keep (don’t overwrite) existing files.
+   -m    Don't restore modification times.
+   -O    Write entries to stdout, don’t restore to disk.
+   -p    Restore permissions (including ACLs, owner, file flags).</pre>
+<p>The tar utility exits with one of the following values: <br>
+0     All files were processed successfully. <br>
+1     An error occurred.</p>
+<p><a id="e"></a><b>Examples</b></p>
+<p>Verbosely create a gzip  archive, called sqlbackup.tar.gz, of all files matching the pattern *.sql:</p>
+<p><span class="code">C:\&gt; tar -cvzf C:\TARS\sqlbackup.tar.gz *.sql</span></p>
+<p>List the content of the gzip  archive <span class="code">C:\TARS\sqlbackup.tar.gz</span>:</p>
+<p><span class="code">C:\&gt; tar -tvzf C:\TARS\sqlbackup.tar.gz</span></p>
+<p class="quote">“Put three grains of sand inside a vast cathedral, and the cathedral will be more closely packed with sand than space is with stars” ~ James Jeans</p>
+<p><b>Related commands:</b></p>
+<p class="space"><a href="https://ss64.com/nt/compact.html">COMPACT</a> - Compress files or folders on an NTFS partition.<br>
+<a href="https://ss64.com/nt/compress.html">COMPRESS</a> - Compress one or more files<br>
+<a href="https://ss64.com/nt/iexpress.html">IEXPRESS</a> - Create a self extracting ZIP file archive.<br>
+<a href="https://ss64.com/nt/makecab.html">MAKECAB</a> - Create .CAB files.<br>
+<a href="https://superuser.com/questions/110991/">Zip a file</a> - using only built-in Batch/VBS commands (Superuser.com)</p><!-- #BeginLibraryItem "/Library/foot_nt.lbi" --><!-- AuctionX Display platform tag START -->
+<div id="27677x300x250x4627x_ADSLOT1" clicktrack="%%CLICK_URL_ESC%%" style="width: 300px; height: 250px;"><div id="pix_info" class="pix_info" style="position: relative; z-index: 2147483646; cursor: pointer; bottom: -250px;"><a id="pix_info_text" href="https://www.pixfuture.com/advertisers/?id0348293521d" target="_blank" style="display: none; font-size: 9px; color: rgb(142, 140, 140); text-decoration: none; box-shadow: none; padding: 2px; background-color: white; border-top-left-radius: 5px; bottom: 0px; right: 0px; position: absolute; line-height: 1; font-family: &quot;open sans&quot;, sans-serif; box-sizing: initial; border: none;">Powered by pixfuture</a><a id="pix_info_icon" href="https://www.pixfuture.com/advertisers/?id0348293521d" target="_blank" style="bottom: 0px; right: 0px; position: absolute; text-decoration: none; width: 15px; height: 15px; color: rgb(142, 140, 140); padding-bottom: 6px; padding-right: 2px; float: right; display: initial; box-sizing: initial; border: none; font-size: 16px;">ⓘ</a></div><iframe id="27677x300x250x4627x_ADSLOT1_iframe" frameborder="0" scrolling="no" width="300" height="250" marginwidth="0" marginheight="0" src="./TAR - Windows CMD - SS64.com_files/saved_resource.html"></iframe></div>
+<script type="text/javascript" async="" src="./TAR - Windows CMD - SS64.com_files/headerbid.js.download" slotid="27677x300x250x4627x_ADSLOT1" refreshtime="5" refreshinterval="120"></script><!-- AuctionX Display platform tag END -->
+<hr>
+<div id="bl">&nbsp;</div>
+<div id="br">Copyright © 1999-2022 <a href="https://ss64.com/">SS64.com</a><br>
+Some rights reserved</div><!-- #EndLibraryItem -->
+<iframe name="__tcfapiLocator" style="display: none;" src="./TAR - Windows CMD - SS64.com_files/saved_resource(3).html"></iframe></body><iframe sandbox="allow-scripts allow-same-origin" id="232fed173982ee3" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/checksync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="24c4e52c4f16df1" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/usync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="257599833d239bf" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/CookieSync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="2677bb918d8eccb" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/pd.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="279c95a53d6f6d" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/user_sync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="284ac22543d8c88" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/saved_resource(4).html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="29bece2cd1338f2" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./TAR - Windows CMD - SS64.com_files/check.html">
+    </iframe></html>

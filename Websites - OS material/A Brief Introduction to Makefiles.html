@@ -1,0 +1,354 @@
+
+<!-- saved from url=(0050)https://www.cs.usask.ca/staff/oster/makefiles.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>A Brief Introduction to Makefiles</title>
+</head>
+<body bgcolor="ffffff" text="000000" link="0000ff" vlink="000080">
+
+<h1>Makefiles For Everyone</h1>
+
+One of the most widely used tools for aiding in constructing large
+projects is the <b>Makefile</b>.  Every software package that needs to
+be compiled either comes with a Makefile, or has tools for
+automatically constructing an appropriate Makefile.  Unfortunately,
+while classes explain the syntax and semantics of programming
+languages, very little (if anything!) is said about the Makefile - yet
+the Makefile is perhaps the most useful tool available for nearly any
+software project.  This document attempts to provide a beginner's
+guide to Makefiles, with the focus being on simple examples and a
+minimal amount of fuss.
+
+<p>
+
+While a Makefile can be used to do many things, the focus here will be
+on the construction of a single executable from a set of C source
+files.  The discussion will not delve into the many of the options,
+control structures, and special commands that are available - only a
+little more than the very basics will be covered. 
+
+</p><p>
+It is assumed that the reader has some familiarity with compiling C code.
+
+</p><p>
+
+</p><h2>Background</h2>
+
+A single command such as:
+<pre>gcc -o myprogram myprogram.c
+</pre>
+is sufficient to compile a simple program into an executable.  It
+could be argued that such a simple program really doesn't need a
+Makefile at all - and perhaps that is true in most cases.  However, in
+many cases more than one source file is needed to create an
+executable:
+<pre>gcc -c part1.c
+gcc -c part2.c 
+gcc -c main.c
+gcc -o myprogram part1.o part2.o main.o
+</pre>
+Suddenly, keeping track of what portions need to be re-compiled before
+linking ("Did I change something in part2.c, or was that just in
+part1.c?") becomes non-trivial, and gets much worse as the number of
+source files increase.
+
+<p>
+
+The idea behind a Makefile is simple: with the single command:
+</p><pre>make
+</pre>
+a sequence of commands can be carried out.  As an added bonus,
+Makefiles can be taught about the dependencies between the files:
+e.g. that if part2.c gets changed, then part2.o needs to be re-built.
+The best part is that the Makefile is very good at keeping track of
+these sorts of dependencies - in fact, that is what it was designed to
+do!
+
+<h2>A Simple Makefile</h2>
+
+Makefiles do not need to be complex, nor scary (although you may have
+already encountered some that are down-right <b>ugly</b>, and have
+thus been frightened away from Makefiles).  The basics behind
+makefiles are actually pretty easy.
+
+<p>
+
+Makefiles consist of a series of <b>rules</b> in a simple flat file
+format (i.e. your average ASCII text file).
+Each rule is of the form:
+</p><pre>target: requirements
+        target build instructions
+</pre>
+Note that the <b>target build instructions</b> have a TAB in front of
+them - not spaces (Don't ask!).  If you use spaces instead of TABs,
+you will get an error message something like:
+<pre>Makefile:2: *** missing separator.  Stop.
+</pre>
+or
+<pre>"Makefile", line 2: Need an operator
+Fatal errors encountered -- cannot continue
+</pre>
+While there are a few "magical"
+characters, the only one to be concerned with at this point is the
+":", which separates the target from the requirements.  
+<p>
+Before <b>target</b> can be built,
+all the <b>requirements</b> must be in place.  In other words, the
+<b>target</b> depends on the <b>requirements</b>.  Each of those
+requirements, however, can be the <b>target</b> of another rule.   If
+all the requirements are in place, then the <b>target build
+instructions</b> are performed to construct <b>target</b>.  In most
+cases, the primary target of a Makefile is defined by the first rule
+in the Makefile.  Consider the following makefile:
+
+</p><pre># A simple Makefile
+
+myprogram: main.o part1.o part2.o
+      gcc -o myprogram main.o part1.o part2.o
+
+part1.o: part1.c part1.h header.h
+      gcc -O -c part1.c
+
+part2.o: part2.c header.h
+      gcc -O -c part2.c
+
+main.o: main.c header.h
+      gcc -O -c main.c
+
+clean:
+      rm -f myprogram main.o part1.o part2.o
+
+</pre>
+
+Since this Makefile describes how to construct a program called
+'myprogram', it is not surprising that the rule for 'myprogram' is
+also the main target of this Makefile.  For this Makefile, the result
+of doing a 'make' will be the construction of 'myprogram'.
+
+The lines:
+<pre>myprogram: main.o part1.o part2.o
+      gcc -o myprogram main.o part1.o part2.o
+</pre>
+indicate that three pieces: main.o, part1.o, and part2.o are required
+to construct 'myprogram'.  If main.o does not exist, then 'make'
+searches for an appropriate rule to build main.o.  As is seen in the
+Makefile, there are additional rules which specify how each of these
+three pieces are to be constructed.
+
+Let us consider a small portion of the above in more depth:
+<pre>part1.o: part1.c part1.h header.h
+      gcc -O -c part1.c
+</pre>
+This says that in order to construct part1.o, the files part1.c,
+part1.h, and header.h must be present.  These are the
+<b>requirements</b> to build the target part1.o.  If those files are
+present, then the command to construct part1.o is:
+<pre>      gcc -O -c part1.c
+</pre>
+As a bonus, part1.o will only be re-built if part1.c, part1.h, or
+header.h have changed since the last time part1.o was changed!  'make'
+looks at the timestamps on the files to determine what has been
+changed, and thus what needs to be re-built according to your makefile
+rules.  A change to header.h, however, will rebuild everything, as in
+this case header.h is used in each of the C files for this program.
+
+<p>
+
+Since each of the rules in a makefile stand on their own, we could
+just do a:
+</p><pre>make main.o
+</pre>
+to only perform those rules necessary to build the target main.o.  In
+a similar way, a:
+<pre>make clean
+</pre>
+will invoke the rule:
+<pre>clean:
+      rm -f myprogram main.o part1.o part2.o
+</pre>
+Notice that this rule does not have any requirements, and thus will
+simply just remove the 'myprogram' executables, and all of the .o
+files associated with it. 
+<p>
+
+Rules like these are very handy for performing functions
+that are slightly more tedious to do by hand.  Even a rule like:
+</p><pre>backup: 
+      cp -Rp * /some/safe/location
+</pre>
+could be added to a Makefile so that a simple 'make backup' would copy
+all the files from the current directory to the directory
+'/some/safe/location'.  
+
+<h2>A More Complex Makefile</h2>
+
+There are many cases where you may wish to change compiler options or
+even compilers when building a piece of software.  For example, you
+may need to specify '-g' to turn on debugging, or '-O2' to add some
+extra optimization.  If those flags are hard-coded as they are in the
+simple example, then each instance must be edited in the Makefile.
+There is, however, an easier way to handle this - with variables.
+
+<p>
+
+Traditionally, Makefile variables are all upper-case, and are
+referenced using ${VAR_NAME}, just like <b>sh</b> or <b>csh</b>
+variables.  For example, a common set of compiler flags could be
+specified as:
+</p><pre>CFLAGS = -O2 -DDEBUG=1 -I/usr/X11R6/include
+</pre>
+and then used as ordinary text substitution (just like #ifdef in C) in:
+<pre>gcc ${CFLAGS} -c main.c
+</pre>
+Note that variable names are case-sensitive.
+
+<p>
+
+The following Makefile uses a few different varaibles:
+
+</p><pre>
+# A more complex Makefile
+
+CC = gcc
+CFLAGS = -O
+
+OBJS = part1.o part2.o main.o
+
+myprogram: ${OBJS}
+      ${CC} -o myprogram ${CFLAGS} ${OBJS}
+
+part1.o: part1.c part1.h header.h
+      ${CC} ${CFLAGS} -c part1.c
+
+part2.o: part2.c header.h
+      ${CC} ${CFLAGS} -c part2.c
+
+main.o: main.c header.h
+      ${CC} ${CFLAGS} -c main.c
+
+clean:
+      rm -f myprogram ${OBJS}
+      @echo "all cleaned up!"
+
+</pre>
+
+Here we find three different variables in use: CC, CFLAGS, and OBJS.  CC is
+used to specify the compiler - in this case, 'gcc'.  Each place where
+${CC} is found, the contents of the variable CC will be substituted
+in.  Thus after the substitutions are done, the line:
+<pre>      ${CC} ${CFLAGS} -c main.c
+</pre>
+would be:
+<pre>      gcc -O -c main.c
+</pre>
+Should we wish to
+use the default compiler 'cc', the change is as simple as:
+<pre>CC = cc
+</pre>
+in the Makefile.  The compiler flags are specified CFLAGS.  In this
+case, only '-O' is specified.  But should we wish to do some execution
+profiling, we may wish to change those options to:
+<pre>CFLAGS = -pg -g
+</pre>
+Again, by simply making the change in one place, we can change how
+<b>all</b> of the source files are compiled.
+<p>
+The third variable used in this file is OBJS.  In this makefile, this
+variable specifies all the object files required to construct the main
+program.  While each object file could be specified each place ${OBJ}
+is used, it is simpler and cleaner to just specify each object
+<b>once</b> in:
+</p><pre>OBJS = part1.o part2.o main.o
+</pre>
+and then use OBJS afterwards.  While:
+<pre>OBJS = part1.o part2.o main.o
+
+myprogram: ${OBJS}
+      ${CC} -o myprogram ${CFLAGS} ${OBJS}
+</pre>
+is only slightly easier to maintain than:
+<pre>myprogram: part1.o part2.o main.o
+      ${CC} -o myprogram ${CFLAGS} part1.o part2.o main.o
+</pre>
+the use of variables for these sorts of things becomes much more
+important as the number of object files increases.
+<p>
+Of note in this Makefile is the rule:
+</p><pre>clean:
+      rm -f myprogram ${OBJS}
+      @echo "all cleaned up!"
+</pre>
+This rule has no requirements, and has two target building
+instructions.  Each time a
+<pre>make clean
+</pre>
+is done, the executable file and all the object files will be
+removed, and the text "all cleaned up" will be displayed.  
+In the general case, 'make' displays the line to be executed before it
+performs the line.  The "@" at the beginning of the line (but after
+the TAB!) suppresses the displaying of the the line about to be executed.
+
+<h2>What else?</h2>
+
+While Makefiles are mostly used for aiding in building software
+packages, they can also be used for other purposes.  For example:
+<pre>mypaper: paper.tex
+      latex paper.tex
+      latex paper.tex
+      dvips paper.dvi
+</pre>
+could be used to simplify running LaTeX and dvips when writing a paper
+using LaTeX.
+<p>
+A set of simulation runs, and the production of corresponding graphs,
+could also be orchestrated with a simple makefile:
+</p><pre>
+everything: run1 run2 run3 plots
+
+run1: 
+      mysim -o result1.out input_file -parameter1
+
+run2: 
+      mysim -o result2.out input_file -parameter2
+
+run3: 
+      mysim -o result3.out input_file -parameter3
+
+plots:
+      gnuplot plot1.plt
+      gnuplot plot2.plt
+      gnuplot plot3.plt
+</pre>
+
+In short, anything that has a rule-based dependency ordering can be
+handled with a Makefile.  
+
+<h2>Conclusions</h2>
+
+The makefiles presented here have been quite trivial - makefiles can
+and do get ugly.  However for simple projects, small, readable
+makefiles can be constructed, and can be very useful.  For large
+projects with ugly makefiles, the makefiles can be incredibly useful.
+So the next time you have even a small software project to work on,
+save yourself some grief.  Take a few minutes and build yourself a
+Makefile.  It will save you wear and tear in the long run.
+
+<h2>Further References</h2>
+A more definitive guide to Makefiles is found with:
+<pre>man make
+</pre>
+although this typically has way more detail than is required to
+construct simple makefiles.
+
+<h2>Acknowlegements</h2>
+Special thanks to JRT for her constructive criticism of an earlier
+version of this document.  
+
+<hr>
+<b> Page last modified: June 7, 1999.  Updated for anti-spam-friendly
+email address: October 29, 2003.</b>
+Send comments to oster@cs.usask.ca.
+<!-- NetBSD rules! -->
+
+
+
+</body></html>

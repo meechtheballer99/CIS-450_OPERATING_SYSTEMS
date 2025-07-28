@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		 
+		<script src="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(4).txt"></script><script type="text/javascript" async="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/analytics.js.download"></script><script src="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(5).txt" id="google_shimpl"></script><script async="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/js"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-23296419-22');
+		</script>
+		 
+
+		<title>Lock-free multithreading with atomic operations - Internal Pointers</title>
+
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Monocasual Laboratories">
+		<meta name="description" content="Synchronizing threads at a lower level.">
+		<meta name="keywords" content="multithreading,atomics,lock-freedom,wait-freedom,concurrency,algorithm">
+		<meta name="copyright" content="2015-2020 Monocasual Laboratories">
+		<meta name="application-name" content="Internal Pointers">
+		<meta name="google-site-verification" content="d6wzhBnnEXNHg7kty5SNXVBKd4e29wUFP69SROd-3eI">
+
+		<meta property="og:title" content="Lock-free multithreading with atomic operations">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations">
+<meta property="og:image" content="https://www.internalpointers.com/img/internalpointers-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="900">
+<meta property="og:site_name" content="Internal Pointers">
+<meta property="og:description" content="Synchronizing threads at a lower level.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations">
+<meta name="twitter:title" content="Lock-free multithreading with atomic operations">
+<meta name="twitter:description" content="Synchronizing threads at a lower level.">
+<meta name="twitter:image" content="https://www.internalpointers.com/img/internalpointers-card.png">
+
+		<link rel="icon" href="https://www.internalpointers.com/img/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" href="https://www.internalpointers.com/img/favicon-152.png">
+		<link rel="stylesheet" href="./Lock-free multithreading with atomic operations - Internal Pointers_files/main-1.3.3.css">
+
+				
+		<script defer="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/jquery.min.js.download"></script>
+		<script defer="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/js.cookie.min.js.download"></script>
+		<script defer="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/main-1.3.3.js.download"></script>
+
+		
+
+	<meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(6).txt" as="script"><script type="text/javascript" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(6).txt"></script></head>
+	<body>
+		<div class="ip-follow-us-popup" style="display: block;">
+
+    <div class="ip-follow-us-popup__side">
+        <img src="./Lock-free multithreading with atomic operations - Internal Pointers_files/facebook-like-thumb.svg" alt="Like it!">
+    </div>
+
+    <div class="ip-follow-us-popup__header">
+        <p>Join us on Facebook!</p>
+    </div>
+
+    <div class="ip-follow-us-popup__body">
+        <div class="ip-follow-us-popup__body__ok">
+        <img src="./Lock-free multithreading with atomic operations - Internal Pointers_files/facebook-like-thumb.svg" alt="Like it!">
+        </div>
+    </div>
+
+    <div class="ip-follow-us-popup__footer">
+        <div><a href="https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations#" class="ip-follow-us-popup__footer__nope">Nope, thanks anyway.</a></div>
+    </div>
+
+</div>		<div class="ip-cookie-banner" style="display: block;">
+    <div class="ip-container">
+        <p>We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. By using our site, you acknowledge that you have read and understand our <a href="https://www.internalpointers.com/post/%7B%7B%20url(&#39;/privacy/&#39;)%20%7D%7D">Privacy Policy</a>, and our <a href="https://www.internalpointers.com/post/%7B%7B%20url(&#39;/tos/&#39;)%20%7D%7D">Terms of Service</a>. Your use of this site is subject to these policies and terms. | <a href="https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations#" class="ip-cookie-banner__close">ok, got it</a></p>
+    </div>
+</div>		<div class="ip-header">
+	<div class="ip-container">
+		<div class="ip-header__logo">
+			<a href="https://www.internalpointers.com/">**internal / pointers</a>
+		</div>
+		<div class="ip-header__links">
+			<ul>
+				<li><a href="https://www.internalpointers.com/rss">rss</a></li>
+				<li><a href="https://www.internalpointers.com/about">about</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="ip-sub-header">
+</div>
+		<div class="ip-body" style="height: auto !important;">
+
+	<div class="ip-container" style="height: auto !important;">
+
+		<div class="ip-post" style="height: auto !important;">
+
+			<div class="ip-post__info">
+				<p>— Written by Triangles on July 21, 2019 
+								• updated on November 13, 2019  
+								• ID 74 —</p>
+			</div>
+
+			<div class="ip-post__title">
+				<h1>Lock-free multithreading with atomic operations</h1>
+			</div>
+
+			<div class="ip-post__intro">
+				<p>Synchronizing threads at a lower level.</p>
+			</div>
+
+						<div class="ip-post__other-box">
+				<div class="ip-post__other-box__section-title">Other articles from this series</div>
+
+				<ul class="ip-post__other-box__post-list">
+														<li>
+						<p>
+							<span class="title">
+								<a href="https://www.internalpointers.com/post/gentle-introduction-multithreading">A gentle introduction to multithreading</a>
+							</span> —
+							<span class="intro">Approaching the world of concurrency, one step at a time.</span>
+						</p>
+					</li>
+																			<li>
+						<p>
+							<span class="title">
+								<a href="https://www.internalpointers.com/post/introduction-thread-synchronization">Introduction to thread synchronization</a>
+							</span> —
+							<span class="intro">A look at one of the most popular ways of concurrency control in a multithreaded application.</span>
+						</p>
+					</li>
+																												<li>
+						<p>
+							<span class="title">
+								<a href="https://www.internalpointers.com/post/understanding-memory-ordering">Understanding memory reordering </a>
+							</span> —
+							<span class="intro">...and why it matters when writing lock-free multithreading code.</span>
+						</p>
+					</li>
+													</ul>
+			</div>
+			
+			<div class="ip-post__body" style="height: auto !important;">
+				<script async="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(7).txt"></script>
+<!-- internalpointers responsive -->
+<ins class="adsbygoogle" style="display: block; height: 350px; width: 1000px;" data-ad-client="ca-pub-1778432007040046" data-ad-slot="1269254897" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_0_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 350px; width: 1000px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_0_anchor" style="border: none; height: 350px; width: 1000px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: hidden;"><iframe id="aswift_0" name="aswift_0" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 1000px; height: 350px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1000" height="350" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/ads.html" data-google-container-id="a!1" data-google-query-id="CO7DxYbI5PUCFaueAAAduFEFgw" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><p style="text-align: center"><em>This article has been carefully proofread by <a href="https://it.linkedin.com/in/federicarinaldi">Federica Rinaldi</a>. Thank you!</em></p><p>The Greek word "atom" (ἄτομος; atomos) means <em>uncuttable</em>. A task performed by a computer is said to be <strong>atomic</strong> when it is not divisible anymore: it can't be broken into smaller steps.</p>
+<p><em>Atomicity</em> is an important property of multithreaded operations: since they are indivisible, there is no way for a thread to <em>slip through</em> an atomic operation concurrently performed by another one. For example, when a thread atomically writes on shared data no other thread can read the modification half-complete. Conversely, when a thread atomically reads from shared data, it sees the value as it appeared at a single moment in time. In other words, there is no risk of <a href="https://www.internalpointers.com/post/gentle-introduction-multithreading#data-races"><strong>data races</strong></a>.</p>
+<p>In the <a href="https://www.internalpointers.com/post/introduction-thread-synchronization">previous chapter</a> I have introduced the so-called <strong>synchronization primitives</strong>, the most common tools for thread synchronization. They are used, among other things, to provide atomicity to operations that deal with data shared across multiple threads. How? They simply allow a single thread to do its concurrent job, while others are blocked by the operating system until the first one has finished. The rationale is that a blocked thread does no harm to others. Given their ability to freeze threads, such synchronization primitives are also known as <strong>blocking mechanisms</strong>.</p>
+<p>Any blocking mechanism seen in the previous chapter will work great for the vast majority of your applications. They are fast and reliable if used correctly. However, they introduce some drawbacks that you might want to take into account:</p>
+<ol>
+<li>they block other threads — a dormant thread simply waits for the wakeup signal, doing nothing: it could be wasting precious time;</li>
+<li>they could hang your application — if a thread holding a lock to a synchronization primitive crashes for whatever reason, the lock itself will be never released and the waiting threads will get stuck forever;</li>
+<li>you have little control over which thread will sleep — it's usually up to the operating system to choose which thread to block. This could lead to an unfortunate event known as <strong>priority inversion</strong>: a thread that is performing a very important task gets blocked by another one with a lower priority.  </li>
+</ol>
+<p>Most of the time you don't care about these issues as they won't affect the correctness of your programs. On the other hand, sometimes having threads always up and running is desirable, especially if you want to take advantage of multi-processor/multi-core hardware. Or maybe you can't afford a system that could get stuck on a dead thread. Or again, the priority inversion problem looks too dangerous to ignore.</p>
+<h2>Lock-free programming to the rescue</h2>
+<p>The good news: there is another way to control concurrent tasks in your multithreaded app, in order to prevent points 1), 2) and 3) seen above. Known as <strong>lock-free programming</strong> or <strong>lockless programming</strong>, it's a technique to safely share changing data between multiple threads without the cost of locking and unlocking them.</p>
+<p>The bad news: this is low-level stuff. Way lower than using the traditional synchronization primitives like mutexes and semaphores: this time we will get closer to the metal. Despite this, I find lock-free programming a good mental challenge and a great opportunity to better understand how a computer actually works.</p>
+<p>Lock-free programming relies upon <strong>atomic instructions</strong>, operations performed directly by the CPU that occur atomically. Being the foundation of lock-free programming, in the rest of this article I will introduce atomic instructions first, then I will show you how to leverage them for concurrency control. Let's get started!</p>
+<h2>What are atomic instructions?</h2>
+<p>Think of any action performed by a computer, say for example displaying a picture on your screen. Such operation is made of many smaller ones: read the file into memory, de-compress the image, light up pixels on the screen and so on. If you recursively zoom into one of those sub-tasks, that is if you break it down into smaller and smaller pieces, you will eventually reach a dead end. The smallest, visible to a human operation performed by a processor is called <strong>machine instruction</strong>, a command executed by the hardware directly.</p>
+<div class="ip-img">
+<img src="./Lock-free multithreading with atomic operations - Internal Pointers_files/software-hardware-layers.png" alt="Software - hardware layers">
+<div class="caption">1. Multiple layers of a computer program. Dashed lines are software, solid lines are hardware.</div>
+</div><p>Depending on the CPU architecture, some machine instructions are atomic, that is they are performed in a single, uncuttable and uninterruptible step. Some others are not atomic instead: the processor does more work under the hood in form of even smaller operations, known as <strong><a href="https://en.wikipedia.org/wiki/Micro-operation">micro-operations</a></strong>. Let's focus on the former category: an atomic instruction is a CPU operation that cannot be further broken down. More specifically, atomic instructions can be grouped into two major classes: <strong>store and load</strong> and <strong>read-modify-write (RMW)</strong>.</p>
+<h3>Store and load atomic instructions</h3>
+<p>The building blocks any processor operates on: they are used to write (<strong>store</strong>) and read (<strong>load</strong>) data in memory. Many CPU architectures guarantee that these operations are atomic by nature, under some circumstances. For example, processors that implement the <a href="https://en.wikipedia.org/wiki/X86">x86 architecture</a> feature the <code>MOV</code> instruction, which reads bytes from memory and gives them to the CPU. This operation is guaranteed to be atomic if performed on <a href="https://www.ibm.com/support/knowledgecenter/en/SSUFAU_1.0.0/com.ibm.ent.pl1.zos.doc/lr/alnmnt.html"><strong>aligned</strong></a> data, that is information stored in memory in a way that makes it easy for the CPU to read it in a single shot.</p>
+<h3>Read-modify-write (RMW) atomic instructions</h3>
+<p>Some more complex operations can't be performed with simple stores and loads alone. For example, incrementing a value in memory would require a mixture of at least three atomic load and store instructions, making the outcome non-atomic as a whole. <strong>Read-modify-write</strong> instructions fill the gap by giving you the ability to compute multiple operations in one atomic step. 
+There are many instructions in this class. Some CPU architectures provide them all, some others only a subset. To name a few:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Test-and-set"><strong>test-and-set</strong></a> — writes 1 to a memory location and returns the old value in a single, atomic step; </li>
+<li><a href="https://en.wikipedia.org/wiki/Fetch-and-add"><strong>fetch-and-add</strong></a> — increments a value in memory and returns the old value in a single, atomic step; </li>
+<li><a href="https://en.wikipedia.org/wiki/Compare-and-swap"><strong>compare-and-swap (CAS)</strong></a> — compares the content of a memory location with a given value and, if they are equal, modifies the contents of that memory location to a new given value.</li>
+</ul>
+<p>All these instructions perform multiple things in memory in a single, atomic step. This is an important property that makes read-modify-write instructions suitable for lock-free multithreading operations. We will see why in few paragraphs.</p>
+<script async="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(7).txt"></script>
+<!-- internalpointers responsive -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-1778432007040046" data-ad-slot="1269254897" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_1_expand" style="border: none; height: 280px; width: 1000px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: none; height: 280px; width: 1000px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:1000px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1000" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/ads(1).html" data-google-container-id="a!2" data-google-query-id="CMiJ3ZLI5PUCFb_i9QIdM-4Pig" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><h2>Three levels of atomic instructions</h2>
+<p>All the instructions seen above belong to the hardware: they require you to talk directly to the CPU. Working this way is obviously difficult and non-portable, as some instructions might have different name across different architectures. Some operations might not even exist across different processor models! So it is unlikely you will touch these things, unless you are working on very low-level code for a specific machine.</p>
+<p>Climbing up to the software level, many operating systems provide their own versions of atomic instructions. Let's call them <strong>atomic operations</strong>, since we are abstracting away from their physical machine counterpart. For example, in Windows you may find the <a href="https://docs.microsoft.com/en-us/windows/desktop/sync/interlocked-variable-access">Interlocked API</a>, a set of functions that handle variables in an atomic manner. MacOS does the same with its <a href="https://developer.apple.com/documentation/kernel/osatomic_h?language=objc">OSAtomic.h</a> header. They surely conceal the hardware implementation, but you are still bound to a specific environment.</p>
+<p>The best way to perform portable atomic operations is to rely upon the ones provided by the programming language of choice. In Java for example you will find the <code>java.util.concurrent.atomic</code> package; C++ provides the <code>std::atomic</code> header; Haskell has the <code>Data.Atomics</code> package and so on. Generally speaking, it is likely to find support for atomic operations if a programming language deals with multithreading. This way is up to the compiler (if it's a compiled language) or the virtual machine (if it's an interpreted language) to find the best instructions for implementing atomic operations, whether from the underlying operating system API or directly from the hardware.</p>
+<div class="ip-img">
+<img src="./Lock-free multithreading with atomic operations - Internal Pointers_files/atomics-levels.png" alt="Three levels of atomic instructions">
+<div class="caption">2. Hierarchy of atomic instructions and operations. Dashed lines are software, solid lines are hardware.</div>
+</div><p>For example, GCC — a C++ compiler — usually transforms C++ atomic operations and objects straight into machine instructions. It also tries to emulate a specific operation that doesn't map directly to the hardware with other atomic machine instructions if available. The worst-case scenario: on a platform that doesn't provide atomic operations it may rely upon other blocking strategies, which wouldn't be lock-free, of course.</p>
+<h2>Leveraging atomic operations in multithreading</h2>
+<p>Let's now see how atomic operations are used. Consider incrementing a simple variable, a task that is not atomic by nature as it is made of three different steps — read the value, increment it, store the new value back. Traditionally, you would regulate the operation with a mutex (pseudocode):</p>
+<pre><code class="lang-nolang">mutex = initialize_mutex()
+x     = 0
+
+reader_thread()
+    mutex.lock()
+    print(x)
+    mutex.unlock()
+
+writer_thread()
+    mutex.lock()
+    x++
+    mutex.unlock()
+</code></pre>
+<p>The first thread that acquires the lock makes progress, while others sit and wait in line until it has finished.</p>
+<p>Conversely, the lock-free approach introduces a different pattern: threads are free to run without any impediment, by employing atomic operations. For example:</p>
+<pre><code class="lang-nolang">x = 0
+
+reader_thread()
+    print(load(x))
+
+writer_thread()
+    fetch_and_add(x, 1)
+</code></pre>
+<p>I assume that <code>fetch_and_add()</code> and <code>load()</code> are atomic operations based on the corresponding hardware instructions. As you may notice, nothing is locked here. Multiple threads that call those functions concurrently can all make progress. The atomicity of <code>load()</code> makes sure that no reader thread will read the shared value half-complete, as well as no writer thread will damage it with a partial write thanks to <code>fetch_and_add()</code>.</p>
+<h3>Atomic operations in the real world</h3>
+<p>Now, this example reveals us an important property of atomic operations: they work only with primitive types — booleans, chars, shorts, ints and so on. On the other hand, actual programs require synchronization for more complex structures like arrays, vectors, objects, vectors of arrays, objects containing arrays, ... . How can we guarantee atomicity on such convoluted entities with simple operations based on primitive types?</p>
+<p>Lock-free programming forces you to think out of the box of the usual synchronization primitives. You don't protect a shared resource with atomic operations directly, as you would do with a mutex or a semaphore. Rather, you build <strong>lock-free algorithms</strong> or <strong>lock-free data structures</strong>, based on atomic operations to determine how multiple threads will access your data.</p>
+<p>For example, the <em>fetch-and-add</em> operation seen before can be used to make a rudimentary semaphore that, in turn, you would employ to regulate threads. Not surprisingly all the traditional, blocking synchronization entities are based on atomic operations.</p>
+<p>People have written countless lock-free data structures like <a href="https://github.com/facebook/folly/blob/master/folly/AtomicHashMap.h">Folly's AtomicHashMap</a>, the <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/lockfree.html">Boost.Lockfree library</a>, multi-producer/multi-consumer <a href="https://github.com/cameron314/concurrentqueue">FIFO queues</a> or algorithms like <a href="https://www.youtube.com/watch?v=rxQ5K9lo034">read-copy-update (RCU)</a> and <a href="https://en.wikipedia.org/wiki/Shadow_paging">Shadow Paging</a> to name a few. Writing these atomic weapons from scratch is hard, let alone making them work correctly. This is why most of the time you may want to employ existing, battle-tested algorithms and structures instead of rolling your owns.</p>
+<h2>The compare-and-swap (CAS) loop</h2>
+<p>Moving closer to real-world applications, the <strong>compare-and-swap loop</strong> (a.k.a. <strong>CAS loop</strong>) is probably the most common strategy in lock-free programming, whether you are using existing data structures or are writing algorithms from the ground up. It is based on the corresponding <em>compare-and-swap</em> atomic operation and has a nice property: it supports multiple writers. This is an important feature of a concurrent algorithm especially when used in complex systems.</p>
+<p>The CAS loop is interesting also because it introduces a recurring pattern in lock-free code, as well as some theoretical concepts to reason about. Let's take a closer look.</p>
+<h3>A CAS loop in action</h3>
+<p>A CAS function provided by an operating system or a programming language might look like this:</p>
+<pre><code class="lang-nolang">boolean compare_and_swap(shared_data, expected_value, new_value);
+</code></pre>
+<p>It takes in input a reference/pointer to some shared data, the expected value it currently takes on and the new value you want to apply. The function replaces the current value with the new one (and returns <code>true</code>) only if the value hasn't changed, that is if <code>shared_data.value == expected_value</code>.</p>
+<p>In a CAS loop the idea is to repeatedly trying to compare and swap until the operation is successful. On each iteration you feed the CAS function with the reference/pointer, the expected value and the desired one. This is necessary in order to cope with any other writer thread that is doing the same thing concurrently: the CAS function fails if another thread has changed the data in the meantime, that is if the shared data no longer matches the expected value. Multiple writers support!</p>
+<p>Suppose we want to replicate the fetch-and-add algorithm seen in the previous snippet with a CAS loop. It would look roughly like this (pseudocode):</p>
+<pre><code class="lang-nolang">x = 0
+
+reader_thread()
+    print(load(x))
+
+writer_thread()
+    temp = load(x)                              // (1)
+    while(!compare_and_swap(x, temp, temp + 1)) // (2)
+</code></pre>
+<p>In (1) the algorithm loads the existing value of the shared data, then it tries to swap it with the new value until success (2), that is until the CAS function returns <code>true</code>.</p>
+<h3>The swapping paradigm</h3>
+<p>As said before, the CAS loop introduces a recurring pattern in many lock-free algorithms:</p>
+<ol>
+<li>create a <em>local copy</em> of the shared data;</li>
+<li>modify the local copy as needed;</li>
+<li>when ready, update the shared data by <em>swapping</em> it with the local copy created before.</li>
+</ol>
+<p>Point 3) is the key: the swap is performed atomically through an atomic operation. The dirty job is done <em>locally</em> by the writer thread and then published only when ready. This way another thread can observe the shared data only in two states: either the old one, or the new one. No half-complete or corrupted updates, thanks to the atomic swap.</p>
+<p>This is also philosophically different from the locking approach: in a lock-free algorithm threads get in touch only during that tiny atomic swap, running undisturbed and unaware of others for the rest of the time. The point of contact between threads is now shrinked down and limited to the duration of the atomic operation.</p>
+<h3>A gentle form of locking</h3>
+<p>The <em>spin until success</em> strategy seen above is employed in many lock-free algorithms and is called <strong>spinlock</strong>: a simple loop where the thread repeatedly tries to perform something until successful. It's a form of gentle lock where the thread is up and running — no sleep forced by the operating system, although no progress is made until the loop is over. Regular locks employed in mutexes or semaphores are way more expensive, as the suspend/wakeup cycle requires a lot of work under the hood.</p>
+<h3>The ABA problem</h3>
+<p>Instructions in lines (1) and (2) are atomic indeed, yet distinct. Another thread might slip through the cracks and change the value of the shared data once has been read in (1). Specifically, it could turn the initial value, say <code>A</code>, into another value, say <code>B</code>, and then bring it back to <code>A</code> right before the compare and swap operation has started in (2). The thread that is running the CAS loop wouldn't notice the change and perform the swap successfully. This is known as the <strong>ABA problem</strong>: sometimes you can easily ignore it if you algorithm is simple as the one above, sometimes you want to prevent it instead as it would introduce subtle bugs in your programs. Luckily there are <a href="https://en.wikipedia.org/wiki/Compare-and-swap#ABA_problem">several workarounds</a> for this.</p>
+<h3>You can swap anything inside a CAS loop</h3>
+<p>The CAS loop is often used to swap pointers, a type supported by the <em>compare-and-swap</em> operation. This is useful when you want to modify a complex collection of data like a class or an array: just create the local copy, modify it as needed and then when ready swap a pointer to the local data with a pointer to the global data. This way global data will point to the memory allocated for the local copy and other threads will see up-to-date information.</p>
+<p>This technique allows you to successfully synchronize non-primitive entities, yet is difficult to make it work correctly. What if, after the swap, a reader thread is still reading the old pointer? How to properly delete the previous copy without generating dangerous dangling pointers? Once again engineers have found many solutions such as using a language that supports <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science">garbage collection</a> or esoteric techniques like <a href="https://aturon.github.io/blog/2015/08/27/epoch/">epoch-based memory reclamation</a>, <a href="https://en.wikipedia.org/wiki/Hazard_pointer">hazard pointers</a> or <a href="https://en.wikipedia.org/wiki/Reference_counting">reference counting</a>.</p>
+<script async="" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/f(7).txt"></script>
+<!-- internalpointers responsive -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-1778432007040046" data-ad-slot="1269254897" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="border: none; height: 280px; width: 1000px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_2_anchor" style="border: none; height: 280px; width: 1000px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><h2>Lock-freedom vs. wait-freedom</h2>
+<p>Every algorithm or data structure based on atomic operations can be clustered into two groups: <strong>lock-free</strong> or <strong>wait-free</strong>. This is an important distinction when you have to evaluate the impact of atomic-based tools on the performance of your program.</p>
+<p>Lock-free algorithms allow the remaining threads to continue doing useful work even if one of them is temporarily busy. In other words, at least one thread always makes progress. The CAS loop is a perfect example of lock-free because if a single iteration of the CAS loop fails, it’s usually because some other thread has modified the shared resource successfully. 
+However, a lock-free algorithm might spend an unpredictable amount of time just spinning, especially when there are many threads competing for the same resource: technically speaking, when the <strong>contention</strong> is high. Pushing it to the limits, a lock-free algorithm could be far less efficient with CPU resources than a mutex that puts blocked threads to sleep.</p>
+<p>On the other hand in wait-free algorithms, a subset of lock-free ones, any thread can complete its work in a finite number or steps, regardless of the execution speed or the workload level of others. The first snippet in this article based on the <em>fetch-and-add</em> operation is an example of a wait-free algorithm: no loops, no retries, just undisturbed flow. Also, wait-free algorithms are <strong>fault-tolerant</strong>: no thread can be prevented from completing an operation by failures of other processes, or by arbitrary variations in their speed. These properties make wait-free algorithms suitable for complex <a href="https://en.wikipedia.org/wiki/Real-time_computing">real-time systems</a> where the predictable behavior of concurrent code is a must.</p>
+<div class="ip-img">
+<img src="./Lock-free multithreading with atomic operations - Internal Pointers_files/lock-free-wait-free.png" alt="Lock-free, wait-free">
+<div class="caption">3. Wait-free algorithms are a subset of lock-free ones.</div>
+</div><p>Wait-freedom is a highly desired property of concurrent code, yet very difficult to obtain. All in all, whether you are building a blocking, a lock-free or a wait-free algorithm the golden rule is to always benchmark your code and measure the results. Sometimes a good old mutex can outperform fancier synchronization primitives, especially when the concurrent task complexity is high.</p>
+<h2>Closing notes</h2>
+<p>Atomic operations are a necessary part of lock-free programming, even on single-processor machines. Without atomicity, a thread could be interrupted halfway through the transaction, possibly leading to an inconsistent state. In this article I have just scratched the surface: a new world of problems opens up as soon as you add multicores/multiprocessors to the equation. Topics like <strong>sequential consistency</strong> and <strong>memory barriers</strong> are critical pieces of the puzzle and can't be overlooked if you want to get the best out of your lock-free algorithms. I will cover them all in the next episode.</p>
+<h2>Sources</h2>
+<p>Preshing on Programming - <a href="https://preshing.com/20120612/an-introduction-to-lock-free-programming/">An Introduction to Lock-Free Programming</a><br>
+Preshing on Programming - <a href="https://preshing.com/20130618/atomic-vs-non-atomic-operations/">Atomic vs. Non-Atomic Operations</a><br>
+Preshing on Programming - <a href="https://preshing.com/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation/">You Can Do Any Kind of Atomic Read-Modify-Write Operation</a><br>
+StackOverflow - <a href="https://stackoverflow.com/questions/1525189/do-i-need-a-mutex-for-reading">Do I need a mutex for reading?</a><br>
+StackOverflow - <a href="https://stackoverflow.com/questions/39795265/will-atomic-operations-block-other-threads">Will atomic operations block other threads?</a><br>
+StackOverflow - <a href="https://stackoverflow.com/questions/38124337/spinlock-vs-busy-wait">Spinlock vs Busy wait</a><br>
+GCC Wiki - <a href="https://gcc.gnu.org/wiki/Atomic/GCCMM/AtomicTypes">Atomics</a><br>
+GCC Wiki - <a href="https://gcc.gnu.org/wiki/Atomic/GCCMM/AtomicSync">Memory model synchronization modes</a><br>
+Threading Building Blocks - <a href="https://www.threadingbuildingblocks.org/docs/help/tbb_userguide/Atomic_Operations.html">Atomic Operations</a><br>
+Just Software Solutions - <a href="https://www.justsoftwaresolutions.co.uk/threading/non_blocking_lock_free_and_wait_free.html">Definitions of Non-blocking, Lock-free and Wait-free</a><br>
+Wikipedia - <a href="https://en.wikipedia.org/wiki/Compare-and-swap">Compare-and-swap</a><br>
+Wikipedia - <a href="https://en.wikipedia.org/wiki/Read%E2%80%93modify%E2%80%93write">Read-modify-write</a><br>
+Wikipedia - <a href="https://en.wikipedia.org/wiki/Test-and-set">Test-and-set</a><br>
+Tyler Neely - <a href="https://medium.com/@tylerneely/fear-and-loathing-in-lock-free-programming-7158b1cdd50c">Fear and Loathing in Lock-Free Programming</a><br>
+Jason Gregory - <a href="https://www.ebooks.com/en-us/95912264/game-engine-architecture-third-edition/jason-gregory/">Game Engine Architecture, Third Edition</a><br>
+AA.VV. - <a href="https://spcl.inf.ethz.ch/Publications/.pdf/atomic-bench.pdf">Evaluating the Cost of Atomic Operations on Modern Architectures</a><br>
+Herb Sutter, CppCon 2014 - <a href="https://www.youtube.com/watch?v=c1gO9aB9nbs">Lock-Free Programming (or, Juggling Razor Blades), Part 1</a><br>
+Herb Sutter, CppCon 2014 - <a href="http://www.youtube.com/watch?v=CmxkPChOcvw">Lock-Free Programming (or, Juggling Razor Blades), Part 2</a><br>
+Maurice Herlihy - <a href="https://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf">Wait-free synchronization</a><br>
+Fedor Pikus, CppCon 2014 - <a href="https://www.youtube.com/watch?v=rxQ5K9lo034">Read, Copy, Update, then what? RCU for non-kernel programmers</a><br>
+1024cores - <a href="http://www.1024cores.net/home/lock-free-algorithms">Lockfree Algorithms</a><br>
+Microsoft - <a href="https://docs.microsoft.com/en-us/windows/win32/dxtecharts/lockless-programming">Lockless Programming Considerations for Xbox 360 and Microsoft Windows</a><br>
+Brian Goetz, IBM - <a href="https://www.ibm.com/developerworks/java/library/j-jtp11234/">Going Atomic</a></p>			</div>
+
+
+			<div class="ip-post__tags">
+								<a class="ip-tag" href="https://www.internalpointers.com/tag/multithreading">multithreading</a>
+				 • 								<a class="ip-tag" href="https://www.internalpointers.com/tag/atomics">atomics</a>
+				 • 								<a class="ip-tag" href="https://www.internalpointers.com/tag/lock-freedom">lock-freedom</a>
+				 • 								<a class="ip-tag" href="https://www.internalpointers.com/tag/wait-freedom">wait-freedom</a>
+				 • 								<a class="ip-tag" href="https://www.internalpointers.com/tag/concurrency">concurrency</a>
+				 • 								<a class="ip-tag" href="https://www.internalpointers.com/tag/algorithm">algorithm</a>
+											</div>
+
+			<div class="ip-post__neighbor-posts">
+								<div class="ip-post__neighbor-posts__prev">
+					<div class="ip-post__neighbor-posts__prev__label">
+						previous article
+					</div>
+					<div class="ip-post__neighbor-posts__prev__title">          
+						<a href="https://www.internalpointers.com/post/introduction-thread-synchronization">Introduction to thread synchronization</a>
+					</div>
+				</div>
+								
+								<div class="ip-post__neighbor-posts__next">
+					<div class="ip-post__neighbor-posts__next__label">
+						next article
+					</div>
+					<div class="ip-post__neighbor-posts__next__title">          
+						<a href="https://www.internalpointers.com/post/understanding-memory-ordering">Understanding memory reordering </a>
+					</div>
+				</div>
+							</div>
+			
+						<div class="ip-post__comments">
+				<div class="ip-post__comments__title">
+					comments
+				</div>
+				
+								<div class="ip-post__comments__list">
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">careful proofreading?</span> on 
+							<span class="date">July 29, 2019 at 23:44</span>
+						</div> 
+						<div class="body">Synhcronizing</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Triangles</span> on 
+							<span class="date">August 03, 2019 at 10:50</span>
+						</div> 
+						<div class="body">Thank you, typo fixed ;)</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Hero Wanders</span> on 
+							<span class="date">August 03, 2019 at 13:08</span>
+						</div> 
+						<div class="body">In your CAS loop example you wrote:<br>
+temp = load(x)<br>
+while(!compare_and_swap(x, temp, temp + 1))<br>
+<br>
+I think this leads to an infinite loop if a concurrent writer successfully increments x between the first second line.<br>
+Loading x into temp should happen within the loop to avoid that. This also keeps the intent clear: try to increment the value of x, regardless of what it currently is and repeat on failure - instead of trying to increment it, based on a fixed value you got once (before the loop).</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Hero Wanders</span> on 
+							<span class="date">August 03, 2019 at 19:58</span>
+						</div> 
+						<div class="body">Regarding my previous (not yet approved) comment about your CAS loop example: Obviously I have misinterpreted your pseudocode example, your example is fine. Publishing that (and this) comment is not necessary. Perhaps adding a single "do" before the first line and/or applying indentation helps recognizing the loop's body.</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Cedrik</span> on 
+							<span class="date">August 04, 2019 at 11:02</span>
+						</div> 
+						<div class="body">In your example for fetch-and-add using CAS, you need to load temp within the while loop, otherwise compare and swap will never succeed.<br>
+<br>
+Otherwise good article :)</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Triangles</span> on 
+							<span class="date">August 04, 2019 at 18:30</span>
+						</div> 
+						<div class="body">@Hero Wanders I agree, the "do" body might improve code clarity. Sometimes you want to include it in order to perform a more elaborate kind of swap. Info here: https://preshing.com/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation/</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Triangles</span> on 
+							<span class="date">August 04, 2019 at 18:39</span>
+						</div> 
+						<div class="body">@Cedrik the swap fails if temp != x, that is if another thread has changed the value of x (the global variable) in the meantime. On a single thread scenario the fetch-and-add CAS succeeds on the first try.</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Cedrik</span> on 
+							<span class="date">August 05, 2019 at 22:36</span>
+						</div> 
+						<div class="body">@Triangles Actually my point was the same as Hero Wanders'. I didn't realise load(x) is part of the while loop. :)</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">Youmoo</span> on 
+							<span class="date">November 29, 2019 at 06:05</span>
+						</div> 
+						<div class="body">This series helps me a lot. Thank you so much!<br>
+<br>
+I have translated this into Chinese to help more people. Here's the link: https://mp.weixin.qq.com/s/5UG9NyXxMih5jaxDyyuIHw</div> 
+					</div>
+										<div class="ip-post__comments__list__comment">
+						<div class="info">
+							<span class="author">George Cao</span> on 
+							<span class="date">March 23, 2020 at 10:04</span>
+						</div> 
+						<div class="body">A Chinese version of this post, see https://reploop.org/blog/2020/02/lock-free-multithreading-with-atomic-operations.html</div> 
+					</div>
+									</div>
+				
+
+				<div class="ip-post__comments__add">
+					<form data-id-post="74">
+						<input type="text" placeholder="Your name" maxlength="255" required="">
+						<textarea placeholder="Your message" maxlength="2000" required=""></textarea>
+						<div class="captcha">
+							<div class="g-recaptcha" data-theme="dark" data-sitekey="6LdAYg4UAAAAAJCfgHOmxqOCywp8yGSg8S_B4TAS"></div>
+						</div>
+						<button>
+							<span class="text">Add your comment!</span>
+							<span class="spinner">Saving...</span>
+						</button>
+					</form>
+				</div>
+			</div>
+			
+			<div class="ip-post__social-tools">
+				<div class="ip-post__social-tools__title">
+					share!
+				</div>
+				<div class="ip-post__social-tools__twitter item"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+		<div class="ip-footer">
+	<div class="ip-container">
+		© 2015-2020 — Monocasual Laboratories — 
+		<a href="https://www.internalpointers.com/tos" rel="nofollow">terms of service</a> — 
+		<a href="https://www.internalpointers.com/privacy" rel="nofollow">privacy policy</a> — 
+		<a href="https://www.internalpointers.com/about">about</a> — 
+		<a href="https://www.internalpointers.com/rss">RSS feed</a>
+	</div>
+</div>
+	
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><ins id="aswift_3_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_3_anchor" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/ads(2).html" data-google-container-id="a!4" data-load-complete="true"></iframe></ins></ins></ins><iframe src="./Lock-free multithreading with atomic operations - Internal Pointers_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./Lock-free multithreading with atomic operations - Internal Pointers_files/zrt_lookup.html" style="display: none;"></iframe></html>

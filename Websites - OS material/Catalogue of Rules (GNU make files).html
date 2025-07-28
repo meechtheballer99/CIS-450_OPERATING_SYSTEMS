@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0074)https://www.gnu.org/software/make/manual/html_node/Catalogue-of-Rules.html -->
+<html><!-- This file documents the GNU make utility, which determines
+automatically which pieces of a large program need to be recompiled,
+and issues the commands to recompile them.
+
+This is Edition 0.75, last updated 17 January 2020,
+of The GNU Make Manual, for GNU make version 4.3.
+
+Copyright (C) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995,
+1996, 1997, 1998, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2007,
+2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+2020 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual.  Buying copies from the FSF supports it in
+developing GNU and promoting software freedom." --><!-- Created by GNU Texinfo 6.6, http://www.gnu.org/software/texinfo/ --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Catalogue of Rules (GNU make)</title>
+
+<meta name="description" content="Catalogue of Rules (GNU make)">
+<meta name="keywords" content="Catalogue of Rules (GNU make)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="https://www.gnu.org/software/make/manual/html_node/index.html#Top" rel="start" title="Top">
+<link href="https://www.gnu.org/software/make/manual/html_node/Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules" rel="up" title="Implicit Rules">
+<link href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables" rel="next" title="Implicit Variables">
+<link href="https://www.gnu.org/software/make/manual/html_node/Using-Implicit.html#Using-Implicit" rel="prev" title="Using Implicit">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="./Catalogue of Rules (GNU make files)_files/manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Catalogue-of-Rules"></span><div class="header">
+<p>
+Next: <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables" accesskey="n" rel="next">Implicit Variables</a>, Previous: <a href="https://www.gnu.org/software/make/manual/html_node/Using-Implicit.html#Using-Implicit" accesskey="p" rel="prev">Using Implicit</a>, Up: <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules" accesskey="u" rel="up">Implicit Rules</a> &nbsp; [<a href="https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="https://www.gnu.org/software/make/manual/html_node/Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Catalogue-of-Built_002dIn-Rules"></span><h3 class="section">10.2 Catalogue of Built-In Rules</h3>
+<span id="index-implicit-rule_002c-predefined"></span>
+<span id="index-rule_002c-implicit_002c-predefined"></span>
+
+<p>Here is a catalogue of predefined implicit rules which are always
+available unless the makefile explicitly overrides or cancels them.
+See <a href="https://www.gnu.org/software/make/manual/html_node/Canceling-Rules.html#Canceling-Rules">Canceling Implicit Rules</a>, for information on
+canceling or overriding an implicit rule.  The ‘<samp>-r</samp>’ or
+‘<samp>--no-builtin-rules</samp>’ option cancels all predefined rules.
+</p>
+<p>This manual only documents the default rules available on POSIX-based
+operating systems.  Other operating systems, such as VMS, Windows,
+OS/2, etc. may have different sets of default rules.  To see the full
+list of default rules and variables available in your version of GNU
+<code>make</code>, run ‘<samp>make -p</samp>’ in a directory with no makefile.
+</p>
+<p>Not all of these rules will always be defined, even when the ‘<samp>-r</samp>’
+option is not given.  Many of the predefined implicit rules are
+implemented in <code>make</code> as suffix rules, so which ones will be
+defined depends on the <em>suffix list</em> (the list of prerequisites of
+the special target <code>.SUFFIXES</code>).  The default suffix list is:
+<code>.out</code>, <code>.a</code>, <code>.ln</code>, <code>.o</code>, <code>.c</code>, <code>.cc</code>,
+<code>.C</code>, <code>.cpp</code>, <code>.p</code>, <code>.f</code>, <code>.F</code>, <code>.m</code>,
+<code>.r</code>, <code>.y</code>, <code>.l</code>, <code>.ym</code>, <code>.lm</code>, <code>.s</code>,
+<code>.S</code>, <code>.mod</code>, <code>.sym</code>, <code>.def</code>, <code>.h</code>,
+<code>.info</code>, <code>.dvi</code>, <code>.tex</code>, <code>.texinfo</code>, <code>.texi</code>,
+<code>.txinfo</code>, <code>.w</code>, <code>.ch</code> <code>.web</code>, <code>.sh</code>,
+<code>.elc</code>, <code>.el</code>.  All of the implicit rules described below
+whose prerequisites have one of these suffixes are actually suffix
+rules.  If you modify the suffix list, the only predefined suffix
+rules in effect will be those named by one or two of the suffixes that
+are on the list you specify; rules whose suffixes fail to be on the
+list are disabled.  See <a href="https://www.gnu.org/software/make/manual/html_node/Suffix-Rules.html#Suffix-Rules">Old-Fashioned Suffix Rules</a>,
+for full details on suffix rules.
+</p>
+<dl compact="compact">
+<dt>Compiling C programs</dt>
+<dd><span id="index-C_002c-rule-to-compile"></span>
+<span id="index-cc"></span>
+<span id="index-gcc"></span>
+<span id="index-_002eo"></span>
+<span id="index-_002ec"></span>
+<p><samp><var>n</var>.o</samp> is made automatically from <samp><var>n</var>.c</samp> with
+a recipe of the form ‘<samp>$(CC) $(CPPFLAGS) $(CFLAGS) -c</samp>’.
+</p>
+</dd>
+<dt>Compiling C++ programs</dt>
+<dd><span id="index-C_002b_002b_002c-rule-to-compile"></span>
+<span id="index-g_002b_002b"></span>
+<span id="index-_002ecc"></span>
+<span id="index-_002ecpp"></span>
+<span id="index-_002eC"></span>
+<p><samp><var>n</var>.o</samp> is made automatically from <samp><var>n</var>.cc</samp>,
+<samp><var>n</var>.cpp</samp>, or <samp><var>n</var>.C</samp> with a recipe of the form
+‘<samp>$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c</samp>’.  We encourage you to use the
+suffix ‘<samp>.cc</samp>’ for C++ source files instead of ‘<samp>.C</samp>’.
+</p>
+</dd>
+<dt>Compiling Pascal programs</dt>
+<dd><span id="index-Pascal_002c-rule-to-compile"></span>
+<span id="index-pc"></span>
+<span id="index-_002ep"></span>
+<p><samp><var>n</var>.o</samp> is made automatically from <samp><var>n</var>.p</samp>
+with the recipe ‘<samp>$(PC) $(PFLAGS) -c</samp>’.
+</p>
+</dd>
+<dt>Compiling Fortran and Ratfor programs</dt>
+<dd><span id="index-Fortran_002c-rule-to-compile"></span>
+<span id="index-Ratfor_002c-rule-to-compile"></span>
+<span id="index-f77"></span>
+<span id="index-_002ef"></span>
+<span id="index-_002er"></span>
+<span id="index-_002eF"></span>
+<p><samp><var>n</var>.o</samp> is made automatically from <samp><var>n</var>.r</samp>,
+<samp><var>n</var>.F</samp> or <samp><var>n</var>.f</samp> by running the
+Fortran compiler.  The precise recipe used is as follows:
+</p>
+<dl compact="compact">
+<dt>‘<samp>.f</samp>’</dt>
+<dd><p>‘<samp>$(FC) $(FFLAGS) -c</samp>’.
+</p></dd>
+<dt>‘<samp>.F</samp>’</dt>
+<dd><p>‘<samp>$(FC) $(FFLAGS) $(CPPFLAGS) -c</samp>’.
+</p></dd>
+<dt>‘<samp>.r</samp>’</dt>
+<dd><p>‘<samp>$(FC) $(FFLAGS) $(RFLAGS) -c</samp>’.
+</p></dd>
+</dl>
+
+</dd>
+<dt>Preprocessing Fortran and Ratfor programs</dt>
+<dd><p><samp><var>n</var>.f</samp> is made automatically from <samp><var>n</var>.r</samp> or
+<samp><var>n</var>.F</samp>.  This rule runs just the preprocessor to convert a
+Ratfor or preprocessable Fortran program into a strict Fortran
+program.  The precise recipe used is as follows:
+</p>
+<dl compact="compact">
+<dt>‘<samp>.F</samp>’</dt>
+<dd><p>‘<samp>$(FC) $(CPPFLAGS) $(FFLAGS) -F</samp>’.
+</p></dd>
+<dt>‘<samp>.r</samp>’</dt>
+<dd><p>‘<samp>$(FC) $(FFLAGS) $(RFLAGS) -F</samp>’.
+</p></dd>
+</dl>
+
+</dd>
+<dt>Compiling Modula-2 programs</dt>
+<dd><span id="index-Modula_002d2_002c-rule-to-compile"></span>
+<span id="index-m2c"></span>
+<span id="index-_002esym"></span>
+<span id="index-_002edef"></span>
+<span id="index-_002emod"></span>
+<p><samp><var>n</var>.sym</samp> is made from <samp><var>n</var>.def</samp> with a recipe
+of the form ‘<samp>$(M2C) $(M2FLAGS) $(DEFFLAGS)</samp>’.  <samp><var>n</var>.o</samp>
+is made from <samp><var>n</var>.mod</samp>; the form is:
+‘<samp>$(M2C)&nbsp;$(M2FLAGS)&nbsp;$(MODFLAGS)</samp>’<!-- /@w -->.
+</p>
+</dd>
+<dt>Assembling and preprocessing assembler programs</dt>
+<dd><span id="index-assembly_002c-rule-to-compile"></span>
+<span id="index-as"></span>
+<span id="index-_002es"></span>
+<p><samp><var>n</var>.o</samp> is made automatically from <samp><var>n</var>.s</samp> by
+running the assembler, <code>as</code>.  The precise recipe is
+‘<samp>$(AS) $(ASFLAGS)</samp>’.
+</p>
+<span id="index-_002eS"></span>
+<p><samp><var>n</var>.s</samp> is made automatically from <samp><var>n</var>.S</samp> by
+running the C preprocessor, <code>cpp</code>.  The precise recipe is
+‘<samp>$(CPP)&nbsp;$(CPPFLAGS)</samp>’<!-- /@w -->.
+</p>
+</dd>
+<dt>Linking a single object file</dt>
+<dd><span id="index-linking_002c-predefined-rule-for"></span>
+<span id="index-ld"></span>
+<span id="index-_002eo-1"></span>
+<p><samp><var>n</var></samp> is made automatically from <samp><var>n</var>.o</samp> by running
+the linker (usually called <code>ld</code>) via the C compiler.  The precise
+recipe used is ‘<samp>$(CC)&nbsp;$(LDFLAGS)&nbsp;<var>n</var>.o&nbsp;$(LOADLIBES)&nbsp;$(LDLIBS)</samp>’<!-- /@w -->.
+</p>
+<p>This rule does the right thing for a simple program with only one
+source file.  It will also do the right thing if there are multiple
+object files (presumably coming from various other source files), one
+of which has a name matching that of the executable file.  Thus,
+</p>
+<div class="example">
+<pre class="example">x: y.o z.o
+</pre></div>
+
+<p>when <samp>x.c</samp>, <samp>y.c</samp> and <samp>z.c</samp> all exist will execute:
+</p>
+<div class="example">
+<pre class="example">cc -c x.c -o x.o
+cc -c y.c -o y.o
+cc -c z.c -o z.o
+cc x.o y.o z.o -o x
+rm -f x.o
+rm -f y.o
+rm -f z.o
+</pre></div>
+
+<p>In more complicated cases, such as when there is no object file whose
+name derives from the executable file name, you must write an explicit
+recipe for linking.
+</p>
+<p>Each kind of file automatically made into ‘<samp>.o</samp>’ object files will
+be automatically linked by using the compiler (‘<samp>$(CC)</samp>’,
+‘<samp>$(FC)</samp>’ or ‘<samp>$(PC)</samp>’; the C compiler ‘<samp>$(CC)</samp>’ is used to
+assemble ‘<samp>.s</samp>’ files) without the ‘<samp>-c</samp>’ option.  This could be
+done by using the ‘<samp>.o</samp>’ object files as intermediates, but it is
+faster to do the compiling and linking in one step, so that’s how it’s
+done.
+</p>
+</dd>
+<dt>Yacc for C programs</dt>
+<dd><span id="index-yacc-1"></span>
+<span id="index-Yacc_002c-rule-to-run"></span>
+<span id="index-_002ey"></span>
+<p><samp><var>n</var>.c</samp> is made automatically from <samp><var>n</var>.y</samp> by
+running Yacc with the recipe ‘<samp>$(YACC) $(YFLAGS)</samp>’.
+</p>
+</dd>
+<dt>Lex for C programs</dt>
+<dd><span id="index-lex"></span>
+<span id="index-Lex_002c-rule-to-run"></span>
+<span id="index-_002el"></span>
+<p><samp><var>n</var>.c</samp> is made automatically from <samp><var>n</var>.l</samp> by
+running Lex.  The actual recipe is ‘<samp>$(LEX) $(LFLAGS)</samp>’.
+</p>
+</dd>
+<dt>Lex for Ratfor programs</dt>
+<dd><p><samp><var>n</var>.r</samp> is made automatically from <samp><var>n</var>.l</samp> by
+running Lex.  The actual recipe is ‘<samp>$(LEX) $(LFLAGS)</samp>’.
+</p>
+<p>The convention of using the same suffix ‘<samp>.l</samp>’ for all Lex files
+regardless of whether they produce C code or Ratfor code makes it
+impossible for <code>make</code> to determine automatically which of the two
+languages you are using in any particular case.  If <code>make</code> is
+called upon to remake an object file from a ‘<samp>.l</samp>’ file, it must
+guess which compiler to use.  It will guess the C compiler, because
+that is more common.  If you are using Ratfor, make sure <code>make</code>
+knows this by mentioning <samp><var>n</var>.r</samp> in the makefile.  Or, if you
+are using Ratfor exclusively, with no C files, remove ‘<samp>.c</samp>’ from
+the list of implicit rule suffixes with:
+</p>
+<div class="example">
+<pre class="example">.SUFFIXES:
+.SUFFIXES: .o .r .f .l …
+</pre></div>
+
+</dd>
+<dt>Making Lint Libraries from C, Yacc, or Lex programs</dt>
+<dd><span id="index-lint"></span>
+<span id="index-lint_002c-rule-to-run"></span>
+<span id="index-_002eln"></span>
+<p><samp><var>n</var>.ln</samp> is made from <samp><var>n</var>.c</samp> by running <code>lint</code>.
+The precise recipe is ‘<samp>$(LINT)&nbsp;$(LINTFLAGS)&nbsp;$(CPPFLAGS)&nbsp;<span class="nolinebreak">-i</span></samp>’<!-- /@w -->.
+The same recipe is used on the C code produced from
+<samp><var>n</var>.y</samp> or <samp><var>n</var>.l</samp>.
+</p>
+</dd>
+<dt>TeX and Web</dt>
+<dd><span id="index-TeX_002c-rule-to-run"></span>
+<span id="index-Web_002c-rule-to-run"></span>
+<span id="index-tex"></span>
+<span id="index-cweave"></span>
+<span id="index-weave"></span>
+<span id="index-tangle"></span>
+<span id="index-ctangle"></span>
+<span id="index-_002edvi"></span>
+<span id="index-_002etex"></span>
+<span id="index-_002eweb"></span>
+<span id="index-_002ew"></span>
+<span id="index-_002ech"></span>
+<p><samp><var>n</var>.dvi</samp> is made from <samp><var>n</var>.tex</samp> with the recipe
+‘<samp>$(TEX)</samp>’.  <samp><var>n</var>.tex</samp> is made from <samp><var>n</var>.web</samp> with
+‘<samp>$(WEAVE)</samp>’, or from <samp><var>n</var>.w</samp> (and from <samp><var>n</var>.ch</samp> if
+it exists or can be made) with ‘<samp>$(CWEAVE)</samp>’.  <samp><var>n</var>.p</samp> is
+made from <samp><var>n</var>.web</samp> with ‘<samp>$(TANGLE)</samp>’ and <samp><var>n</var>.c</samp>
+is made from <samp><var>n</var>.w</samp> (and from <samp><var>n</var>.ch</samp> if it exists
+or can be made) with ‘<samp>$(CTANGLE)</samp>’.
+</p>
+</dd>
+<dt>Texinfo and Info</dt>
+<dd><span id="index-Texinfo_002c-rule-to-format"></span>
+<span id="index-Info_002c-rule-to-format"></span>
+<span id="index-texi2dvi"></span>
+<span id="index-makeinfo"></span>
+<span id="index-_002etexinfo"></span>
+<span id="index-_002einfo"></span>
+<span id="index-_002etexi"></span>
+<span id="index-_002etxinfo"></span>
+<p><samp><var>n</var>.dvi</samp> is made from <samp><var>n</var>.texinfo</samp>,
+<samp><var>n</var>.texi</samp>, or <samp><var>n</var>.txinfo</samp>, with the recipe
+‘<samp>$(TEXI2DVI)&nbsp;<span class="nolinebreak">$(TEXI2DVI_FLAGS)</span></samp>’<!-- /@w -->.  <samp><var>n</var>.info</samp> is made from
+<samp><var>n</var>.texinfo</samp>, <samp><var>n</var>.texi</samp>, or <samp><var>n</var>.txinfo</samp>, with
+the recipe ‘<samp>$(MAKEINFO)&nbsp;<span class="nolinebreak">$(MAKEINFO_FLAGS)</span></samp>’<!-- /@w -->.
+</p>
+</dd>
+<dt>RCS</dt>
+<dd><span id="index-RCS_002c-rule-to-extract-from"></span>
+<span id="index-co"></span>
+<span id="index-_002cv-_0028RCS-file-extension_0029"></span>
+<p>Any file <samp><var>n</var></samp> is extracted if necessary from an RCS file
+named either <samp><var>n</var>,v</samp> or <samp>RCS/<var>n</var>,v</samp>.  The precise
+recipe used is ‘<samp>$(CO)&nbsp;$(COFLAGS)</samp>’<!-- /@w -->.  <samp><var>n</var></samp> will not be
+extracted from RCS if it already exists, even if the RCS file is
+newer.  The rules for RCS are terminal
+(see <a href="https://www.gnu.org/software/make/manual/html_node/Match_002dAnything-Rules.html#Match_002dAnything-Rules">Match-Anything Pattern Rules</a>),
+so RCS files cannot be generated from another source; they must
+actually exist.
+</p>
+</dd>
+<dt>SCCS</dt>
+<dd><span id="index-SCCS_002c-rule-to-extract-from"></span>
+<span id="index-get"></span>
+<span id="index-s_002e-_0028SCCS-file-prefix_0029"></span>
+<p>Any file <samp><var>n</var></samp> is extracted if necessary from an SCCS file
+named either <samp>s.<var>n</var></samp> or <samp>SCCS/s.<var>n</var></samp>.  The precise
+recipe used is ‘<samp>$(GET)&nbsp;$(GFLAGS)</samp>’<!-- /@w -->.  The rules for SCCS are
+terminal (see <a href="https://www.gnu.org/software/make/manual/html_node/Match_002dAnything-Rules.html#Match_002dAnything-Rules">Match-Anything Pattern Rules</a>),
+so SCCS files cannot be generated from another source; they must
+actually exist.
+</p>
+<span id="index-_002esh"></span>
+<p>For the benefit of SCCS, a file <samp><var>n</var></samp> is copied from
+<samp><var>n</var>.sh</samp> and made executable (by everyone).  This is for
+shell scripts that are checked into SCCS.  Since RCS preserves the
+execution permission of a file, you do not need to use this feature
+with RCS.
+</p>
+<p>We recommend that you avoid using of SCCS.  RCS is widely held to be
+superior, and is also free.  By choosing free software in place of
+comparable (or inferior) proprietary software, you support the free
+software movement.
+</p></dd>
+</dl>
+
+<p>Usually, you want to change only the variables listed in the table
+above, which are documented in the following section.
+</p>
+<p>However, the recipes in built-in implicit rules actually use
+variables such as <code>COMPILE.c</code>, <code>LINK.p</code>, and
+<code>PREPROCESS.S</code>, whose values contain the recipes listed above.
+</p>
+<p><code>make</code> follows the convention that the rule to compile a
+<samp>.<var>x</var></samp> source file uses the variable <code>COMPILE.<var>x</var></code>.
+Similarly, the rule to produce an executable from a <samp>.<var>x</var></samp>
+file uses <code>LINK.<var>x</var></code>; and the rule to preprocess a
+<samp>.<var>x</var></samp> file uses <code>PREPROCESS.<var>x</var></code>.
+</p>
+<span id="index-OUTPUT_005fOPTION"></span>
+<p>Every rule that produces an object file uses the variable
+<code>OUTPUT_OPTION</code>.  <code>make</code> defines this variable either to
+contain ‘<samp>-o $@</samp>’, or to be empty, depending on a compile-time
+option.  You need the ‘<samp>-o</samp>’ option to ensure that the output goes
+into the right file when the source file is in a different directory,
+as when using <code>VPATH</code> (see <a href="https://www.gnu.org/software/make/manual/html_node/Directory-Search.html#Directory-Search">Directory Search</a>).  However,
+compilers on some systems do not accept a ‘<samp>-o</samp>’ switch for object
+files.  If you use such a system, and use <code>VPATH</code>, some
+compilations will put their output in the wrong place.
+A possible workaround for this problem is to give <code>OUTPUT_OPTION</code>
+the value ‘<samp>;&nbsp;mv&nbsp;$*.o&nbsp;$@</samp>’<!-- /@w -->.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables" accesskey="n" rel="next">Implicit Variables</a>, Previous: <a href="https://www.gnu.org/software/make/manual/html_node/Using-Implicit.html#Using-Implicit" accesskey="p" rel="prev">Using Implicit</a>, Up: <a href="https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules" accesskey="u" rel="up">Implicit Rules</a> &nbsp; [<a href="https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="https://www.gnu.org/software/make/manual/html_node/Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+
+
+</body></html>

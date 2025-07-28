@@ -1,0 +1,300 @@
+/* SS64.com Stylesheet */
+body {
+  background-color: #DfDfDf;
+  color: #141414;
+  font-family: "Helvetica Neue", Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  margin: 15px;
+}
+
+p,ol,ul,h1,h2,h3,dt,dd,table {
+  font-weight: 400;
+  line-height: 130%;
+}
+
+p,hr,ol,ul,dd,dl {
+  max-width: 1000px;
+}
+
+
+hr {
+  color: #fff;
+  margin-left: 0;
+  text-align: left;
+}
+
+pre,tt,code {
+  font-family: "Lucida Console", "Andale Mono", Menlo, "Courier New", Courier, monospace;
+  font-size: 100%;
+  color: #000;
+  line-height: 120%;
+}
+
+h1 {
+  clear:both;
+  font-size: 1.375em;
+  line-height: 1em;
+}
+
+h2 {
+  font-family: Palatino, "Palatino Linotype",Georgia,Serif;
+  font-size: 1.25em;
+  line-height: 1.25em;
+  margin: 1.9ex 0 0;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+tr,td {
+  font-family: "Helvetica Neue", Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, Sans-Serif;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+abbr {
+  border-bottom: 1px dotted #141414;
+}
+
+blockquote {margin-right:0;margin-left:40px;}
+i { color: #07572c;}
+
+.body {
+  font-family: "Helvetica Neue", Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  font-size: 100%;
+}
+
+.blu {
+  color: #09F;
+  text-decoration: none;
+}
+
+.code {
+  font-family: "Lucida Console", "Andale Mono", Menlo, "Courier New", Courier, monospace;
+  font-size: 100%;
+}
+.indent {
+  margin-left: 40px;
+}
+.quote {
+  color: #07572c;
+  font-family: Palatino, Georgia, FreeSerif, Serif;
+  font-style: italic;
+}
+
+.az {
+  border: 0;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.az td { 
+  vertical-align: top; 
+}
+
+.az tr {
+  border-bottom: 1pt solid #F2F2F2;
+}
+
+a:link {color: #00F; text-decoration: none;}
+a:visited {color: #991BC1;text-decoration: none;} /* 711B8D */
+a:hover {
+  color: #00F; 
+  border-bottom: 1px solid #00F;
+}
+a:active {color: #337fe8;
+text-decoration: none;
+border-bottom: 1px solid #337fe8;}
+
+a[href^="#"]:hover {
+  color: #439bea;
+}
+
+summary:hover {color: #107127;}
+
+#bl {
+  float: left;
+  max-width: 500px;
+  width: 50%;
+}
+
+#br {
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  font-size: 75%;
+  float:left;
+  margin-bottom: 15px;
+  max-width: 500px;
+  text-align: right;
+  width: 50%;
+
+}
+
+
+/* Top Nav */
+#tnav {
+  height: 45px;
+  width: 1000px;
+}
+
+#tnav > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#tnav > ul > li {
+  display: block;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 .3em 0 0;
+  outline: none;
+  text-align: center;
+  width: 140px;
+}
+
+/* Link - Visited - Hover - Focus - Active */
+#tnav a {text-decoration: none; display: block;} 
+#tnav a:link { color: #03F; text-decoration: none;}
+#tnav a:visited {color: #03F; text-decoration: none;}
+#tnav a:hover { color: #E7E7E7; text-decoration: none;}
+#tnav a:focus { color: #229231;}    /* for kbd navigation with TAB */
+#tnav a:active {color: #141414; text-decoration: none;}
+#tnav a {border-bottom: none;} /* hides anchor uline */
+#tnav li a:active {
+  border-radius: 7px;
+  box-shadow:inset 0 1px 0 0 rgba(0,0,0,.18);
+}
+
+@media (pointer: coarse) and (hover: none) {
+  /* mobile   add extra line spacing */
+  .space { line-height: 2.1em; }
+  .az { line-height: 2.1em; }
+   /*#tnav {width: 500px;}*/
+   td, p { line-height: 1.5em;  font-size: 120%;}
+   PRE .space{ line-height: 1.75em;  font-size: 120%;}
+   H1 {font-size: 200%;}
+   H2 {font-size: 175%;}
+}
+
+.space {line-height: 1.3em;} /* alt styles for mobile*/
+
+/* navigation buttons */
+.tbtn {
+  background-color: #F8F9FA;
+  border-color: gray;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 0 rgba(255,255,255,0.6) inset;
+  cursor: pointer;
+  font-family: Helvetica,Arial,Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  font-size: 1.1em;
+  font-weight: 400;
+  height: 40px;
+  text-decoration: none;
+  transition: background-color .25s;
+}
+
+.tbtn:hover {
+  background-color: #2E91E3;
+  transition: background-color .25s;
+}
+
+
+.tbtn a:focus {
+  border-radius: 7px;
+  background-color: #DfDfDf;
+  outline: none;
+
+}
+
+/* Navigation arrow, turn white on hover */
+.tbtn svg {fill: #03f;}
+.tbtn:hover svg {fill: #fffefe;}
+.tbtn:active svg {fill: #03f;}
+
+/* Disabled navigation buttons */
+.tflat {
+  color: #141414;
+  border-color: gray;
+  border-radius: 8px;
+  border-style:solid;
+  border-width: 1px;
+  font-size: 1.1em;
+  font-family: Helvetica,Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+ }
+ 
+/* Search box */
+#search {
+  margin-left: 10px;
+  width: 420px;
+}
+
+#qu {
+  border-radius: 6px;
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #ACB5BE;
+  border-right: 1px solid #ACB5BE;
+  border-bottom: 1px solid #ddd;
+  background: #fffefe url(/images/fieldbg.gif) repeat-x top;
+  box-shadow: 0 0 2px #ccc;
+  color: #404050;
+  font: 16px "Helvetica Neue", Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  height: 18px;
+  left: 10px;
+  padding: 6px 6px 6px 6px;
+  position: relative;
+  display: block;
+  float: left;
+  top: 6px;
+  z-index: 1;
+  caret-color: #3f60ad;
+}
+
+#qu:focus {
+   outline: none; 
+   border: 1px solid #4D90FE;
+   transition: box-shadow 5s linear;
+   box-shadow: 0px 0px 4px 0px #4D90FE;
+}
+
+/* search button */
+#btn {
+  display: block;
+  float: left;
+  position:relative;
+  left: 20px;
+  top: 6px;
+  width: 110px;
+  height: 32px;
+  border: 1px solid #777;
+  border-radius: 2px 2px 2px 2px;
+  color: #11a;
+  cursor: pointer;
+  font-family: Helvetica, Arial, Oxygen-Sans, Roboto, Ubuntu, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  background: #eee;
+  background-image: linear-gradient(to bottom, #eee, #ccc);
+}
+
+#btn:hover {
+  background-image: linear-gradient(to bottom, #eee, #bbb);
+}
+
+#btn:active,#btn:focus{
+  color: #666;
+  border: 1px solid #4B8DF8;
+  outline: none;
+}
+ /* 2E91E3  #0025B6; l/d blue */
+ /* line-height: 1.125em;*/
