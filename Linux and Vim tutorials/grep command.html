@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd"><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><link type="text/css" rel="stylesheet" href="http://download.oracle.com/docs/dcommon/dsc/css/default.css" /><link type="text/css" rel="stylesheet" href="http://download.oracle.com/docs/dcommon/dsc/css/www.css" /><link type="text/css" rel="stylesheet" href="http://download.oracle.com/docs/dcommon/dsc/css/dsc.css" /><script language="javascript1.2" type="text/javascript" src="http://download.oracle.com/docs/dcommon/dsc/js/sniff.js"></script><script >bazadebezolkohpepadr="76339742"</script><script type="text/javascript" src="https://docs.oracle.com/akam/11/48cda79"  defer></script></head><body><div id='a0v0' class='a0 a0v0'><div class='a2w0'><div id='a2v7' class='a2'><div class='a2w1'><div class='a2w2'><div class='a2w3'><div class='a2w4'><div class='a2topiclinks'><div class='a2x1'></div><a id='sunlogo' title='Oracle Home Page' href='http://www.oracle.com'><img width='98' height='58' border='0' alt='Oracle Homeage' src='http://download.oracle.com/docs/dcommon/dsc/im/a.gif'></a><img width='1' height='33' border='0' alt='test' src='http://download.oracle.com/docs/dcommon/dsc/im/a.gif' id='venuespacer'></div></div></div></div></div></div></div><div id='breadcrumb'><a href='http://www.oracle.com/technetwork/indexes/documentation/index.html'>Documentation Home</a> &nbsp;&gt; <a href='../index.html'>Solaris Advanced User's Guide </a>  </a> &nbsp;&gt; Chapter 4 Searching Files</div><br /><div class='pagetitle' id='sharepage'>Solaris Advanced User's Guide</div><div class='d8 d8v1' style='margin: 10px;'><div class='d8w1'><div class='d8w2'><div class='d8w3'><div class='d8w4'><ul><li class='d8left'><a href='../files-38045/index.html'><em>Previous</em>: Chapter 3 Working With Files and Directories</a></li><li class='d8right'><a href='../othercommands-69543/index.html'><em>Next</em>: Chapter 5 Managing Processes and Disk Usage</a></li></ul></div></div></div></div></div><div class='pc11 imgMax-590' style='margin: 10px;'><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6jgfmsvpv"></a><h1 class="sol">Chapter 4 Searching Files</h1>
+<a name=""></a><p>This chapter describes how to search directories and files for keywords and strings by using the <kbd>grep</kbd> command.</p>
+<a name="6jgfmsvq1"></a><h1 class="sol">Searching for Patterns With <kbd>grep</kbd>
+</h1>
+<p>To search for a particular character string in a file, use the <kbd>grep</kbd> command. The basic syntax of the <kbd>grep</kbd> command is: <a name="filesearch-ix763"></a> <a name="filesearch-ix764"></a> <a name="filesearch-ix765"></a> <a name="filesearch-ix766"></a>
+</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep</kbd></b> <var>string</var> <var>file</var>
+</pre>
+</td>
+</tr>
+</table><p>In this example, <var>string</var> is the word or phrase you want to find, and <var>file</var> is the file to be searched. </p>
+<hr><b>Note &ndash; </b><p>A <b>string</b> is one or more characters. A single letter is a string, as is a word or a sentence. Strings can include blank spaces, punctuation, and invisible (control) characters.</p>
+<hr>
+<p>For example, to find Edgar Allan Poe's telephone extension, type <kbd>grep</kbd>, all or part of his name, and the file containing the information:</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep Poe extensions</kbd></b>
+<kbd>Edgar Allan Poe     x72836</kbd>
+$</pre>
+</td>
+</tr>
+</table><p>Note that more than one line might match the pattern you give.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep Allan extensions</kbd></b>
+David Allan         x76438
+Edgar Allan Poe     x72836
+$ <b><kbd>grep Al extensions</kbd></b>
+Louisa May Alcott   x74236
+David Allan         x76438
+Edgar Allan Poe     x72836
+$</pre>
+</td>
+</tr>
+</table><p>
+<kbd>grep</kbd> is case sensitive; that is, you must match the pattern with respect to uppercase and lowercase letters: <a name="filesearch-ix767"></a> <a name="filesearch-ix768"></a> <a name="filesearch-ix769"></a>
+</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep allan extensions</kbd></b>
+$ <b><kbd>grep Allan extensions</kbd></b>
+David Allan         x76438
+Edgar Allan Poe     x72836
+$</pre>
+</td>
+</tr>
+</table><p>Note that <kbd>grep</kbd> failed in the first try because none of the entries began with a lowercase <tt>a</tt>.<a name="filesearch-ix770"></a> <a name="filesearch-ix771"></a>
+</p>
+<a name="filesearch-1a"></a><h2 class="sol">
+<kbd>grep</kbd> as a Filter</h2>
+<p>You can use the <kbd>grep</kbd> command as a filter with other commands, enabling you to filter out unnecessary information from the command output. To use <kbd>grep</kbd> as a filter, you must pipe the output of the command through <kbd>grep</kbd>. The symbol for pipe is &ldquo;<kbd>|</kbd>&rdquo;. <a name="filesearch-ix772"></a> <a name="filesearch-ix773"></a> <a name="filesearch-ix774"></a> <a name="filesearch-ix775"></a>
+</p>
+<p>The following example displays files that end in &ldquo;<kbd>.ps</kbd>&rdquo; and were created in the month of September.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>ls -l *.ps | grep Sep</kbd></b>
+</pre>
+</td>
+</tr>
+</table><p>The first part of this command line produces a list of files ending in <kbd>.ps</kbd>.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>ls -l *.ps</kbd></b>
+-rw-r--r--   1 user2    users     833233 Jun 29 16:22 buttons.ps
+-rw-r--r--   1 user2    users      39245 Sep 27 09:38 changes.ps
+-rw-r--r--   1 user2    users     608368 Mar  2  2000 clock.ps
+-rw-r--r--   1 user2    users     827114 Sep 13 16:49 commands.ps
+$</pre>
+</td>
+</tr>
+</table><p>The second part of the command line pipes that list through <kbd>grep</kbd>, looking for the pattern <tt>Sep</tt>.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>
+<b><kbd>| grep Sep</kbd></b>
+</pre>
+</td>
+</tr>
+</table><p>The search provides the following results.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>ls -l *.ps | grep Sep</kbd></b>
+-rw-r--r--   1 user2    users      39245 Sep 27 09:38 changes.ps
+-rw-r--r--   1 user2    users     827114 Sep 13 16:49 commands.ps
+$<a name="filesearch-ix776"></a><a name="filesearch-ix777"></a><a name="filesearch-ix778"></a><a name="filesearch-ix779"></a>
+</pre>
+</td>
+</tr>
+</table><a name="filesearch-2"></a><h2 class="sol">
+<kbd>grep</kbd> With Multiword Strings</h2>
+<p>To find a pattern that is more than one word long, enclose the string with single or double quotation marks. <a name="filesearch-ix780"></a> <a name="filesearch-ix781"></a> <a name="filesearch-ix782"></a> <a name="filesearch-ix783"></a> <a name="filesearch-ix784"></a> <a name="filesearch-ix785"></a>
+</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep &ldquo;Louisa May&rdquo; extensions</kbd></b>
+Louisa May Alcott     x74236
+$</pre>
+</td>
+</tr>
+</table><p>The <kbd>grep</kbd> command can search for a string in groups of files. When it finds a pattern that matches in more than one file, it prints the name of the file, followed by a colon, then the line matching the pattern.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep ar *</kbd></b>
+actors:Humphrey Bogart
+alaska:Alaska is the largest state in the United States.
+wilde:book.  Books are well written or badly written.
+$<a name="filesearch-ix786"></a><a name="filesearch-ix787"></a>
+</pre>
+</td>
+</tr>
+</table><a name="filesearch-3"></a><h2 class="sol">Searching for Lines Without a Certain String</h2>
+<p>To search for all the lines of a file that <b>do not</b> contain a certain string, use the  <kbd><b>-v</b></kbd> option to <kbd>grep</kbd>. The following example shows how to search through all the files in the current directory for lines that do not contain the letter <tt>e</tt>.<a name="filesearch-ix788"></a> <a name="filesearch-ix789"></a> <a name="filesearch-ix790"></a> <a name="filesearch-ix791"></a>
+</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>ls</kbd></b>
+actors    alaska    hinterland    tutors    wilde
+$ <b><kbd>grep -v e *</kbd></b>
+actors:Mon Mar 14 10:00 PST 1936
+wilde:That is all.
+$</pre>
+</td>
+</tr>
+</table><a name="filesearch-4"></a><h2 class="sol">Using Regular Expressions With <kbd>grep</kbd>
+</h2>
+<p>You can also use the <kbd>grep</kbd> command to search for targets that are defined as patterns by using <b>regular expressions</b>. Regular expressions consist of letters and numbers, in addition to characters with special meaning to <kbd>grep</kbd>. These special characters, called <b>metacharacters</b>, also have special meaning to the system. When you use regular expressions with the grep command, you need to tell your system to ignore the special meaning of these metacharacters by <b>escaping</b> them. When you use a <kbd>grep</kbd> regular expression at the command prompt, surround the regular expression with quotes. Escape metacharacters (such as <kbd>&amp; ! . * $ ?</kbd> and <kbd>\</kbd>) with a
+backslash (<kbd>\</kbd>). See <a href="../6jgfmsvq1/index.html#filesearch-5">Searching for Metacharacters</a> for more information on escaping metacharacters.<a name="filesearch-ix792"></a> <a name="filesearch-ix793"></a> <a name="filesearch-ix794"></a> <a name="filesearch-ix795"></a> <a name="filesearch-ix796"></a> <a name="filesearch-ix797"></a> <a name="filesearch-ix798"></a> <a name="filesearch-ix799"></a> <a name="filesearch-ix800"></a> <a name="filesearch-ix801"></a> <a name="filesearch-ix802"></a> <a name="filesearch-ix803"></a> <a name="filesearch-ix804"></a> <a name="filesearch-ix805"></a> <a name="filesearch-ix806"></a> <a name="filesearch-ix807"></a> <a name="filesearch-ix808"></a>
+</p>
+<a name=""></a><ul>
+<li>
+<p>A caret (<kbd>^</kbd>) metacharacter indicates the beginning of the line. The following command finds any line in the file <kbd>list</kbd> that starts with the letter <tt>b</tt>.<a name="filesearch-ix809"></a>
+</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep '^b' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<p>A dollar-sign (<kbd>$</kbd>) metacharacter indicates the end of the line. The following command displays any line in which <tt>b</tt> is the last character on the line. <a name="filesearch-ix810"></a>
+</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep 'b$' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+<p>The following command displays any line in the file <kbd>list</kbd> where <tt>b</tt> is the <b>only</b> character on the line.</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep '^b$' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Within a regular expression, dot (<kbd>.</kbd>) finds any single character. The following command matches any three-character string with &ldquo;an&rdquo; as the first two characters, including &ldquo;any,&rdquo; &ldquo;and,&rdquo; &ldquo;management,&rdquo; and &ldquo;plan&rdquo; (because spaces count, too).<a name="filesearch-ix811"></a>
+</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep 'an.' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+<p></p>
+
+</li>
+<li>
+<p>When an asterisk (<kbd>*</kbd>) follows a character, <kbd>grep</kbd> interprets the asterisk as &ldquo;zero or more instances of that character.&rdquo; When the asterisk follows a regular expression, <kbd>grep</kbd> interprets the asterisk as &ldquo;zero or more instances of characters matching the pattern.&rdquo; <a name="filesearch-ix812"></a> <a name="filesearch-ix813"></a> <a name="filesearch-ix814"></a>
+</p>
+
+<p>Because it includes zero occurrences, the asterisk can create a confusing command output. If you want to find all words with the letters &ldquo;qu&rdquo; in them, type the following command.</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep 'qu*' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+<p>However, if you want to find all words containing the letter &ldquo;n,&rdquo; type the following command.</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep 'nn*' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+<p>If you want to find all words containing the pattern &ldquo;nn,&rdquo; type the following command.</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep 'nnn*' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<p>To match zero or more occurrences of <b>any</b> character in <kbd>list</kbd>, type the following command.</p>
+
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep .* list</kbd></b><a name="filesearch-ix815"></a><a name="filesearch-ix816"></a><a name="filesearch-ix817"></a><a name="filesearch-ix818"></a><a name="filesearch-ix819"></a>
+</pre>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<a name="filesearch-5"></a><h2 class="sol">Searching for Metacharacters</h2>
+<p>To use the <kbd>grep</kbd> command to search for metacharacters such as <kbd>&amp; ! . * ?</kbd> and <kbd>\</kbd>, precede the metacharacter with a backslash (<tt>\</tt>). The backslash tells <kbd>grep</kbd> to ignore (<b>escape</b>) the metacharacter.<a name="filesearch-ix820"></a> <a name="filesearch-ix821"></a> <a name="filesearch-ix822"></a> <a name="filesearch-ix823"></a> <a name="filesearch-ix824"></a> <a name="filesearch-ix825"></a> <a name="filesearch-ix826"></a> <a name="filesearch-ix827"></a> <a name="filesearch-ix828"></a>
+</p>
+<p>For example, the following expression matches lines that start with a period, and is useful when searching for <kbd>nroff</kbd> or <kbd>troff</kbd> formatting requests (which begin with a period).</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep ^\.</kbd></b>
+</pre>
+</td>
+</tr>
+</table><p>
+<a href="../6jgfmsvq1/index.html#filesearch-86136">Table 4&ndash;1</a>  lists common search pattern elements you can use with <kbd>grep</kbd>. <a name="filesearch-ix829"></a> <a name="filesearch-ix830"></a>
+</p>
+<a name="filesearch-86136"></a>Table 4&ndash;1  <kbd>grep</kbd> Search Pattern Elements<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="bottom">
+<p>Character&nbsp;</p>
+</th><th scope="col" align="left" valign="bottom">
+<p>Matches&nbsp;</p>
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>^ <a name="filesearch-ix831"></a>
+</p>
+</td><td align="left" valign="top">
+<p>The beginning of a text line&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>$ <a name="filesearch-ix832"></a>
+</p>
+</td><td align="left" valign="top">
+<p>The end of a text line&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>. <a name="filesearch-ix833"></a>
+</p>
+</td><td align="left" valign="top">
+<p>Any single character&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>[...]&nbsp;</p>
+</td><td align="left" valign="top">
+<p>Any single character in the bracketed list or range&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>[^...]&nbsp;</p>
+</td><td align="left" valign="top">
+<p>Any character not in the list or range&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>* <a name="filesearch-ix834"></a> <a name="filesearch-ix835"></a>
+</p>
+</td><td align="left" valign="top">
+<p>Zero or more occurrences of the preceding character or regular expression&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>.*&nbsp;</p>
+</td><td align="left" valign="top">
+<p>Zero or more occurrences of any single character&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>\ <a name="filesearch-ix836"></a> <a name="filesearch-ix837"></a> <a name="filesearch-ix838"></a> <a name="filesearch-ix839"></a>
+</p>
+</td><td align="left" valign="top">
+<p>The escape of special meaning of next character&nbsp;</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p>Note that you can also use these search characters in <kbd>vi</kbd> text editor searches. <a name="filesearch-ix840"></a> <a name="filesearch-ix841"></a> <a name="filesearch-ix842"></a> <a name="filesearch-ix843"></a> <a name="filesearch-ix844"></a> <a name="filesearch-ix845"></a> <a name="filesearch-ix846"></a> <a name="filesearch-ix847"></a>
+</p>
+<a name="filesearch-6"></a><h2 class="sol">Single or Double Quotes on Command Lines</h2>
+<p>As shown earlier, you use quotation marks to surround text that you want to be interpreted as one word. For example, type the following to use <kbd>grep</kbd> to search all files for the phrase &ldquo;dang it, boys&rdquo;: <a name="filesearch-ix848"></a> <a name="filesearch-ix849"></a> <a name="filesearch-ix850"></a> <a name="filesearch-ix851"></a>
+</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep "dang it, boys" *</kbd></b>
+</pre>
+</td>
+</tr>
+</table><p>You can also use single quotation marks (<tt>'</tt>)  to group multiword phrases into single units. Single quotation marks also make sure that certain that the system interprets metacharacters, such as <tt>$</tt>, literally.</p>
+<hr><b>Note &ndash; </b><p>The <kbd>history</kbd> metacharacter <kbd>!</kbd> is always interpreted as a metacharacter, even inside quotation marks, unless you escape it with a backslash.</p>
+<hr>
+<p>Escape characters such as <kbd>&amp; ! $ ? . ;</kbd> and <kbd>\</kbd> when you want <kbd>grep</kbd> to interpret these characters as ordinary typographical characters. <a name="filesearch-ix852"></a> <a name="filesearch-ix853"></a> <a name="filesearch-ix854"></a> <a name="filesearch-ix855"></a> <a name="filesearch-ix856"></a> <a name="filesearch-ix857"></a> <a name="filesearch-ix858"></a> <a name="filesearch-ix860"></a>
+</p>
+<p>For example, if you type the following command, the system displays <b>all</b> the lines in the file <kbd>list</kbd>.</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep $ list</kbd></b>
+</pre>
+</td>
+</tr>
+</table><p> However, if you type the following command, the system displays only those lines that contain the &ldquo;<tt>$</tt>&rdquo; character.<a name="filesearch-ix861"></a> <a name="filesearch-ix862"></a> <a name="filesearch-ix863"></a> <a name="filesearch-ix864"></a> <a name="filesearch-ix865"></a> <a name="filesearch-ix866"></a> <a name="filesearch-ix867"></a> <a name="filesearch-ix868"></a> <a name="filesearch-ix869"></a>
+</p>
+<table cellpadding="1" border="1" width="100%">
+<tr>
+<td nowrap="1">
+<br>
+<pre>$ <b><kbd>grep '\$' list</kbd></b>
+</pre>
+</td>
+</tr>
+</table><p>For more information on the <a href="/docs/cd/E19683-01/816-0210/index.html">grep(1)</a> command, refer to the <cite>man Pages(1): User Commands</cite>. <a name="filesearch-ix870"></a> <a name="filesearch-ix871"></a>
+</p>
+</div><div class='d8 d8v1' style='margin: 10px;'><div class='d8w1'><div class='d8w2'><div class='d8w3'><div class='d8w4'><ul><li class='d8left'><a href='../files-38045/index.html'><em>Previous</em>: Chapter 3 Working With Files and Directories</a></li><li class='d8right'><a href='../othercommands-69543/index.html'><em>Next</em>: Chapter 5 Managing Processes and Disk Usage</a></li></ul></div></div></div></div></div><div class='a5 a5v0' id='a5'>
+<ul>
+    <li class='copyright'>&copy; 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div><noscript><img src="https://docs.oracle.com/akam/11/pixel_48cda79?a=dD0yNGU5MjQ4ZWYwYmZmMTRlYmI5Yzc3YzY4Yjk2NTFhZDBhOWEwYmU3JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body></html>
