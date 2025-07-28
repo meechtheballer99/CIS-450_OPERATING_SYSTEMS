@@ -1,0 +1,75 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//QUESTION 7A:
+
+
+Monitor savingsAcct{
+
+int currentBal = (current balance to date);
+condition suffcientBal;
+
+deposit(int x){
+
+	currentBal += x; //add x to current balance
+	suffBal.broadcast(); //try all withdraw threads
+}
+
+
+
+withdraw(int x){
+	
+	while(currentBal < x )
+		sufficientBal.wait();
+	currentBal -= x; //subtract x from current balance
+}
+}
+
+
+
+
+//QUESTION 7B:
+
+Monitor FCFS_savingsAcct{
+
+int currentBal = (current balance to date);
+numWait_withdraws = -1; //priority 0 will be first priority
+condition suffcientBal, changePriority;
+
+deposit(int x){
+
+	currentBal += x; //add x to current balance
+	sufficientBal.signal(); 
+}
+
+
+
+withdraw(int x){
+	
+	numWait_withdraws++;
+	int priorityNum = numWait_withdraws; //assign a priority val; ensure no threads skip ahead
+	while(priorityNum > 0){
+		
+		changePriority.wait();	//wait for signal to decrement priority
+		priorityNum--;			//move closer to front of queue
+	}
+
+	while(currentBal < x)
+		sufficientBal.wait();
+
+	currentBal -= x;			//subtract x from current balance
+	numWait_withdraws--;		//decrement queue
+	changePriority.broadcast(); //all threads move to entry monitor queue; will decrement priority upon waking up
+}
+}

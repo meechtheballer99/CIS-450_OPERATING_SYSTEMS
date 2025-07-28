@@ -1,0 +1,75 @@
+
+
+
+
+•	Note: cin>> operation must be done in the correct sequence; otherwise, a and b assignment values from the original program could be swapped, thus giving a different result than the original program given above, and it could cause indeterminate results.
+•	Keep in mind, the condition variable in a monitor is a binary semaphore initialized to 0, and contains its own separate wait queue for when it sends threads to sleep via cond.wait().
+
+Monitor currentCompute{
+
+int a, b, c, d, e; 
+
+bool aAvail, bAvail, cAvail, dAvail, eAvail = false;
+condition aReady, bReady, cReady, dReady, eReady; 
+
+readA(){
+
+	cin >> a;  
+	aAvail = true;
+	aReady.broadcast(); 
+}
+readB(){
+
+	if(!aAvail)
+		aAvail.wait();
+	cin >> b; 
+	bAvail = true; 
+	bReady.broadcast(); 
+}
+mulC(){
+
+	if(!bAvail)
+		bAvail.wait();
+	c = b*2;
+	cAvail = true;
+	cReady.signal();
+}
+setD(){
+
+	if(!bAvail)
+		bReady.wait();
+	if(!cAvail)
+		cReady.wait();
+	d = b+1;
+	dAvail = true;
+	dReady.signal();
+		
+}
+setE(){
+
+	if(!dAvail)
+		dReady.wait();
+	e = d - a;
+	eAvail = true;
+	eReady.signal();
+
+}
+output_AE(){
+
+	if(!aAvail)
+		aReady.wait();
+	cout << a;
+	if(!eAvail)
+		eReady.wait();
+	cout << e;
+}
+
+}
+
+
+
+
+
+
+
+
