@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0077)https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-19683 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Semaphores (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Semaphores (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Semaphores (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Semaphores (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="./Semaphores (Multithreaded Programming Guide)_files/sniff.js.download"></script><script>bazadebezolkohpepadr="76339742"</script><script type="text/javascript" src="./Semaphores (Multithreaded Programming Guide)_files/48cd8d2" defer=""></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Semaphores (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Semaphores (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19683-01/806-6867/index.html">Multithreaded Programming Guide </a>  &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnd/index.html">Chapter 4 Programming with Synchronization Objects </a>   &nbsp;&gt; Semaphores</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="https://docs.oracle.com/cd/E19683-01/806-6867/sync-ex-23/index.html"><em>Previous</em>: Using Condition Variables</a></li><li class="d8right"><a href="https://docs.oracle.com/cd/E19683-01/806-6867/sync-tbl-61/index.html"><em>Next</em>: Read-Write Lock Attributes</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="6jfpgdcnj"></a><h1 class="sol">Semaphores</h1>
+<a name="sync-ix384"></a><a name="sync-ix385"></a><a name="indexterm-89"></a><p>Semaphores are a programming
+construct designed by E. W. Dijkstra in the late 1960s. Dijkstra's model was
+the operation of railroads: consider a stretch of railroad in which there
+is a single track over which only one train at a time is allowed. <a name="sync-ix386"></a>
+</p>
+<p>Guarding this track is a semaphore. A train must wait before entering
+the single track until the semaphore is in a state that permits travel. When
+the train enters the track, the semaphore changes state to prevent other trains
+from entering the track. A train that is leaving this section of track must
+again change the state of the semaphore to allow another train to enter.</p>
+<p>In the computer version, a semaphore appears to be a simple integer.
+A thread waits for permission to proceed and then signals that it has proceeded
+by performing a <tt>P</tt> operation on the semaphore. <a name="sync-ix387"></a>
+</p>
+<p>The semantics of the operation are such that the thread must wait until
+the semaphore's value is positive, then change the semaphore's value by subtracting
+one from it. When it is finished, the thread performs a <tt>V</tt>
+operation, which changes the semaphore's value by adding one to it. It is
+crucial that these operations take place atomically—they cannot be subdivided
+into pieces between which other actions on the semaphore can take place. In
+the <tt>P</tt> operation, the semaphore's value must be positive
+just before it is decremented (resulting in a value that is guaranteed to
+be nonnegative and one less than what it was before it was decremented). <a name="sync-ix388"></a>
+</p>
+<p>In both <tt>P</tt> and <tt>V</tt> operations, the
+arithmetic must take place without interference. If two <tt>V</tt>
+operations are performed simultaneously on the same semaphore, the net effect
+should be that the semaphore's new value is two greater than it was.</p>
+<p>The mnemonic significance of <tt>P</tt> and <tt>V</tt>
+is unclear to most of the world, as Dijkstra is Dutch. However, in the interest
+of true scholarship: <tt>P</tt> stands for prolagen, a made-up word
+derived from proberen te verlagen, which means <b>try to decrease</b>. <tt>V</tt> stands for verhogen, which means <b>increase</b>.
+This is discussed in one of Dijkstra's technical notes, EWD 74. <a name="sync-ix389"></a> <a name="sync-ix390"></a>
+</p>
+<p>
+<kbd>sem_wait</kbd>(3RT) and <kbd>sem_post</kbd>(3RT)
+correspond to Dijkstra's <tt>P</tt> and <tt>V</tt> operations. <kbd>sem_trywait</kbd>(3RT) is a conditional form of the <tt>P</tt>
+operation: if the calling thread cannot decrement the value of the semaphore
+without waiting, the call returns immediately with a nonzero value.<a name="indexterm-90"></a><a name="sync-ix391"></a> <a name="sync-ix392"></a>
+</p>
+<p>There are two basic sorts of semaphores: binary semaphores, which never
+take on values other than zero or one, and counting semaphores, which can
+take on arbitrary nonnegative values. A binary semaphore is logically just
+like a mutex.<a name="indexterm-91"></a><a name="sync-ix393"></a> <a name="indexterm-92"></a><a name="sync-ix394"></a> <a name="sync-ix395"></a>
+</p>
+<p>However, although it is not enforced, mutexes should be unlocked only
+by the thread holding the lock. There is no notion of “the thread holding
+the semaphore,” so any thread can perform a <tt>V</tt> (or
+sem_post(3RT)) operation.</p>
+<p>Counting semaphores are about as powerful as conditional variables (used
+in conjunction with mutexes). In many cases, the code might be simpler when
+it is implemented with counting semaphores rather than with condition variables
+(as shown in the next few examples). </p>
+<p>However, when a mutex is used with condition variables, there is an
+implied bracketing—it is clear which part of the program is being protected.
+This is not necessarily the case for a semaphore, which might be called the <b>go to</b> of concurrent programming—it is powerful but too easy
+to use in an unstructured, indeterminate way.</p>
+<a name="sync-34"></a><h2 class="sol">Counting Semaphores</h2>
+<p>Conceptually, a semaphore is a nonnegative integer count. Semaphores
+are typically used to coordinate access to resources, with the semaphore count
+initialized to the number of free resources. Threads then atomically increment
+the count when resources are added and atomically decrement the count when
+resources are removed. </p>
+<p>When the semaphore count becomes zero, indicating that no more resources
+are present, threads trying to decrement the semaphore block wait until the
+count becomes greater than zero.</p>
+<a name="sync-tbl-35"></a>Table 4–7  Routines for Semaphores<table width="100%" cellpadding="10" cellspacing="0" border="2">
+<caption>
+<b></b>
+</caption>
+<thead>
+<tr>
+<th scope="col" align="left" valign="top">
+<p>Operation&nbsp;</p>
+</th><th scope="col" align="left" valign="top" colspan="2">
+<p>Destination Discussion&nbsp;</p>
+</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">
+<p>Initialize a semaphore&nbsp;</p>
+</td><td align="left" valign="top" colspan="2">
+<p>
+<a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-19683">sem_init(3RT)</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Increment a semaphore&nbsp;</p>
+</td><td align="left" valign="top" colspan="2">
+<p>
+<a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-93728">sem_post(3RT)</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Block on a semaphore count&nbsp;</p>
+</td><td align="left" valign="top" colspan="2">
+<p>
+<a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-91984">sem_wait(3RT)</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Decrement a semaphore count&nbsp;</p>
+</td><td align="left" valign="top" colspan="2">
+<p>
+<a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-87966">sem_trywait(3RT)</a>
+</p>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">
+<p>Destroy the semaphore state&nbsp;</p>
+</td><td align="left" valign="top" colspan="2">
+<p>
+<a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-59226">sem_destroy(3RT)</a>
+</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+<p> 
+</p><p>Because semaphores need not be acquired and released by the same thread,
+they can be used for asynchronous event notification (such as in signal handlers).
+And, because semaphores contain state, they can be used asynchronously without
+acquiring a mutex lock as is required by condition variables. However, semaphores
+are not as efficient as mutex locks. <a name="sync-ix396"></a> <a name="sync-ix397"></a> <a name="sync-ix398"></a>
+</p>
+<p>By default, there is no defined order of unblocking if multiple threads
+are waiting for a semaphore.</p>
+<p>Semaphores must be initialized before use, but they do not have attributes. </p>
+<a name="sync-42602"></a><h2 class="sol">Initialize a Semaphore</h2>
+<a name="sync-19683"></a><h3 class="sol">sem_init(3RT)</h3>
+<a name="sync-ix399"></a><a name=""></a><pre>Prototype:
+int	sem_init(sem_t *<var>sem</var>, int <var>pshared</var>, unsigned int <var>value</var>);</pre>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>pshared</var>;
+int <var>ret</var>;
+int <var>value</var>;
+
+/* initialize a private semaphore */
+<var>pshared</var> = 0;
+<var>value</var> = 1;
+<var>ret</var> = sem_init(&amp;<var>sem</var>, <var>pshared</var>, <var>value</var>); </pre>
+<p>Use <a href="https://docs.oracle.com/docs/cd/E19683-01/816-0216/index.html">sema_init(3THR)</a>
+to initialize the semaphore variable pointed to by <var>sem</var>
+to <var>value</var> amount. If the value of pshared is zero,
+then the semaphore cannot be shared between processes. If the value of pshared
+is nonzero, then the semaphore can be shared between processes. (For Solaris
+threads, see <a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcom/index.html#sthreads-18372">sema_init(3THR)</a>.)</p>
+<p>Multiple threads must not initialize the same semaphore. </p>
+<p>A semaphore must not be reinitialized while other threads might be using
+it.</p>
+<a name="sync-36"></a><h4 class="sol">Return Values</h4><p>
+<kbd><b>sem_init()</b></kbd> returns zero after completing successfully.
+Any other return value indicates that an error occurred. When any of the following
+conditions occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<dt>
+<br>
+<p>
+<tt><samp>EINVAL</samp> <a name="sync-ix400"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>The value argument exceeds <tt>SEM_VALUE_MAX</tt>.</p>
+
+</dd>
+<dt>
+<br>
+<p>
+<tt><samp>ENOSPC</samp> <a name="sync-ix401"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>A resource required to initialize
+the semaphore has been exhausted. The limit on semaphores <tt>SEM_NSEMS_MAX</tt> has been reached.</p>
+
+</dd>
+<dt>
+<br>
+<p>
+<tt><samp>EPERM</samp> <a name="sync-ix402"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>The process lacks the appropriate
+privileges to initialize the semaphore.</p>
+
+</dd>
+</dl>
+<a name="sync-37"></a><h4 class="sol">Initializing Semaphores With Intraprocess Scope</h4><p>When <var>pshared</var> is 0, the semaphore can be used
+by all the threads in this <a name="indexterm-93"></a>process only.</p>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>ret</var>;
+int count = 4;
+
+/* to be used within this process only */
+<var>ret</var> = sem_init(&amp;<var>sem</var>, 0, count); </pre>
+
+<a name="sync-38"></a><h4 class="sol">Initializing Semaphores With Interprocess Scope</h4><p>When <var>pshared</var> is nonzero, the semaphore can
+be shared by other <a name="indexterm-94"></a>processes.</p>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>ret</var>;
+int count = 4;
+
+/* to be shared among processes */
+<var>ret</var> = sem_init(&amp;<var>sem</var>, 1, count);</pre>
+
+<a name="sync-39"></a><h2 class="sol">Named Semaphores</h2>
+<p>The functions <kbd>sem_open(3RT)</kbd>, <kbd>sem_getvalue(3RT)</kbd>, <kbd>sem_close(3RT)</kbd>, and <kbd>sem_unlink(3RT)</kbd> are available to <tt>open</tt>, <tt>retrieve</tt>, <tt>close</tt>, and <tt>remove</tt> named semaphores. Using <kbd><b>sem_open()</b></kbd>, you can create a semaphore that has a name defined in
+the file system name space. </p>
+<p>Named <a name="indexterm-95"></a>semaphores are like process shared semaphores, except that they
+are referenced with a pathname rather than a <var>pshared</var>
+value.</p>
+<p>For more information about named semaphores, see <kbd>sem_open(3RT)</kbd>, <kbd>sem_getvalue(3RT)</kbd>, <kbd>sem_close(3RT)</kbd>, and <kbd>sem_unlink(3RT)</kbd>.</p>
+<a name="sync-41652"></a><h2 class="sol">Increment a Semaphore</h2>
+<a name="sync-93728"></a><h3 class="sol">sem_post(3RT)</h3>
+<a name="sync-ix403"></a><a name=""></a><pre>Prototype:
+int	sem_post(sem_t *<var>sem</var>);</pre>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>ret</var>;
+
+<var>ret</var> = sem_post(&amp;<var>sem</var>); /* semaphore is posted */</pre>
+<p>Use <a href="https://docs.oracle.com/docs/cd/E19683-01/816-0216/index.html">sema_post(3THR)</a>
+to atomically increment the semaphore pointed to by <var>sem</var>.
+When any threads are blocked on the semaphore, one of them is unblocked. (For
+Solaris threads, see <a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcom/index.html#sthreads-17792">sema_post(3THR)</a>.)</p>
+<a name="sync-40"></a><h4 class="sol">Return Values</h4><p>
+<kbd><b>sem_post()</b></kbd> returns zero after completing successfully.
+Any other return value indicates that an error occurred. When the following
+condition occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<dt>
+<br>
+<p>
+<tt><samp>EINVAL</samp> <a name="sync-ix404"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>
+<var>sem</var>
+points to an illegal address.</p>
+
+</dd>
+</dl>
+<a name="sync-95982"></a><h2 class="sol">Block on a Semaphore Count</h2>
+<a name="sync-91984"></a><h3 class="sol">sem_wait(3RT)</h3>
+<a name="sync-ix405"></a><a name=""></a><pre>Prototype:
+int	sem_wait(sem_t *<var>sem</var>);</pre>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>ret</var>;
+
+ret = sem_wait(&amp;<var>sem</var>); /* wait for semaphore */</pre>
+<p>Use <a href="https://docs.oracle.com/docs/cd/E19683-01/816-0216/index.html">sema_wait(3THR)</a>
+to block the calling thread until the count in the semaphore pointed to by <var>sem</var> becomes greater than zero, then atomically decrement it.</p>
+<a name="sync-41"></a><h4 class="sol">Return Values</h4><p>
+<kbd><b>sem_wait()</b></kbd> returns zero after completing successfully.
+Any other return value indicates that an error occurred. When any of the following
+conditions occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<dt>
+<br>
+<p>
+<tt><samp>EINVAL</samp> <a name="sync-ix406"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>
+<var>sem</var>
+points to an illegal address.</p>
+
+</dd>
+<dt>
+<br>
+<p>
+<tt><samp>EINTR</samp> <a name="sync-ix407"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>A signal interrupted this function.</p>
+
+</dd>
+</dl>
+<a name="sync-73219"></a><h2 class="sol">Decrement a Semaphore Count</h2>
+<a name="sync-87966"></a><h3 class="sol">sem_trywait(3RT)</h3>
+<a name="sync-ix408"></a><a name=""></a><pre>Prototype:
+int	sem_trywait(sem_t *<var>sem</var>);</pre>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>ret</var>;
+
+<var>ret</var> = sem_trywait(&amp;<var>sem</var>); /* try to wait for semaphore*/</pre>
+<p>Use <a href="https://docs.oracle.com/docs/cd/E19683-01/816-0216/index.html">sem_trywait(3RT)</a>
+to try to atomically decrement the count in the semaphore pointed to by <var>sem</var> when the count is greater than zero. This function is a
+nonblocking version of <kbd><b>sem_wait()</b></kbd>; that is it returns immediately
+if unsuccessful. </p>
+<a name="sync-42"></a><h4 class="sol">Return Values</h4><p>
+<kbd><b>sem_trywait()</b></kbd> returns zero after completing successfully.
+Any other return value indicates that an error occurred. When any of the following
+conditions occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<dt>
+<br>
+<p>
+<tt><samp>EINVAL</samp> <a name="sync-ix409"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>
+<var>sem</var>
+points to an illegal address.</p>
+
+</dd>
+<dt>
+<br>
+<p>
+<tt><samp>EINTR</samp> <a name="sync-ix410"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>A signal interrupted this function.</p>
+
+</dd>
+<dt>
+<br>
+<p>
+<tt><samp>EAGAIN</samp> <a name="sync-ix411"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>The semaphore was already locked,
+so it cannot be immediately locked by the <kbd><b>sem_trywait()</b></kbd>
+operation.</p>
+
+</dd>
+</dl>
+<a name="sync-16033"></a><h2 class="sol">Destroy the Semaphore State</h2>
+<a name="sync-59226"></a><h3 class="sol">sem_destroy(3RT)</h3>
+<a name="sync-ix412"></a><a name=""></a><pre>Prototype:
+int	sem_destroy(sem_t *<var>sem</var>);</pre>
+<a name=""></a><pre>#include &lt;semaphore.h&gt;
+
+sem_t <var>sem</var>;
+int <var>ret</var>;
+
+<var>ret</var> = sem_destroy(&amp;<var>sem</var>); /* the semaphore is destroyed */</pre>
+<p>Use <a href="https://docs.oracle.com/docs/cd/E19683-01/816-0216/index.html">sem_destroy(3RT)</a>
+to destroy any state associated with the semaphore pointed to by <var>sem</var>. The space for storing the semaphore is not freed. (For
+Solaris threads, see <a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcom/index.html#sthreads-29856">sem_destroy(3THR)</a>.)</p>
+<a name="sync-43"></a><h4 class="sol">Return Values</h4><p>
+<kbd><b>sem_destroy()</b></kbd> returns zero after completing successfully.
+Any other return value indicates that an error occurred. When the following
+condition occurs, the function fails and returns the corresponding value.</p>
+<dl>
+<dt>
+<br>
+<p>
+<tt><samp>EINVAL</samp> <a name="sync-ix413"></a></tt>
+</p>
+
+</dt>
+<dd>
+<p>
+<var>sem</var>
+points to an illegal address.</p>
+
+</dd>
+</dl>
+<a name="sync-15907"></a><h2 class="sol">The Producer/Consumer Problem, Using Semaphores</h2>
+<p>The data structure in <a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcnj/index.html#sync-27385">Example 4–14</a> is similar to that used for the condition variables example (see <a href="https://docs.oracle.com/cd/E19683-01/806-6867/6jfpgdcni/index.html#sync-30944">Example 4–11</a>). Two semaphores represent
+the number of full and empty buffers and ensure that producers wait until
+there are empty buffers and that consumers wait until there are full buffers. </p>
+<a name="sync-27385"></a><hr><h5 class="sol">Example 4–14  The Producer/Consumer Problem With Semaphores</h5><br><a name=""></a><pre>typedef struct {
+    char buf[BSIZE];
+    sem_t occupied;
+    sem_t empty;
+    int nextin;
+    int nextout;
+    sem_t pmut;
+    sem_t cmut;
+} buffer_t;
+
+buffer_t buffer;
+
+sem_init(&amp;buffer.occupied, 0, 0);<a name="sync-ix414"></a>
+sem_init(&amp;buffer.empty,0, BSIZE);
+sem_init(&amp;buffer.pmut, 0, 1);
+sem_init(&amp;buffer.cmut, 0, 1);
+buffer.nextin = buffer.nextout = 0;</pre>
+<hr>
+<p>Another pair of (binary) semaphores plays the same role as mutexes,
+controlling access to the buffer when there are multiple producers and multiple
+empty buffer slots, and when there are multiple consumers and multiple full
+buffer slots. Mutexes would work better here, but would not provide as good
+an example of semaphore use.</p>
+<a name="sync-ex-44"></a><hr><h5 class="sol">Example 4–15  The Producer/Consumer Problem—the Producer</h5><br><a name=""></a><pre>void producer(buffer_t *b, char item) {
+    sem_wait(&amp;b-&gt;empty);<a name="sync-ix415"></a>
+    sem_wait(&amp;b-&gt;pmut);
+
+    b-&gt;buf[b-&gt;nextin] = item;
+    b-&gt;nextin++;
+    b-&gt;nextin %= BSIZE;
+
+    sem_post(&amp;b-&gt;pmut);<a name="sync-ix416"></a>
+    sem_post(&amp;b-&gt;occupied);
+}</pre>
+<hr>
+<a name="sync-ex-45"></a><hr><h5 class="sol">Example 4–16  The Producer/Consumer Problem—the Consumer</h5><br><a name=""></a><pre>char consumer(buffer_t *b) {
+    char item;
+
+    sem_wait(&amp;b-&gt;occupied);
+   
+    sem_wait(&amp;b-&gt;cmut);
+
+    item = b-&gt;buf[b-&gt;nextout];
+    b-&gt;nextout++;
+    b-&gt;nextout %= BSIZE;
+
+    sem_post(&amp;b-&gt;cmut);
+
+    sem_post(&amp;b-&gt;empty);
+
+    return(item);
+}</pre>
+<hr>
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="https://docs.oracle.com/cd/E19683-01/806-6867/sync-ex-23/index.html"><em>Previous</em>: Using Condition Variables</a></li><li class="d8right"><a href="https://docs.oracle.com/cd/E19683-01/806-6867/sync-tbl-61/index.html"><em>Next</em>: Read-Write Lock Attributes</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div><noscript><img src="https://docs.oracle.com/akam/11/pixel_48cd8d2?a=dD0yNGU5MjQ4ZWYwYmZmMTRlYmI5Yzc3YzY4Yjk2NTFhZDBhOWEwYmU3JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body></html>

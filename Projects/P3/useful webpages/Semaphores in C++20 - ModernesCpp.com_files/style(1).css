@@ -1,0 +1,20 @@
+li.jb {
+	display:block;
+	padding:0 0 0 10px;
+	margin:0;
+	background:transparent none !important
+}
+ul.jb {
+	padding: 3px 0 0 0;
+	margin: 0
+}
+span.jb {
+	cursor:pointer
+}
+span.jb span {
+	font-family: arial
+}
+img.jb {
+	border:0;
+	padding:0
+}

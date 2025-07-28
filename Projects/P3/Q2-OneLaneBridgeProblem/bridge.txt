@@ -1,0 +1,42 @@
+
+//One Lane Bridge Monitor Solution
+
+void OneVehicle(int direc) {
+    ArriveBridge(direc);
+    CrossBridge(direc);
+    ExitBridge(direc);
+}
+
+monitor Bridge {
+    Condition safe;
+
+    int currentDirec;
+    int currentNumber;
+
+    void ArriveBridge(int direc) {
+        while (!isSafe(direc) )
+            safe.Wait();
+        currentNumber++;
+        currentDirec = direc;
+    }
+
+    void CrossBridge (int direc) {
+        //crossing the bridge;
+    }
+
+    void ExitBridge(Bridge::Direction direc) {
+        currentNumber--;
+        safe.Broadcast();
+    }
+
+    bool isSafe(int direc) {
+        if ( currentNumber == 0 )
+            return TRUE;    // always safe when bridge is empty
+        else if ((currentNumber < 3) && (currentDirec == direc))
+            return TRUE;    // room for us to follow others in direc
+        else
+            return FALSE;   // bridge is full or has oncoming traffic.
+    }
+
+}
+

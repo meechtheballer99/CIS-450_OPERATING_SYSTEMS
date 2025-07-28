@@ -1,0 +1,191 @@
+
+<!-- saved from url=(0055)https://www.mkssoftware.com/docs/man3/sem_destroy.3.asp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="StyleSheet" href="./sem_destroy() -- destroy an unnamed semaphore_files/mksman.css">
+
+
+
+<title>sem_destroy() -- destroy an unnamed semaphore</title>
+<meta name="keywords" content="sem_destroy,unix porting,unix to windows porting,unix interoperability,windows interoperability,windows to unix compatibility">    </head>
+<body>
+<div id="nsr">
+<table width="100%" cellpadding="0" cellspacing="=&quot;0&quot;">
+<tbody><tr><td rowspan="2" align="LEFT" valign="TOP">
+<h1 class="header">
+<nobr>sem_destroy()</nobr>
+<p class="header">destroy an unnamed semaphore&nbsp;</p>
+</h1></td>
+<td align="RIGHT" valign="TOP">
+<h2 class="header">Realtime Function</h2>
+</td>
+</tr>
+<tr>
+<td align="RIGHT" valign="TOP">
+<form name="form">
+<select name="site" size="1" onchange="formHandler()">
+<option value="../man3/sem_destroy.3.asp#SYNOPSIS">SYNOPSIS</option>
+<option value="../man3/sem_destroy.3.asp#DESCRIPTION">DESCRIPTION</option>
+<option value="../man3/sem_destroy.3.asp#PARAMETERS">PARAMETERS</option>
+<option value="../man3/sem_destroy.3.asp#RETURN_VALUES">RETURN VALUES</option>
+<option value="../man3/sem_destroy.3.asp#EXAMPLES">EXAMPLES</option>
+<option value="../man3/sem_destroy.3.asp#CONFORMANCE">CONFORMANCE</option>
+<option value="../man3/sem_destroy.3.asp#MULTITHREAD_SAFETY_LEVEL">MULTITHREAD SAFETY LEVEL</option>
+<option value="../man3/sem_destroy.3.asp#PORTING_ISSUES">PORTING ISSUES</option>
+<option value="../man3/sem_destroy.3.asp#AVAILABILITY">AVAILABILITY</option>
+<option value="../man3/sem_destroy.3.asp#SEE_ALSO">SEE ALSO</option>
+</select>
+</form>
+</td>
+</tr>
+</tbody></table>
+<script language="JavaScript">
+<!-- Begin
+function formHandler(){
+var URL = document.form.site.options[document.form.site.selectedIndex].value;
+location.href=URL;
+// End -->
+}
+</script>
+</div>
+<div id="mainbody"><hr class="divider">
+<h2><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<p class="synline">
+<tt>#include &lt;semaphore.h&gt;</tt>
+</p>
+<p class="synlast">
+<tt>int sem_destroy(sem_t *<i>sem</i>);</tt>
+</p>
+
+<hr class="divider">
+<h2><a name="DESCRIPTION">DESCRIPTION</a></h2>
+
+<p class="firstline">
+The <tt><nobr>sem_destroy()</nobr></tt> function destroys the unnamed semaphore
+specified by the <i>sem</i> argument.
+You can only use this function to destroy a semaphore created with the
+<a href="https://www.mkssoftware.com/docs/man3/sem_init.3.asp"><tt><nobr>sem_init()</nobr></tt></a> function.
+Additionally, subsequent use of the specified semaphore by another semaphore 
+function results in that function failing with <tt>errno</tt> set to
+<tt>EINVAL</tt>. Reinitializing the semaphore with the 
+<a href="https://www.mkssoftware.com/docs/man3/sem_init.3.asp"><tt><nobr>sem_init()</nobr></tt></a> function allows it to be used again.
+</p>
+<p>
+Only semaphores on which no threads are currently blocked can be safely 
+destroyed. Attempting to destroy a semaphore with currently blocked threads has
+undefined effects.
+</p>
+<p>
+Attempting to destroy a named semaphore (that is, a semaphore created
+by the <a href="https://www.mkssoftware.com/docs/man3/sem_open.3.asp"><tt><nobr>sem_open()</nobr></tt></a> function) with this function
+can result in heap corruption or freeing resources that were not
+<a href="https://www.mkssoftware.com/docs/man3/malloc.3.asp"><tt><nobr>malloc()</nobr></tt></a>ed.
+You should only use <tt><nobr>sem_destroy()</nobr></tt>
+with semaphores created by <a href="https://www.mkssoftware.com/docs/man3/sem_init.3.asp"><tt><nobr>sem_init()</nobr></tt></a> and only use
+<a href="https://www.mkssoftware.com/docs/man3/sem_close.3.asp"><tt><nobr>sem_close()</nobr></tt></a> with semaphores created with
+<a href="https://www.mkssoftware.com/docs/man3/sem_open.3.asp"><tt><nobr>sem_open()</nobr></tt></a>.
+</p>
+
+<hr class="divider">
+<h2><a name="PARAMETERS">PARAMETERS</a></h2>
+
+<p class="firstline">
+</p><dl compact="yes">
+
+<a name=""></a><dt><i>sem</i>&nbsp;</dt>
+<dd>
+<p class="firstline">
+Specifies the unnamed semaphore to be destroyed.
+</p>
+</dd>
+
+</dl>
+<p></p>
+
+<hr class="divider">
+<h2><a name="RETURN_VALUES">RETURN VALUES</a></h2>
+
+<p class="firstline">
+When successful, <tt><nobr>sem_destroy()</nobr></tt> returns zero.
+Otherwise, it returns -1 is returned and sets <tt>errno</tt> to one
+of the following values:
+</p>
+<p class="firstline">
+</p><dl compact="yes">
+
+<a name=""></a><dt><tt>EINVAL</tt>&nbsp;</dt>
+<dd>
+<p class="firstline">
+The <i>sem</i> argument is not a valid semaphore. 
+</p>
+</dd>
+
+
+<a name=""></a><dt><tt>EBUSY</tt>&nbsp;</dt>
+<dd>
+<p class="firstline">
+There are currently processes blocked on the semaphore. 
+</p>
+</dd>
+
+</dl>
+<p></p>
+
+<hr class="divider">
+<h2><a name="EXAMPLES">EXAMPLES</a></h2>
+
+<p class="firstline">
+None. 
+</p>
+
+<hr class="divider">
+<h2><a name="CONFORMANCE">CONFORMANCE</a></h2>
+
+<p class="firstline">
+UNIX 03.
+Derived from the POSIX Realtime Extension 
+(1003.1b-1993/1003.1i-1995) 
+</p>
+
+<hr class="divider">
+<h2><a name="MULTITHREAD_SAFETY_LEVEL">MULTITHREAD SAFETY LEVEL</a></h2>
+
+<p class="firstline">
+MT-Safe.
+</p>
+
+<hr class="divider">
+<h2><a name="PORTING_ISSUES">PORTING ISSUES</a></h2>
+
+<p class="firstline">None.</p>
+
+<hr class="divider">
+<h2><a name="AVAILABILITY">AVAILABILITY</a></h2>
+
+<p class="firstline">
+PTC MKS Toolkit for Professional Developers<br>
+PTC MKS Toolkit for Professional Developers 64-Bit Edition<br>
+PTC MKS Toolkit for Enterprise Developers<br>
+PTC MKS Toolkit for Enterprise Developers 64-Bit Edition<br>
+</p>
+
+<hr class="divider">
+<h2><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="firstline">
+</p><dl compact="yes">
+<dt><b>Functions:</b></dt>
+<dd><a href="https://www.mkssoftware.com/docs/man3/sem_init.3.asp"><b><tt><nobr>sem_init()</nobr></tt></b></a>, <a href="https://www.mkssoftware.com/docs/man3/sem_open.3.asp"><b><tt><nobr>sem_open()</nobr></tt></b></a>, <a href="https://www.mkssoftware.com/docs/man3/semctl.3.asp"><b><tt><nobr>semctl()</nobr></tt></b></a>, <a href="https://www.mkssoftware.com/docs/man3/semget.3.asp"><b><tt><nobr>semget()</nobr></tt></b></a>, <a href="https://www.mkssoftware.com/docs/man3/semop.3.asp"><b><tt><nobr>semop()</nobr></tt></b></a></dd>
+</dl>
+<p></p>
+<p class="firstline">
+</p><dl compact="yes">
+<dt><b>Miscellaneous:</b></dt>
+<dd><a href="https://www.mkssoftware.com/docs/man5/semaphores.5.asp"><b><tt>semaphores</tt></b></a></dd>
+</dl>
+<p></p>
+<hr class="divider">
+<center><p class="build">
+PTC MKS Toolkit 10.3 Documentation Build 39.
+</p></center><br style="page-break-after: always;"></div><script async="" type="text/javascript" src="./sem_destroy() -- destroy an unnamed semaphore_files/_Incapsula_Resource"></script>
+
+</body></html>

@@ -1,0 +1,42 @@
+JB_COOKIE_TIME_SAVED = 1440; //in minutes
+var jb_month_opened = 0;
+var jb_year_opened = 0;
+
+function jb_open(img, id) {
+	if (img)
+		document.getElementById(id).src = JB_EXPAND;
+	else
+		document.getElementById(id).innerHTML = JB_EXPAND;
+}
+function jb_close(img, id) {
+	if (img)
+		document.getElementById(id).src = JB_COLLAPSE;
+	else
+		document.getElementById(id).innerHTML = JB_COLLAPSE;
+}
+function fjb(n, id, img) {
+	var li = "jb_"+n+"_"+id;
+	var a = "jb_"+n+"a_"+id;
+	if (document.getElementById(li)) {
+		if (document.getElementById(li).style.display == "none") {
+			document.getElementById(li).style.display = "";
+			document.cookie = 'jb'+n+'='+id+";path=/";
+			jb_open(img, a);
+		}
+		else {
+			document.getElementById(li).style.display = "none";
+			document.cookie = 'jb'+n+'=0;expires=0;path=/';
+			jb_close(img, a);
+		}
+	}
+	var opened = n==1 ? jb_month_opened : jb_year_opened;
+	li = 'jb_'+n+'_'+opened;
+	if (document.getElementById(li) && ((n==1 && jb_month_opened!=id) || (n!=1 && jb_year_opened!=id))) {
+		document.getElementById(li).style.display = "none";
+		jb_close(img, "jb_"+n+"a_"+opened);
+	}
+	if (n == 1)
+		jb_month_opened = id;
+	else
+		jb_year_opened = id;
+}

@@ -1,0 +1,75 @@
+WELCOME TO THE MULTITHREADED PROFESSOR-STUDENT QUESTION-ANSWER PROGRAM
+Written BY DEMETRIUS JOHNSON
+FOR UM-DEARBORN CIS-450 WITH DR. JINHUA GUO
+NUMBER OF STUDENTS IN CLASS: 10.
+The Professor is READY TO ANSWER question#0.
+Student_9 is READY TO ASK a question.
+Student_2 is READY TO ASK a question.
+Student_3 is READY TO ASK a question.
+Student_4 is READY TO ASK a question.
+Student_5 is READY TO ASK a question.
+Student_7 is READY TO ASK a question.
+Student_6 is READY TO ASK a question.
+Student_0 is READY TO ASK a question.
+Student_8 is READY TO ASK a question.
+Student_1 is READY TO ASK a question.
+Student_9 is ASKING a question.
+Student_9 is DONE ASKING a question.
+Student_2 is ASKING a question.
+Student_2 is DONE ASKING a question.
+Student_3 is ASKING a question.
+Student_3 is DONE ASKING a question.
+Student_4 is ASKING a question.
+Student_4 is DONE ASKING a question.
+Student_5 is ASKING a question.
+Student_5 is DONE ASKING a question.
+Student_7 is ASKING a question.
+Student_7 is DONE ASKING a question.
+Student_6 is ASKING a question.
+Student_6 is DONE ASKING a question.
+Student_0 is ASKING a question.
+Student_0 is DONE ASKING a question.
+Student_8 is ASKING a question.
+Student_8 is DONE ASKING a question.
+Student_1 is ASKING a question.
+Student_1 is DONE ASKING a question.
+The Professor is ANSWERING question#0.
+The Professor is DONE ANSWERING question#0.
+The Professor is READY TO ANSWER question#1.
+Student_9 received the answer and left.
+The Professor is ANSWERING question#1.
+The Professor is DONE ANSWERING question#1.
+The Professor is READY TO ANSWER question#2.
+Student_0 received the answer and left.
+The Professor is ANSWERING question#2.
+The Professor is DONE ANSWERING question#2.
+Student_1 received the answer and left.
+The Professor is READY TO ANSWER question#3.
+The Professor is ANSWERING question#3.
+The Professor is DONE ANSWERING question#3.
+The Professor is READY TO ANSWER question#4.
+Student_2 received the answer and left.
+The Professor is ANSWERING question#4.
+The Professor is DONE ANSWERING question#4.
+The Professor is READY TO ANSWER question#5.
+Student_3 received the answer and left.
+The Professor is ANSWERING question#5.
+The Professor is DONE ANSWERING question#5.
+Student_4 received the answer and left.
+The Professor is READY TO ANSWER question#6.
+The Professor is ANSWERING question#6.
+The Professor is DONE ANSWERING question#6.
+The Professor is READY TO ANSWER question#7.
+Student_5 received the answer and left.
+The Professor is ANSWERING question#7.
+The Professor is DONE ANSWERING question#7.
+The Professor is READY TO ANSWER question#8.
+Student_6 received the answer and left.
+The Professor is ANSWERING question#8.
+The Professor is DONE ANSWERING question#8.
+Student_7 received the answer and left.
+The Professor is READY TO ANSWER question#9.
+The Professor is ANSWERING question#9.
+The Professor is DONE ANSWERING question#9.
+~No more questions from students in the class. The Professor has gone to sleep.~
+Student_8 received the answer and left.

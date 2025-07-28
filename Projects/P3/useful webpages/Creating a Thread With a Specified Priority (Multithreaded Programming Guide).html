@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0066)https://docs.oracle.com/cd/E19455-01/806-5257/attrib-16/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Creating a Thread With a Specified Priority (Multithreaded Programming Guide) </title><link type="text/css" rel="stylesheet" href="./Creating a Thread With a Specified Priority (Multithreaded Programming Guide)_files/default.css"><link type="text/css" rel="stylesheet" href="./Creating a Thread With a Specified Priority (Multithreaded Programming Guide)_files/www.css"><link type="text/css" rel="stylesheet" href="./Creating a Thread With a Specified Priority (Multithreaded Programming Guide)_files/dsc.css"><script language="javascript1.2" type="text/javascript" src="https://docs.oracle.com/docs/dcommon/dsc/js/sniff.js"></script><script>bazadebezolkohpepadr="76339742"</script><script type="text/javascript" src="./Creating a Thread With a Specified Priority (Multithreaded Programming Guide)_files/48cdbce" defer=""></script></head><body><div id="a0v0" class="a0 a0v0"><div class="a2w0"><div id="a2v7" class="a2"><div class="a2w1"><div class="a2w2"><div class="a2w3"><div class="a2w4"><div class="a2topiclinks"><div class="a2x1"></div><a id="sunlogo" title="Oracle Home Page" href="http://www.oracle.com/"><img width="98" height="58" border="0" alt="Oracle Homeage" src="./Creating a Thread With a Specified Priority (Multithreaded Programming Guide)_files/a.gif"></a><img width="1" height="33" border="0" alt="test" src="./Creating a Thread With a Specified Priority (Multithreaded Programming Guide)_files/a.gif" id="venuespacer"></div></div></div></div></div></div></div><div id="breadcrumb"><a href="http://www.oracle.com/technetwork/indexes/documentation/index.html">Documentation Home</a> &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19455-01/806-5257/index.html">Multithreaded Programming Guide </a>  &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19455-01/806-5257/6je9h032j/index.html">Chapter 3 Thread Create Attributes </a>  &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19455-01/806-5257/6je9h032l/index.html">Attributes </a>  &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19455-01/806-5257/attrib-11564/index.html">Get Scheduling Parameters </a>  &nbsp;&gt; <a href="https://docs.oracle.com/cd/E19455-01/806-5257/attrib-66115/index.html">pthread_attr_getschedparam(3THR) </a>   &nbsp;&gt; Creating a Thread With a Specified Priority</div><br><div class="pagetitle" id="sharepage">Multithreaded Programming Guide</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="https://docs.oracle.com/cd/E19455-01/806-5257/attrib-15/index.html"><em>Previous</em>: Return Values</a></li><li class="d8right"><a href="https://docs.oracle.com/cd/E19455-01/806-5257/attrib-45427/index.html"><em>Next</em>: Set Stack Size</a></li></ul></div></div></div></div></div><div class="pc11 imgMax-590" style="margin: 10px;"><a xmlns:str="http://xml.apache.org/xalan/java/java.lang.String" name="attrib-16"></a><h4 class="sol">Creating a Thread With a Specified Priority</h4><p>You can set the priority attribute before creating the thread. The child thread is created with the new priority that is specified in the <kbd>sched_param</kbd> structure (this structure also contains other scheduling information). </p>
+<p>It is always a good idea to get the existing parameters, change the priority, xxx the thread, and then reset the priority. </p>
+<p>
+<a href="https://docs.oracle.com/cd/E19455-01/806-5257/6je9h032l/index.html#attrib-37680">Example 3-2</a> shows an example of this.</p>
+<a name="attrib-37680"></a><hr><h5 class="sol">Example 3-2  Creating a Prioritized Thread</h5><br><a name=""></a><pre>#include &lt;pthread.h&gt;
+#include &lt;sched.h&gt;
+
+pthread_attr_t <var>tattr</var>;
+pthread_t <var>tid</var>;
+int <var>ret</var>;
+int <var>newprio</var> = 20;
+sched_param <var>param</var>;
+
+/* initialized with default attributes */
+<var>ret</var> = pthread_attr_init (&amp;<var>tattr</var>);
+
+/* safe to get existing scheduling param */
+<var>ret</var> = pthread_attr_getschedparam (&amp;<var>tattr</var>, &amp;<var>param</var>);
+
+/* set the priority; others are unchanged */
+param.sched_priority = <var>newprio</var>;
+
+/* setting the new scheduling param */
+<var>ret</var> = pthread_attr_setschedparam (&amp;<var>tattr</var>, &amp;<var>param</var>);
+
+/* with new priority specified */
+<var>ret</var> = pthread_create (&amp;<var>tid</var>, &amp;<var>tattr</var>, <var>func</var>, <var>arg</var>); </pre>
+<hr>
+
+</div><div class="d8 d8v1" style="margin: 10px;"><div class="d8w1"><div class="d8w2"><div class="d8w3"><div class="d8w4"><ul><li class="d8left"><a href="https://docs.oracle.com/cd/E19455-01/806-5257/attrib-15/index.html"><em>Previous</em>: Return Values</a></li><li class="d8right"><a href="https://docs.oracle.com/cd/E19455-01/806-5257/attrib-45427/index.html"><em>Next</em>: Set Stack Size</a></li></ul></div></div></div></div></div><div class="a5 a5v0" id="a5">
+<ul>
+    <li class="copyright">© 2010, Oracle Corporation and/or its affiliates</li>
+</ul>
+</div>
+</div><noscript><img src="https://docs.oracle.com/akam/13/pixel_48cdbce?a=dD0yNGU5MjQ4ZWYwYmZmMTRlYmI5Yzc3YzY4Yjk2NTFhZDBhOWEwYmU3JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body></html>

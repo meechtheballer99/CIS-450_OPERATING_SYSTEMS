@@ -1,0 +1,244 @@
+/* JaggyBlog Main Component */
+
+.blog-rss {
+	text-align: right;
+	width: 100%;
+}
+
+.blog-post, .blog-featured {
+	margin-bottom: 20px; clear: both;
+}
+
+.blog-copyright {
+	font-weight: 500; color: #888; margin: 0px 0px 5px 0px; 
+	width: 100%; clear: both;
+}
+
+.blog-copysign {
+	vertical-align:super;
+}
+
+.blog-content {
+	
+}
+
+.blog-tags  {
+margin: 0px 0px 10px 0px;
+}
+
+.blog-details  {
+margin: 0px 0px 0px 0px; float: left; width: 100%;
+}
+
+.blog-details img {
+margin-right: 3px;
+}
+
+.comlink {margin-right: 10px;}
+
+/* blog comments posted */
+
+.commentButton {
+float: left; margin-right: 10px; padding: 0px 10px; color: #000;
+}
+
+.commentButton.approved {
+	border: 1px solid #73880A; background: #CDEB8B;
+}
+
+.commentButton.notApproved {
+	border: 1px solid #B02B2C; background: #FF7878;
+}
+
+.commentDelete {
+	background: #E9E9E9; float: left; clear: right; color: #000;
+	padding: 0px 10px; margin-right: 10px;
+}
+
+.comment-separator {
+border: 0px;
+border-bottom: 1px solid #CCCCCC;
+margin: 20px 0 20px 0px;
+}
+
+.comment-underline {
+	border: 0px;
+	border-top: 1px dotted #CCCCCC;
+	margin-left: 10px;
+}
+
+.comment-header {
+font-weight:600;
+margin-bottom: 10px;
+}
+
+.comment-register {
+margin:20px 0px;
+padding:7px 5px 10px 10px;
+background-color:#F1F1F1;
+color: #888;
+font-size: 0.9em;
+}
+
+.comment-item {
+margin-bottom: 20px;
+}
+
+.comment-detail {
+padding:7px 5px 10px 10px;
+}
+
+.comment-username {
+display: inline; font-weight: 600;
+}
+
+.comment-date {
+display: inline; font-size: 10px; 
+color: #888;
+}
+
+.comment-text {
+margin: 15px 0 15px 15px;
+}
+
+.comment-empty {
+margin:20px 0px;
+padding:7px 5px 10px 10px;
+}
+
+/*
+ *  Comment Form
+ */
+
+#commentform0 {
+	padding: 5px 10px 0px 10px;
+}
+
+#answer0 {
+	font-weight: 600;
+}
+
+.blog-commentform {
+margin-top: 15px; padding: 15px 0px 0px 15px; overflow: hidden;
+}
+
+.blog-commentitem {
+margin-bottom: 10px; width: 100%; float: left;
+}
+
+.blog-commentitem label {
+width: 130px; float: left; margin-left: 10px;
+}
+
+.blog-commentitem input.inputbox {
+width: 210px; float: left;
+}
+
+.blog-commentitem textarea.inputbox {
+float: left;
+}
+
+.blog-commentnew {
+border: 1px solid #E3E3E3; padding: 10px; margin: 10px 0px;
+}
+
+.required {
+	font-size: 0.75em; margin-left: 10px;
+}
+
+/* captcha form area */
+
+.captcha_input {
+float: left;
+}
+
+.captcha_input label {
+	margin: 0px;
+}
+
+.captcha_input input {
+float: left; clear: left; width: 144px; margin-right: 10px;
+}
+
+.captcha_image {
+float: left;
+}
+
+.captcha_input div.error {
+clear:both;
+color:#FF0000;
+float:left;
+margin:5px 0;
+}
+
+.blog-commentitem .honeypot {
+	display: none;
+}
+
+/* addthis button */
+
+.jaggyblog_add_this {margin: 10px 0px;}
+.jaggyblog_add_this.jaggyright {width: 100%; text-align: right;}
+.jaggyblog_add_this.jaggymargintop {margin-top: 0px;}
+
+/* frontend editor */
+
+.blog-edit {
+width: 100%; text-align: right; clear: both;
+}
+
+button.editor_save {
+	margin: 0px 0px 10px 0px; clear: both;
+}
+
+button.editor_trash {
+
+}
+
+.mceEditor {
+    display: block; margin-top: 10px;
+}
+
+.blank {display: none;}
+
+#tagsArea div {float: left; padding: 5px; margin: 0px 5px;}
+#tagsArea div.unassigned {border: 1px solid #CDCDCD; color: #999999; cursor: pointer;}
+#tagsArea div.assigned {border: 1px solid #000; color: #000; background-color: #fff; cursor: pointer;}
+
+/* counter-act elements for wordpress layout */
+
+.blog-thumbnail-date {
+	float: left; padding: 5px 10px 15px 10px; text-align: center; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	color: #fff; font-weight: 600;
+}
+
+.pagination { 
+	clear: both;
+}
+
+.iconify.readmore {
+	float: left;
+	border-radius: 10px;
+	color: #FFFFFF;
+	font-weight: 600;
+	text-decoration: none;
+	display: block;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.iconify.readmore:visited {
+	color: #FFFFFF;
+}
+
+.author-byline {
+	overflow: hidden;
+}
+
+img.author-avatar, img.author-avatar:hover {
+	/*border: 0px; display: block; removes the bottom line that appears when hovering the image */
+	border: 1px solid #E6E6E6; padding: 3px; display:
+	background: none repeat scroll 0 0 #FFFFFF; /* stops hover colour appearing on padded border */
+	float: left; margin-right: 10px;
+}

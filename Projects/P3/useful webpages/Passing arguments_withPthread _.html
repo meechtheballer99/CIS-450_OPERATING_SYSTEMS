@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Passing arguments | </title>
+        
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="./Passing arguments_withPthread __files/style.css">
+    
+        
+        <link rel="stylesheet" href="./Passing arguments_withPthread __files/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="./Passing arguments_withPthread __files/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="./Passing arguments_withPthread __files/website(1).css">
+        
+    
+    
+
+        
+    
+    
+    
+    
+    
+    
+    
+
+        
+    <link rel="prev" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Starvation.html"><link rel="next" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Answers.html"></head>
+    <body>
+        
+        
+    <div class="book without-animation with-summary font-size-2 font-family-1" data-level="7" data-chapter-title="Passing arguments" data-filepath="Pass.md" data-basepath="." data-revision="Wed Nov 02 2016 10:04:53 GMT+0800 (CST)" data-innerlanguage="">
+    
+
+<div class="book-summary"><div class="book-search" role="search"><input type="text" class="form-control" placeholder="Type to search"></div>
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Outline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="Introduction.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="Configuration.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Configuration.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Configuration
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="Compile.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Compile.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Compile
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="Racing.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Racing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Race Condition
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="Deadlock.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Deadlock.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Deadlock
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="Starvation.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Starvation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Starvation
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="7" data-path="Pass.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Passing arguments
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="Answers.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Answers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Answers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="Useful.html">
+            
+                
+                    <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Useful.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Useful links
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <a class="btn pull-left js-toolbar-action" aria-label="" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html#"><i class="fa fa-align-justify"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Search" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html#"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Share" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html#"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a class="btn pull-right js-toolbar-action" aria-label="" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html#"><i class="fa fa-facebook"></i></a><a class="btn pull-right js-toolbar-action" aria-label="" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Pass.html#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/"></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="passing-arguments-to-pthread-function">Passing arguments to pthread function</h1>
+<ul>
+<li>Recall the helloworld program you compile in the "Compile" section:</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;pthread.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> * <span class="hljs-title">hello</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *input)</span> </span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, (<span class="hljs-keyword">char</span> *)input);
+    pthread_exit(<span class="hljs-literal">NULL</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    <span class="hljs-keyword">pthread_t</span> tid;
+    pthread_create(&amp;tid, <span class="hljs-literal">NULL</span>, hello, <span class="hljs-string">"hello world"</span>);
+    pthread_join(tid, <span class="hljs-literal">NULL</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<ul>
+<li>We use "pthread_create" to create a thread, thread id is the first argument, NULL is the second argument(which should be some attribute, but we may not use it), the third argument is the function, then the last argument is what we want to pass to the new thread. </li>
+<li>When we define the function <code>hello(void *)</code>, this function can accept a pointer as an argument.</li>
+<li>In this example we just pass one string to the function, what if we want to pass more than one argument? We can use <code>structure</code> in c.</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;pthread.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-keyword">struct</span> args {
+    <span class="hljs-keyword">char</span>* name;
+    <span class="hljs-keyword">int</span> age;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">hello</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *input)</span> </span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"name: %s\n"</span>, ((<span class="hljs-keyword">struct</span> args*)input)-&gt;name);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"age: %d\n"</span>, ((<span class="hljs-keyword">struct</span> args*)input)-&gt;age);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">struct</span> args *Allen = (<span class="hljs-keyword">struct</span> args *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> args));
+    <span class="hljs-keyword">char</span> allen[] = <span class="hljs-string">"Allen"</span>;
+    Allen-&gt;name = allen;
+    Allen-&gt;age = <span class="hljs-number">20</span>;
+
+    <span class="hljs-keyword">pthread_t</span> tid;
+    pthread_create(&amp;tid, <span class="hljs-literal">NULL</span>, hello, (<span class="hljs-keyword">void</span> *)Allen);
+    pthread_join(tid, <span class="hljs-literal">NULL</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<ul>
+<li>In this example, we want to pass more than one argument to the function, so we create a pointer point to a struct we have created, transfer it into <code>(void *)</code> and pass to function.</li>
+<li>In function, we transfer the type of pointer to the real type, so that we can properly use it.</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Starvation.html" class="navigation navigation-prev " aria-label="Previous page: Starvation"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="http://www.cse.cuhk.edu.hk/~ericlo/teaching/os/lab/9-PThread/Answers.html" class="navigation navigation-next " aria-label="Next page: Answers" style="margin-right: 17px;"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="./Passing arguments_withPthread __files/app.js.download"></script>
+
+    
+    <script src="./Passing arguments_withPthread __files/lunr.min.js.download"></script>
+    
+
+    
+    <script src="./Passing arguments_withPthread __files/search.js.download"></script>
+    
+
+    
+    <script src="./Passing arguments_withPthread __files/buttons.js.download"></script>
+    
+
+    
+    <script src="./Passing arguments_withPthread __files/buttons.js(1).download"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    
+    
+
+</body></html>

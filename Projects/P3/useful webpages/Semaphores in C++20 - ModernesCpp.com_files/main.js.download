@@ -1,0 +1,95 @@
+function trashpost(postId) {
+	// set hidden field values for submission
+	var form = document.adminForm;
+	form.postid.value = postId;
+	form.task.value = 'trashpost';
+	var yes=window.confirm('Are you sure you want to trash this post?'); 
+	if (yes){submitform(form.task.value);}
+}
+
+//var configArray = new Request.JSON('{"compulsory_email":1,"compulsory_website":0}');
+function sendcomment(configArray) {
+
+	if (document.getElementById('itsusername')) {
+		if (document.getElementById('itsusername').value=="") {
+			document.getElementById('itsusername').style.border="1px solid red";
+			document.getElementById('itsusername').focus()
+			return false; 
+		} else {
+			document.getElementById('itsusername').style.border="1px #E6E6C9 solid";
+		}
+	}
+	if (document.getElementById('itsemail') ) {
+		var regex = /@/; 
+		if ( 
+			configArray.compulsory_email==1 && ( document.getElementById('itsemail').value=="" || !regex.test(document.getElementById('itsemail').value) ) 
+			|| ( document.getElementById('itsemail').value!="" && !regex.test(document.getElementById('itsemail').value) )
+		   ) {
+			document.getElementById('itsemail').style.border="1px solid red";
+			document.getElementById('itsemail').focus();
+			return false;
+		} else {
+			document.getElementById('itsemail').style.border="1px #E6E6C9 solid";
+		}
+	}
+	if (document.getElementById('itswebsite')) {
+		if ( configArray.compulsory_website==1 && document.getElementById('itswebsite').value=="" ) {
+			document.getElementById('itswebsite').style.border="1px solid red";
+			document.getElementById('itswebsite').focus();
+			return false;
+		} else {
+			document.getElementById('itswebsite').style.border="1px #E6E6C9 solid";
+		}
+	}
+	if (document.getElementById('itstext').value=="") {
+		document.getElementById('itstext').style.border="1px solid red";
+		document.getElementById('itstext').focus();
+		return false;
+	} else {
+		document.getElementById('itstext').style.border="1px #E6E6C9 solid";
+	}
+
+	document.getElementById('thiscomment').value = document.getElementById('itstext').value;
+	var lastparent = document.getElementById('parent').value;
+
+	if (lastparent.indexOf("-") == -1) { // if hyphen is not found in parent form item value
+		// height here keeps it so that on comment submit, if form reloads on error, height is retained so visitor doesnt get moved away from commentform
+		//document.getElementById('newcomment'+lastparent).innerHTML='<div style="height: 220px;"><img src="/components/com_jaggyblog/assets/images/indicator.gif" alt="" /></div>';
+		document.getElementById('commentform'+lastparent).style.visibility='hidden';
+	} else {
+		document.getElementById('commentform'+lastparent).innerHTML='<img src="/components/com_jaggyblog/assets/images/indicator.gif" alt="" />';
+	}
+
+	xajax_addcomment(xajax.getFormValues('adminForm'))
+
+}
+
+window.addEvent('domready', function() {
+
+	var tagAssign = function(tag) {
+		
+		var tagsArea = document.getElementById('tagsArea')
+		var tags = tagsArea.getElementsByTagName('div'); 
+		var str = '';
+		
+		if (tag.hasClass('unassigned')) {
+			tag.removeClass('unassigned'); tag.addClass('assigned');
+		} else {tag.removeClass('assigned'); tag.addClass('unassigned');}
+		
+		for(var i = 0; i < tags.length; i++) {
+			if (tags[i].hasClass('assigned')) {
+		    	str += tags[i].get('rel')+',';
+		   }
+		} 
+		document.adminForm.tags.value = str;
+	}
+
+	$$('#tagsArea div').each(function(tag) {
+		tag.addEvents({
+			'click': function() {
+				tagAssign(tag);	
+			}
+		});	
+	});
+	
+});

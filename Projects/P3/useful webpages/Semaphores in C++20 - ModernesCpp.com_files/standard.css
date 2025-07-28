@@ -1,0 +1,44 @@
+div.JaggyShareButtonsbutton {
+	float: left;
+	width: 100%;
+	line-height: 0px;
+	margin-bottom: 10px;
+}
+
+div.JaggyShareButtonsbuttont {
+	float: left;
+}
+
+div.JaggyShareButtonsbuttond {
+	float: left;
+}
+
+div.JaggyShareButtonsbuttong {
+	float: left;
+}
+
+div.JaggyShareButtonsbuttonk {
+	float: left;
+}
+
+div.JaggyShareButtonsbuttonl {
+	float: left; border: 1px solid transparent; width: 100px; /* stop facebook flyout from being cut-off */
+}
+
+div.fb-like.fb_iframe_widget {
+	height: 20px;	
+}
+
+div.JaggyShareButtonsbuttonShare {
+	float: left;
+	padding-left: 10px;	
+}
+
+.fb_iframe_widget {  /* stop facebook flyout from being cut-off */
+	position: absolute !important;
+}
+
+.fb-like span { /* stop facebook flyout from being cut-off */
+	overflow: visible !important; width: 450px !important;
+}
+

@@ -1,0 +1,204 @@
+login as: meech
+Pre-authentication banner message from server:
+|
+|    *************************************************************************
+|    This is the University of Michigan information technology environment.
+|    You MUST be authorized to use these resources.  As an authorized user, by
+|    your use of these resources, you have implicitly agreed to abide by the
+|    highest standards of responsibility to your colleagues -- the students,
+|    faculty, staff and external users who share this environment.  You are
+|    required to comply with ALL University policies, state and federal laws
+|    concurring appropriate use of information technology.  Non-compliance is
+|    considered a serious breach of community standards and may result in
+|    disciplinary and/or legal action.
+|    *************************************************************************
+|
+End of banner message from server
+Keyboard-interactive authentication prompts from server:
+| Password:
+| Duo two-factor login for meech
+|
+| Enter a passcode or select one of the following options:
+|
+|  1. Duo Push to XXX-XXX-2675
+|  2. Phone call to XXX-XXX-2675
+|  3. SMS passcodes to XXX-XXX-2675 (next code starts with: 3)
+|
+| Passcode or option (1-3): 1
+End of keyboard-interactive prompts from server
+Success. Logging you in...
+Last login: Thu Mar 10 12:46:56 2022 from 141.215.92.201
+Server built with Ansible playbooks:
+BareMetal Version: 1.0.10 2021-04-26
+[meech@login:0 ~]$ ls
+basic website
+cis200
+CIS 381 PROJECT
+CIS-450
+Daughter
+HandlingPRO1 -v2-final
+HandlingPRO1 -v2-final-Demetirus_Johnson-CIS-381.zip
+ITS Phone Number LABEL.docx
+PABLO ESCOBAR ARTICLE.pdf
+Private
+Projector-Screen-Switch-Label.docx
+Public
+test
+[meech@login:0 ~]$ cd Private
+[meech@login:0 ~/Private]$ ls
+My Documents
+[meech@login:0 ~/Private]$ cd ..
+[meech@login:0 ~]$ ls
+basic website
+cis200
+CIS 381 PROJECT
+CIS-450
+Daughter
+HandlingPRO1 -v2-final
+HandlingPRO1 -v2-final-Demetirus_Johnson-CIS-381.zip
+ITS Phone Number LABEL.docx
+PABLO ESCOBAR ARTICLE.pdf
+Private
+Projector-Screen-Switch-Label.docx
+Public
+test
+[meech@login:0 ~]$ cd CIS-450
+[meech@login:0 ~/CIS-450]$ LS
+-bash: LS: command not found
+[meech@login:0 ~/CIS-450]$ ls
+P3
+[meech@login:0 ~/CIS-450]$ cd P3
+[meech@login:0 ~/CIS-450/P3]$ ls
+cis450-ECE478-W22-P3.doc
+howto_C_libraries.html
+How to quickly extract .tar.gz files on Windows 10 - Pureinfotech.html
+Project3_CIS-450_DemetriusJohnson.docx
+Q1-ProducerAndConsumerProblem
+Q2-OneLaneBridgeProblem
+Q3-ProfessorAndStudentProblem
+sampleP1.tar
+sampleP1tar-extractedFiles
+Tar Command in Linux (Create and Extract Archives) _ Linuxize.html
+[meech@login:0 ~/CIS-450/P3]$ ls sampleP1tar-extractedFiles
+sampleP1
+[meech@login:0 ~/CIS-450/P3]$ ls
+cis450-ECE478-W22-P3.doc
+howto_C_libraries.html
+How to quickly extract .tar.gz files on Windows 10 - Pureinfotech.html
+Project3_CIS-450_DemetriusJohnson.docx
+Q1-ProducerAndConsumerProblem
+Q2-OneLaneBridgeProblem
+Q3-ProfessorAndStudentProblem
+sampleP1.tar
+sampleP1tar-extractedFiles
+Tar Command in Linux (Create and Extract Archives) _ Linuxize.html
+[meech@login:0 ~/CIS-450/P3]$ ls
+cis450-ECE478-W22-P3.doc
+howto_C_libraries.html
+How to quickly extract .tar.gz files on Windows 10 - Pureinfotech.html
+Project3_CIS-450_DemetriusJohnson.docx
+Q1-ProducerAndConsumerProblem
+Q2-OneLaneBridgeProblem
+Q3-ProfessorAndStudentProblem
+sampleP1.tar
+sampleP1tar-extractedFiles
+Tar Command in Linux (Create and Extract Archives) _ Linuxize.html
+[meech@login:0 ~/CIS-450/P3]$ ls sampleP1tar-extractedFiles
+sampleP1
+[meech@login:0 ~/CIS-450/P3]$ cd sampleP1tar-extractedFiles
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles]$ ls
+sampleP1
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles]$ cd
+[meech@login:0 ~]$ ls
+basic website
+cis200
+CIS 381 PROJECT
+CIS-450
+Daughter
+HandlingPRO1 -v2-final
+HandlingPRO1 -v2-final-Demetirus_Johnson-CIS-381.zip
+ITS Phone Number LABEL.docx
+PABLO ESCOBAR ARTICLE.pdf
+Private
+Projector-Screen-Switch-Label.docx
+Public
+test
+[meech@login:0 ~]$ cd sampleP1tar-extractedFiles
+-bash: cd: sampleP1tar-extractedFiles: No such file or directory
+[meech@login:0 ~]$ cd CIS-450
+[meech@login:0 ~/CIS-450]$ cd P3
+[meech@login:0 ~/CIS-450/P3]$ cd sampleP1tar-extractedFiles
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles]$ ls
+sampleP1
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles]$ cd sampleP1
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ LS
+-bash: LS: command not found
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ls
+boundedBuffer.c  condvar1.c  Makefile
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ make
+g++ -g -c boundedBuffer.c
+g++ -o boundedBuffer boundedBuffer.o -lpthread -lrt
+g++ -g -c condvar1.c
+g++ -o condvar1 condvar1.o -lpthread
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ls
+boundedBuffer  boundedBuffer.c  boundedBuffer.o  condvar1  condvar1.c  condvar1.
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ vi Makefile
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ cat Makefile
+CFLAGS= -g
+LDFLAGS= -lpthread -lrt
+LDFLAGS1= -lpthread
+CC=g++
+
+all: boundedBuffer condvar1
+
+# To make an executable
+boundedBuffer: boundedBuffer.o
+        $(CC) -o boundedBuffer boundedBuffer.o $(LDFLAGS)
+
+condvar1: condvar1.o
+        $(CC) -o condvar1 condvar1.o $(LDFLAGS1)
+
+# To make an object from source
+.c.o:
+        $(CC) $(CFLAGS) -c $*.c
+
+# clean out the dross
+clean:
+        -rm boundedBuffer condvar1 *.o
+
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ make clean
+rm boundedBuffer condvar1 *.o
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ls
+boundedBuffer.c  condvar1.c  Makefile
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ MAKE
+-bash: MAKE: command not found
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ls
+boundedBuffer.c  condvar1.c  Makefile
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ make
+g++ -g -c boundedBuffer.c
+g++ -o boundedBuffer boundedBuffer.o -lpthread -lrt
+g++ -g -c condvar1.c
+g++ -o condvar1 condvar1.o -lpthread
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ls
+boundedBuffer  boundedBuffer.c  boundedBuffer.o  condvar1  condvar1.c  condvar1.
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ boundedBuffer
+-bash: boundedBuffer: command not found
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ boundedBuffer
+-bash: boundedBuffer: command not found
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundBuffer
+-bash: ./boundBuffer: No such file or directory
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+the total is 45
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+the total is 4950
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+the total is 499500
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+^[[A^[[B^[[B^C
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+the total is 4950
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+the total is 4950
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$ ./boundedBuffe
+the total is 4950
+[meech@login:0 ~/CIS-450/P3/sampleP1tar-extractedFiles/sampleP1]$

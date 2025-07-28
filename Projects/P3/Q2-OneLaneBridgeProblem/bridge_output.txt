@@ -1,0 +1,150 @@
+car 3 dir 1 arrives at bridge.
+car 4 dir 0 arrives at bridge.
+car 5 dir 0 arrives at bridge.
+car 6 dir 0 arrives at bridge.
+car 7 dir 1 arrives at bridge.
+car 3 dir 1 crossing the bridge. Current dir: 1 #cars: 2
+car 7 dir 1 crossing the bridge. Current dir: 1 #cars: 2
+car 3 dir 1 exits from bridge.
+car 7 dir 1 exits from bridge.
+car 4 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 4 dir 0 exits from bridge.
+car 5 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 5 dir 0 exits from bridge.
+car 6 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 6 dir 0 exits from bridge.
+car 2 dir 0 arrives at bridge.
+car 8 dir 0 arrives at bridge.
+car 8 dir 0 crossing the bridge. Current dir: 0 #cars: 2
+car 2 dir 0 crossing the bridge. Current dir: 0 #cars: 2
+car 2 dir 0 exits from bridge.
+car 8 dir 0 exits from bridge.
+car 9 dir 0 arrives at bridge.
+car 9 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 9 dir 0 exits from bridge.
+car 10 dir 0 arrives at bridge.
+car 10 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 10 dir 0 exits from bridge.
+car 11 dir 0 arrives at bridge.
+car 11 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 11 dir 0 exits from bridge.
+car 12 dir 1 arrives at bridge.
+car 12 dir 1 crossing the bridge. Current dir: 1 #cars: 1
+car 12 dir 1 exits from bridge.
+car 13 dir 0 arrives at bridge.
+car 13 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 13 dir 0 exits from bridge.
+car 14 dir 0 arrives at bridge.
+car 14 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 14 dir 0 exits from bridge.
+car 15 dir 0 arrives at bridge.
+car 15 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 15 dir 0 exits from bridge.
+car 16 dir 1 arrives at bridge.
+car 16 dir 1 crossing the bridge. Current dir: 1 #cars: 1
+car 16 dir 1 exits from bridge.
+car 1 dir 1 arrives at bridge.
+car 17 dir 1 arrives at bridge.
+car 1 dir 1 crossing the bridge. Current dir: 1 #cars: 2
+car 17 dir 1 crossing the bridge. Current dir: 1 #cars: 2
+car 1 dir 1 exits from bridge.
+car 17 dir 1 exits from bridge.
+car 18 dir 0 arrives at bridge.
+car 18 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 18 dir 0 exits from bridge.
+car 19 dir 0 arrives at bridge.
+car 19 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 19 dir 0 exits from bridge.
+car 20 dir 1 arrives at bridge.
+car 20 dir 1 crossing the bridge. Current dir: 1 #cars: 1
+car 20 dir 1 exits from bridge.
+car 21 dir 0 arrives at bridge.
+car 21 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 21 dir 0 exits from bridge.
+car 22 dir 0 arrives at bridge.
+car 22 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 22 dir 0 exits from bridge.
+car 23 dir 0 arrives at bridge.
+car 23 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 23 dir 0 exits from bridge.
+car 24 dir 0 arrives at bridge.
+car 24 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 24 dir 0 exits from bridge.
+car 25 dir 1 arrives at bridge.
+car 25 dir 1 crossing the bridge. Current dir: 1 #cars: 1
+car 25 dir 1 exits from bridge.
+car 26 dir 0 arrives at bridge.
+car 26 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 26 dir 0 exits from bridge.
+car 27 dir 0 arrives at bridge.
+car 27 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 27 dir 0 exits from bridge.
+car 28 dir 1 arrives at bridge.
+car 29 dir 0 arrives at bridge.
+car 33 dir 1 arrives at bridge.
+car 31 dir 1 arrives at bridge.
+car 32 dir 1 arrives at bridge.
+car 34 dir 0 arrives at bridge.
+car 30 dir 1 arrives at bridge.
+car 36 dir 1 arrives at bridge.
+car 35 dir 1 arrives at bridge.
+car 40 dir 1 arrives at bridge.
+car 42 dir 1 arrives at bridge.
+car 49 dir 1 arrives at bridge.
+car 37 dir 1 arrives at bridge.
+car 38 dir 1 arrives at bridge.
+car 44 dir 1 arrives at bridge.
+car 39 dir 1 arrives at bridge.
+car 41 dir 0 arrives at bridge.
+car 43 dir 1 arrives at bridge.
+car 45 dir 0 arrives at bridge.
+car 46 dir 1 arrives at bridge.
+car 47 dir 0 arrives at bridge.
+car 48 dir 0 arrives at bridge.
+car 33 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 31 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 28 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 33 dir 1 exits from bridge.
+car 31 dir 1 exits from bridge.
+car 32 dir 1 crossing the bridge. Current dir: 1 #cars: 2
+car 30 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 32 dir 1 exits from bridge.
+car 30 dir 1 exits from bridge.
+car 36 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 35 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 36 dir 1 exits from bridge.
+car 35 dir 1 exits from bridge.
+car 42 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 40 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 42 dir 1 exits from bridge.
+car 49 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 49 dir 1 exits from bridge.
+car 40 dir 1 exits from bridge.
+car 38 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 37 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 37 dir 1 exits from bridge.
+car 38 dir 1 exits from bridge.
+car 39 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 44 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 39 dir 1 exits from bridge.
+car 44 dir 1 exits from bridge.
+car 43 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 46 dir 1 crossing the bridge. Current dir: 1 #cars: 3
+car 46 dir 1 exits from bridge.
+car 43 dir 1 exits from bridge.
+car 0 dir 1 arrives at bridge.
+car 0 dir 1 crossing the bridge. Current dir: 1 #cars: 2
+car 0 dir 1 exits from bridge.
+car 28 dir 1 exits from bridge.
+car 41 dir 0 crossing the bridge. Current dir: 0 #cars: 3
+car 41 dir 0 exits from bridge.
+car 45 dir 0 crossing the bridge. Current dir: 0 #cars: 3
+car 34 dir 0 crossing the bridge. Current dir: 0 #cars: 3
+car 45 dir 0 exits from bridge.
+car 47 dir 0 crossing the bridge. Current dir: 0 #cars: 3
+car 34 dir 0 exits from bridge.
+car 48 dir 0 crossing the bridge. Current dir: 0 #cars: 3
+car 48 dir 0 exits from bridge.
+car 47 dir 0 exits from bridge.
+car 29 dir 0 crossing the bridge. Current dir: 0 #cars: 1
+car 29 dir 0 exits from bridge.

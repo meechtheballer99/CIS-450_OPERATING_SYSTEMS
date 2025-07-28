@@ -1,0 +1,307 @@
+WELCOME TO THE MULTITHREADED ONE-LANE BRIDGE CROSSING PROGRAM
+ADAPTED BY DEMETRIUS JOHNSON
+FOR UM-DEARBORN CIS-450 WITH DR. JINHUA GUO
+NUMBER OF CARS SCHEDULED TO ARRIVE: 100 (default == 50).
+Re-run program and enter one Command Line Parameter to change.
+Output also sent to bridge_output.txt file in directory of the executable.
+
+car_0-(S) ARRIVES at bridge
+car_1-(S) ARRIVES at bridge
+car_0-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_2-(N) ARRIVES at bridge
+car_1-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_3-(N) ARRIVES at bridge
+car_4-(S) ARRIVES at bridge
+car_5-(N) ARRIVES at bridge
+car_0-(S) EXITS from bridge
+car_8-(N) ARRIVES at bridge
+car_4-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_6-(N) ARRIVES at bridge
+car_9-(N) ARRIVES at bridge
+car_1-(S) EXITS from bridge
+car_7-(N) ARRIVES at bridge
+car_10-(S) ARRIVES at bridge
+car_11-(S) ARRIVES at bridge
+car_4-(S) EXITS from bridge
+car_12-(S) ARRIVES at bridge
+car_14-(S) ARRIVES at bridge
+car_10-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_11-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_12-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_13-(S) ARRIVES at bridge
+car_15-(S) ARRIVES at bridge
+car_16-(S) ARRIVES at bridge
+car_17-(N) ARRIVES at bridge
+car_18-(S) ARRIVES at bridge
+car_19-(N) ARRIVES at bridge
+car_26-(S) ARRIVES at bridge
+car_21-(N) ARRIVES at bridge
+car_20-(S) ARRIVES at bridge
+car_11-(S) EXITS from bridge
+car_22-(N) ARRIVES at bridge
+car_20-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_23-(S) ARRIVES at bridge
+car_24-(N) ARRIVES at bridge
+car_25-(N) ARRIVES at bridge
+car_10-(S) EXITS from bridge
+car_28-(N) ARRIVES at bridge
+car_29-(S) ARRIVES at bridge
+car_12-(S) EXITS from bridge
+car_29-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_31-(N) ARRIVES at bridge
+car_20-(S) EXITS from bridge
+car_33-(N) ARRIVES at bridge
+car_34-(S) ARRIVES at bridge
+car_36-(S) ARRIVES at bridge
+car_34-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_23-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_27-(N) ARRIVES at bridge
+car_49-(N) ARRIVES at bridge
+car_37-(S) ARRIVES at bridge
+car_38-(S) ARRIVES at bridge
+car_40-(S) ARRIVES at bridge
+car_30-(S) ARRIVES at bridge
+car_39-(N) ARRIVES at bridge
+car_29-(S) EXITS from bridge
+car_42-(N) ARRIVES at bridge
+car_57-(S) ARRIVES at bridge
+car_32-(S) ARRIVES at bridge
+car_57-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_43-(S) ARRIVES at bridge
+car_44-(S) ARRIVES at bridge
+car_45-(N) ARRIVES at bridge
+car_46-(S) ARRIVES at bridge
+car_34-(S) EXITS from bridge
+car_23-(S) EXITS from bridge
+car_46-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_48-(S) ARRIVES at bridge
+car_35-(N) ARRIVES at bridge
+car_48-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_50-(S) ARRIVES at bridge
+car_51-(N) ARRIVES at bridge
+car_52-(N) ARRIVES at bridge
+car_53-(S) ARRIVES at bridge
+car_54-(S) ARRIVES at bridge
+car_55-(S) ARRIVES at bridge
+car_56-(S) ARRIVES at bridge
+car_41-(S) ARRIVES at bridge
+car_58-(S) ARRIVES at bridge
+car_59-(N) ARRIVES at bridge
+car_60-(N) ARRIVES at bridge
+car_57-(S) EXITS from bridge
+car_62-(N) ARRIVES at bridge
+car_63-(N) ARRIVES at bridge
+car_64-(N) ARRIVES at bridge
+car_65-(N) ARRIVES at bridge
+car_90-(N) ARRIVES at bridge
+car_44-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_47-(S) ARRIVES at bridge
+car_66-(N) ARRIVES at bridge
+car_67-(N) ARRIVES at bridge
+car_46-(S) EXITS from bridge
+car_69-(N) ARRIVES at bridge
+car_70-(N) ARRIVES at bridge
+car_48-(S) EXITS from bridge
+car_72-(N) ARRIVES at bridge
+car_73-(S) ARRIVES at bridge
+car_73-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_13-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_44-(S) EXITS from bridge
+car_61-(S) ARRIVES at bridge
+car_47-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_13-(S) EXITS from bridge
+car_68-(N) ARRIVES at bridge
+car_15-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_47-(S) EXITS from bridge
+car_71-(S) ARRIVES at bridge
+car_50-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_15-(S) EXITS from bridge
+car_73-(S) EXITS from bridge
+car_75-(N) ARRIVES at bridge
+car_18-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_50-(S) EXITS from bridge
+car_14-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_18-(S) EXITS from bridge
+car_53-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_74-(N) ARRIVES at bridge
+car_26-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_14-(S) EXITS from bridge
+car_76-(N) ARRIVES at bridge
+car_16-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_26-(S) EXITS from bridge
+car_53-(S) EXITS from bridge
+car_16-(S) EXITS from bridge
+car_30-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_77-(S) ARRIVES at bridge
+car_32-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_36-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_78-(S) ARRIVES at bridge
+car_79-(N) ARRIVES at bridge
+car_80-(S) ARRIVES at bridge
+car_81-(S) ARRIVES at bridge
+car_82-(N) ARRIVES at bridge
+car_83-(N) ARRIVES at bridge
+car_84-(N) ARRIVES at bridge
+car_85-(N) ARRIVES at bridge
+car_86-(N) ARRIVES at bridge
+car_87-(N) ARRIVES at bridge
+car_88-(S) ARRIVES at bridge
+car_89-(N) ARRIVES at bridge
+car_91-(S) ARRIVES at bridge
+car_92-(N) ARRIVES at bridge
+car_93-(S) ARRIVES at bridge
+car_94-(S) ARRIVES at bridge
+car_95-(N) ARRIVES at bridge
+car_96-(N) ARRIVES at bridge
+car_97-(N) ARRIVES at bridge
+car_98-(S) ARRIVES at bridge
+car_99-(S) ARRIVES at bridge
+car_30-(S) EXITS from bridge
+car_32-(S) EXITS from bridge
+car_36-(S) EXITS from bridge
+car_33-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_31-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_28-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_33-(N) EXITS from bridge
+car_31-(N) EXITS from bridge
+car_28-(N) EXITS from bridge
+car_3-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_2-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_27-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_3-(N) EXITS from bridge
+car_27-(N) EXITS from bridge
+car_2-(N) EXITS from bridge
+car_5-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_6-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_7-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_5-(N) EXITS from bridge
+car_52-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_6-(N) EXITS from bridge
+car_89-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_7-(N) EXITS from bridge
+car_52-(N) EXITS from bridge
+car_9-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_89-(N) EXITS from bridge
+car_17-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_9-(N) EXITS from bridge
+car_92-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_17-(N) EXITS from bridge
+car_19-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_92-(N) EXITS from bridge
+car_95-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_21-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_19-(N) EXITS from bridge
+car_95-(N) EXITS from bridge
+car_8-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_21-(N) EXITS from bridge
+car_22-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_8-(N) EXITS from bridge
+car_97-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_22-(N) EXITS from bridge
+car_96-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_97-(N) EXITS from bridge
+car_25-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_96-(N) EXITS from bridge
+car_35-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_25-(N) EXITS from bridge
+car_90-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 1
+car_35-(N) EXITS from bridge
+car_90-(N) EXITS from bridge
+car_39-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_24-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_87-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_39-(N) EXITS from bridge
+car_87-(N) EXITS from bridge
+car_24-(N) EXITS from bridge
+car_37-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_38-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_40-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_37-(S) EXITS from bridge
+car_38-(S) EXITS from bridge
+car_99-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_40-(S) EXITS from bridge
+car_94-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_99-(S) EXITS from bridge
+car_41-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_94-(S) EXITS from bridge
+car_98-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_93-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_41-(S) EXITS from bridge
+car_98-(S) EXITS from bridge
+car_93-(S) EXITS from bridge
+car_54-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_91-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_54-(S) EXITS from bridge
+car_43-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 1
+car_91-(S) EXITS from bridge
+car_43-(S) EXITS from bridge
+car_56-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_55-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_81-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_56-(S) EXITS from bridge
+car_81-(S) EXITS from bridge
+car_55-(S) EXITS from bridge
+car_51-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_49-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_45-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_51-(N) EXITS from bridge
+car_45-(N) EXITS from bridge
+car_85-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_49-(N) EXITS from bridge
+car_86-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_85-(N) EXITS from bridge
+car_42-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 1
+car_86-(N) EXITS from bridge
+car_42-(N) EXITS from bridge
+car_61-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_58-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_71-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_61-(S) EXITS from bridge
+car_71-(S) EXITS from bridge
+car_88-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 1
+car_58-(S) EXITS from bridge
+car_88-(S) EXITS from bridge
+car_77-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 3
+car_78-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_80-(S) CROSSING bridge; direction: SOUTH; #cars on bridge: 2
+car_77-(S) EXITS from bridge
+car_80-(S) EXITS from bridge
+car_78-(S) EXITS from bridge
+car_76-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_75-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_74-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_76-(N) EXITS from bridge
+car_74-(N) EXITS from bridge
+car_84-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_75-(N) EXITS from bridge
+car_83-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_84-(N) EXITS from bridge
+car_72-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_83-(N) EXITS from bridge
+car_82-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_72-(N) EXITS from bridge
+car_70-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_82-(N) EXITS from bridge
+car_79-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_70-(N) EXITS from bridge
+car_59-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_79-(N) EXITS from bridge
+car_69-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_59-(N) EXITS from bridge
+car_68-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_69-(N) EXITS from bridge
+car_62-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_68-(N) EXITS from bridge
+car_60-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_62-(N) EXITS from bridge
+car_67-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 1
+car_60-(N) EXITS from bridge
+car_67-(N) EXITS from bridge
+car_63-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 3
+car_64-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_66-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 2
+car_63-(N) EXITS from bridge
+car_64-(N) EXITS from bridge
+car_65-(N) CROSSING bridge; direction: NORTH; #cars on bridge: 1
+car_66-(N) EXITS from bridge
+car_65-(N) EXITS from bridge

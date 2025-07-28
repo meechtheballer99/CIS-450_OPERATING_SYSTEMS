@@ -1,0 +1,263 @@
+	/* $MVD$:color("18","7f7f7f","Custom #1","0") */
+	/* $MVD$:color("19","bb","Custom #2","0") */
+	/* $MVD$:fontset("Open Sans","Open Sans") */
+	/* $MVD$:fontset("Open Sans","Open Sans") */
+
+BODY {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	background-color : white;
+}
+
+SELECT {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	background-color : white;
+	margin-top : 6pt;
+	margin-bottom: 0pt;
+}
+
+P.header {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 9.0pt;
+	margin-top :  6 pt;
+	margin-bottom :  6 pt;
+	color : blue;
+}
+
+H1.title {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 18.0pt;
+	padding : 0 pt;
+	margin-top : 24 pt;
+	margin-bottom : 0 pt;
+	color : #BB0000;
+}
+H1.header {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 11.0pt;
+	padding : 0 pt;
+	margin-top : -2 pt;
+	margin-bottom : 0 pt;
+	color : black;
+}
+
+H2.header {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size :  9 pt;
+	margin-top : -2 pt;
+	margin-bottom: 0 pt;
+	color : #BB0000;
+}
+	
+TABLE  {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+}
+TD  {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+}
+
+P {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+}
+
+P.synline {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-top: 3pt;
+	margin-bottom : 3pt;
+}
+
+P.synlast  {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-top: 3pt;
+}
+
+P.firstline {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-top: 0.0em;
+}
+
+P.build {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-top: 0.0em;
+	color : #BB0000;
+}
+
+DL {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-top: 0 pt;
+}
+
+DT { 
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-top: 0 pt;
+}
+
+DD {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	margin-bottom: 0 pt;
+}
+
+
+HR.bottom {
+	margin-top: -9 pt;
+	margin-bottom -12 pt;
+}
+
+HR.divider {
+	margin-top: -9 pt;
+	margin-bottom -3 pt;
+}
+
+H1 {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 12.0pt;
+	color : #BB0000;
+}
+
+H2 {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 10.0pt;
+	margin-top: 0pt;
+	margin-bottom: 5pt;
+	color : #BB0000;
+}
+
+H3 {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 10.0pt;
+	margin-top: 0pt;
+	margin-bottom: 5pt;
+	color : #BB0000;
+}
+
+H4 {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 10.0pt;
+	margin-top: 0pt;
+	margin-bottom: 5pt;
+	color : #BB0000;
+}
+
+H5  {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 10.0pt;
+	margin-top: 0pt;
+	margin-bottom: 5pt;
+	color : #BB0000;
+}
+H6  {
+	font-family : "Open Sans";
+	font-weight : bold;
+	font-size : 10.0pt;
+	margin-top: 0pt;
+	margin-bottom: 5pt; 
+	color : #BB0000;
+}
+A:link  {
+	text-decoration :underline;
+	color : blue;
+}
+A:visited  {
+	text-decoration :underline;
+	color : blue;
+}
+CITE.expandspot  {
+	font-style : normal;
+	color : green;
+	cursor: hand;
+}
+DFN.collapsed  {
+	font-style : italic;
+	font-weight : normal;
+	color : red;
+}
+DFN.expanded  {
+	font-style : italic;
+	font-weight : normal;
+	color : red;
+}
+EM.dropspot  {
+	color : green;
+	cursor: hand;
+}
+LI  {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+}
+LISTING  {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+}
+PRE  {
+	font-size : 9.0pt;
+}
+PRE.synline  {
+	font-size : 9.0pt;
+	margin-top : 0 pt;
+	margin-bottom : 0 pt;
+}
+I  {
+	font-family : "Open Sans";
+	font-size : 9.0pt;
+	font-style : italic;
+}
+
+B  {
+	font-weight : bold;
+}
+.mvd-B  {
+	font-weight : bold;
+}
+CITE.glossterm  {
+	font-style : normal;
+	color : maroon;
+	cursor: hand;
+}
+.mvd-CITE-glossterm  {
+	font-style : normal;
+	color : maroon;
+	cursor: hand;
+}
+DFN.glosscollapsed  {
+	font-style : italic;
+	font-weight : normal;
+	display :        'none';
+	color : blue;
+}
+.mvd-DFN-glosscollapsed  {
+	font-style : italic;
+	font-weight : normal;
+	display :        'none';
+	color : blue;
+}
+DFN.glossexpanded  {
+	font-style : italic;
+	font-weight : normal;
+	color : blue;
+}
+.mvd-DFN-glossexpanded  {
+	font-style : italic;
+	font-weight : normal;
+	color : blue;
+}
+	

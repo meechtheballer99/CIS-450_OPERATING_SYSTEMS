@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>C++ Standard Library headers - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mwiki/index.php?title=cpp/header&amp;action=edit" />
+<link rel="edit" title="Edit" href="/mwiki/index.php?title=cpp/header&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/mwiki/opensearch_desc.php" title="cppreference.com (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://en.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com Atom feed" href="/mwiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="https://en.cppreference.com/mwiki/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.ColiruCompiler%2CMathJax%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cskins.cppreference2&amp;only=styles&amp;skin=cppreference2&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://en.cppreference.com/mwiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=cppreference2&amp;*" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="https://en.cppreference.com/mwiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=cppreference2&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/header","wgTitle":"cpp/header","wgCurRevisionId":137957,"wgArticleId":2125,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages with unreviewed LWG DR marker"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/header","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1,"gadget-MathJax":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:9f05c6caceb9bb1a482b6cebd4c5a330 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_header skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="/">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+<form action="https://duckduckgo.com/" method="get">
+  <input type="hidden" name="sites" value="cppreference.com">
+  <input type="search" name="q">
+  <input type="submit" value="Search">
+</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="/mwiki/index.php?title=Special:UserLogin&amp;returnto=cpp%2Fheader&amp;type=signup">Create account</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="/mwiki/index.php?title=Special:UserLogin&amp;returnto=cpp%2Fheader" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="/w/cpp/header"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+					<li  id="ca-talk"><span><a href="/w/Talk:cpp/header"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/w/cpp/header" >View</a></span></li>
+					<li id="ca-edit"><span><a href="/mwiki/index.php?title=cpp/header&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/mwiki/index.php?title=cpp/header&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">History</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+<style type="text/css">
+#carbonads {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  left: -170px;
+  max-width: 150px;
+  border-radius: 4px;
+  border: solid 1px hsla(0, 0%, 0%, .1);
+  background-color: hsl(0, 0%, 98%);
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  max-width: 150px;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px !important;
+  width: 150px;
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  padding: 0 1em 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 8px 12px;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 1;
+}
+html { font-variant-ligatures: no-common-ligatures; }
+</style>
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYITK7M&placement=cppreferencecom" id="_carbonads_js"></script>
+                <h1 id="firstHeading" class="firstHeading">C++ Standard Library headers</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="/w/cpp" title="cpp">cpp</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="/w/cpp" title="cpp"> C++</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/compiler_support" title="cpp/compiler support"> Compiler support</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/freestanding" title="cpp/freestanding"> Freestanding and hosted</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/language" title="cpp/language"> Language</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <strong class="selflink"> Standard library headers</strong> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/named_req" title="cpp/named req"> Named requirements </a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/feature_test" title="cpp/feature test"> Feature test macros </a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/utility#Language_support" title="cpp/utility"> Language support library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/concepts" title="cpp/concepts"> Concepts library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/error" title="cpp/error"> Diagnostics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/utility" title="cpp/utility"> General utilities library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/string" title="cpp/string"> Strings library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/container" title="cpp/container"> Containers library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/iterator" title="cpp/iterator"> Iterators library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/ranges" title="cpp/ranges"> Ranges library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/algorithm" title="cpp/algorithm"> Algorithms library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/numeric" title="cpp/numeric"> Numerics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/locale" title="cpp/locale"> Localizations library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/io" title="cpp/io"> Input/output library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/filesystem" title="cpp/filesystem"> Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/regex" title="cpp/regex"> Regular expressions library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/atomic" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/thread" title="cpp/thread"> Thread support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/experimental" title="cpp/experimental"> Technical specifications</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/symbol_index" title="cpp/symbol index"> Symbols index</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/links/libs" title="cpp/links/libs"> External libraries</a> </td></tr>
+</table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/navbar_content&amp;action=edit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><strong class="selflink"> Standard Library headers </strong><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv-h2"><td colspan="5"> Language Support</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstddef" title="cpp/header/cstddef"><tt>&lt;cstddef&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstdlib" title="cpp/header/cstdlib"><tt>&lt;cstdlib&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/version" title="cpp/header/version"><tt>&lt;version&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/limits" title="cpp/header/limits"><tt>&lt;limits&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/climits" title="cpp/header/climits"><tt>&lt;climits&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cfloat" title="cpp/header/cfloat"><tt>&lt;cfloat&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstdint" title="cpp/header/cstdint"><tt>&lt;cstdint&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/new" title="cpp/header/new"><tt>&lt;new&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/typeinfo" title="cpp/header/typeinfo"><tt>&lt;typeinfo&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/source_location" title="cpp/header/source location"><tt>&lt;source_location&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/exception" title="cpp/header/exception"><tt>&lt;exception&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/initializer_list" title="cpp/header/initializer list"><tt>&lt;initializer_list&gt;</tt></a>&#160;&#160;&#160;&#160;</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/compare" title="cpp/header/compare"><tt>&lt;compare&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/coroutine" title="cpp/header/coroutine"><tt>&lt;coroutine&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/csignal" title="cpp/header/csignal"><tt>&lt;csignal&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/csetjmp" title="cpp/header/csetjmp"><tt>&lt;csetjmp&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstdarg" title="cpp/header/cstdarg"><tt>&lt;cstdarg&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Concepts</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/concepts" title="cpp/header/concepts"><tt>&lt;concepts&gt;</tt></a></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Diagnostics</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/stdexcept" title="cpp/header/stdexcept"><tt>&lt;stdexcept&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cassert" title="cpp/header/cassert"><tt>&lt;cassert&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cerrno" title="cpp/header/cerrno"><tt>&lt;cerrno&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/system_error" title="cpp/header/system error"><tt>&lt;system_error&gt;</tt></a></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> General utilities</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/utility" title="cpp/header/utility"><tt>&lt;utility&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/memory" title="cpp/header/memory"><tt>&lt;memory&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/memory_resource" title="cpp/header/memory resource"><tt>&lt;memory_resource&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/scoped_allocator" title="cpp/header/scoped allocator"><tt>&lt;scoped_allocator&gt;</tt></a>&#160;&#160;&#160;&#160;</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/expected" title="cpp/header/expected"><tt>&lt;expected&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/bitset" title="cpp/header/bitset"><tt>&lt;bitset&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/tuple" title="cpp/header/tuple"><tt>&lt;tuple&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/optional" title="cpp/header/optional"><tt>&lt;optional&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/any" title="cpp/header/any"><tt>&lt;any&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/variant" title="cpp/header/variant"><tt>&lt;variant&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/type_traits" title="cpp/header/type traits"><tt>&lt;type_traits&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ratio" title="cpp/header/ratio"><tt>&lt;ratio&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/chrono" title="cpp/header/chrono"><tt>&lt;chrono&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/typeindex" title="cpp/header/typeindex"><tt>&lt;typeindex&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/functional" title="cpp/header/functional"><tt>&lt;functional&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/stacktrace" title="cpp/header/stacktrace"><tt>&lt;stacktrace&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ctime" title="cpp/header/ctime"><tt>&lt;ctime&gt;</tt></a></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Strings</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/string" title="cpp/header/string"><tt>&lt;string&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/string_view" title="cpp/header/string view"><tt>&lt;string_view&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstring" title="cpp/header/cstring"><tt>&lt;cstring&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/charconv" title="cpp/header/charconv"><tt>&lt;charconv&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/format" title="cpp/header/format"><tt>&lt;format&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cctype" title="cpp/header/cctype"><tt>&lt;cctype&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cwctype" title="cpp/header/cwctype"><tt>&lt;cwctype&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cwchar" title="cpp/header/cwchar"><tt>&lt;cwchar&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cuchar" title="cpp/header/cuchar"><tt>&lt;cuchar&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Localization</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/locale" title="cpp/header/locale"><tt>&lt;locale&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/codecvt" title="cpp/header/codecvt"><tt>&lt;codecvt&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/clocale" title="cpp/header/clocale"><tt>&lt;clocale&gt;</tt></a></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Containers</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/span" title="cpp/header/span"><tt>&lt;span&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/array" title="cpp/header/array"><tt>&lt;array&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/vector" title="cpp/header/vector"><tt>&lt;vector&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/deque" title="cpp/header/deque"><tt>&lt;deque&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/forward_list" title="cpp/header/forward list"><tt>&lt;forward_list&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/list" title="cpp/header/list"><tt>&lt;list&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/map" title="cpp/header/map"><tt>&lt;map&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/set" title="cpp/header/set"><tt>&lt;set&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/queue" title="cpp/header/queue"><tt>&lt;queue&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/unordered_map" title="cpp/header/unordered map"><tt>&lt;unordered_map&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/unordered_set" title="cpp/header/unordered set"><tt>&lt;unordered_set&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/stack" title="cpp/header/stack"><tt>&lt;stack&gt;</tt></a></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Iterators</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/iterator" title="cpp/header/iterator"><tt>&lt;iterator&gt;</tt></a></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Ranges</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ranges" title="cpp/header/ranges"><tt>&lt;ranges&gt;</tt></a></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Algorithms</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/algorithm" title="cpp/header/algorithm"><tt>&lt;algorithm&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/execution" title="cpp/header/execution"><tt>&lt;execution&gt;</tt></a></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Numerics</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/complex" title="cpp/header/complex"><tt>&lt;complex&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/random" title="cpp/header/random"><tt>&lt;random&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/valarray" title="cpp/header/valarray"><tt>&lt;valarray&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/numeric" title="cpp/header/numeric"><tt>&lt;numeric&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/bit" title="cpp/header/bit"><tt>&lt;bit&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/numbers" title="cpp/header/numbers"><tt>&lt;numbers&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cfenv" title="cpp/header/cfenv"><tt>&lt;cfenv&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cmath" title="cpp/header/cmath"><tt>&lt;cmath&gt;</tt></a></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Input/Output</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/iosfwd" title="cpp/header/iosfwd"><tt>&lt;iosfwd&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ios" title="cpp/header/ios"><tt>&lt;ios&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/iomanip" title="cpp/header/iomanip"><tt>&lt;iomanip&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/streambuf" title="cpp/header/streambuf"><tt>&lt;streambuf&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/istream" title="cpp/header/istream"><tt>&lt;istream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ostream" title="cpp/header/ostream"><tt>&lt;ostream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/iostream" title="cpp/header/iostream"><tt>&lt;iostream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/sstream" title="cpp/header/sstream"><tt>&lt;sstream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/spanstream" title="cpp/header/spanstream"><tt>&lt;spanstream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/fstream" title="cpp/header/fstream"><tt>&lt;fstream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/syncstream" title="cpp/header/syncstream"><tt>&lt;syncstream&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstdio" title="cpp/header/cstdio"><tt>&lt;cstdio&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cinttypes" title="cpp/header/cinttypes"><tt>&lt;cinttypes&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/strstream" title="cpp/header/strstream"><tt>&lt;strstream&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Regular expressions</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/regex" title="cpp/header/regex"><tt>&lt;regex&gt;</tt></a></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Filesystem support</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/filesystem" title="cpp/header/filesystem"><tt>&lt;filesystem&gt;</tt></a></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> Thread support</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/thread" title="cpp/header/thread"><tt>&lt;thread&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/atomic" title="cpp/header/atomic"><tt>&lt;atomic&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/mutex" title="cpp/header/mutex"><tt>&lt;mutex&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/shared_mutex" title="cpp/header/shared mutex"><tt>&lt;shared_mutex&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/condition_variable" title="cpp/header/condition variable"><tt>&lt;condition_variable&gt;</tt></a>&#160;&#160;&#160;&#160;</td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/future" title="cpp/header/future"><tt>&lt;future&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/stop_token" title="cpp/header/stop token"><tt>&lt;stop_token&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/semaphore" title="cpp/header/semaphore"><tt>&lt;semaphore&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/latch" title="cpp/header/latch"><tt>&lt;latch&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/barrier" title="cpp/header/barrier"><tt>&lt;barrier&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <br />
+</td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"> C compatibility</td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ciso646" title="cpp/header/ciso646"><tt>&lt;ciso646&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstdalign" title="cpp/header/cstdalign"><tt>&lt;cstdalign&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/cstdbool" title="cpp/header/cstdbool"><tt>&lt;cstdbool&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ccomplex" title="cpp/header/ccomplex"><tt>&lt;ccomplex&gt;</tt></a></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/ctgmath" title="cpp/header/ctgmath"><tt>&lt;ctgmath&gt;</tt></a></td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="/w/cpp/header/stdatomic.h" title="cpp/header/stdatomic.h"><tt>&lt;stdatomic.h&gt;</tt></a></td></tr>
+</table></div></td></tr>
+</table></div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/navbar_content&amp;action=edit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<p>The interface of C++ standard library is defined by the following collection of headers.
+</p>
+<table class="t-dsc-begin">
+
+
+<tr>
+<td colspan="2"> <table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Concepts_library"><span class="tocnumber">1</span> <span class="toctext">Concepts library</span></a></li>
+<li class="toclevel-1"><a href="#Coroutines_library"><span class="tocnumber">2</span> <span class="toctext">Coroutines library</span></a></li>
+<li class="toclevel-1"><a href="#Utilities_library"><span class="tocnumber">3</span> <span class="toctext">Utilities library</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Dynamic_memory_management"><span class="tocnumber">3.1</span> <span class="toctext">Dynamic memory management</span></a></li>
+<li class="toclevel-2"><a href="#Numeric_limits"><span class="tocnumber">3.2</span> <span class="toctext">Numeric limits</span></a></li>
+<li class="toclevel-2"><a href="#Error_handling"><span class="tocnumber">3.3</span> <span class="toctext">Error handling</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Strings_library"><span class="tocnumber">4</span> <span class="toctext">Strings library</span></a></li>
+<li class="toclevel-1"><a href="#Containers_library"><span class="tocnumber">5</span> <span class="toctext">Containers library</span></a></li>
+<li class="toclevel-1"><a href="#Iterators_library"><span class="tocnumber">6</span> <span class="toctext">Iterators library</span></a></li>
+<li class="toclevel-1"><a href="#Ranges_library"><span class="tocnumber">7</span> <span class="toctext">Ranges library</span></a></li>
+<li class="toclevel-1"><a href="#Algorithms_library"><span class="tocnumber">8</span> <span class="toctext">Algorithms library</span></a></li>
+<li class="toclevel-1"><a href="#Numerics_library"><span class="tocnumber">9</span> <span class="toctext">Numerics library</span></a></li>
+<li class="toclevel-1"><a href="#Localization_library"><span class="tocnumber">10</span> <span class="toctext">Localization library</span></a></li>
+<li class="toclevel-1"><a href="#Input.2Foutput_library"><span class="tocnumber">11</span> <span class="toctext">Input/output library</span></a></li>
+<li class="toclevel-1"><a href="#Filesystem_library"><span class="tocnumber">12</span> <span class="toctext">Filesystem library</span></a></li>
+<li class="toclevel-1"><a href="#Regular_Expressions_library"><span class="tocnumber">13</span> <span class="toctext">Regular Expressions library</span></a></li>
+<li class="toclevel-1"><a href="#Atomic_Operations_library"><span class="tocnumber">14</span> <span class="toctext">Atomic Operations library</span></a></li>
+<li class="toclevel-1"><a href="#Thread_support_library"><span class="tocnumber">15</span> <span class="toctext">Thread support library</span></a></li>
+<li class="toclevel-1 tocsection-1"><a href="#C_compatibility_headers"><span class="tocnumber">16</span> <span class="toctext">C compatibility headers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Special_C_compatibility_headers"><span class="tocnumber">16.1</span> <span class="toctext">Special C compatibility headers</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Empty_C_headers"><span class="tocnumber">16.2</span> <span class="toctext">Empty C headers</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Meaningless_C_headers"><span class="tocnumber">16.3</span> <span class="toctext">Meaningless C headers</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Unsupported_C_headers"><span class="tocnumber">16.4</span> <span class="toctext">Unsupported C headers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Experimental_libraries"><span class="tocnumber">17</span> <span class="toctext">Experimental libraries</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">18</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<h3> <span class="mw-headline" id="Concepts_library">Concepts library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/concepts" title="cpp/header/concepts"> <span class="t-lines"><span>&lt;concepts&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/concepts" title="cpp/concepts">Fundamental library concepts</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_concepts&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Coroutines_library">Coroutines library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/coroutine" title="cpp/header/coroutine"> <span class="t-lines"><span>&lt;coroutine&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>   <a href="/w/cpp/coroutine" title="cpp/coroutine">Coroutine support library</a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_coroutine&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Utilities_library">Utilities library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/any" title="cpp/header/any"> <span class="t-lines"><span>&lt;any&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/utility/any" title="cpp/utility/any">std::any</a></span> class <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_any&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/bitset" title="cpp/header/bitset"> <span class="t-lines"><span>&lt;bitset&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/utility/bitset" title="cpp/utility/bitset">std::bitset</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_bitset&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/chrono" title="cpp/header/chrono"> <span class="t-lines"><span>&lt;chrono&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/chrono" title="cpp/chrono"> C++ time utilites</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_chrono&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/compare" title="cpp/header/compare"> <span class="t-lines"><span>&lt;compare&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/language/operator_comparison#Three-way_comparison" title="cpp/language/operator comparison">Three-way comparison operator</a> support <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_compare&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/csetjmp" title="cpp/header/csetjmp"> <span class="t-lines"><span>&lt;csetjmp&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/utility/program/setjmp" title="cpp/utility/program/setjmp"> Macro (and function) that saves (and jumps) to an execution context</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_csetjmp&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/csignal" title="cpp/header/csignal"> <span class="t-lines"><span>&lt;csignal&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/utility/program" title="cpp/utility/program"> Functions and macro constants for signal management</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_csignal&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdarg" title="cpp/header/cstdarg"> <span class="t-lines"><span>&lt;cstdarg&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/utility/variadic" title="cpp/utility/variadic"> Handling of variable length argument lists</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstdarg&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstddef" title="cpp/header/cstddef"> <span class="t-lines"><span>&lt;cstddef&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/types" title="cpp/types"> Standard macros and typedefs</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstddef&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdlib" title="cpp/header/cstdlib"> <span class="t-lines"><span>&lt;cstdlib&gt;</span></span></a></div></div>
+</td>
+<td>   General purpose utilities: <a href="/w/cpp/utility/program" title="cpp/utility/program"> program control</a>, <a href="/w/cpp/memory/c" title="cpp/memory/c"> dynamic memory allocation</a>, <a href="/w/cpp/numeric/random#C_random_library" title="cpp/numeric/random"> random numbers</a>, <a href="/w/cpp/algorithm#C_library" title="cpp/algorithm"> sort and search</a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstdlib&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ctime" title="cpp/header/ctime"> <span class="t-lines"><span>&lt;ctime&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/chrono/c" title="cpp/chrono/c"> C-style time/date utilites</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ctime&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/expected" title="cpp/header/expected"> <span class="t-lines"><span>&lt;expected&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc">std::expected</span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_expected&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/functional" title="cpp/header/functional"> <span class="t-lines"><span>&lt;functional&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/utility/functional" title="cpp/utility/functional"> Function objects, Function invocations, Bind operations and Reference wrappers</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_functional&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/initializer_list" title="cpp/header/initializer list"> <span class="t-lines"><span>&lt;initializer_list&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/utility/initializer_list" title="cpp/utility/initializer list">std::initializer_list</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_initializer_list&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/optional" title="cpp/header/optional"> <span class="t-lines"><span>&lt;optional&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/utility/optional" title="cpp/utility/optional">std::optional</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_optional&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/source_location" title="cpp/header/source location"> <span class="t-lines"><span>&lt;source_location&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  Supplies means to obtain <a href="/w/cpp/utility/source_location" title="cpp/utility/source location">source code location</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_source_location&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/tuple" title="cpp/header/tuple"> <span class="t-lines"><span>&lt;tuple&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/utility/tuple" title="cpp/utility/tuple">std::tuple</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_tuple&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/type_traits" title="cpp/header/type traits"> <span class="t-lines"><span>&lt;type_traits&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/types" title="cpp/types">Compile-time type information</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_type_traits&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/typeindex" title="cpp/header/typeindex"> <span class="t-lines"><span>&lt;typeindex&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/types/type_index" title="cpp/types/type index">std::type_index</a></span>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_typeindex&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/typeinfo" title="cpp/header/typeinfo"> <span class="t-lines"><span>&lt;typeinfo&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/types" title="cpp/types"> Runtime type information utilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_typeinfo&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/utility" title="cpp/header/utility"> <span class="t-lines"><span>&lt;utility&gt;</span></span></a></div></div>
+</td>
+<td>  Various <a href="/w/cpp/utility" title="cpp/utility"> utility components</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_utility&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/variant" title="cpp/header/variant"> <span class="t-lines"><span>&lt;variant&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/utility/variant" title="cpp/utility/variant">std::variant</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_variant&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/version" title="cpp/header/version"> <span class="t-lines"><span>&lt;version&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  Supplies implementation-dependent library information <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_version&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Dynamic_memory_management"> Dynamic memory management </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/memory" title="cpp/header/memory"> <span class="t-lines"><span>&lt;memory&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/memory" title="cpp/memory">High-level memory management utilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_memory&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/memory_resource" title="cpp/header/memory resource"> <span class="t-lines"><span>&lt;memory_resource&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/memory/memory_resource" title="cpp/memory/memory resource"> Polymorphic allocators and memory resources</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_memory_resource&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/new" title="cpp/header/new"> <span class="t-lines"><span>&lt;new&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/memory/new" title="cpp/memory/new"> Low-level memory management utilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_new&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/scoped_allocator" title="cpp/header/scoped allocator"> <span class="t-lines"><span>&lt;scoped_allocator&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/memory/scoped_allocator_adaptor" title="cpp/memory/scoped allocator adaptor"> Nested allocator class</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_scoped_allocator&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Numeric_limits"> Numeric limits </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cfloat" title="cpp/header/cfloat"> <span class="t-lines"><span>&lt;cfloat&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/types/climits" title="cpp/types/climits"> Limits of floating-point types</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cfloat&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cinttypes" title="cpp/header/cinttypes"> <span class="t-lines"><span>&lt;cinttypes&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>   <a href="/w/cpp/types/integer#Format_macro_constants" title="cpp/types/integer"> Formatting macros</a>, <code>intmax_t</code> and <code>uintmax_t</code> math and conversions <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cinttypes&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/climits" title="cpp/header/climits"> <span class="t-lines"><span>&lt;climits&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/types/climits" title="cpp/types/climits"> Limits of integral types</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_climits&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdint" title="cpp/header/cstdint"> <span class="t-lines"><span>&lt;cstdint&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/types/integer" title="cpp/types/integer"> Fixed-width integer types</a> and <a href="/w/cpp/types/climits" title="cpp/types/climits"> limits of other types</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstdint&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/limits" title="cpp/header/limits"> <span class="t-lines"><span>&lt;limits&gt;</span></span></a></div></div>
+</td>
+<td>   <a href="/w/cpp/types/numeric_limits" title="cpp/types/numeric limits">Uniform way to query properties of arithmetic types</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_limits&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h5> <span class="mw-headline" id="Error_handling"> Error handling </span></h5>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cassert" title="cpp/header/cassert"> <span class="t-lines"><span>&lt;cassert&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/error/assert" title="cpp/error/assert"> Conditionally compiled macro that compares its argument to zero</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cassert&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cerrno" title="cpp/header/cerrno"> <span class="t-lines"><span>&lt;cerrno&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/error/errno" title="cpp/error/errno"> Macro containing the last error number</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cerrno&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/exception" title="cpp/header/exception"> <span class="t-lines"><span>&lt;exception&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/error#Exception_handling" title="cpp/error"> Exception handling utilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_exception&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/stdexcept" title="cpp/header/stdexcept"> <span class="t-lines"><span>&lt;stdexcept&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/error#Exception_categories" title="cpp/error"> Standard exception objects</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdexcept&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/system_error" title="cpp/header/system error"> <span class="t-lines"><span>&lt;system_error&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Defines <span class="t-lc"><a href="/w/cpp/error/error_code" title="cpp/error/error code">std::error_code</a></span>, a platform-dependent error code <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_system_error&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/stacktrace" title="cpp/header/stacktrace"> <span class="t-lines"><span>&lt;stacktrace&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/utility/basic_stacktrace" title="cpp/utility/basic stacktrace">Stacktrace</a> library <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stacktrace&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Strings_library">Strings library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cctype" title="cpp/header/cctype"> <span class="t-lines"><span>&lt;cctype&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/string/byte" title="cpp/string/byte"> Functions to determine the category of narrow characters</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cctype&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/charconv" title="cpp/header/charconv"> <span class="t-lines"><span>&lt;charconv&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>   <span class="t-lc">std::to_chars</span> and <span class="t-lc">std::from_chars</span>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_charconv&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstring" title="cpp/header/cstring"> <span class="t-lines"><span>&lt;cstring&gt;</span></span></a></div></div>
+</td>
+<td>  Various <a href="/w/cpp/string/byte" title="cpp/string/byte"> narrow character string handling functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstring&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cuchar" title="cpp/header/cuchar"> <span class="t-lines"><span>&lt;cuchar&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  C-style <a href="/w/cpp/string/multibyte" title="cpp/string/multibyte"> Unicode character conversion functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cuchar&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cwchar" title="cpp/header/cwchar"> <span class="t-lines"><span>&lt;cwchar&gt;</span></span></a></div></div>
+</td>
+<td>  Various <a href="/w/cpp/string/wide" title="cpp/string/wide">wide</a> and <a href="/w/cpp/string/multibyte" title="cpp/string/multibyte">multibyte</a> string handling functions <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cwchar&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cwctype" title="cpp/header/cwctype"> <span class="t-lines"><span>&lt;cwctype&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/string/wide" title="cpp/string/wide"> Functions to determine the catagory of wide characters</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cwctype&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/format" title="cpp/header/format"> <span class="t-lines"><span>&lt;format&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/utility/format" title="cpp/utility/format">Formatting library</a> including <span class="t-lc"><a href="/w/cpp/utility/format/format" title="cpp/utility/format/format">std::format</a></span>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_format&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/string" title="cpp/header/string"> <span class="t-lines"><span>&lt;string&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/string/basic_string" title="cpp/string/basic string">std::basic_string</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_string&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/string_view" title="cpp/header/string view"> <span class="t-lines"><span>&lt;string_view&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/string/basic_string_view" title="cpp/string/basic string view">std::basic_string_view</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_string_view&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Containers_library">Containers library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/array" title="cpp/header/array"> <span class="t-lines"><span>&lt;array&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/array" title="cpp/container/array">std::array</a></span> container <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_array&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/deque" title="cpp/header/deque"> <span class="t-lines"><span>&lt;deque&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/deque" title="cpp/container/deque">std::deque</a></span> container <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_deque&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/forward_list" title="cpp/header/forward list"> <span class="t-lines"><span>&lt;forward_list&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/forward_list" title="cpp/container/forward list">std::forward_list</a></span> container <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_forward_list&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/list" title="cpp/header/list"> <span class="t-lines"><span>&lt;list&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/list" title="cpp/container/list">std::list</a></span> container <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_list&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/map" title="cpp/header/map"> <span class="t-lines"><span>&lt;map&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/map" title="cpp/container/map">std::map</a></span> and <span class="t-lc"><a href="/w/cpp/container/multimap" title="cpp/container/multimap">std::multimap</a></span> associative containers <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_map&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/queue" title="cpp/header/queue"> <span class="t-lines"><span>&lt;queue&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/queue" title="cpp/container/queue">std::queue</a></span> and <span class="t-lc"><a href="/w/cpp/container/priority_queue" title="cpp/container/priority queue">std::priority_queue</a></span> container adaptors <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_queue&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/set" title="cpp/header/set"> <span class="t-lines"><span>&lt;set&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/set" title="cpp/container/set">std::set</a></span> and <span class="t-lc"><a href="/w/cpp/container/multiset" title="cpp/container/multiset">std::multiset</a></span> associative containers <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_set&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/span" title="cpp/header/span"> <span class="t-lines"><span>&lt;&#115;pan&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc">std::span</span> view <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_span&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/stack" title="cpp/header/stack"> <span class="t-lines"><span>&lt;stack&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/stack" title="cpp/container/stack">std::stack</a></span> container adaptor  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stack&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/unordered_map" title="cpp/header/unordered map"> <span class="t-lines"><span>&lt;unordered_map&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/unordered_map" title="cpp/container/unordered map">std::unordered_map</a></span> and <span class="t-lc"><a href="/w/cpp/container/unordered_multimap" title="cpp/container/unordered multimap">std::unordered_multimap</a></span> unordered associative containers <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_unordered_map&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/unordered_set" title="cpp/header/unordered set"> <span class="t-lines"><span>&lt;unordered_set&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/unordered_set" title="cpp/container/unordered set">std::unordered_set</a></span> and <span class="t-lc"><a href="/w/cpp/container/unordered_multiset" title="cpp/container/unordered multiset">std::unordered_multiset</a></span> unordered associative containers <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_unordered_set&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/vector" title="cpp/header/vector"> <span class="t-lines"><span>&lt;vector&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/container/vector" title="cpp/container/vector">std::vector</a></span> container <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_vector&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Iterators_library">Iterators library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/iterator" title="cpp/header/iterator"> <span class="t-lines"><span>&lt;iterator&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/iterator" title="cpp/iterator"> Range iterators</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_iterator&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Ranges_library">Ranges library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ranges" title="cpp/header/ranges"> <span class="t-lines"><span>&lt;ranges&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/ranges" title="cpp/ranges"> Range access, primitives, requirements, utilities and adaptors</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ranges&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Algorithms_library">Algorithms library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/algorithm" title="cpp/header/algorithm"> <span class="t-lines"><span>&lt;algorithm&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/algorithm" title="cpp/algorithm"> Algorithms that operate on ranges</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_algorithm&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/execution" title="cpp/header/execution"> <span class="t-lines"><span>&lt;execution&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  Predefined execution policies for parallel versions of the algorithms <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_execution&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Numerics_library">Numerics library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/bit" title="cpp/header/bit"> <span class="t-lines"><span>&lt;bit&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric#Bit_manipulation_.28since_C.2B.2B20.29" title="cpp/numeric"> Bit manipulation</a> functions <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_bit&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cfenv" title="cpp/header/cfenv"> <span class="t-lines"><span>&lt;cfenv&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/fenv" title="cpp/numeric/fenv"> Floating-point environment</a> access functions <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cfenv&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cmath" title="cpp/header/cmath"> <span class="t-lines"><span>&lt;cmath&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/math" title="cpp/numeric/math"> Common mathematics functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cmath&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/complex" title="cpp/header/complex"> <span class="t-lines"><span>&lt;complex&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/complex" title="cpp/numeric/complex"> Complex number type</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_complex&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/numbers" title="cpp/header/numbers"> <span class="t-lines"><span>&lt;numbers&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/constants" title="cpp/numeric/constants"> Math constants</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_numbers&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/numeric" title="cpp/header/numeric"> <span class="t-lines"><span>&lt;numeric&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric" title="cpp/numeric"> Numeric operations on values in ranges</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_numeric&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/random" title="cpp/header/random"> <span class="t-lines"><span>&lt;random&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/random" title="cpp/numeric/random"> Random number generators and distributions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_random&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ratio" title="cpp/header/ratio"> <span class="t-lines"><span>&lt;ratio&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/ratio" title="cpp/numeric/ratio"> Compile-time rational arithmetic</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ratio&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/valarray" title="cpp/header/valarray"> <span class="t-lines"><span>&lt;valarray&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/numeric/valarray" title="cpp/numeric/valarray"> Class for representing and manipulating arrays of values</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_valarray&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Localization_library">Localization library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/clocale" title="cpp/header/clocale"> <span class="t-lines"><span>&lt;clocale&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/locale#C_library_locales" title="cpp/locale"> C localization utilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_clocale&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/codecvt" title="cpp/header/codecvt"> <span class="t-lines"><span>&lt;codecvt&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><span class="t-mark-rev t-deprecated-cxx17">(deprecated in C++17)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/locale" title="cpp/locale"> Unicode conversion facilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_codecvt&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/locale" title="cpp/header/locale"> <span class="t-lines"><span>&lt;locale&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/locale" title="cpp/locale"> Localization utilities</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_locale&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Input.2Foutput_library">Input/output library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdio" title="cpp/header/cstdio"> <span class="t-lines"><span>&lt;cstdio&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/io/c" title="cpp/io/c"> C-style input-output functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstdio&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/fstream" title="cpp/header/fstream"> <span class="t-lines"><span>&lt;fstream&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/basic_fstream" title="cpp/io/basic fstream">std::basic_fstream</a></span>, <span class="t-lc"><a href="/w/cpp/io/basic_ifstream" title="cpp/io/basic ifstream">std::basic_ifstream</a></span>, <span class="t-lc"><a href="/w/cpp/io/basic_ofstream" title="cpp/io/basic ofstream">std::basic_ofstream</a></span> class templates and several typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_fstream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/iomanip" title="cpp/header/iomanip"> <span class="t-lines"><span>&lt;iomanip&gt;</span></span></a></div></div>
+</td>
+<td>  <a href="/w/cpp/io/manip" title="cpp/io/manip"> Helper functions to control the format of input and output</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_iomanip&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ios" title="cpp/header/ios"> <span class="t-lines"><span>&lt;ios&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/ios_base" title="cpp/io/ios base">std::ios_base</a></span> class, <span class="t-lc"><a href="/w/cpp/io/basic_ios" title="cpp/io/basic ios">std::basic_ios</a></span> class template and several typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ios&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/iosfwd" title="cpp/header/iosfwd"> <span class="t-lines"><span>&lt;iosfwd&gt;</span></span></a></div></div>
+</td>
+<td>  Forward declarations of all classes in the input/output library <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_iosfwd&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/iostream" title="cpp/header/iostream"> <span class="t-lines"><span>&lt;iostream&gt;</span></span></a></div></div>
+</td>
+<td>  Several standard stream objects <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_iostream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/istream" title="cpp/header/istream"> <span class="t-lines"><span>&lt;istream&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/basic_istream" title="cpp/io/basic istream">std::basic_istream</a></span> class template and several typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_istream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ostream" title="cpp/header/ostream"> <span class="t-lines"><span>&lt;ostream&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/basic_ostream" title="cpp/io/basic ostream">std::basic_ostream</a></span>, <span class="t-lc"><a href="/w/cpp/io/basic_iostream" title="cpp/io/basic iostream">std::basic_iostream</a></span> class templates and several typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ostream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/spanstream" title="cpp/header/spanstream"> <span class="t-lines"><span>&lt;spanstream&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc">std::basic_spanstream</span>, <span class="t-lc">std::basic_ispanstream</span>, <span class="t-lc">std::basic_ospanstream</span> class templates and typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_spanstream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/sstream" title="cpp/header/sstream"> <span class="t-lines"><span>&lt;sstream&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/basic_stringstream" title="cpp/io/basic stringstream">std::basic_stringstream</a></span>, <span class="t-lc"><a href="/w/cpp/io/basic_istringstream" title="cpp/io/basic istringstream">std::basic_istringstream</a></span>, <span class="t-lc"><a href="/w/cpp/io/basic_ostringstream" title="cpp/io/basic ostringstream">std::basic_ostringstream</a></span> class templates and several typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_sstream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/streambuf" title="cpp/header/streambuf"> <span class="t-lines"><span>&lt;streambuf&gt;</span></span></a></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/basic_streambuf" title="cpp/io/basic streambuf">std::basic_streambuf</a></span> class template <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_streambuf&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/strstream" title="cpp/header/strstream"> <span class="t-lines"><span>&lt;strstream&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-deprecated-cxx98">(deprecated in C++98)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/io/strstream" title="cpp/io/strstream">std::strstream</a></span>, <span class="t-lc"><a href="/w/cpp/io/istrstream" title="cpp/io/istrstream">std::istrstream</a></span>, <span class="t-lc"><a href="/w/cpp/io/ostrstream" title="cpp/io/ostrstream">std::ostrstream</a></span>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_strstream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/syncstream" title="cpp/header/syncstream"> <span class="t-lines"><span>&lt;syncstream&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc">std::basic_osyncstream</span>, <span class="t-lc">std::basic_syncbuf</span>, and typedefs <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_syncstream&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Filesystem_library">Filesystem library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/filesystem" title="cpp/header/filesystem"> <span class="t-lines"><span>&lt;filesystem&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc">std::path</span> class and <a href="/w/cpp/filesystem" title="cpp/filesystem"> supporting functions</a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_filesystem&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Regular_Expressions_library">Regular Expressions library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/regex" title="cpp/header/regex"> <span class="t-lines"><span>&lt;regex&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/regex" title="cpp/regex"> Classes, algorithms and iterators to support regular expression processing</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_regex&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Atomic_Operations_library">Atomic Operations library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/atomic" title="cpp/header/atomic"> <span class="t-lines"><span>&lt;atomic&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/atomic" title="cpp/atomic"> Atomic operations library</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_atomic&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+
+<tr>
+<td colspan="2"> <h3> <span class="mw-headline" id="Thread_support_library">Thread support library</span></h3>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/barrier" title="cpp/header/barrier"> <span class="t-lines"><span>&lt;barrier&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread/barrier" title="cpp/thread/barrier">Barriers</a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_barrier&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/condition_variable" title="cpp/header/condition variable"> <span class="t-lines"><span>&lt;condition_variable&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread" title="cpp/thread">Thread waiting conditions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_condition_variable&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/future" title="cpp/header/future"> <span class="t-lines"><span>&lt;future&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread" title="cpp/thread"> Primitives for asynchronous computations</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_future&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/latch" title="cpp/header/latch"> <span class="t-lines"><span>&lt;latch&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread/latch" title="cpp/thread/latch">Latches</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_latch&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/mutex" title="cpp/header/mutex"> <span class="t-lines"><span>&lt;mutex&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread" title="cpp/thread">Mutual exclusion primitives</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_mutex&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/semaphore" title="cpp/header/semaphore"> <span class="t-lines"><span>&lt;semaphore&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread/counting_semaphore" title="cpp/thread/counting semaphore">Semaphores</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_semaphore&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/shared_mutex" title="cpp/header/shared mutex"> <span class="t-lines"><span>&lt;shared_mutex&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14">(C++14)</span></span></span></div></div>
+</td>
+<td>  <a href="/w/cpp/thread" title="cpp/thread"> Shared mutual exclusion primitives</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_shared_mutex&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/stop_token" title="cpp/header/stop token"> <span class="t-lines"><span>&lt;stop_token&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div>
+</td>
+<td>  Stop tokens for <span class="t-lc"><a href="/w/cpp/thread/jthread" title="cpp/thread/jthread">std::jthread</a></span>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stop_token&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/thread" title="cpp/header/thread"> <span class="t-lines"><span>&lt;thread&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  <span class="t-lc"><a href="/w/cpp/thread/thread" title="cpp/thread/thread">std::thread</a></span> class and <a href="/w/cpp/thread" title="cpp/thread"> supporting functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_thread&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+<h3><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=1" title="Edit section: C compatibility headers">edit</a>]</span> <span class="mw-headline" id="C_compatibility_headers">C compatibility headers</span></h3>
+<p>For some of the C standard library headers of the form <code><i>xxx</i>.h</code>, the C++ standard library both includes an identically-named header and another header of the form <code>c<i>xxx</i></code> (all meaningful <code>c<i>xxx</i></code> headers are listed above). The intended use of headers of form <code><i>xxx</i>.h</code> is for interoperability only. It is possible that C++ source files need to include one of these headers in order to be valid ISO C. Source files that are not intended to also be valid ISO C should not use any of the C headers.
+</p><p>With the exception of <a href="/w/cpp/header/ccomplex" title="cpp/header/ccomplex"><code>complex.h</code></a> , each <code><i>xxx</i>.h</code> header included in the C++ standard library places in the global namespace each name that the corresponding <code>c<i>xxx</i></code> header would have placed in the <span class="t-c"><span class="mw-geshi cpp source-cpp">std</span></span> namespace.
+</p><p>These headers are allowed to also declare the same names in the <span class="t-c"><span class="mw-geshi cpp source-cpp">std</span></span> namespace, and the corresponding <code>c<i>xxx</i></code> headers are allowed to also declare the same names in the global namespace: including <code>&lt;cstdlib&gt;</code> definitely provides <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/c/malloc"><span class="kw760">std::<span class="me2">malloc</span></span></a></span></span> and may also provide <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy4">::</span><span class="me2">malloc</span></span></span>. Including <code>&lt;stdlib.h&gt;</code> definitely provides <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy4">::</span><span class="me2">malloc</span></span></span> and may also provide <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="http://en.cppreference.com/w/cpp/memory/c/malloc"><span class="kw760">std::<span class="me2">malloc</span></span></a></span></span>. This applies even to functions and function overloads that are not part of C standard library.
+</p><p>Notes: <code><i>xxx</i>.h</code> headers are deprecated in C++98 and undeprecated in C++23. These headers are discouraged for pure C++ code, but not subject to future removal.
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cassert" title="cpp/header/cassert"> <span class="t-lines"><span>&lt;assert.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves same as <a href="/w/cpp/header/cassert" title="cpp/header/cassert"><tt>&lt;cassert&gt;</tt></a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_assert.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cctype" title="cpp/header/cctype"> <span class="t-lines"><span>&lt;ctype.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cctype" title="cpp/header/cctype"><tt>&lt;cctype&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ctype.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cerrno" title="cpp/header/cerrno"> <span class="t-lines"><span>&lt;errno.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves same as <a href="/w/cpp/header/cerrno" title="cpp/header/cerrno"><tt>&lt;cerrno&gt;</tt></a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_errno.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cfenv" title="cpp/header/cfenv"> <span class="t-lines"><span>&lt;fenv.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cfenv" title="cpp/header/cfenv"><tt>&lt;cfenv&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_fenv.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cfloat" title="cpp/header/cfloat"> <span class="t-lines"><span>&lt;float.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves same as <a href="/w/cpp/header/cfloat" title="cpp/header/cfloat"><tt>&lt;cfloat&gt;</tt></a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_float.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cinttypes" title="cpp/header/cinttypes"> <span class="t-lines"><span>&lt;inttypes.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cinttypes" title="cpp/header/cinttypes"><tt>&lt;cinttypes&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_inttypes.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/climits" title="cpp/header/climits"> <span class="t-lines"><span>&lt;limits.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves same as <a href="/w/cpp/header/climits" title="cpp/header/climits"><tt>&lt;climits&gt;</tt></a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_limits.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/clocale" title="cpp/header/clocale"> <span class="t-lines"><span>&lt;locale.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/clocale" title="cpp/header/clocale"><tt>&lt;clocale&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_locale.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cmath" title="cpp/header/cmath"> <span class="t-lines"><span>&lt;math.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cmath" title="cpp/header/cmath"><tt>&lt;cmath&gt;</tt></a> is placed in global namespace,<br />except for names of <a href="/w/cpp/numeric/special_functions" title="cpp/numeric/special functions">mathematical special functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_math.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/csetjmp" title="cpp/header/csetjmp"> <span class="t-lines"><span>&lt;setjmp.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/csetjmp" title="cpp/header/csetjmp"><tt>&lt;csetjmp&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_setjmp.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/csignal" title="cpp/header/csignal"> <span class="t-lines"><span>&lt;signal.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/csignal" title="cpp/header/csignal"><tt>&lt;csignal&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_signal.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdarg" title="cpp/header/cstdarg"> <span class="t-lines"><span>&lt;stdarg.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cstdarg" title="cpp/header/cstdarg"><tt>&lt;cstdarg&gt;</tt></a> is placed in global namespace  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdarg.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstddef" title="cpp/header/cstddef"> <span class="t-lines"><span>&lt;stddef.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cstddef" title="cpp/header/cstddef"><tt>&lt;cstddef&gt;</tt></a> is placed in global namespace,<br />except for names of <a href="/w/cpp/types/byte" title="cpp/types/byte"><code>std::byte</code> and related functions</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stddef.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdint" title="cpp/header/cstdint"> <span class="t-lines"><span>&lt;stdint.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cstdint" title="cpp/header/cstdint"><tt>&lt;cstdint&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdint.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdio" title="cpp/header/cstdio"> <span class="t-lines"><span>&lt;stdio.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cstdio" title="cpp/header/cstdio"><tt>&lt;cstdio&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdio.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdlib" title="cpp/header/cstdlib"> <span class="t-lines"><span>&lt;stdlib.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cstdlib" title="cpp/header/cstdlib"><tt>&lt;cstdlib&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdlib.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstring" title="cpp/header/cstring"> <span class="t-lines"><span>&lt;string.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cstring" title="cpp/header/cstring"><tt>&lt;cstring&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_string.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ctime" title="cpp/header/ctime"> <span class="t-lines"><span>&lt;&#116;ime.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/ctime" title="cpp/header/ctime"><tt>&lt;ctime&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_time.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cuchar" title="cpp/header/cuchar"> <span class="t-lines"><span>&lt;uchar.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cuchar" title="cpp/header/cuchar"><tt>&lt;cuchar&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_uchar.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cwchar" title="cpp/header/cwchar"> <span class="t-lines"><span>&lt;wchar.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cwchar" title="cpp/header/cwchar"><tt>&lt;cwchar&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_wchar.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cwctype" title="cpp/header/cwctype"> <span class="t-lines"><span>&lt;wctype.h&gt;</span></span></a></div></div>
+</td>
+<td>  Behaves as if each name from <a href="/w/cpp/header/cwctype" title="cpp/header/cwctype"><tt>&lt;cwctype&gt;</tt></a> is placed in global namespace <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_wctype.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+<h4><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=2" title="Edit section: Special C compatibility headers">edit</a>]</span> <span class="mw-headline" id="Special_C_compatibility_headers">Special C compatibility headers</span></h4>
+<p>The header <code>&lt;stdatomic.h&gt;</code> declares names which are also provided in the C standard library, and defines the <code>_Atomic</code> macro which is a <a href="/w/c/keyword/_Atomic" title="c/keyword/ Atomic">keyword</a> in C. Unlike other <code><i>xxx</i>.h</code> headers, corresponding <code>&lt;cstdatomic&gt;</code> is not provided.
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/stdatomic.h" title="cpp/header/stdatomic.h"> <span class="t-lines"><span>&lt;stdatomic.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div>
+</td>
+<td>  Defines <code>_Atomic</code> and provides corresponding components in the C standard library <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdatomic.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+<h4><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=3" title="Edit section: Empty C headers">edit</a>]</span> <span class="mw-headline" id="Empty_C_headers">Empty C headers</span></h4>
+<p>The headers <code>&lt;complex.h&gt;</code>, <code>&lt;ccomplex&gt;</code>, <code>&lt;tgmath.h&gt;</code>, and <code>&lt;ctgmath&gt;</code> do not contain any content from the C standard library and instead merely include other headers from the C++ standard library.
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ccomplex" title="cpp/header/ccomplex"> <span class="t-lines"><span>&lt;ccomplex&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><span class="t-mark-rev t-deprecated-cxx17">(deprecated in C++17)</span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span></span></div></div>
+</td>
+<td>  Simply includes the header <a href="/w/cpp/header/complex" title="cpp/header/complex"><tt>&lt;complex&gt;</tt></a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ccomplex&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ccomplex" title="cpp/header/ccomplex"> <span class="t-lines"><span>&lt;complex.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Simply includes the header <a href="/w/cpp/header/complex" title="cpp/header/complex"><tt>&lt;complex&gt;</tt></a>  <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_complex.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ctgmath" title="cpp/header/ctgmath"> <span class="t-lines"><span>&lt;ctgmath&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><span class="t-mark-rev t-deprecated-cxx17">(deprecated in C++17)</span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span></span></div></div>
+</td>
+<td>  Simply includes the headers <a href="/w/cpp/header/complex" title="cpp/header/complex"><tt>&lt;complex&gt;</tt></a> and <a href="/w/cpp/header/cmath" title="cpp/header/cmath"><tt>&lt;cmath&gt;</tt></a>: the overloads equivalent to the contents of the C header <code>tgmath.h</code> are already provided by those headers <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ctgmath&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ctgmath" title="cpp/header/ctgmath"> <span class="t-lines"><span>&lt;tgmath.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Simply includes the headers <a href="/w/cpp/header/complex" title="cpp/header/complex"><tt>&lt;complex&gt;</tt></a> and <a href="/w/cpp/header/cmath" title="cpp/header/cmath"><tt>&lt;cmath&gt;</tt></a>   <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_tgmath.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+<h4><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=4" title="Edit section: Meaningless C headers">edit</a>]</span> <span class="mw-headline" id="Meaningless_C_headers">Meaningless C headers</span></h4>
+<p>The headers <code>&lt;ciso646&gt;</code>, <code>&lt;cstdalign&gt;</code>, and <code>&lt;cstdbool&gt;</code> are meaningless in C++ because the macros they provide in C are language keywords in C++.
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ciso646" title="cpp/header/ciso646"> <span class="t-lines"><span>&lt;ciso646&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span></span></div></div>
+</td>
+<td>  Empty header. <a href="/w/c/language/operator_alternative" title="c/language/operator alternative">The macros that appear in <code>iso646.h</code> in C</a> are <a href="/w/cpp/language/operator_alternative" title="cpp/language/operator alternative">keywords in C++</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_ciso646&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdalign" title="cpp/header/cstdalign"> <span class="t-lines"><span>&lt;cstdalign&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><span class="t-mark-rev t-deprecated-cxx17">(deprecated in C++17)</span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span></span></div></div>
+</td>
+<td>  Defines one <a href="/w/cpp/types" title="cpp/types">compatibility macro constant</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstdalign&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdbool" title="cpp/header/cstdbool"> <span class="t-lines"><span>&lt;cstdbool&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><span class="t-mark-rev t-deprecated-cxx17">(deprecated in C++17)</span><span class="t-mark-rev t-until-cxx20">(removed in C++20)</span></span></span></div></div>
+</td>
+<td>  Defines one <a href="/w/cpp/types" title="cpp/types">compatibility macro constant</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_cstdbool&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/ciso646" title="cpp/header/ciso646"> <span class="t-lines"><span>&lt;iso646.h&gt;</span></span></a></div></div>
+</td>
+<td>  Has no effect <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_iso646.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdalign" title="cpp/header/cstdalign"> <span class="t-lines"><span>&lt;stdalign.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Defines one <a href="/w/cpp/types" title="cpp/types">compatibility macro constant</a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdalign.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="/w/cpp/header/cstdbool" title="cpp/header/cstdbool"> <span class="t-lines"><span>&lt;stdbool.h&gt;</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  Defines one <a href="/w/cpp/types" title="cpp/types">compatibility macro constant </a> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="https://en.cppreference.com/mwiki/index.php?title=Template:cpp/header/dsc_stdbool.h&amp;action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+<h4><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=5" title="Edit section: Unsupported C headers">edit</a>]</span> <span class="mw-headline" id="Unsupported_C_headers">Unsupported C headers</span></h4>
+<p>The C headers <span class="t-rev-inl t-until-cxx23"><span><code>&lt;stdatomic.h&gt;</code>,</span> <span><span class="t-mark-rev t-until-cxx23">(until C++23)</span></span></span> <code>&lt;stdnoreturn.h&gt;</code>, and <code>&lt;threads.h&gt;</code> are not included in C++ and have no <code>c<i>xxx</i></code> equivalents.
+</p>
+<h3><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=6" title="Edit section: Experimental libraries">edit</a>]</span> <span class="mw-headline" id="Experimental_libraries"><a href="/w/cpp/header/experimental" title="cpp/header/experimental">Experimental libraries</a></span></h3>
+<p><a href="/w/cpp/experimental" title="cpp/experimental">C++ TR's/TS's</a> also define several collections of headers.
+</p>
+<h3><span class="editsection">[<a href="/mwiki/index.php?title=cpp/header&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td colspan="2"> <div class="t-dsc-see"><span><a href="/w/c/header" title="c/header">C documentation</a></span> for <span class=""><span>C Standard Library headers</span></span></div>
+</td></tr>
+
+</table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 26870/1000000
+Preprocessor generated node count: 15766/1000000
+Post‐expand include size: 728015/2097152 bytes
+Template argument size: 133135/2097152 bytes
+Highest expansion depth: 23/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2125-0!*!0!!en!*!* and timestamp 20220209164515 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/header&amp;oldid=137957">https://en.cppreference.com/mwiki/index.php?title=cpp/header&amp;oldid=137957</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks catlinks-allhidden'><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden category: <ul><li><a href="/w/Category:Pages_with_unreviewed_LWG_DR_marker" title="Category:Pages with unreviewed LWG DR marker">Pages with unreviewed LWG DR marker</a></li></ul></div></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>Navigation</h5>
+            <ul>
+<li id="n-Support-us"><a href="http://www.cppreference.com/support" rel="nofollow">Support us</a></li><li id="n-recentchanges"><a href="/w/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-FAQ"><a href="/w/Cppreference:FAQ">FAQ</a></li><li id="n-Offline-version"><a href="/w/Cppreference:Archives">Offline version</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>Toolbox</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="/w/Special:WhatLinksHere/cpp/header" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/w/Special:RecentChangesLinked/cpp/header" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="http://upload.cppreference.com/w/Special:Upload" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/w/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/mwiki/index.php?title=cpp/header&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mwiki/index.php?title=cpp/header&amp;oldid=137957" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mwiki/index.php?title=cpp/header&amp;action=info">Page information</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>In other languages</li></ul></div>
+            <div><ul>
+<li class="interwiki-ar"><a href="http://ar.cppreference.com/w/cpp/header" title="cpp/header" lang="ar" hreflang="ar">العربية</a></li><li class="interwiki-de"><a href="http://de.cppreference.com/w/cpp/header" title="cpp/header" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-es"><a href="http://es.cppreference.com/w/cpp/header" title="cpp/header" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="http://fr.cppreference.com/w/cpp/header" title="cpp/header" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="http://it.cppreference.com/w/cpp/header" title="cpp/header" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="http://ja.cppreference.com/w/cpp/header" title="cpp/header" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="http://pt.cppreference.com/w/cpp/header" title="cpp/header" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="http://ru.cppreference.com/w/cpp/header" title="cpp/header" lang="ru" hreflang="ru">Русский</a></li><li class="interwiki-zh"><a href="http://zh.cppreference.com/w/cpp/header" title="cpp/header" lang="zh" hreflang="zh">中文</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> This page was last modified on 7 February 2022, at 20:19.</li>
+                                    <li id="footer-info-viewcount">This page has been accessed 2,472,179 times.</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="/w/Cppreference:Privacy_policy" title="Cppreference:Privacy policy">Privacy policy</a></li>
+                                    <li id="footer-places-about"><a href="/w/Cppreference:About" title="Cppreference:About">About cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="/w/Cppreference:General_disclaimer" title="Cppreference:General disclaimer">Disclaimers</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="//www.mediawiki.org/"><img src="/mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="http://qbnz.com/highlighter/"><img src="//upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="http://www.tigertech.net/referral/cppreference.com"><img src="//upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="https://en.cppreference.com/mwiki/load.php?debug=false&amp;lang=en&amp;modules=skins.cppreference2&amp;only=scripts&amp;skin=cppreference2&amp;*"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler","ext.gadget.MathJax"], null, true);
+}</script>
+<script src="https://en.cppreference.com/mwiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=cppreference2&amp;*"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</script><!-- Served in 2.808 secs. -->
+	</body>
+<!-- Cached 20220209164515 -->
+</html>

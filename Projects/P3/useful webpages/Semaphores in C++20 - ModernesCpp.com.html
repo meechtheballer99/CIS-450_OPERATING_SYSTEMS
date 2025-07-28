@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://www.modernescpp.com/index.php/semaphores-in-c-20 -->
+<html lang="en-gb" dir="ltr" class="com_jaggyblog view-jaggyblog layout-post task-viewpost itemid-239 home j31  no-touch" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!--<base href="https://www.modernescpp.com/index.php/semaphores-in-c-20">--><base href=".">
+	
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>Semaphores in C++20 - ModernesCpp.com</title>
+	<link href="https://www.modernescpp.com/index.php/semaphores-in-c-20?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0">
+	<link href="https://www.modernescpp.com/index.php/semaphores-in-c-20?format=feed&amp;type=rss&amp;allcomments=1" rel="alternate" type="application/rss+xml" title="RSS 2.0">
+	<link href="https://www.modernescpp.com/index.php/component/jcomments/feed/com_jaggyblog/539" rel="alternate" type="application/rss+xml" title="Semaphores in C++20">
+	<link href="https://www.modernescpp.com/templates/purity_iii/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link href="https://www.modernescpp.com/index.php/component/search/?Itemid=239&amp;id=539&amp;task=viewpost&amp;format=opensearch" rel="search" title="Search ModernesCpp.com" type="application/opensearchdescription+xml">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/jaggyblog.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/standard.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/autotoc.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/style.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/content.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/system.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/template.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/megamenu.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/magazine.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/magula.min.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/module.min.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/jaggyblog_tags.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/style(1).css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/style(2).css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/visitorcounter.css" rel="stylesheet" type="text/css">
+	<link href="./Semaphores in C++20 - ModernesCpp.com_files/style(3).css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+
+
+#slidesocialconnect{display: block;padding: 0;z-index: 99999;position: fixed;}
+
+.sharebadge {display: block;height: 150px;top: 50%;margin-top: -50px;position: absolute;left: -35px;width: 47px;background-image: url("<?php echo JURI::root();?>modules/mod_slidesocialconnect/vertical-right.png");background-repeat: no-repeat;overflow: hidden;-webkit-border-top-left-radius: 8px;-webkit-border-bottom-left-radius: 8px;-moz-border-radius-topleft: 8px;-moz-border-radius-bottomleft: 8px;border-top-left-radius: 8px;border-bottom-left-radius: 8px;}
+	</style>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/cb=gapi.loaded_1" async=""></script><script src="./Semaphores in C++20 - ModernesCpp.com_files/cb=gapi(1).loaded_0" async=""></script><script src="./Semaphores in C++20 - ModernesCpp.com_files/all.js.download" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="./Semaphores in C++20 - ModernesCpp.com_files/all.js(1).download"></script><script type="application/json" class="joomla-script-options new">{"csrf.token":"8b45cadee7e02569dfefe6eff13e464a","system.paths":{"root":"","base":""}}</script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/mootools-core.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/core.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/main.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/platform.js.download" type="text/javascript" gapi_processed="true"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/jcomments-v2.3.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/ajax.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/jquery.min.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/jquery-noconflict.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/jquery-migrate.min.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/bootstrap.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/jquery.tap.min.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/script.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/menu.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/script.js(1).download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/nav-collapse.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/highlight.min.js.download" type="text/javascript"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/module.min.js.download" type="text/javascript" defer="defer"></script>
+	<script src="./Semaphores in C++20 - ModernesCpp.com_files/jb_archive.js.download" type="text/javascript"></script>
+	<script type="text/javascript">
+
+hljs.initHighlightingOnLoad();
+
+jQuery(function($){ initTooltips(); $("body").on("subform-row-add", initTooltips); function initTooltips (event, container) { container = container || document;$(container).find(".hasTooltip").tooltip({"html": true,"container": "body"});} });
+        if(typeof acymModule === 'undefined'){
+            var acymModule = [];
+			acymModule['emailRegex'] = /^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*\@([a-z0-9-]+\.)+[a-z0-9]{2,20}$/i;
+			acymModule['NAMECAPTION'] = 'Name';
+			acymModule['NAME_MISSING'] = 'Please enter your name';
+			acymModule['EMAILCAPTION'] = 'Email';
+			acymModule['VALID_EMAIL'] = 'Please enter a valid e-mail address';
+			acymModule['CAPTCHA_MISSING'] = 'The captcha is invalid, please try again';
+			acymModule['NO_LIST_SELECTED'] = 'Please select the lists you want to subscribe to';
+			acymModule['NO_LIST_SELECTED_UNSUB'] = 'Please select the lists you want to unsubscribe from';
+            acymModule['ACCEPT_TERMS'] = 'Please check the Terms and Conditions / Privacy policy';
+        }
+		
+				JB_EXPAND = "▼";
+				JB_COLLAPSE = "►";
+	</script>
+	<meta property="og:image" content="https://www.modernescpp.com/images/blog/Cpp20/Semaphores/TimelineCpp20.png">
+
+	
+<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style type="text/stylesheet">
+		@-webkit-viewport   { width: device-width; }
+		@-moz-viewport      { width: device-width; }
+		@-ms-viewport       { width: device-width; }
+		@-o-viewport        { width: device-width; }
+		@viewport           { width: device-width; }
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement("style");
+			msViewportStyle.appendChild(
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+			);
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+		}
+		//]]>
+	</script>
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="YES">
+<!-- //META FOR IOS & HANDHELD -->
+
+
+
+
+<!-- Le HTML5 shim and media query for IE8 support -->
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="/plugins/system/t3/base-bs3/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- You can add Google Analytics here or use T3 Injection feature -->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/templates/purity_iii/css/ie8.css" type="text/css" />
+<![endif]-->
+	<style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+.fb_mpn_mobile_landing_page_slide_out{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_out_from_left{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out_from_left;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_up{animation-duration:500ms;animation-name:fb_mpn_landing_page_slide_up;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_in{animation-duration:300ms;animation-name:fb_mpn_bounce_in;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out{animation-duration:300ms;animation-name:fb_mpn_bounce_out;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out_v2{animation-duration:300ms;animation-name:fb_mpn_fade_out;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_from_left{animation-duration:300ms;animation-name:fb_bounce_in_from_left;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_from_left{animation-duration:300ms;animation-name:fb_bounce_out_from_left;transition-timing-function:ease-in}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}@keyframes fb_mpn_landing_page_slide_out{0%{margin:0 12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;margin:0 24px;width:60px}}@keyframes fb_mpn_landing_page_slide_out_from_left{0%{left:12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;left:12px;width:60px}}@keyframes fb_mpn_landing_page_slide_up{0%{bottom:0;opacity:0}100%{bottom:24px;opacity:1}}@keyframes fb_mpn_bounce_in{0%{opacity:.5;top:100%}100%{opacity:1;top:0}}@keyframes fb_mpn_fade_out{0%{bottom:30px;opacity:1}100%{bottom:0;opacity:0}}@keyframes fb_mpn_bounce_out{0%{opacity:1;top:0}100%{opacity:.5;top:100%}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_from_left{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}50%{transform:scale(1.03, 1.03);transform-origin:bottom left}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_from_left{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}}@keyframes slideInFromBottom{0%{opacity:.1;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}@keyframes slideInFromBottomDelay{0%{opacity:0;transform:translateY(100%)}97%{opacity:0;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}</style></head>
+
+<body>
+
+<div class="t3-wrapper magazine"> <!-- Need this wrapper for off-canvas menu. Remove if you don't use of-canvas -->
+
+	
+<!-- MAIN NAVIGATION -->
+<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav">
+
+	<!-- OFF-CANVAS -->
+		<!-- //OFF-CANVAS -->
+
+	<div class="container">
+
+		<!-- NAVBAR HEADER -->
+		<div class="navbar-header">
+
+			<!-- LOGO -->
+			<div class="logo logo-text">
+				<div class="logo-text">
+					<a href="https://www.modernescpp.com/" title=" ">
+						
+												
+						<span> </span>
+					</a>
+				</div>
+			</div>
+			<!-- //LOGO -->
+
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".t3-navbar-collapse">
+					<i class="fa fa-bars"></i>
+				</button>
+			
+	    	    <!-- HEAD SEARCH -->
+	    <div class="head-search">     
+	      <form class="form-search" action="https://www.modernescpp.com/index.php" method="post">
+	<div class="search">
+		<label for="mod-search-searchword">Search ...</label><i class="fa fa-search"></i><input name="searchword" id="mod-search-searchword" maxlength="200" class="form-control " type="text" size="20">	<input type="hidden" name="task" value="search">
+	<input type="hidden" name="option" value="com_search">
+	<input type="hidden" name="Itemid" value="239">
+	</div>
+</form>
+
+	    </div>
+	    <!-- //HEAD SEARCH -->
+	    
+		</div>
+		<!-- //NAVBAR HEADER -->
+
+		<!-- NAVBAR MAIN -->
+				<nav class="t3-navbar-collapse navbar-collapse collapse"><ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" class="current active">
+<a itemprop="url" href="https://www.modernescpp.com/index.php">Modernes C++ </a>
+
+</li>
+</ul></nav>
+		
+		<nav class="t3-navbar navbar-collapse collapse">
+			<div class="t3-megamenu" data-responsive="true">
+<ul itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" class="nav navbar-nav level0">
+<li itemprop="name" class="current active" data-id="239" data-level="1">
+<a itemprop="url" class="" href="https://www.modernescpp.com/index.php" data-target="#">Modernes C++ </a>
+
+</li>
+</ul>
+</div>
+
+		</nav>
+    <!-- //NAVBAR MAIN -->
+
+	</div>
+</header>
+<!-- //MAIN NAVIGATION -->
+
+
+
+
+
+
+	
+
+<div id="t3-mainbody" class="container t3-mainbody">
+	<div class="row">
+
+		<!-- MAIN CONTENT -->
+		<div id="t3-content" class="t3-content col-xs-12 col-md-6  col-md-push-3">
+						<div id="system-message-container">
+	</div>
+
+						
+
+
+
+	<div class="blog-header">
+		<h1>Semaphores in C++20</h1>				<ul class="actions">
+																				</ul>
+	</div>
+
+			<div class="blog-copyright">
+									<span class="blog-date">
+				 18 January 2021			</span>
+											</div>
+		
+	<a name="editor"></a>
+	
+	<div id="system">
+		<form action="https://www.modernescpp.com/index.php/semaphores-in-c-20" method="post" name="adminForm" id="adminForm" class="submission form-validate">
+						<div id="blogContent" class="blog-content">
+				<div class="JaggyShareButtonsbutton">
+<div class="JaggyShareButtonsbuttont">
+<a href="http://twitter.com/share" class="twitter-share-button" data-text="Semaphores in C++20" data-url="https://www.modernescpp.com/index.php/semaphores-in-c-20" data-count="horizontal" data-via="rainer_grimm" data-lang="en">Tweet</a>
+<script type="text/javascript" src="./Semaphores in C++20 - ModernesCpp.com_files/widgets.js.download"></script>
+</div>
+<div class="JaggyShareButtonsbuttong">
+<div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1647571450215" name="I0_1647571450215" src="./Semaphores in C++20 - ModernesCpp.com_files/fastbutton.html" data-gapiattached="true"></iframe></div><g:plusone size="medium" href="https://www.modernescpp.com/index.php/semaphores-in-c-20" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+</div>
+<div class="JaggyShareButtonsbuttonk">
+<script type="text/javascript" src="./Semaphores in C++20 - ModernesCpp.com_files/in.js.download"></script><script type="in/share" data-url="https://www.modernescpp.com/index.php/semaphores-in-c-20" title="Semaphores in C++20" data-counter="right"></script>
+</div>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) {return;}
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#appId=179029028839285&xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			
+<div class="JaggyShareButtonsbuttonl">
+<div class="fb-like fb_iframe_widget" data-href="https://www.modernescpp.com/index.php/semaphores-in-c-20" data-layout="button_count" data-send="false" data-width="450" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=179029028839285&amp;container_width=98&amp;href=https%3A%2F%2Fwww.modernescpp.com%2Findex.php%2Fsemaphores-in-c-20&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;width=450"><span style="vertical-align: bottom; width: 90px; height: 20px;"><iframe name="f30e517e70f4c04" width="450px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Semaphores in C++20 - ModernesCpp.com_files/like.html" style="border: none; visibility: visible; width: 90px; height: 20px;" class=""></iframe></span></div>
+</div>
+<div class="JaggyShareButtonsbuttonShare">
+<div class="fb-share-button fb_iframe_widget" data-href="https://www.modernescpp.com/index.php/semaphores-in-c-20" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=179029028839285&amp;container_width=0&amp;href=https%3A%2F%2Fwww.modernescpp.com%2Findex.php%2Fsemaphores-in-c-20&amp;locale=en_US&amp;sdk=joey"><span style="vertical-align: bottom; width: 49px; height: 15px;"><iframe name="f180698fa57fb38" width="1000px" height="1000px" data-testid="fb:share_button Facebook Social Plugin" title="fb:share_button Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Semaphores in C++20 - ModernesCpp.com_files/share_button.html" style="border: none; visibility: visible; width: 49px; height: 15px;" class=""></iframe></span></div>
+</div>
+</div><div class="autotoc" style="float:right;"><script type="text/javascript">
+            /* <![CDATA[ */
+            function toc_toggle_visible(ob)
+            {
+              var ul = ob.parentNode.parentNode.getElementsByTagName("ul")[0];
+              var d = ul.style.display == "none";
+              ul.style.display = d ? "" : "none";
+              ob.innerHTML = d ? "Hide"
+                               : "Show";
+              return false;
+            }
+            /* ]]> */
+            </script><span>Contents</span><span>[<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" onclick="return toc_toggle_visible(this);">Show</a>]</span><ul style="display:none;"><li><ul><li><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#h1-edsger-w-dijkstra-invented-semaphores" class="toclink toclink-h1">Edsger W. Dijkstra Invented Semaphores</a></li><li><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#h2-counting-semaphores-in-c-20" class="toclink toclink-h1">Counting Semaphores in C++20</a></li><li><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#h3-a-ping-pong-game" class="toclink toclink-h1">A Ping-Pong Game</a></li><li><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#h4-all-numbers" class="toclink toclink-h1">All Numbers</a></li><li><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#h5-what-s-next" class="toclink toclink-h1">What's next?</a></li></ul></li></ul></div><div style="clear: both;"></div><p>Semaphores are a synchronization mechanism used to control concurrent access to a shared resource. They also allow it to play ping-pong.</p>
+
+<p>&nbsp;<img src="./Semaphores in C++20 - ModernesCpp.com_files/TimelineCpp20.png" alt="TimelineCpp20" width="650" height="225" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>&nbsp;</p>
+<p>A counting semaphore is a special semaphore that has a counter that is bigger than zero. The counter is initialized in the constructor. Acquiring the semaphore decreases the counter and releasing the semaphore increases the counter. If a thread tries to acquire the semaphore when the counter is zero, the thread will block until another thread increments the counter by releasing the semaphore.</p>
+<h2 id="h1-edsger-w-dijkstra-invented-semaphores">Edsger W. Dijkstra Invented Semaphores</h2>
+<p><br>The Dutch computer scientist <a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger W. Dijkstra</a> presented in 1965 the concept of a semaphore. A semaphore is a data structure with a queue and a counter. The counter is initialized to a value equal to or greater than zero. It supports the two operations <code>wait</code> and <code>signal</code>. <code>wait</code> acquires the semaphore and decreases the counter; it blocks the thread acquiring the semaphore if the counter is zero. <code>signal</code> releases the semaphore and increases the counter. Blocked threads are added to the queue to avoid <a href="https://en.wikipedia.org/wiki/Starvation_(computer_science)">starvation</a>.</p>
+<div>
+<p>Originally, a semaphore is a railway signal.</p>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/semaphore.jpg" alt="semaphore" width="200" height="300" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>&nbsp;</p>
+<div>
+<div style="text-align: center;">The&nbsp;original&nbsp;uploader&nbsp;was&nbsp;AmosWolfe&nbsp;at&nbsp;English&nbsp;Wikipedia.&nbsp;-&nbsp;<a href="https://commons.wikimedia.org/w/index.php?curid=1972304">Transferred from en.wikipedia to Commons., CC BY 2.0</a></div>
+<div>&nbsp;</div>
+</div>
+</div>
+<h2 style="text-align: justify;" id="h2-counting-semaphores-in-c-20">Counting Semaphores in C++20</h2>
+<p>C++20 supports a <code>std::binary_semaphore</code>, which is an alias for a <code>std::counting_semaphore&lt;1&gt;</code>. In this case, the least maximal value is 1. <code>std::binary_semaphores</code> can be used to implement <a href="https://en.cppreference.com/w/cpp/named_req/BasicLockable">locks</a>.</p>
+<!-- HTML generated using hilite.me -->
+<div style="background: #f0f3f3; overflow: auto; width: auto; gray;border-width: .1em .1em .1em .8em;">
+<pre style="margin: 0; line-height: 125%;"><span style="color: #006699; font-weight: bold;">using</span> binary_semaphore <span style="color: #555555;">=</span> std<span style="color: #555555;">::</span>counting_semaphore<span style="color: #555555;">&lt;</span><span style="color: #ff6600;">1</span><span style="color: #555555;">&gt;</span>;
+</pre>
+</div>
+<p><br>In contrast to a <code>std::mutex</code>, a <code>std::counting_semaphore</code> is not bound to a thread. This means, that the acquire and release call of a semaphore can happen on different threads. The following table presents the interface of a <code>std::counting_semaphore</code>.</p>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/semaphoreTable.png" alt="semaphoreTable" width="650" height="282" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div>
+<p>&nbsp;</p>
+<p>The constructor call <code>std::counting_semaphore&lt;10&gt; sem(5)</code> creates a semaphore sem with an at least maximal value of 10 and a counter of 5. The call <code>sem.max()</code> returns the least maximal value. <code>sem.try_aquire_for(relTime)</code> needs a relative time duration; the member function <code>sem.try_acquire_until(absTime)</code> needs an absolute time point. You can read more about time durations and time points in my previous posts to the time libraray: <a href="https://www.modernescpp.com/index.php/tag/time">time</a>.&nbsp; The three calls <code>sem.try_acquire, sem.try_acquire_for</code>, and <code>sem.try_acquire_until</code> return a boolean indicating the success of the calls.</p>
+<p>Semaphores are typically used in sender-receiver workflows. For example, initializing the semaphore sem with 0 will block the receivers <code>sem.acquire()</code> call until the sender calls <code>sem.release()</code>. Consequently, the receiver waits for the notification of the sender. A one-time synchronization of threads can easily be implemented using semaphores.</p>
+</div>
+<p style="text-align: center;">&nbsp;</p>
+<!-- HTML generated using hilite.me -->
+<div style="background: #f0f3f3; overflow: auto; width: auto; gray;border-width: .1em .1em .1em .8em;">
+<pre style="margin: 0; line-height: 125%;"><span style="color: #0099ff; font-style: italic;">// threadSynchronizationSemaphore.cpp</span>
+
+<span style="color: #009999;">#include &lt;iostream&gt;</span>
+<span style="color: #009999;">#include &lt;semaphore&gt;</span>
+<span style="color: #009999;">#include &lt;thread&gt;</span>
+<span style="color: #009999;">#include &lt;vector&gt;</span>
+
+std<span style="color: #555555;">::</span>vector<span style="color: #555555;">&lt;</span><span style="color: #007788; font-weight: bold;">int</span><span style="color: #555555;">&gt;</span> myVec{};
+
+std<span style="color: #555555;">::</span>counting_semaphore<span style="color: #555555;">&lt;</span><span style="color: #ff6600;">1</span><span style="color: #555555;">&gt;</span> prepareSignal(<span style="color: #ff6600;">0</span>);              <span style="color: #0099ff; font-style: italic;">// (1)</span>
+
+<span style="color: #007788; font-weight: bold;">void</span> <span style="color: #cc00ff;">prepareWork</span>() {
+
+    myVec.insert(myVec.end(), {<span style="color: #ff6600;">0</span>, <span style="color: #ff6600;">1</span>, <span style="color: #ff6600;">0</span>, <span style="color: #ff6600;">3</span>});
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">"Sender: Data prepared."</span>  <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+    prepareSignal.release();                              <span style="color: #0099ff; font-style: italic;">// (2)</span>
+}
+
+<span style="color: #007788; font-weight: bold;">void</span> <span style="color: #cc00ff;">completeWork</span>() {
+
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">"Waiter: Waiting for data."</span> <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+    prepareSignal.acquire();                              <span style="color: #0099ff; font-style: italic;">// (3)</span>
+    myVec[<span style="color: #ff6600;">2</span>] <span style="color: #555555;">=</span> <span style="color: #ff6600;">2</span>;
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">"Waiter: Complete the work."</span> <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+    <span style="color: #006699; font-weight: bold;">for</span> (<span style="color: #006699; font-weight: bold;">auto</span> i<span style="color: #555555;">:</span> myVec) std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> i <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">" "</span>;
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+    
+}
+
+<span style="color: #007788; font-weight: bold;">int</span> <span style="color: #cc00ff;">main</span>() {
+
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+
+    std<span style="color: #555555;">::</span><span style="color: #006699; font-weight: bold;">thread</span> t1(prepareWork);
+    std<span style="color: #555555;">::</span><span style="color: #006699; font-weight: bold;">thread</span> t2(completeWork);
+
+    t1.join();
+    t2.join();
+
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+  
+}
+</pre>
+</div>
+<p style="text-align: center;">&nbsp;</p>
+<p>The <code>std::counting_semaphore prepareSignal</code> (1) can have the values 0 oder 1. In the concrete example, it's initialized with 0 (line 1). This means, that the call <code>prepareSignal.release()</code> sets the value to 1 (line 2) and unblocks the call <code>prepareSignal.acquire()</code> (line 3).</p>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/threadSynchronizationSemaphore.png" alt="threadSynchronizationSemaphore" width="400" height="457" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Let me make a small performance test by playing ping-pong with semaphores.</p>
+<h2 id="h3-a-ping-pong-game">A Ping-Pong Game</h2>
+<p>In my last post "<a href="https://www.modernescpp.com/index.php/performancecomparison-of-condition-variables-and-atomics-in-c-20">Performance Comparison of Condition Variables and Atomics in C++20</a>", I implemented a ping-pong game. Here is the idea of the game: One thread executes a <code>ping</code> function and the other thread a <code>pong</code> function. <code></code> The ping thread waits for the notification of the pong thread and sends the notification back to the pong thread. The game stops after 1,000,000 ball changes. I perform each game five times to get comparable performance numbers. Let's start the game:</p>
+<p>&nbsp;</p>
+<!-- HTML generated using hilite.me -->
+<div style="background: #f0f3f3; overflow: auto; width: auto; gray;border-width: .1em .1em .1em .8em;">
+<pre style="margin: 0; line-height: 125%;"><span style="color: #0099ff; font-style: italic;">// pingPongSemaphore.cpp</span>
+
+<span style="color: #009999;">#include &lt;iostream&gt;</span>
+<span style="color: #009999;">#include &lt;semaphore&gt;</span>
+<span style="color: #009999;">#include &lt;thread&gt;</span>
+
+std<span style="color: #555555;">::</span>counting_semaphore<span style="color: #555555;">&lt;</span><span style="color: #ff6600;">1</span><span style="color: #555555;">&gt;</span> signal2Ping(<span style="color: #ff6600;">0</span>);       <span style="color: #0099ff; font-style: italic;">// (1)</span>
+std<span style="color: #555555;">::</span>counting_semaphore<span style="color: #555555;">&lt;</span><span style="color: #ff6600;">1</span><span style="color: #555555;">&gt;</span> signal2Pong(<span style="color: #ff6600;">0</span>);       <span style="color: #0099ff; font-style: italic;">// (2)</span>
+
+std<span style="color: #555555;">::</span>atomic<span style="color: #555555;">&lt;</span><span style="color: #007788; font-weight: bold;">int</span><span style="color: #555555;">&gt;</span> counter{};
+constexpr <span style="color: #007788; font-weight: bold;">int</span> countlimit <span style="color: #555555;">=</span> <span style="color: #ff6600;">1</span><span style="color: #aa0000; background-color: #ffaaaa;">'</span><span style="color: #ff6600;">000</span><span style="color: #aa0000; background-color: #ffaaaa;">'</span><span style="color: #ff6600;">000</span>;
+
+<span style="color: #007788; font-weight: bold;">void</span> <span style="color: #cc00ff;">ping</span>() {
+    <span style="color: #006699; font-weight: bold;">while</span>(counter <span style="color: #555555;">&lt;=</span> countlimit) {
+        signal2Ping.acquire();                  <span style="color: #0099ff; font-style: italic;">// (5)</span>
+        <span style="color: #555555;">++</span>counter;
+        signal2Pong.release();
+    }
+}
+
+<span style="color: #007788; font-weight: bold;">void</span> <span style="color: #cc00ff;">pong</span>() {
+    <span style="color: #006699; font-weight: bold;">while</span>(counter <span style="color: #555555;">&lt;</span> countlimit) {
+        signal2Pong.acquire();
+        signal2Ping.release();                  <span style="color: #0099ff; font-style: italic;">// (3)</span>
+    }
+}
+
+<span style="color: #007788; font-weight: bold;">int</span> <span style="color: #cc00ff;">main</span>() {
+
+    <span style="color: #006699; font-weight: bold;">auto</span> start <span style="color: #555555;">=</span> std<span style="color: #555555;">::</span>chrono<span style="color: #555555;">::</span>system_clock<span style="color: #555555;">::</span>now();
+
+    signal2Ping.release();                     <span style="color: #0099ff; font-style: italic;">// (4)</span>
+    std<span style="color: #555555;">::</span><span style="color: #006699; font-weight: bold;">thread</span> t1(ping);
+    std<span style="color: #555555;">::</span><span style="color: #006699; font-weight: bold;">thread</span> t2(pong);
+
+    t1.join();
+    t2.join();
+
+    std<span style="color: #555555;">::</span>chrono<span style="color: #555555;">::</span>duration<span style="color: #555555;">&lt;</span><span style="color: #007788; font-weight: bold;">double</span><span style="color: #555555;">&gt;</span> dur <span style="color: #555555;">=</span> std<span style="color: #555555;">::</span>chrono<span style="color: #555555;">::</span>system_clock<span style="color: #555555;">::</span>now() <span style="color: #555555;">-</span> start;
+    std<span style="color: #555555;">::</span>cout <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">"Duration: "</span> <span style="color: #555555;">&lt;&lt;</span> dur.count() <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">" seconds"</span> <span style="color: #555555;">&lt;&lt;</span> <span style="color: #cc3300;">'\n'</span>;
+
+}
+</pre>
+</div>
+<p>&nbsp;</p>
+<p>The program<code> pingPongsemaphore.cpp</code> uses two semaphores: <code>signal2Ping</code> and <code>signal2Pong</code> (1 and 2). Both can have the two values 0 and 1 and are initialized with 0. This means when the value is 0 for the semaphore <code>signal2Ping,</code> a call <code>signal2Ping.release()</code> (3 and 4) set the value to 1 and is, therefore, a notification. A&nbsp; <code>signal2Ping.acquire()</code> (5) call blocks until the value becomes 1. The same argumentation holds for the second <code>semaphore signal2Pong</code>.</p>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/pingPongSemaphore.png" alt="pingPongSemaphore" width="500" height="415" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>&nbsp;</p>
+<p>On average, the execution time is 0.33 seconds.</p>
+<p>Let me summarize the performance numbers for all ping-pong games. This includes the performance numbers of my last post "<a href="https://www.modernescpp.com/index.php/performancecomparison-of-condition-variables-and-atomics-in-c-20">Performance Comparison of Condition Variables and Atomics in C++20</a>" and this ping-pong game implemented with semaphores.</p>
+<h2 id="h4-all-numbers">All Numbers</h2>
+<p>Condition variables are the slowest way, and atomic flag the fastest way to synchronize threads. The performance of a <code>std::atomic</code> is in between. There is one downside with <code>std::atomic</code>. <code>std::atomic_flag</code> is the only atomic data type that is always lock-free. Semaphores impressed me most because they are nearly as fast as atomic flags.</p>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/PerformanceNumbers.png" alt="PerformanceNumbers" width="650" height="102" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2 id="h5-what-s-next">What's next?</h2>
+<p>With latches and barriers, we have more convenient coordination types in C++20. Let me present them in my <a href="https://www.modernescpp.com/index.php/latches-in-c-20">next post</a>.</p>
+<p>&nbsp;</p>
+<p>
+
+</p><div class="custom">
+	<p><strong>Thanks a lot to my <a href="https://www.patreon.com/rainer_grimm">Patreon Supporters</a></strong><strong>: Matt Braun, Roman Postanciuc, Tobias Zindl, Marko, </strong><span class="sc-kpOJdX fDWXFa" title="Emyr Williams"><strong>G Prvulovic, Reinhold Dröge, Abernitzke,</strong> </span><strong><span title="Emyr Williams">Frank Grimm</span></strong><span title="Emyr Williams"><strong>, Sakib, Broeserl, </strong></span><strong><span title="Emyr Williams">António Pina, Sergey Agafyin, <span class="sc-gZMcBi hdSbOl" data-tag="user-details-full-name">Андрей Бурмистров, Jake, GS, Lawton Shoemake, Animus24, Jozo Leko, John Breland, </span></span>Louis St-Amour, Venkat Nandam, Jose Francisco, Douglas Tinkham, Kuchlong Kuchlong, Robert Blanch, Truels Wissneth, Kris Kafka, Mario Luoni, Neil Wang, Friedrich Huber, lennonli, Pramod Tikare Muralidhara, Peter Ware, <span class="sc-dlfnbm kCMLYy"><span class="sc-dlfnbm iIcxKZ">Daniel Hufschläger, Red Trip, <span class="sc-dlfnbm kCMLYy"><span class="sc-dlfnbm iIcxKZ">Alessandro Pezzato</span></span>, </span></span><span class="sc-dlfnbm kCMLYy"><span class="sc-dlfnbm iIcxKZ"></span></span><span class="sc-gsTCUz bHwEqN" data-tag="user-full-name">Evangelos Denaxas, Bob Perry, Satish Vangipuram, Andi Ireland, Richard Ohnemus, Michael Dunsky,</span></strong><strong> Leo Goodstadt, Eduardo Velasquez, John Wiederhirn, Yacob Cohen-Arazi, Florian Tischler, Robin Furness, Michael Young, Holger Detering, Bernd Mühlhaus, Matthieu Bolt, Stephen Kelley, Kyle Dean, Tusar Palauri, <span class="sc-dlfnbm kCMLYy"><span class="sc-dlfnbm iIcxKZ">Dmitry Farberov</span>, and Ralf Holly.</span><br></strong></p>
+<p>&nbsp;</p>
+<p><strong>Thanks in particular to Jon Hess, Lakshman,</strong> <strong>Christian Wittenhorst, Sherhy Pyton, Dendi Suhubdy, Sudhakar Belagurusamy, Richard Sargeant, Rusty Fleming, Ralf Abramowitsch, John Nebel, and Mipko.<br></strong></p>
+<div class="sc-jrAGrp kSvETv">
+<div class="sc-jrAGrp gRJmcT"><strong><a href="https://www.patreon.com/user?u=32531583"><span class="sc-gsTCUz bHwEqN" data-tag="user-full-name"></span></a></strong></div>
+</div>
+<p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong>My special thanks to <a href="https://www.embarcadero.com/de/products/cbuilder">Embarcadero</a></strong> <a href="https://www.embarcadero.com/products/cbuilder"><img src="./Semaphores in C++20 - ModernesCpp.com_files/CBUIDER_STUDIO_FINAL_ICONS_1024_Small.png" alt="CBUIDER STUDIO FINAL ICONS 1024 Small" width="100" height="100"></a></p>
+<p>&nbsp;</p>
+<p><strong>My special thanks to<a href="https://pvs-studio.com/modernes_cpp"> PVS-Studio</a></strong> <a href="https://pvs-studio.com/modernes_cpp"><img src="./Semaphores in C++20 - ModernesCpp.com_files/logo.png" alt="PVC Logo " width="120" height="76"></a></p>
+<p>&nbsp;</p>
+<h2>My Mentoring Program "Fundamentals for C++ Professionals" is Open for Registration</h2>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/RainerTalk.jpg" alt="RainerTalk" width="400" height="344" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>My new mentoring program "Fundamentals for C++ Professionals" starts on April 22nd. Registration is open until April 17nd. Here is more information:</p>
+<p>Launch page: <a href="https://www.modernescpp.org/">https://www.modernescpp.org/</a></p>
+<p>Introduction: <a href="https://www.modernescpp.org/my-mentoring-program-fundamentals-for-c-professionals/">https://www.modernescpp.org/my-mentoring-program-fundamentals-for-c-professionals/</a></p>
+<p>Still open questions? Please, call me: <span id="cloak1d7c5cb2c95e5cbcba475b8d9b3b4648"><a href="mailto:info@modernescpp.de">info@modernescpp.de</a></span><script type="text/javascript">
+				document.getElementById('cloak1d7c5cb2c95e5cbcba475b8d9b3b4648').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy1d7c5cb2c95e5cbcba475b8d9b3b4648 = '&#105;nf&#111;' + '&#64;';
+				addy1d7c5cb2c95e5cbcba475b8d9b3b4648 = addy1d7c5cb2c95e5cbcba475b8d9b3b4648 + 'm&#111;d&#101;rn&#101;scpp' + '&#46;' + 'd&#101;';
+				var addy_text1d7c5cb2c95e5cbcba475b8d9b3b4648 = '&#105;nf&#111;' + '&#64;' + 'm&#111;d&#101;rn&#101;scpp' + '&#46;' + 'd&#101;';document.getElementById('cloak1d7c5cb2c95e5cbcba475b8d9b3b4648').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy1d7c5cb2c95e5cbcba475b8d9b3b4648 + '\'>'+addy_text1d7c5cb2c95e5cbcba475b8d9b3b4648+'<\/a>';
+		</script></p>
+<h3>Modernes C++,</h3>
+<p><img src="./Semaphores in C++20 - ModernesCpp.com_files/RainerGrimmSmall.png" alt="RainerGrimmSmall"></p></div>
+<p></p>
+<p>&nbsp;</p><div class="JaggyShareButtonsbutton">
+<div class="JaggyShareButtonsbuttont">
+<a href="http://twitter.com/share" class="twitter-share-button" data-text="Semaphores in C++20" data-url="https://www.modernescpp.com/index.php/semaphores-in-c-20" data-count="horizontal" data-via="rainer_grimm" data-lang="en">Tweet</a>
+<script type="text/javascript" src="./Semaphores in C++20 - ModernesCpp.com_files/widgets.js.download"></script>
+</div>
+<div class="JaggyShareButtonsbuttong">
+<div id="___plusone_1" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I1_1647571450238" name="I1_1647571450238" src="./Semaphores in C++20 - ModernesCpp.com_files/fastbutton(1).html" data-gapiattached="true"></iframe></div><g:plusone size="medium" href="https://www.modernescpp.com/index.php/semaphores-in-c-20" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+</div>
+<div class="JaggyShareButtonsbuttonk">
+<script type="text/javascript" src="./Semaphores in C++20 - ModernesCpp.com_files/in.js.download"></script><script type="in/share" data-url="https://www.modernescpp.com/index.php/semaphores-in-c-20" title="Semaphores in C++20" data-counter="right"></script>
+</div>
+<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) {return;}
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#appId=179029028839285&xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			
+<div class="JaggyShareButtonsbuttonl">
+<div class="fb-like fb_iframe_widget" data-href="https://www.modernescpp.com/index.php/semaphores-in-c-20" data-layout="button_count" data-send="false" data-width="450" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=179029028839285&amp;container_width=98&amp;href=https%3A%2F%2Fwww.modernescpp.com%2Findex.php%2Fsemaphores-in-c-20&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;width=450"><span style="vertical-align: bottom; width: 90px; height: 20px;"><iframe name="f3e40fab9585fa8" width="450px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Semaphores in C++20 - ModernesCpp.com_files/like(1).html" style="border: none; visibility: visible; width: 90px; height: 20px;" class=""></iframe></span></div>
+</div>
+<div class="JaggyShareButtonsbuttonShare">
+<div class="fb-share-button fb_iframe_widget" data-href="https://www.modernescpp.com/index.php/semaphores-in-c-20" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=179029028839285&amp;container_width=0&amp;href=https%3A%2F%2Fwww.modernescpp.com%2Findex.php%2Fsemaphores-in-c-20&amp;locale=en_US&amp;sdk=joey"><span style="vertical-align: bottom; width: 49px; height: 15px;"><iframe name="f183a24d9fd6238" width="1000px" height="1000px" data-testid="fb:share_button Facebook Social Plugin" title="fb:share_button Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Semaphores in C++20 - ModernesCpp.com_files/share_button(1).html" style="border: none; visibility: visible; width: 49px; height: 15px;" class=""></iframe></span></div>
+</div>
+</div>			</div>
+	
+				
+			<div class="blog-tags">Tags: <a class="tag_locked" rel="100" href="https://www.modernescpp.com/index.php/tag/semaphores">semaphores</a></div>				
+				
+	
+			<a name="comments"></a><!-- here for comment onpage bookmark links -->
+		
+			
+
+
+
+
+			 
+		</form>
+	</div>
+	
+	<script type="text/javascript">
+<!--
+var jcomments=new JComments(539, 'com_jaggyblog','/index.php/component/jcomments/');
+jcomments.setList('comments-list');
+//-->
+</script>
+<div id="jc">
+<div id="comments"><h4>Comments <a class="rss" href="https://www.modernescpp.com/index.php/component/jcomments/feed/com_jaggyblog/539" title="RSS feed for comments to this post" target="_blank">&nbsp;</a><a class="refresh" href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" title="Refresh comments list" onclick="jcomments.showPage(539,&#39;com_jaggyblog&#39;,0);return false;">&nbsp;</a></h4>
+<div id="comments-list" class="comments-list">
+	<div class="even" id="comment-item-77941"><div class="rbox">
+<div class="comment-box">
+<span class="comments-vote">
+	<span id="comment-vote-holder-77941">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-good" title="Good comment!" onclick="jcomments.voteComment(77941, 1);return false;"></a><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-poor" title="Bad comment!" onclick="jcomments.voteComment(77941, -1);return false;"></a>
+<span class="vote-none">0</span>
+	</span>
+</span>
+<a class="comment-anchor" href="https://www.modernescpp.com/index.php/component/jaggyblog/semaphores-in-c-20#comment-77941" id="comment-77941">#1</a>
+<span class="comment-author">ST</span>
+<span class="comment-date">2021-01-21 00:14</span>
+<div class="comment-body" id="comment-body-77941">Semaphore is a general term for visual signalling at a distance and predates railways and the industrial revolution. Some information here: https://en.wikipedia.org/wiki/Semaphore</div>
+<span class="comments-buttons">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" onclick="jcomments.quoteComment(77941); return false;">Quote</a>
+</span>
+</div><div class="clear"></div>
+</div>
+</div>
+	<div class="odd" id="comment-item-77942"><div class="rbox">
+<div class="comment-box">
+<span class="comments-vote">
+	<span id="comment-vote-holder-77942">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-good" title="Good comment!" onclick="jcomments.voteComment(77942, 1);return false;"></a><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-poor" title="Bad comment!" onclick="jcomments.voteComment(77942, -1);return false;"></a>
+<span class="vote-none">0</span>
+	</span>
+</span>
+<a class="comment-anchor" href="https://www.modernescpp.com/index.php/component/jaggyblog/semaphores-in-c-20#comment-77942" id="comment-77942">#2</a>
+<span class="comment-author">Aiaal</span>
+<span class="comment-date">2021-01-21 00:25</span>
+<div class="comment-body" id="comment-body-77942">The second screenshot with average execution time is wrong.</div>
+<span class="comments-buttons">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" onclick="jcomments.quoteComment(77942); return false;">Quote</a>
+</span>
+</div><div class="clear"></div>
+</div>
+</div>
+	<div class="even" id="comment-item-77943"><div class="rbox">
+<div class="comment-box">
+<span class="comments-vote">
+	<span id="comment-vote-holder-77943">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-good" title="Good comment!" onclick="jcomments.voteComment(77943, 1);return false;"></a><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-poor" title="Bad comment!" onclick="jcomments.voteComment(77943, -1);return false;"></a>
+<span class="vote-none">0</span>
+	</span>
+</span>
+<a class="comment-anchor" href="https://www.modernescpp.com/index.php/component/jaggyblog/semaphores-in-c-20#comment-77943" id="comment-77943">#3</a>
+<span class="comment-author">Wassili</span>
+<span class="comment-date">2021-01-21 09:38</span>
+<div class="comment-body" id="comment-body-77943">Screenshot for PingPong game is missing. Interesting results, it will be a great to put all synchronisations machinery of C++ in one table. Bleiben Sie gesund :-)</div>
+<span class="comments-buttons">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" onclick="jcomments.quoteComment(77943); return false;">Quote</a>
+</span>
+</div><div class="clear"></div>
+</div>
+</div>
+	<div class="odd" id="comment-item-77946"><div class="rbox">
+<div class="comment-box">
+<span class="comments-vote">
+	<span id="comment-vote-holder-77946">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-good" title="Good comment!" onclick="jcomments.voteComment(77946, 1);return false;"></a><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-poor" title="Bad comment!" onclick="jcomments.voteComment(77946, -1);return false;"></a>
+<span class="vote-none">0</span>
+	</span>
+</span>
+<a class="comment-anchor" href="https://www.modernescpp.com/index.php/component/jaggyblog/semaphores-in-c-20#comment-77946" id="comment-77946">#4</a>
+<span class="comment-author">Jemmy</span>
+<span class="comment-date">2021-01-21 18:09</span>
+<div class="comment-body" id="comment-body-77946">What's the implementation in the kernel that makes semaphores so fast, compared with atomic, condition_variable? Any plan to write articles about kernel-level implementation?</div>
+<span class="comments-buttons">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" onclick="jcomments.quoteComment(77946); return false;">Quote</a>
+</span>
+</div><div class="clear"></div>
+</div>
+</div>
+	<div class="even" id="comment-item-78022"><div class="rbox">
+<div class="comment-box">
+<span class="comments-vote">
+	<span id="comment-vote-holder-78022">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-good" title="Good comment!" onclick="jcomments.voteComment(78022, 1);return false;"></a><a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" class="vote-poor" title="Bad comment!" onclick="jcomments.voteComment(78022, -1);return false;"></a>
+<span class="vote-none">0</span>
+	</span>
+</span>
+<a class="comment-anchor" href="https://www.modernescpp.com/index.php/component/jaggyblog/semaphores-in-c-20#comment-78022" id="comment-78022">#5</a>
+<span class="comment-author">Andre Adrian</span>
+<span class="comment-date">2021-12-10 18:16</span>
+<div class="comment-body" id="comment-body-78022">// semaphore_sync.cpp for C++11<br><br>// see https://stackoverflow.com/questions/4792449/c0x-has-no-semaphores-how-to-synchronize-threads<br>// see https://en.cppreference.com/w/cpp/thread/counting_semaphore<br><br>#include <br>#include <br><br>class binary_semaphore {<br>public:<br> binary_semaphore (int count_ = 0)<br> : count(count_) {}<br><br> inline void release() { // notify(), V()<br> std::unique_lock lock(mtx);<br> ++count;<br> cv.notify_one();<br> }<br><br> inline void acquire() { // wait(), P()<br> std::unique_lock lock(mtx);<br><br> while (0 == count) {<br> cv.wait(lock);<br> }<br> --count;<br> }<br><br>private:<br> std::mutex mtx;<br> std::condition_variable cv;<br> int count;<br>};<br><br>// https://www.modernescpp.com/index.php/semaphores-in-c-20<br><br>// threadSynchronizationSemaphore.cpp<br><br>#include <br>// #include <br>#include <br>#include <br><br>std::vector myVec{};<br><br>// std::counting_semaphore prepareSignal(0); // (1)<br>binary_semaphore prepareSignal(0); // (1)<br><br>void prepareWork() {<br><br> myVec.insert(myVec.end(), {0, 1, 0, 3});<br> std::cout</div>
+<span class="comments-buttons">
+<a href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" onclick="jcomments.quoteComment(78022); return false;">Quote</a>
+</span>
+</div><div class="clear"></div>
+</div>
+</div>
+</div>
+<div id="comments-list-footer"><a class="refresh" href="https://www.modernescpp.com/index.php/semaphores-in-c-20#" title="Refresh comments list" onclick="jcomments.showPage(539,&#39;com_jaggyblog&#39;,0);return false;">Refresh comments list</a><br><a class="rss" href="https://www.modernescpp.com/index.php/component/jcomments/feed/com_jaggyblog/539" title="RSS feed for comments to this post" target="_blank">RSS feed for comments to this post</a></div>
+</div>
+<div id="comments-form-link">
+<a id="addcomments" class="showform" href="https://www.modernescpp.com/index.php/semaphores-in-c-20#addcomments" onclick="jcomments.showForm(539,&#39;com_jaggyblog&#39;, &#39;comments-form-link&#39;); return false;">Add comment</a>
+</div>
+<div id="comments-footer" align="center"><a href="http://www.joomlatune.com/" title="JComments" target="_blank">JComments</a></div>
+<script type="text/javascript">
+<!--
+jcomments.setAntiCache(1,0,1);
+//-->
+</script> 
+</div>
+	
+		
+	
+
+		</div>
+		<!-- //MAIN CONTENT -->
+
+		<!-- SIDEBAR 1 -->
+		<div class="t3-sidebar t3-sidebar-1 col-xs-12 col-md-3  col-md-pull-6 ">
+			<div class="t3-module module " id="Mod117"><div class="module-inner"><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-233"><a href="https://www.modernescpp.net/" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/rainer_grimm_EN_40.png" alt="Rainer Grimm"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod136"><div class="module-inner"><h3 class="module-title "><span>My Newest E-Books</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-1466"><a href="https://leanpub.com/c20" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/coverFrame.png" alt="C++20"> </a></li><li class="item-584"><a href="https://leanpub.com/concurrencywithmodernc" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/ConcurrencyCoverSmallFrame.png" alt="Concurrency With Modern C++"> </a></li><li class="item-437"><a href="https://leanpub.com/cpplibrary" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/cover20_small.png" alt="The C++ Standard Library"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod144"><div class="module-inner"><h3 class="module-title "><span>Course: Modern C++ Concurrency in Practice</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-739"><a href="https://www.educative.io/courses/modern-cpp-concurrency-in-practice-get-the-most-out-of-any-machine?authorName=Rainer+Grimm" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/educative30.png" alt="Modern C++ Concurrency in Practice"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod146"><div class="module-inner"><h3 class="module-title "><span>Course: C++ Standard Library including C++14 &amp; C++17</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-764"><a href="https://www.educative.io/collection/10370001/5712008708096000?authorName=Rainer%20Grimm" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/CLibrary30.png" alt="C++ Standard Library including C++14 &amp; C++17"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod149"><div class="module-inner"><h3 class="module-title "><span>Course: Embedded Programming with Modern C++</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-966"><a href="https://www.educative.io/courses/embedded-programming-with-cpp" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/EmbeddedProgrammingWithModernC.jpg" alt="Interactive Course: Embedded"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod150"><div class="module-inner"><h3 class="module-title "><span>Course: Generic Programming (Templates)</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-967"><a href="https://www.educative.io/courses/generic-templates-in-cpp" class=""><img src="./Semaphores in C++20 - ModernesCpp.com_files/GenericTemplates.png" alt="Interactive Course: Templates"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod151"><div class="module-inner"><h3 class="module-title "><span>Course: C++ Fundamentals for Professionals</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-1117"><a href="https://www.educative.io/courses/cpp-fundamentals-for-professionals" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/fundamentals50.jpg" alt="Interactive Course: C++ Fundamentals for Professionals"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod154"><div class="module-inner"><h3 class="module-title "><span>Interactive Course: The All-in-One Guide to C++20</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-1745"><a href="https://www.educative.io/courses/all-in-one-guide-cpp-20" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/Cpp20Educative.png" alt="Interactive Course: The All-in-One Guide to C++20"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod130"><div class="module-inner"><h3 class="module-title "><span>More Profiles</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-325"><a href="https://www.modernescpp.net/" class="" target="_blank" rel="noopener noreferrer">Training, coaching, and technology consulting </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod99"><div class="module-inner"><h3 class="module-title "><span>Contact</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-207"><a href="https://www.modernescpp.com/index.php/rainer-grimm" class="">rainer@grimm-jaud.de</a></li><li class="item-232"><a href="https://www.modernescpp.com/index.php/impressum" class="">Impressum</a></li></ul>
+</div></div></div>
+		</div>
+		<!-- //SIDEBAR 1 -->
+	
+		<!-- SIDEBAR 2 -->
+		<div class="t3-sidebar t3-sidebar-2 col-xs-12 col-md-3 ">
+			<div class="t3-module module " id="Mod142"><div class="module-inner"><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-545"><a href="https://www.patreon.com/rainer_grimm" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/becomeAPatronBanner40.png" alt="Become a Patron"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod147"><div class="module-inner"><h3 class="module-title "><span>Subscribe to the newsletter (+ pdf bundle)</span></h3><div class="module-ct"><script type="text/javascript">
+        <!--
+        window.addEventListener("DOMContentLoaded", (event) => {
+acymModule["excludeValuesformAcym65371"] = [];
+acymModule["excludeValuesformAcym65371"]["1"] = 'Name';
+acymModule["excludeValuesformAcym65371"]["2"] = 'Email';  });
+        //-->
+        </script>	<div class="acym_module " id="acym_module_formAcym65371">
+		<div class="acym_fulldiv" id="acym_fulldiv_formAcym65371">
+			<form enctype="multipart/form-data" id="formAcym65371" name="formAcym65371" method="POST" action="https://www.modernescpp.com/index.php/component/acym/frontusers?tmpl=component" onsubmit="return submitAcymForm(&#39;subscribe&#39;,&#39;formAcym65371&#39;, &#39;acymSubmitSubForm&#39;)">
+				<div class="acym_module_form">
+                    
+<table class="acym_form">
+	<tbody><tr>
+        <td class="acyfield_1 acyfield_text"><label class="cell margin-top-1"><div class="acym__users__creation__fields__title">Name</div><input name="user[name]" value="" data-authorized-content="{&quot;0&quot;:&quot;all&quot;,&quot;regex&quot;:&quot;&quot;,&quot;message&quot;:&quot;Incorrect value for the field Name&quot;}" type="text" class="cell"></label></td></tr><tr><td class="acyfield_2 acyfield_text"><label class="cell margin-top-1"><div class="acym__users__creation__fields__title">Email</div><input id="email_field_413" name="user[email]" value="" data-authorized-content="{&quot;0&quot;:&quot;all&quot;,&quot;regex&quot;:&quot;&quot;,&quot;message&quot;:&quot;Incorrect value for the field Email&quot;}" required="" type="email" class="cell acym__user__edit__email"></label></td></tr><tr>
+		<td colspan="2" class="acysubbuttons">
+			<noscript>
+				<div class="onefield fieldacycaptcha">
+                    Please enable the javascript to submit this form				</div>
+			</noscript>
+			<input type="button" class="btn btn-primary button subbutton" value="Subscribe" name="Submit" onclick="try{ return submitAcymForm(&#39;subscribe&#39;,&#39;formAcym65371&#39;, &#39;acymSubmitSubForm&#39;); }catch(err){alert(&#39;The form could not be submitted &#39;+err);return false;}">
+            		</td>
+	</tr>
+</tbody></table>
+				</div>
+
+				<input type="hidden" name="ctrl" value="frontusers">
+				<input type="hidden" name="task" value="notask">
+				<input type="hidden" name="option" value="com_acym">
+
+                
+				<input type="hidden" name="ajax" value="1">
+				<input type="hidden" name="successmode" value="replace">
+				<input type="hidden" name="acy_source" value="Module n°147">
+				<input type="hidden" name="hiddenlists" value="1">
+				<input type="hidden" name="fields" value="name,email">
+				<input type="hidden" name="acyformname" value="formAcym65371">
+				<input type="hidden" name="acysubmode" value="mod_acym">
+				<input type="hidden" name="confirmation_message" value="">
+
+                			</form>
+		</div>
+	</div>
+</div></div></div><div class="t3-module module " id="Mod126"><div class="module-inner"><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-271"><a href="https://www.modernescpp.com/index.php/der-einstieg-in-modernes-c" class=""><img src="./Semaphores in C++20 - ModernesCpp.com_files/StartHere.png" alt="Modernes C++"></a></li><li class="item-1243"><a href="https://youtu.be/hrXoVSi0O28" class="" target="_blank" rel="noopener noreferrer"><img src="./Semaphores in C++20 - ModernesCpp.com_files/VisualTour.png" alt="Visual Tour"> </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod140"><div class="module-inner"><h3 class="module-title "><span>Categories</span></h3><div class="module-ct">
+<ul class="menu">
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/c-17">
+										C++17															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/c-20">
+										C++20															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/modern-c">
+										C++ Core Guidelines															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/cppinsight">
+										C++ Insights															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/embedded">
+										Embedded															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/functional">
+										Functional															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/multithreading">
+										Multithreading															</a>
+							</li>
+			<li class="depth1 ">
+									<a href="https://www.modernescpp.com/index.php/category/multithreading-application">
+										Multithreading - Application															</a>
+							</li>
+			<li class="depth1 ">
+									<a href="https://www.modernescpp.com/index.php/category/multithreading-c-17-and-c-20">
+										Multithreading - C++17 and C++20															</a>
+							</li>
+			<li class="depth1 ">
+									<a href="https://www.modernescpp.com/index.php/category/multithreading-memory-model">
+										Multithreading - Memory Model															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/news">
+										News															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/ueberblick">
+										Overview															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/pdf-bundle">
+										Pdf bundles															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/review">
+										Review															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/templates">
+										Templates															</a>
+							</li>
+			<li class="depth0 ">
+									<a href="https://www.modernescpp.com/index.php/category/mentoring">
+										Mentoring															</a>
+							</li>
+</ul></div></div></div><div class="t3-module module " id="Mod121"><div class="module-inner"><h3 class="module-title "><span>All tags</span></h3><div class="module-ct"><style>
+	.tag1 {font-size:10px;}
+	.tag2 {font-size:11px;}
+	.tag3 {font-size:12px;}
+	.tag4 {font-size:13px;}
+	.tag5 {font-size:14px;}
+	.tag6 {font-size:15px;}
+	.tag7 {font-size:16px;}
+	.tag8 {font-size:17px;}
+	.tag9 {font-size:18px;}
+	.tag10 {font-size:19px;}
+	.tag11 {font-size:20px;}
+</style>
+<ul class="jb_tags">
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/acquire-release-semantik" class="tag3">
+		acquire-release semantic</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/arithmetic" class="tag1">
+		arithmetic</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/hashtabellen" class="tag2">
+		associative containers</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/async" class="tag2">
+		async</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/atomics" class="tag6">
+		atomics</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/atomic-thread-fence" class="tag1">
+		atomic_thread_fence</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/auto" class="tag1">
+		auto</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/bit-manipulation" class="tag1">
+		bit manipulation</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/c" class="tag1">
+		C</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/c-17" class="tag5">
+		C++17</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/c-20" class="tag11">
+		C++20</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/class-hierarchies" class="tag2">
+		class hierarchies</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/classes" class="tag4">
+		classes</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/concepts" class="tag3">
+		concepts</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/condition-variable" class="tag3">
+		condition variables</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/constexpr" class="tag2">
+		constexpr</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/contracts" class="tag1">
+		contracts</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/conversions" class="tag1">
+		conversions</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/coroutines" class="tag2">
+		coroutines</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/cppmem" class="tag2">
+		CppMem</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/declarations" class="tag1">
+		declarations</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/decltype" class="tag1">
+		decltype</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/enum" class="tag2">
+		enum</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/error-handling" class="tag2">
+		error handling</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/exceptions" class="tag1">
+		exceptions</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/expressions" class="tag1">
+		expressions</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/final" class="tag1">
+		final</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/finally" class="tag1">
+		finally</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/functions" class="tag2">
+		functions</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/guideline-support-library" class="tag1">
+		Guideline Support Library</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/if" class="tag1">
+		if</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/initialisations" class="tag1">
+		initialisations</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/inline" class="tag1">
+		inline</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/interfaces" class="tag1">
+		interfaces</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/lambdas" class="tag2">
+		lambdas</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/lock" class="tag4">
+		lock</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/lock-free" class="tag1">
+		lock-free</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/memory" class="tag6">
+		memory</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/memory-order-consume" class="tag1">
+		memory_order_consume</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/modules" class="tag3">
+		modules</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/move" class="tag2">
+		move</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/mutex" class="tag3">
+		mutex</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/new-delete" class="tag3">
+		new/delete</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/noexcept" class="tag2">
+		noexcept</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/nullptr" class="tag1">
+		nullptr</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/ongoingoptimization" class="tag1">
+		Ongoing Optimization</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/overloading" class="tag1">
+		overloading</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/override" class="tag1">
+		override</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/performance" class="tag1">
+		performance</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/pointers" class="tag1">
+		pointers</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/ranges-library" class="tag2">
+		ranges library</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/relaxed-semantik" class="tag2">
+		relaxed semantic</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/semaphores" class="tag1">
+		semaphores</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/sequential-consistency" class="tag4">
+		sequential consistency</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/shared-ptr" class="tag2">
+		shared_ptr</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/singleton" class="tag2">
+		singleton</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/smart-pointers" class="tag4">
+		smart pointers</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/source-files" class="tag1">
+		source files</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/spaceship" class="tag2">
+		spaceship</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/statements" class="tag1">
+		statements</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/static" class="tag2">
+		static</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/static-assert" class="tag1">
+		static_assert</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/string" class="tag2">
+		string</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/switch" class="tag1">
+		switch</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/tasks" class="tag3">
+		tasks</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/template-metaprogramming" class="tag2">
+		template metaprogramming</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/templates" class="tag5">
+		templates</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/threadsanitizer" class="tag1">
+		ThreadSanitizer</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/threadlokal" class="tag2">
+		thread_local</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/time" class="tag2">
+		time</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/type-erasure" class="tag1">
+		type erasure</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/type-traits" class="tag2">
+		type-traits</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/unique-ptr" class="tag2">
+		unique_ptr</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/benutzerdefinierte-literale" class="tag1">
+		user-defined literals</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/vector" class="tag1">
+		vector</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/volatile" class="tag1">
+		volatile</a>
+	</li>
+	<li>
+		<a href="https://www.modernescpp.com/index.php/tag/weak-ptr" class="tag1">
+		weak_ptr</a>
+	</li>
+</ul></div></div></div><div class="t3-module module " id="Mod127"><div class="module-inner"><h3 class="module-title "><span>Blog archive</span></h3><div class="module-ct"><ul class="jb"><li class="jb"><span onclick="fjb(0,1,false)" class="jb"><span id="jb_0a_1">►</span> 2022</span> (17)<ul class="jb" id="jb_0_1" style="display: none"><li class="jb"><span onclick="fjb(1,1,false)" class="jb"><span id="jb_1a_1">►</span> March</span> (5)<ul class="jb" id="jb_1_1" style="display: none"><li class="jb"><a class="postid623" href="https://www.modernescpp.com/index.php/registration-is-open-for-my-mentoring-program-fundamentals-for-c-professionals">Registration is Open for my Mentoring Program "Fundamentals for C++ Professionals"</a></li><li class="jb"><a class="postid621" href="https://www.modernescpp.com/index.php/avoiding-temporaries-with-expression-templates">Avoiding Temporaries with Expression Templates</a></li><li class="jb"><a class="postid620" href="https://www.modernescpp.com/index.php/help-for-the-people-in-ukraine">Help for the People in Ukraine</a></li><li class="jb"><a class="postid619" href="https://www.modernescpp.com/index.php/mixins">Mixins</a></li><li class="jb"><a class="postid618" href="https://www.modernescpp.com/index.php/launch-of-my-mentoring-program-fundamentals-for-c-professionals">The Launch of my Mentoring Program "Fundamentals for C++ Professionals"</a></li></ul></li><li class="jb"><span onclick="fjb(1,2,false)" class="jb"><span id="jb_1a_2">►</span> February</span> (6)<ul class="jb" id="jb_1_2" style="display: none"><li class="jb"><a class="postid617" href="https://www.modernescpp.com/index.php/more-about-dynamic-and-static-polymorhism">More about Dynamic and Static Polymorphism</a></li><li class="jb"><a class="postid616" href="https://www.modernescpp.com/index.php/more-about-me">More About Me</a></li><li class="jb"><a class="postid615" href="https://www.modernescpp.com/index.php/dynamic-and-static-polymorphism">Dynamic and Static Polymorphism</a></li><li class="jb"><a class="postid614" href="https://www.modernescpp.com/index.php/constespr-if">constexpr if</a></li><li class="jb"><a class="postid613" href="https://www.modernescpp.com/index.php/constexpr-and-consteval-functions-in-c-20">constexpr and consteval Functions in C++20</a></li><li class="jb"><a class="postid612" href="https://www.modernescpp.com/index.php/more-information-about-me-mentoring-program-fundamentals-for-c-professionals">More Information about my Mentoring Program "Fundamentals for C++ Professionals"</a></li></ul></li><li class="jb"><span onclick="fjb(1,3,false)" class="jb"><span id="jb_1a_3">►</span> January</span> (6)<ul class="jb" id="jb_1_3" style="display: none"><li class="jb"><a class="postid610" href="https://www.modernescpp.com/index.php/constexprfunctions">constexpr Functions</a></li><li class="jb"><a class="postid609" href="https://www.modernescpp.com/index.php/a-new-update-of-my-book-concurreny-with-modern-c">An Update of my Book "Concurrency with Modern C++"</a></li><li class="jb"><a class="postid608" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-ready-c-20-concurreny-the-hidden-pearls">The New pdf Bundle is Ready: C++20 Concurreny - The Hidden Pearls</a></li><li class="jb"><a class="postid607" href="https://www.modernescpp.com/index.php/dining-philiosophers-problem-iii">Dining Philosophers Problem III</a></li><li class="jb"><a class="postid606" href="https://www.modernescpp.com/index.php/dining-philiosophers-problem-ii">Dining Philosophers Problem II</a></li><li class="jb"><a class="postid605" href="https://www.modernescpp.com/index.php/dining-philiosophers-problem-i">Dining Philosophers Problem I</a></li></ul></li></ul></li><li class="jb"><span onclick="fjb(0,2,false)" class="jb"><span id="jb_0a_2">►</span> 2021</span> (65)<ul class="jb" id="jb_0_2" style="display: none"><li class="jb"><span onclick="fjb(1,4,false)" class="jb"><span id="jb_1a_4">►</span> December</span> (5)<ul class="jb" id="jb_1_4" style="display: none"><li class="jb"><a class="postid604" href="https://www.modernescpp.com/index.php/my-mentoring-program-fundamentals-for-c-professionals">My Mentoring Program "Fundamentals for C++ Professionals"</a></li><li class="jb"><a class="postid603" href="https://www.modernescpp.com/index.php/what-pdf-bundle-do-you-want-make-your-choice-2">Which pdf bundle do you want? Make your choice!</a></li><li class="jb"><a class="postid602" href="https://www.modernescpp.com/index.php/the-type-traits-library-performance">The Type-Traits Library: Optimization</a></li><li class="jb"><a class="postid601" href="https://www.modernescpp.com/index.php/the-type-traits-library">The Type-Traits Library: Correctness</a></li><li class="jb"><a class="postid600" href="https://www.modernescpp.com/index.php/the-type-traits-library-std-is-base-of">The Type-Traits Library: std::is_base_of</a></li></ul></li><li class="jb"><span onclick="fjb(1,5,false)" class="jb"><span id="jb_1a_5">►</span> November</span> (6)<ul class="jb" id="jb_1_5" style="display: none"><li class="jb"><a class="postid599" href="https://www.modernescpp.com/index.php/the-type-traits-library-type-comparisons">The Type-Traits Library: Type Comparisons</a></li><li class="jb"><a class="postid598" href="https://www.modernescpp.com/index.php/an-der-winners-for-the-seven-vouchers-for-fedor-s-book-the-art-of-writing-efficient-programs-are">And the Winners for the Seven Vouchers for Fedor's Book "The Art of Writing Efficient Programs" are</a></li><li class="jb"><a class="postid597" href="https://www.modernescpp.com/index.php/the-type-traits-library-type-checks">The Type-Traits Library: Type Checks </a></li><li class="jb"><a class="postid596" href="https://www.modernescpp.com/index.php/template-metaprogramming-hybrid-programming">Template Metaprogramming - Hybrid Programming</a></li><li class="jb"><a class="postid595" href="https://www.modernescpp.com/index.php/five-voucher-for-fedor-g-pikus-book-the-art-of-writing-efficient-programms">Seven Voucher for Fedor G. Pikus Book "The Art of Writing Efficient Programs"</a></li><li class="jb"><a class="postid594" href="https://www.modernescpp.com/index.php/template-metaprogramming-how-it-works">Template Metaprogramming - How it Works</a></li></ul></li><li class="jb"><span onclick="fjb(1,6,false)" class="jb"><span id="jb_1a_6">►</span> October</span> (4)<ul class="jb" id="jb_1_6" style="display: none"><li class="jb"><a class="postid593" href="https://www.modernescpp.com/index.php/template-metaprogramming-a-introduction">Template Metaprogramming  - How it All Started</a></li><li class="jb"><a class="postid592" href="https://www.modernescpp.com/index.php/automatic-return-type-c-11-14-20">Automatic Return Type (C++11/14/20)</a></li><li class="jb"><a class="postid590" href="https://www.modernescpp.com/index.php/automatic-return-type">Automatic Return Type (C++98)</a></li><li class="jb"><a class="postid588" href="https://www.modernescpp.com/index.php/dependent-types">Dependent Names</a></li></ul></li><li class="jb"><span onclick="fjb(1,7,false)" class="jb"><span id="jb_1a_7">►</span> September</span> (7)<ul class="jb" id="jb_1_7" style="display: none"><li class="jb"><a class="postid587" href="https://www.modernescpp.com/index.php/special-friendship-of-templates">The Special Friendship of Templates</a></li><li class="jb"><a class="postid586" href="https://www.modernescpp.com/index.php/visiting-a-std-variant-with-the-overload-pattern">Visiting a std::variant with the Overload Pattern</a></li><li class="jb"><a class="postid585" href="https://www.modernescpp.com/index.php/smart-tricks-with-fold-expressions">Smart Tricks with Parameter Packs and Fold Expressions</a></li><li class="jb"><a class="postid584" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-ready-c-20-modules">The New pdf Bundle is Ready: C++20 Modules</a></li><li class="jb"><a class="postid583" href="https://www.modernescpp.com/index.php/modern-c-collection">Modern C++ Collection</a></li><li class="jb"><a class="postid582" href="https://www.modernescpp.com/index.php/from-variadic-templates-to-fold-expressions">From Variadic Templates to Fold Expressions</a></li><li class="jb"><a class="postid581" href="https://www.modernescpp.com/index.php/c-20-modules-private-module-fragment-and-header-units">C++20 Modules: Private Module Fragment and Header Units</a></li></ul></li><li class="jb"><span onclick="fjb(1,8,false)" class="jb"><span id="jb_1a_8">►</span> August</span> (4)<ul class="jb" id="jb_1_8" style="display: none"><li class="jb"><a class="postid580" href="https://www.modernescpp.com/index.php/the-first-big-update-of-my-c-20-book">The First Big Update of My C++20 Book</a></li><li class="jb"><a class="postid579" href="https://www.modernescpp.com/index.php/what-pdf-bundle-do-you-want-make-your-choice">Which pdf bundle do you want? Make your choice!</a></li><li class="jb"><a class="postid578" href="https://www.modernescpp.com/index.php/more-arbout-variadic-templates">More about Variadic Templates ...</a></li><li class="jb"><a class="postid577" href="https://www.modernescpp.com/index.php/variadic-templates-or-the-power-of-three-dots">Variadic Templates or the Power of Three Dots</a></li></ul></li><li class="jb"><span onclick="fjb(1,9,false)" class="jb"><span id="jb_1a_9">►</span> July</span> (6)<ul class="jb" id="jb_1_9" style="display: none"><li class="jb"><a class="postid576" href="https://www.modernescpp.com/index.php/template-instantiation">Template Instantiation</a></li><li class="jb"><a class="postid575" href="https://www.modernescpp.com/index.php/and-the-winners-for-the-five-vouchers-for-stephan-s-book-clean-c-20-are">And the Winners for the Five Vouchers for Stephan's Book "Clean C++20" are</a></li><li class="jb"><a class="postid573" href="https://www.modernescpp.com/index.php/performance-of-the-parallel-stl-algorithmn">Performance of the Parallel STL Algorithms</a></li><li class="jb"><a class="postid572" href="https://www.modernescpp.com/index.php/parallel-algorithms-of-the-stl-with-gcc">Parallel Algorithms of the STL with the GCC Compiler</a></li><li class="jb"><a class="postid571" href="https://www.modernescpp.com/index.php/five-vouchers-for-stephan-roth-s-book-clean-c-20-to-win">Five Vouchers for Stephan Roth's Book "Clean C++20" to Win</a></li><li class="jb"><a class="postid570" href="https://www.modernescpp.com/index.php/full-specialization-of-function-templates">Full Specialization of Function Templates</a></li></ul></li><li class="jb"><span onclick="fjb(1,10,false)" class="jb"><span id="jb_1a_10">►</span> June</span> (7)<ul class="jb" id="jb_1_10" style="display: none"><li class="jb"><a class="postid569" href="https://www.modernescpp.com/index.php/template-specialization-more-details">Template Specialization - More Details About Class Templates</a></li><li class="jb"><a class="postid568" href="https://www.modernescpp.com/index.php/template-specialization">Template Specialization</a></li><li class="jb"><a class="postid567" href="https://www.modernescpp.com/index.php/template-argument-deduction-of-class-templates">Template Argument Deduction of Class Templates</a></li><li class="jb"><a class="postid566" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-ready-coroutines">The New pdf Bundle is Ready: C++20 Coroutines</a></li><li class="jb"><a class="postid565" href="https://www.modernescpp.com/index.php/template-arguments">Template Arguments</a></li><li class="jb"><a class="postid564" href="https://www.modernescpp.com/index.php/alias-templates-and-template-parameters">Alias Templates and Template Parameters</a></li><li class="jb"><a class="postid563" href="https://www.modernescpp.com/index.php/concurrency-with-modern-c-update">"Concurrency with Modern C++" Update to C++20</a></li></ul></li><li class="jb"><span onclick="fjb(1,11,false)" class="jb"><span id="jb_1a_11">►</span> May</span> (5)<ul class="jb" id="jb_1_11" style="display: none"><li class="jb"><a class="postid562" href="https://www.modernescpp.com/index.php/surprise-included-inheritance-and-member-functions-of-class-templates">Surprise Included: Inheritance and Member Functions of Class Templates</a></li><li class="jb"><a class="postid561" href="https://www.modernescpp.com/index.php/class-templates">Class Templates</a></li><li class="jb"><a class="postid560" href="https://www.modernescpp.com/index.php/which-pdf-bundle-do-you-want-make-your-choice">Which pdf bundle do you want? Make your choice!</a></li><li class="jb"><a class="postid559" href="https://www.modernescpp.com/index.php/function-templates-more-details">Function Templates - More Details about Explicit Template Arguments and Concepts</a></li><li class="jb"><a class="postid558" href="https://www.modernescpp.com/index.php/function-templates">Function Templates</a></li></ul></li><li class="jb"><span onclick="fjb(1,12,false)" class="jb"><span id="jb_1a_12">►</span> April</span> (4)<ul class="jb" id="jb_1_12" style="display: none"><li class="jb"><a class="postid557" href="https://www.modernescpp.com/index.php/template-get-insight">Templates - First Steps</a></li><li class="jb"><a class="postid556" href="https://www.modernescpp.com/index.php/printed-version-of-c-20-source-code-on-github">Printed Version of C++20 &amp; Source Code on GitHub</a></li><li class="jb"><a class="postid555" href="https://www.modernescpp.com/index.php/and-the-winner-is-templates">And The Winner is: Templates</a></li><li class="jb"><a class="postid554" href="https://www.modernescpp.com/index.php/quo-vadids-modernes-c">Quo Vadis - Modernes C++</a></li></ul></li><li class="jb"><span onclick="fjb(1,13,false)" class="jb"><span id="jb_1a_13">►</span> March</span> (6)<ul class="jb" id="jb_1_13" style="display: none"><li class="jb"><a class="postid553" href="https://www.modernescpp.com/index.php/automatically-resuming-a-job-with-coroutines">Automatically Resuming a Job with Coroutines on a Separate Thread</a></li><li class="jb"><a class="postid552" href="https://www.modernescpp.com/index.php/starting-jobs-with-coroutines">Starting Jobs with Coroutines</a></li><li class="jb"><a class="postid551" href="https://www.modernescpp.com/index.php/a-generic-data-stream-with-coroutines-in-c-20">A Generic Data Stream with Coroutines in C++20</a></li><li class="jb"><a class="postid550" href="https://www.modernescpp.com/index.php/an-infinite-data-stream-with-coroutines-in-c-20">An Infinite Data Stream with Coroutines in C++20</a></li><li class="jb"><a class="postid549" href="https://www.modernescpp.com/index.php/executing-a-future-in-a-separate-thread-with-coroutines">Executing a Future in a Separate Thread with Coroutines</a></li><li class="jb"><a class="postid548" href="https://www.modernescpp.com/index.php/lazy-futures-with-coroutines-in-c-20">Lazy Futures with Coroutines</a></li></ul></li><li class="jb"><span onclick="fjb(1,14,false)" class="jb"><span id="jb_1a_14">►</span> February</span> (6)<ul class="jb" id="jb_1_14" style="display: none"><li class="jb"><a class="postid547" href="https://www.modernescpp.com/index.php/implementing-futures-with-coroutines">Implementing Simple Futures with Coroutines</a></li><li class="jb"><a class="postid546" href="https://www.modernescpp.com/index.php/synchronized-outputstreams">Synchronized Output Streams with C++20</a></li><li class="jb"><a class="postid545" href="https://www.modernescpp.com/index.php/and-the-winners-are-3">The Five (Seven) Winners of my C++20 book are:</a></li><li class="jb"><a class="postid544" href="https://www.modernescpp.com/index.php/an-improved-thread-with-c-20">An Improved Thread with C++20</a></li><li class="jb"><a class="postid543" href="https://www.modernescpp.com/index.php/resolving-c-c-concurrency-bugs-more-efficiently-with-time-travel-debugging">Resolving C/C++ Concurrency Bugs More Efficiently with Time Travel Debugging</a></li><li class="jb"><a class="postid542" href="https://www.modernescpp.com/index.php/cooperative-interruption-of-a-thread-in-c-20">Cooperative Interruption of a Thread in C++20</a></li></ul></li><li class="jb"><span onclick="fjb(1,15,false)" class="jb"><span id="jb_1a_15">►</span> January</span> (5)<ul class="jb" id="jb_1_15" style="display: none"><li class="jb"><a class="postid541" href="https://www.modernescpp.com/index.php/barriers-in-c-20">Barriers and Atomic Smart Pointers in C++20</a></li><li class="jb"><a class="postid540" href="https://www.modernescpp.com/index.php/latches-in-c-20">Latches in C++20</a></li><li class="jb active">Semaphores in C++20</li><li class="jb"><a class="postid538" href="https://www.modernescpp.com/index.php/and-the-winners-are-2">And the Winners are: </a></li><li class="jb"><a class="postid537" href="https://www.modernescpp.com/index.php/five-vouchers-to-win-for-the-book-the-modern-c-programming-cookbook">Five Vouchers to win for my book "C++20"</a></li></ul></li></ul></li><li class="jb"><span onclick="fjb(0,3,false)" class="jb"><span id="jb_0a_3">►</span> 2020</span> (60)<ul class="jb" id="jb_0_3" style="display: none"><li class="jb"><span onclick="fjb(1,16,false)" class="jb"><span id="jb_1a_16">►</span> December</span> (6)<ul class="jb" id="jb_1_16" style="display: none"><li class="jb"><a class="postid536" href="https://www.modernescpp.com/index.php/performancecomparison-of-condition-variables-and-atomics-in-c-20">Performance Comparison of Condition Variables and Atomics in C++20</a></li><li class="jb"><a class="postid535" href="https://www.modernescpp.com/index.php/i-m-proud-to-present-c-20">I'm Proud to Present my New Book: C++20</a></li><li class="jb"><a class="postid534" href="https://www.modernescpp.com/index.php/synchronization-with-atomics-in-c-20">Synchronization with Atomics in C++20</a></li><li class="jb"><a class="postid533" href="https://www.modernescpp.com/index.php/atomic-ref">Atomic References with C++20</a></li><li class="jb"><a class="postid532" href="https://www.modernescpp.com/index.php/looking-for-proofreaders-for-my-new-book-c-20">Looking for Proofreaders for my New Book: C++20</a></li><li class="jb"><a class="postid531" href="https://www.modernescpp.com/index.php/bit-manipulation-with-c-20">Bit Manipulation with C++20</a></li></ul></li><li class="jb"><span onclick="fjb(1,17,false)" class="jb"><span id="jb_1a_17">►</span> November</span> (3)<ul class="jb" id="jb_1_17" style="display: none"><li class="jb"><a class="postid530" href="https://www.modernescpp.com/index.php/feature-testing-with-c-20">Feature Testing with C++20</a></li><li class="jb"><a class="postid529" href="https://www.modernescpp.com/index.php/safe-comparisons-of-integrals-with-c-20">Safe Comparisons of Integrals with C++20</a></li><li class="jb"><a class="postid526" href="https://www.modernescpp.com/index.php/calendar-and-time-zone-in-c-20-calendar-dates">Calendar and Time-Zones in C++20: Calendar Dates</a></li></ul></li><li class="jb"><span onclick="fjb(1,18,false)" class="jb"><span id="jb_1a_18">►</span> October</span> (6)<ul class="jb" id="jb_1_18" style="display: none"><li class="jb"><a class="postid528" href="https://www.modernescpp.com/index.php/calendar-and-time-zone-in-c-20-time-zones">Calendar and Time-Zones in C++20: Time-Zones</a></li><li class="jb"><a class="postid527" href="https://www.modernescpp.com/index.php/calendar-and-time-zone-in-c-20-working-with-calendar-dates">Calendar and Time-Zones in C++20: Handling Calendar Dates</a></li><li class="jb"><a class="postid525" href="https://www.modernescpp.com/index.php/calendar-and-time-zone-in-c-20">Calendar and Time-Zones in C++20: Time of Day</a></li><li class="jb"><a class="postid524" href="https://www.modernescpp.com/index.php/more-and-more-utilities-in-c-20">More and More Utilities in C++20</a></li><li class="jb"><a class="postid523" href="https://www.modernescpp.com/index.php/extend-std-format-in-c-20-for-user-defined-types">C++20: Extend std::format for User-Defined Types</a></li><li class="jb"><a class="postid522" href="https://www.modernescpp.com/index.php/std-format-in-c-20">std::format in C++20</a></li></ul></li><li class="jb"><span onclick="fjb(1,19,false)" class="jb"><span id="jb_1a_19">►</span> September</span> (4)<ul class="jb" id="jb_1_19" style="display: none"><li class="jb"><a class="postid521" href="https://www.modernescpp.com/index.php/more-convenience-functions-for-containers-with-c-20">More Convenience Functions for Containers with C++20</a></li><li class="jb"><a class="postid520" href="https://www.modernescpp.com/index.php/constexpr-vector-and-string-in-c-20">constexpr std::vector and std::string in C++20</a></li><li class="jb"><a class="postid519" href="https://www.modernescpp.com/index.php/c-20-std-span">std::span in C++20:  Bounds-Safe Views for Sequences of Objects</a></li><li class="jb"><a class="postid518" href="https://www.modernescpp.com/index.php/and-the-winner-are">And the Winners are: </a></li></ul></li><li class="jb"><span onclick="fjb(1,20,false)" class="jb"><span id="jb_1a_20">►</span> August</span> (6)<ul class="jb" id="jb_1_20" style="display: none"><li class="jb"><a class="postid517" href="https://www.modernescpp.com/index.php/five-vouchers-to-win-for-the-book-modern-c-for-absolute-beginners">Five Vouchers to win for the book "Modern C++ for Absolute Beginners"</a></li><li class="jb"><a class="postid516" href="https://www.modernescpp.com/index.php/volatile-and-other-small-improvements-in-c-20">volatile and Other Small Improvements in C++20</a></li><li class="jb"><a class="postid515" href="https://www.modernescpp.com/index.php/new-attributes-with-c-20">New Attributes with C++20</a></li><li class="jb"><a class="postid514" href="https://www.modernescpp.com/index.php/compiler-explorer-pvs-studio-and-terrible-simple-bugs">Compiler Explorer, PVS-Studio, and Terrible Simple Bugs</a></li><li class="jb"><a class="postid513" href="https://www.modernescpp.com/index.php/more-lambdas-features-with-c-20">More Lambda Features with C++20</a></li><li class="jb"><a class="postid512" href="https://www.modernescpp.com/index.php/the-c-standard-library-the-third-edition-includes-c-20">The C++ Standard Library: The Third Edition includes C++20</a></li></ul></li><li class="jb"><span onclick="fjb(1,21,false)" class="jb"><span id="jb_1a_21">►</span> July</span> (5)<ul class="jb" id="jb_1_21" style="display: none"><li class="jb"><a class="postid511" href="https://www.modernescpp.com/index.php/more-powerful-lambdas-with-c-20">More Powerful Lambdas with C++20</a></li><li class="jb"><a class="postid510" href="https://www.modernescpp.com/index.php/template-improvements-with-c-20">Various Template Improvements with C++20</a></li><li class="jb"><a class="postid509" href="https://www.modernescpp.com/index.php/c-20-static-initialization-order-fiasco">Solving the Static Initialization Order Fiasco with C++20</a></li><li class="jb"><a class="postid508" href="https://www.modernescpp.com/index.php/c-20-consteval-and-constinit">Two new Keywords in C++20: consteval and constinit</a></li><li class="jb"><a class="postid507" href="https://www.modernescpp.com/index.php/designated-initializers">Designated Initializers</a></li></ul></li><li class="jb"><span onclick="fjb(1,22,false)" class="jb"><span id="jb_1a_22">►</span> June</span> (4)<ul class="jb" id="jb_1_22" style="display: none"><li class="jb"><a class="postid506" href="https://www.modernescpp.com/index.php/c-20-fast-comparison-with-the-spaceship-operator">C++20: Optimized Comparison with the Spaceship Operator</a></li><li class="jb"><a class="postid505" href="https://www.modernescpp.com/index.php/c-20-more-details-to-the-spaceship-operator">C++20: More Details to the Spaceship Operator</a></li><li class="jb"><a class="postid504" href="https://www.modernescpp.com/index.php/c-20-the-three-way-comparison-operator">C++20: The Three-Way Comparison Operator</a></li><li class="jb"><a class="postid503" href="https://www.modernescpp.com/index.php/c-20-open-questions-to-modules">C++20: Further Open Questions to Modules</a></li></ul></li><li class="jb"><span onclick="fjb(1,23,false)" class="jb"><span id="jb_1a_23">►</span> May</span> (7)<ul class="jb" id="jb_1_23" style="display: none"><li class="jb"><a class="postid502" href="https://www.modernescpp.com/index.php/c-20-divide-modules">C++20: Structure Modules</a></li><li class="jb"><a class="postid500" href="https://www.modernescpp.com/index.php/c-20-module-interface-unit-and-module-implementation-unit">C++20: Module Interface Unit and Module Implementation Unit</a></li><li class="jb"><a class="postid499" href="https://www.modernescpp.com/index.php/cpp20-a-first-module">C++20: A Simple math Module</a></li><li class="jb"><a class="postid498" href="https://www.modernescpp.com/index.php/modernes-c-goes-online">Modernes C++ goes Worldwide</a></li><li class="jb"><a class="postid497" href="https://www.modernescpp.com/index.php/cpp20-modules">C++20: The Advantages of Modules</a></li><li class="jb"><a class="postid496" href="https://www.modernescpp.com/index.php/face">Face-to-Face Seminars and Online Seminars are different</a></li><li class="jb"><a class="postid495" href="https://www.modernescpp.com/index.php/c-20-thread-pools-with-cppcoro">C++20: Thread Pools with cppcoro</a></li></ul></li><li class="jb"><span onclick="fjb(1,24,false)" class="jb"><span id="jb_1a_24">►</span> April</span> (5)<ul class="jb" id="jb_1_24" style="display: none"><li class="jb"><a class="postid494" href="https://www.modernescpp.com/index.php/c-20-coroutine-abstraction-with-cppcoro">C++20: Powerful Coroutines with cppcoro</a></li><li class="jb"><a class="postid493" href="https://www.modernescpp.com/index.php/c-20-coroutines-with-cppcoro">C++20: Coroutines with cppcoro</a></li><li class="jb"><a class="postid492" href="https://www.modernescpp.com/index.php/four-vouchers-for-educative">Four Voucher for Educative</a></li><li class="jb"><a class="postid491" href="https://www.modernescpp.com/index.php/c-20-thread-synchronization-with-coroutines">C++20: Thread Synchronization with Coroutines</a></li><li class="jb"><a class="postid489" href="https://www.modernescpp.com/index.php/c-20-an-infinite-data-stream-with-coroutines">C++20: An Infinite Data Stream with Coroutines</a></li></ul></li><li class="jb"><span onclick="fjb(1,25,false)" class="jb"><span id="jb_1a_25">►</span> March</span> (6)<ul class="jb" id="jb_1_25" style="display: none"><li class="jb"><a class="postid488" href="https://www.modernescpp.com/index.php/c-20-coroutines-more-details">C++20: More Details to Coroutines</a></li><li class="jb"><a class="postid487" href="https://www.modernescpp.com/index.php/looking-for-proofreaders-for-my-new-book-the-c-core-guidelines">Looking for Proofreaders for my new Book: C++ Core Guidelines</a></li><li class="jb"><a class="postid486" href="https://www.modernescpp.com/index.php/c-20-coroutines-the-first-overview">C++20: Coroutines - A First Overview</a></li><li class="jb"><a class="postid485" href="https://www.modernescpp.com/index.php/personal-words-about-corona">My Personal Words about Corona</a></li><li class="jb"><a class="postid484" href="https://www.modernescpp.com/index.php/c-20-pythons-map-function">C++20: Python's map Function</a></li><li class="jb"><a class="postid483" href="https://www.modernescpp.com/index.php/c-20-more-pythonic-with-the-ranges-library">C++20: Pythons range Function, the Second</a></li></ul></li><li class="jb"><span onclick="fjb(1,26,false)" class="jb"><span id="jb_1a_26">►</span> February</span> (4)<ul class="jb" id="jb_1_26" style="display: none"><li class="jb"><a class="postid482" href="https://www.modernescpp.com/index.php/c-20-pythonic-with-the-ranges-library">C++20: Pythonic with the Ranges Library</a></li><li class="jb"><a class="postid481" href="https://www.modernescpp.com/index.php/c-20-functional-patterns-with-the-ranges-library">C++20: Functional Patterns with the Ranges Library</a></li><li class="jb"><a class="postid480" href="https://www.modernescpp.com/index.php/c-20-the-ranges-library">C++20: The Ranges Library</a></li><li class="jb"><a class="postid479" href="https://www.modernescpp.com/index.php/c-20-concepts-an-evolution-or-a-revolution-in-c">Concepts in C++20: An Evolution or a Revolution?</a></li></ul></li><li class="jb"><span onclick="fjb(1,27,false)" class="jb"><span id="jb_1a_27">►</span> January</span> (4)<ul class="jb" id="jb_1_27" style="display: none"><li class="jb"><a class="postid478" href="https://www.modernescpp.com/index.php/c-20-define-the-concept-regular-and-semiregular">C++20: Define the Concept Regular and SemiRegular</a></li><li class="jb"><a class="postid477" href="https://www.modernescpp.com/index.php/c-20-define-the-concept-equal-and-ordering">C++20: Define the Concepts Equal and Ordering</a></li><li class="jb"><a class="postid476" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">C++20: Define Concepts</a></li><li class="jb"><a class="postid475" href="https://www.modernescpp.com/index.php/c-20-concepts-predefined-concepts">C++20: Concepts - Predefined Concepts</a></li></ul></li></ul></li><li class="jb"><span onclick="fjb(0,4,false)" class="jb"><span id="jb_0a_4">►</span> 2019</span> (57)<ul class="jb" id="jb_0_4" style="display: none"><li class="jb"><span onclick="fjb(1,28,false)" class="jb"><span id="jb_1a_28">►</span> December</span> (4)<ul class="jb" id="jb_1_28" style="display: none"><li class="jb"><a class="postid474" href="https://www.modernescpp.com/index.php/c-20-concepts-what-we-dont-get">C++20: Concepts - What we don't get</a></li><li class="jb"><a class="postid473" href="https://www.modernescpp.com/index.php/c-20-concept-syntactic-sugar">C++20: Concepts - Syntactic Sugar</a></li><li class="jb"><a class="postid472" href="https://www.modernescpp.com/index.php/brief-overview-of-the-pvs-studio-static-code-analyzer">A Brief Overview of the PVS-Studio Static Code Analyzer</a></li><li class="jb"><a class="postid471" href="https://www.modernescpp.com/index.php/c-20-concepts-the-placeholder-syntax">C++20: Concepts, the Placeholder Syntax</a></li></ul></li><li class="jb"><span onclick="fjb(1,29,false)" class="jb"><span id="jb_1a_29">►</span> November</span> (2)<ul class="jb" id="jb_1_29" style="display: none"><li class="jb"><a class="postid470" href="https://www.modernescpp.com/index.php/c-20-concepts-the-details">C++20: Concepts, the Details</a></li><li class="jb"><a class="postid469" href="https://www.modernescpp.com/index.php/concepts-two-extrems-and-the-solution">C++20: Two Extremes and the Rescue with Concepts</a></li></ul></li><li class="jb"><span onclick="fjb(1,30,false)" class="jb"><span id="jb_1a_30">►</span> October</span> (9)<ul class="jb" id="jb_1_30" style="display: none"><li class="jb"><a class="postid468" href="https://www.modernescpp.com/index.php/c-20-concurrency">C++20: Concurrency</a></li><li class="jb"><a class="postid467" href="https://www.modernescpp.com/index.php/c-20-the-library">C++20: The Library</a></li><li class="jb"><a class="postid466" href="https://www.modernescpp.com/index.php/c-20-the-core-language">C++ 20: The Core Language</a></li><li class="jb"><a class="postid465" href="https://www.modernescpp.com/index.php/thebigfour">C++20: The Big Four</a></li><li class="jb"><a class="postid464" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-ready-c-core-guidelines-performance">The new pdf bundle is ready: C++ Core Guidelines: Performance</a></li><li class="jb"><a class="postid463" href="https://www.modernescpp.com/index.php/c-20-an-overview">The Next Big Thing: C++20</a></li><li class="jb"><a class="postid462" href="https://www.modernescpp.com/index.php/concurrency-with-modern-c-has-a-new-chapter">"Concurrency with Modern C++" has a new chapter</a></li><li class="jb"><a class="postid461" href="https://www.modernescpp.com/index.php/c-core-guidelines-naming-and-layout-rules">C++ Core Guidelines: Naming and Layout Rules</a></li><li class="jb"><a class="postid460" href="https://www.modernescpp.com/index.php/c-core-guidelines-lifetime-safety">C++ Core Guidelines: Lifetime Safety And Checking the Rules</a></li></ul></li><li class="jb"><span onclick="fjb(1,31,false)" class="jb"><span id="jb_1a_31">►</span> September</span> (4)<ul class="jb" id="jb_1_31" style="display: none"><li class="jb"><a class="postid459" href="https://www.modernescpp.com/index.php/c-core-guidelines-bounds-safety">C++ Core Guidelines: Bounds Safety</a></li><li class="jb"><a class="postid458" href="https://www.modernescpp.com/index.php/c-core-guidelines-type-safety-per-design">C++ Core Guidelines: Type Safety by Design</a></li><li class="jb"><a class="postid457" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-profiles-type-safety-bounds-safety-and-lifetime-safety">C++ Core Guidelines: Type Safety</a></li><li class="jb"><a class="postid456" href="https://www.modernescpp.com/index.php/profiles-in-the-c-core-guidelines">C++ Core Guidelines: Profiles</a></li></ul></li><li class="jb"><span onclick="fjb(1,32,false)" class="jb"><span id="jb_1a_32">►</span> August</span> (6)<ul class="jb" id="jb_1_32" style="display: none"><li class="jb"><a class="postid455" href="https://www.modernescpp.com/index.php/more-myths-of-my-blog-readers">More Myths of My Blog Readers</a></li><li class="jb"><a class="postid454" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-choice-5">Which pdf bundle should I provide? Make your choice!</a></li><li class="jb"><a class="postid453" href="https://www.modernescpp.com/index.php/further-myths-from-my-readers">Myths of My Blog Readers</a></li><li class="jb"><a class="postid452" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-non-rules-and-myths">C++ Core Guidelines: More Non-Rules and Myths</a></li><li class="jb"><a class="postid451" href="https://www.modernescpp.com/index.php/c-core-guidelines-non-rules-and-myths">C++ Core Guidelines: Non-Rules and Myths</a></li><li class="jb"><a class="postid450" href="https://www.modernescpp.com/index.php/c-core-guidelines-supporting-sections">C++ Core Guidelines: Supporting Sections</a></li></ul></li><li class="jb"><span onclick="fjb(1,33,false)" class="jb"><span id="jb_1a_33">►</span> July</span> (4)<ul class="jb" id="jb_1_33" style="display: none"><li class="jb"><a class="postid449" href="https://www.modernescpp.com/index.php/c-core-guidelines-when-raii-breaks">C++ Core Guidelines: When RAII breaks</a></li><li class="jb"><a class="postid448" href="https://www.modernescpp.com/index.php/more-rules-to-the-regular-expression-library">More Rules about the Regular Expression Library</a></li><li class="jb"><a class="postid447" href="https://www.modernescpp.com/index.php/regular-expressions">The Regular Expression Library</a></li><li class="jb"><a class="postid446" href="https://www.modernescpp.com/index.php/c-core-guidelines-improved-performance-with-iostreams">C++ Core Guidelines: Improved Performance with Iostreams</a></li></ul></li><li class="jb"><span onclick="fjb(1,34,false)" class="jb"><span id="jb_1a_34">►</span> June</span> (4)<ul class="jb" id="jb_1_34" style="display: none"><li class="jb"><a class="postid445" href="https://www.modernescpp.com/index.php/c-core-guidelines-format-specifiers-and-optimisation-with-iostreams">Stuff you should know about In- and Output with Streams</a></li><li class="jb"><a class="postid444" href="https://www.modernescpp.com/index.php/c-core-guidelines-iostream">C++ Core Guidelines: IOstreams</a></li><li class="jb"><a class="postid443" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-about-strings">C++ Core Guidelines: Rules for Strings</a></li><li class="jb"><a class="postid442" href="https://www.modernescpp.com/index.php/c-core-guidelines-avoid-bound-errors">C++ Core Guidelines: Avoid Bounds Errors</a></li></ul></li><li class="jb"><span onclick="fjb(1,35,false)" class="jb"><span id="jb_1a_35">►</span> May</span> (4)<ul class="jb" id="jb_1_35" style="display: none"><li class="jb"><a class="postid441" href="https://www.modernescpp.com/index.php/more-special-friends-with-std-map-and-std-unordered-map">More special Friends with std::map and std::unordered_map</a></li><li class="jb"><a class="postid440" href="https://www.modernescpp.com/index.php/c-core-guidelines-std-array-and-std-vector-are-your-friends">C++ Core Guidelines: std::array and std::vector are your Friends</a></li><li class="jb"><a class="postid439" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-standard-library">C++ Core Guidelines: The Standard Library</a></li><li class="jb"><a class="postid438" href="https://www.modernescpp.com/index.php/c-20-more-details-to-modules">More Details to Modules</a></li></ul></li><li class="jb"><span onclick="fjb(1,36,false)" class="jb"><span id="jb_1a_36">►</span> April</span> (6)<ul class="jb" id="jb_1_36" style="display: none"><li class="jb"><a class="postid437" href="https://www.modernescpp.com/index.php/c-20-modules">Modules</a></li><li class="jb"><a class="postid436" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-remaining-rules-to-source-files">C++ Core Guidelines: The Remaining Rules about Source Files</a></li><li class="jb"><a class="postid435" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-available-c-core-guidlines-templates-and-generic-programming">The new pdf bundle is available: C++ Core Guidlines - Templates and Generic Programming</a></li><li class="jb"><a class="postid434" href="https://www.modernescpp.com/index.php/c-core-guidelines-source-files">C++ Core Guidelines: Source Files</a></li><li class="jb"><a class="postid433" href="https://www.modernescpp.com/index.php/c-insights-lambdas">C++ Insights - Lambdas</a></li><li class="jb"><a class="postid432" href="https://www.modernescpp.com/index.php/c-insights-variadic-templates">C++ Insights - Variadic Templates</a></li></ul></li><li class="jb"><span onclick="fjb(1,37,false)" class="jb"><span id="jb_1a_37">►</span> March</span> (5)<ul class="jb" id="jb_1_37" style="display: none"><li class="jb"><a class="postid430" href="https://www.modernescpp.com/index.php/c-insights-template-instantiation">C++ Insights - Template Instantiation</a></li><li class="jb"><a class="postid429" href="https://www.modernescpp.com/index.php/c-insights-type-deduction">C++ Insights - Type Deduction</a></li><li class="jb"><a class="postid428" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-choice-4">Which pdf bundle should I provide? Make your choice!</a></li><li class="jb"><a class="postid427" href="https://www.modernescpp.com/index.php/c-insights-conversions">C++ Insights - Implicit Conversions</a></li><li class="jb"><a class="postid426" href="https://www.modernescpp.com/index.php/c-core-guidelines-mixing-c-with-c">C++ Core Guidelines: Mixing C with C++</a></li></ul></li><li class="jb"><span onclick="fjb(1,38,false)" class="jb"><span id="jb_1a_38">►</span> February</span> (5)<ul class="jb" id="jb_1_38" style="display: none"><li class="jb"><a class="postid425" href="https://www.modernescpp.com/index.php/types-non-types-and-templates-as-template-parameters">Types-, Non-Types, and Templates as Template Parameters</a></li><li class="jb"><a class="postid424" href="https://www.modernescpp.com/index.php/templates-misconceptions-and-surprises">Templates: Misconceptions and Surprises</a></li><li class="jb"><a class="postid423" href="https://www.modernescpp.com/index.php/c-core-guidelines-big-surprises-with-specialisation-of-function-templates">C++ Core Guidelines: Surprise included with the Specialisation of Function Templates</a></li><li class="jb"><a class="postid422" href="https://www.modernescpp.com/index.php/c-core-guidelines-other-template-rules">C++ Core Guidelines: Other Template Rules</a></li><li class="jb"><a class="postid421" href="https://www.modernescpp.com/index.php/c-core-guidelines-programming-at-compile-time-with-constexpr">C++ Core Guidelines: Programming at Compile Time with constexpr</a></li></ul></li><li class="jb"><span onclick="fjb(1,39,false)" class="jb"><span id="jb_1a_39">►</span> January</span> (4)<ul class="jb" id="jb_1_39" style="display: none"><li class="jb"><a class="postid420" href="https://www.modernescpp.com/index.php/c-core-guidelines-programming-at-compile-time-with-type-traits-ii">C++ Core Guidelines: Programming at Compile Time with Type-Traits (The Second)</a></li><li class="jb"><a class="postid419" href="https://www.modernescpp.com/index.php/c-core-guidelines-programming-at-compile-time-with-the-type-traits">C++ Core Guidelines: Programming at Compile Time with the Type-Traits</a></li><li class="jb"><a class="postid418" href="https://www.modernescpp.com/index.php/c-core-guidelines-programming-at-compile-time">C++ Core Guidelines: Programming at Compile Time</a></li><li class="jb"><a class="postid417" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-template-metaprogramming">C++ Core Guidelines: Rules for Template Metaprogramming</a></li></ul></li></ul></li><li class="jb"><span onclick="fjb(0,5,false)" class="jb"><span id="jb_0a_5">►</span> 2018</span> (62)<ul class="jb" id="jb_0_5" style="display: none"><li class="jb"><span onclick="fjb(1,40,false)" class="jb"><span id="jb_1a_40">►</span> December</span> (5)<ul class="jb" id="jb_1_40" style="display: none"><li class="jb"><a class="postid416" href="https://www.modernescpp.com/index.php/cppdepend-a-review">CppDepend  - A Review</a></li><li class="jb"><a class="postid415" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-variadic-templates">C++ Core Guidelines: Rules for Variadic Templates</a></li><li class="jb"><a class="postid414" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-templates-and-hierarchies">C++ Core Guidelines: Rules for Templates and Hierarchies</a></li><li class="jb"><a class="postid413" href="https://www.modernescpp.com/index.php/c-core-guidelines-specialisation-of-templates">C++ Core Guidelines: Ordering of User-Defined Types</a></li><li class="jb"><a class="postid412" href="https://www.modernescpp.com/index.php/c-core-guidelines-template-definitons">C++ Core Guidelines: Template Definitions</a></li></ul></li><li class="jb"><span onclick="fjb(1,41,false)" class="jb"><span id="jb_1a_41">►</span> November</span> (5)<ul class="jb" id="jb_1_41" style="display: none"><li class="jb"><a class="postid411" href="https://www.modernescpp.com/index.php/c-core-guidelines-argument-dependent-lookup-or-koenig-lookup">C++ Core Guidelines: Surprises with Argument-Dependent Lookup</a></li><li class="jb"><a class="postid410" href="https://www.modernescpp.com/index.php/c-core-guidelines-regular-and-semiregular-typs">C++ Core Guidelines: Regular and SemiRegular Types</a></li><li class="jb"><a class="postid409" href="https://www.modernescpp.com/index.php/meeting-embedded-c-and-meeting-c">Meeting Embedded and Meeting C++ 2018</a></li><li class="jb"><a class="postid408" href="https://www.modernescpp.com/index.php/c-core-guidelines-template-interfaces">C++ Core Guidelines: Template Interfaces</a></li><li class="jb"><a class="postid407" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-template-interfaces">C++ Core Guidelines: Pass Function Objects as Operations</a></li></ul></li><li class="jb"><span onclick="fjb(1,42,false)" class="jb"><span id="jb_1a_42">►</span> October</span> (5)<ul class="jb" id="jb_1_42" style="display: none"><li class="jb"><a class="postid406" href="https://www.modernescpp.com/index.php/i-m-proud-to-present-the-cpp-standard-library">I'm Proud to Present: The C++ Standard Library including C++14 &amp; C++17</a></li><li class="jb"><a class="postid405" href="https://www.modernescpp.com/index.php/c-core-guidelines-definition-of-concepts-the-second">C++ Core Guidelines: Definition of Concepts, the Second</a></li><li class="jb"><a class="postid404" href="https://www.modernescpp.com/index.php/a-new-thread-with-c-20-std-jthread">A new Thread with C++20: std::jthread</a></li><li class="jb"><a class="postid403" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-the-definition-of-concepts">C++ Core Guidelines: Rules for the Definition of Concepts</a></li><li class="jb"><a class="postid402" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-the-usage-of-concepts-2">C++ Core Guidelines: Rules for the Usage of Concepts</a></li></ul></li><li class="jb"><span onclick="fjb(1,43,false)" class="jb"><span id="jb_1a_43">►</span> September</span> (4)<ul class="jb" id="jb_1_43" style="display: none"><li class="jb"><a class="postid401" href="https://www.modernescpp.com/index.php/cppcon-2018">CppCon 2018</a></li><li class="jb"><a class="postid400" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-the-usage-of-concepts">C++ Core Guidelines: Better Specific or Generic?</a></li><li class="jb"><a class="postid399" href="https://www.modernescpp.com/index.php/c-core-guidelines-type-erasure-with-templates">C++ Core Guidelines: Type Erasure with Templates</a></li><li class="jb"><a class="postid398" href="https://www.modernescpp.com/index.php/c-core-guidelines-type-erasure">C++ Core Guidelines: Type Erasure</a></li></ul></li><li class="jb"><span onclick="fjb(1,44,false)" class="jb"><span id="jb_1a_44">►</span> August</span> (8)<ul class="jb" id="jb_1_44" style="display: none"><li class="jb"><a class="postid397" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-templates-and-generic-programming">C++ Core Guidelines: Rules for Templates and Generic Programming</a></li><li class="jb"><a class="postid396" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-constants-and-immutability">C++ Core Guidelines: Rules for Constants and Immutability</a></li><li class="jb"><a class="postid395" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-ready-c-core-guidelines-concurrency-and-parallelism">The new pdf bundle is ready: C++ Core Guidelines - Concurrency and Parallelism</a></li><li class="jb"><a class="postid394" href="https://www.modernescpp.com/index.php/c-core-gudelines-goto-considered-evil">C++ Core Gudelines: goto considered Evil</a></li><li class="jb"><a class="postid393" href="https://www.modernescpp.com/index.php/four-vouchers-to-win">For Free: Four Vouchers to Win</a></li><li class="jb"><a class="postid392" href="https://www.modernescpp.com/index.php/c-core-guidelines-when-you-can-t-throw-an-exception">C++ Core Guidelines: finally in C++</a></li><li class="jb"><a class="postid391" href="https://www.modernescpp.com/index.php/i-m-proud-to-present-modern-c-concurrency-is-available-as-interactive-course">I'm Proud to Present: Modern C++ Concurrency is available as interactive course</a></li><li class="jb"><a class="postid390" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-to-exception-handling">C++ Core Guidelines: Rules about Exception Handling</a></li></ul></li><li class="jb"><span onclick="fjb(1,45,false)" class="jb"><span id="jb_1a_45">►</span> July</span> (5)<ul class="jb" id="jb_1_45" style="display: none"><li class="jb"><a class="postid389" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-noexcept-specifier-and-operator">C++ Core Guidelines: The noexcept Specifier and Operator</a></li><li class="jb"><a class="postid388" href="https://www.modernescpp.com/index.php/c-core-guidelines-a-detour-to-contracts">C++ Core Guidelines: A Short Detour to Contracts in C++20</a></li><li class="jb"><a class="postid387" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-to-error-handling">C++ Core Guidelines: Rules for Error Handling</a></li><li class="jb"><a class="postid386" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-choice-3">Which pdf bundle should I provide? Make your choice!</a></li><li class="jb"><a class="postid385" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-remaining-rules-to-lock-free-programming">C++ Core Guidelines: The Remaining Rules about Lock-Free Programming</a></li></ul></li><li class="jb"><span onclick="fjb(1,46,false)" class="jb"><span id="jb_1a_46">►</span> June</span> (6)<ul class="jb" id="jb_1_46" style="display: none"><li class="jb"><a class="postid384" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-rules-to-lock-free-programming">C++ Core Guidelines: The Resolution of the Riddle</a></li><li class="jb"><a class="postid383" href="https://www.modernescpp.com/index.php/c-core-guidelines-concurrency-and-lock-free-programming">C++ Core Guidelines: Concurrency and lock-free Programming</a></li><li class="jb"><a class="postid382" href="https://www.modernescpp.com/index.php/the-end-of-the-detour-unified-futures">The End of my Detour: Unified Futures</a></li><li class="jb"><a class="postid381" href="https://www.modernescpp.com/index.php/update-of-my-book-concurreny-with-modern-c">The Update of my Book "Concurreny with Modern C++"</a></li><li class="jb"><a class="postid380" href="https://www.modernescpp.com/index.php/a-short-detour-executors">A Short Detour: Executors</a></li><li class="jb"><a class="postid379" href="https://www.modernescpp.com/index.php/c-core-guidelines-be-aware-of-the-traps-of-condition-variables">C++ Core Guidelines: Be Aware of the Traps of Condition Variables</a></li></ul></li><li class="jb"><span onclick="fjb(1,47,false)" class="jb"><span id="jb_1a_47">►</span> May</span> (4)<ul class="jb" id="jb_1_47" style="display: none"><li class="jb"><a class="postid378" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-remaining-rules-to-concurrency">C++ Core Guidelines: More Traps in the Concurrency</a></li><li class="jb"><a class="postid377" href="https://www.modernescpp.com/index.php/c-core-guidelines-taking-care-of-your-child-thread">C++ Core Guidelines: Taking Care of your Child Thread</a></li><li class="jb"><a class="postid376" href="https://www.modernescpp.com/index.php/c-core-guidelines-sharing-data-between-threads">C++ Core Guidelines: Sharing Data between Threads</a></li><li class="jb"><a class="postid375" href="https://www.modernescpp.com/index.php/c-core-guidelines-use-tools-to-validate-your-concurrent-code">C++ Core Guidelines: Use Tools to Validate your Concurrent Code</a></li></ul></li><li class="jb"><span onclick="fjb(1,48,false)" class="jb"><span id="jb_1a_48">►</span> April</span> (6)<ul class="jb" id="jb_1_48" style="display: none"><li class="jb"><a class="postid374" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-rules-to-concurrency-and-parallelism">C++ Core Guidelines: More Rules about Concurrency and Parallelism</a></li><li class="jb"><a class="postid373" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-concurrency-and-parallelism">C++ Core Guidelines: Rules for Concurrency and Parallelism</a></li><li class="jb"><a class="postid372" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-ready-functional-features-in-c">The new pdf bundle is ready: Functional Features in C++</a></li><li class="jb"><a class="postid371" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-remaining-rules-to-performance">C++ Core Guidelines: The Remaining Rules about Performance</a></li><li class="jb"><a class="postid370" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-rules-to-performance">C++ Core Guidelines: More Rules about Performance</a></li><li class="jb"><a class="postid369" href="https://www.modernescpp.com/index.php/april-fool-s-joke-raw-pointers-removed-from-c">The Truth about "Raw Pointers Removed from C++"</a></li></ul></li><li class="jb"><span onclick="fjb(1,49,false)" class="jb"><span id="jb_1a_49">►</span> March</span> (6)<ul class="jb" id="jb_1_49" style="display: none"><li class="jb"><a class="postid368" href="https://www.modernescpp.com/index.php/no-new-new">No New New: Raw Pointers Removed from C++</a></li><li class="jb"><a class="postid367" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-to-performance">C++ Core Guidelines: Rules about Performance</a></li><li class="jb"><a class="postid366" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-choice-2">Which pdf bundle should I provide? Make your choice!</a></li><li class="jb"><a class="postid365" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-to-statements-and-arithmetic-rules">C++ Core Guidelines: Rules about Statements and Arithmetic</a></li><li class="jb"><a class="postid364" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-about-control-structures">C++ Core Guidelines: More about Control Structures</a></li><li class="jb"><a class="postid363" href="https://www.modernescpp.com/index.php/c-core-guidelines-to-switch-or-not-to-switch-that-is-the-question">C++ Core Guidelines: To Switch or not to Switch, that is the Question</a></li></ul></li><li class="jb"><span onclick="fjb(1,50,false)" class="jb"><span id="jb_1a_50">►</span> February</span> (4)<ul class="jb" id="jb_1_50" style="display: none"><li class="jb"><a class="postid362" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-statements">C++ Core Guidelines: Rules for Statements</a></li><li class="jb"><a class="postid361" href="https://www.modernescpp.com/index.php/c-core-guidelines-do-s-and-don-ts">C++ Core Guidelines:  Rules about Don'ts</a></li><li class="jb"><a class="postid360" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-conversions-and-casts">C++ Core Guidelines: Rules for Conversions and Casts</a></li><li class="jb"><a class="postid359" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules">C++ Core Guidelines: More Rules for Expressions</a></li></ul></li><li class="jb"><span onclick="fjb(1,51,false)" class="jb"><span id="jb_1a_51">►</span> January</span> (4)<ul class="jb" id="jb_1_51" style="display: none"><li class="jb"><a class="postid358" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-expressions">C++ Core Guidelines: Rules for Expressions</a></li><li class="jb"><a class="postid357" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-rules-for-declarations">C++ Core Guidelines: More Rules for Declarations</a></li><li class="jb"><a class="postid356" href="https://www.modernescpp.com/index.php/c-core-guidelines-declarations-and-initialisations">C++ Core Guidelines: Declarations and Initialisations</a></li><li class="jb"><a class="postid355" href="https://www.modernescpp.com/index.php/clean-c">Clean C++</a></li></ul></li></ul></li><li class="jb"><span onclick="fjb(0,6,false)" class="jb"><span id="jb_0a_6">►</span> 2017</span> (101)<ul class="jb" id="jb_0_6" style="display: none"><li class="jb"><span onclick="fjb(1,52,false)" class="jb"><span id="jb_1a_52">►</span> December</span> (6)<ul class="jb" id="jb_1_52" style="display: none"><li class="jb"><a class="postid354" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-expressions-and-statements">C++ Core Guidelines: Rules for Expressions and Statements</a></li><li class="jb"><a class="postid353" href="https://www.modernescpp.com/index.php/c-core-guidelines-passing-smart-pointer">C++ Core Guidelines: Passing Smart Pointers</a></li><li class="jb"><a class="postid352" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-to-smart-pointers">C++ Core Guidelines: Rules for Smart Pointers</a></li><li class="jb"><a class="postid350" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-available-embedded-performance-matters">The new pdf bundle is available: Embedded - Performance Matters</a></li><li class="jb"><a class="postid349" href="https://www.modernescpp.com/index.php/c-core-guidelines-allocating-and-deallocating">C++ Core Guidelines: Rules for Allocating and Deallocating</a></li><li class="jb"><a class="postid348" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-to-resource-management">C++ Core Guidelines: Rules about Resource Management</a></li></ul></li><li class="jb"><span onclick="fjb(1,53,false)" class="jb"><span id="jb_1a_53">►</span> November</span> (6)<ul class="jb" id="jb_1_53" style="display: none"><li class="jb"><a class="postid347" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-enumerations">C++ Core Guidelines: Rules for Enumerations</a></li><li class="jb"><a class="postid346" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-choice2">Which pdf bundle should I provide? Make your choice!</a></li><li class="jb"><a class="postid345" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-unions">C++ Core Guidelines: Rules for Unions</a></li><li class="jb"><a class="postid344" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-rules-to-overloading">C++ Core Guidelines: More Rules for Overloading </a></li><li class="jb"><a class="postid343" href="https://www.modernescpp.com/index.php/c-core-guidelines-rules-for-overloading-and-overload-operators">C++ Core Guidelines: Rules for Overloading and Overload Operators</a></li><li class="jb"><a class="postid342" href="https://www.modernescpp.com/index.php/the-c-standard-library-second-edition-includes-c-17">The C++ Standard Library: The Second Edition includes C++17</a></li></ul></li><li class="jb"><span onclick="fjb(1,54,false)" class="jb"><span id="jb_1a_54">►</span> October</span> (5)<ul class="jb" id="jb_1_54" style="display: none"><li class="jb"><a class="postid341" href="https://www.modernescpp.com/index.php/c-core-guidelines-accessing-objects-in-a-hierarchy">C++ Core Guidelines: Accessing Objects in a Hierarchy</a></li><li class="jb"><a class="postid340" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-remaining-rules-to-class-hierarchie">C++ Core Guidelines: The Remaining Rules about Class Hierarchies</a></li><li class="jb"><a class="postid339" href="https://www.modernescpp.com/index.php/the-new-pdf-bundle-is-available-functional-programming-with-c-17-and-c-20">The new pdf bundle is available: Functional Programming with C++17 and C++20</a></li><li class="jb"><a class="postid338" href="https://www.modernescpp.com/index.php/c-core-guidelines-more-rules-to-class-hierarchies">C++ Core Guidelines: More Rules about Class Hierarchies</a></li><li class="jb"><a class="postid337" href="https://www.modernescpp.com/index.php/c-core-guidelines-class-hierarchies">C++ Core Guidelines: Class Hierarchies</a></li></ul></li><li class="jb"><span onclick="fjb(1,55,false)" class="jb"><span id="jb_1a_55">►</span> September</span> (8)<ul class="jb" id="jb_1_55" style="display: none"><li class="jb"><a class="postid336" href="https://www.modernescpp.com/index.php/c-core-guidelines-function-objects-and-lambas">C++ Core Guidelines: Function Objects and Lambdas</a></li><li class="jb"><a class="postid335" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-choice">Which pdf bundle should I provide? Make your choice!</a></li><li class="jb"><a class="postid334" href="https://www.modernescpp.com/index.php/c-core-guidelines-comparison-swap-and-hash">C++ Core Guidelines: Comparison, Swap, and Hash</a></li><li class="jb"><a class="postid333" href="https://www.modernescpp.com/index.php/c-core-guidelines-copy-and-move-rules">C++ Core Guidelines: Rules for Copy and Move</a></li><li class="jb"><a class="postid332" href="https://www.modernescpp.com/index.php/my-open-c-seminars-in-the-first-half-of-2018">My open C++ Seminars in the First Half of 2018</a></li><li class="jb"><a class="postid331" href="https://www.modernescpp.com/index.php/c-core-guidelines-constructors">C++ Core Guidelines: Constructors</a></li><li class="jb"><a class="postid330" href="https://www.modernescpp.com/index.php/the-pdf-bundel-c-17-is-available">The new pdf bundle is ready: C++17</a></li><li class="jb"><a class="postid329" href="https://www.modernescpp.com/index.php/c-core-guidelines-destructor-rules">C++ Core Guidelines: Destructor Rules</a></li></ul></li><li class="jb"><span onclick="fjb(1,56,false)" class="jb"><span id="jb_1a_56">►</span> August</span> (7)<ul class="jb" id="jb_1_56" style="display: none"><li class="jb"><a class="postid328" href="https://www.modernescpp.com/index.php/i-m-prooudly-present-i-m-ready-with-my-book-concurrency-with-modern-c">I Proudly present my Book is Ready "Concurrency with Modern C++"</a></li><li class="jb"><a class="postid327" href="https://www.modernescpp.com/index.php/c-core-guidelines-constructors-assignments-and-desctructors">C++ Core Guidelines: The Rule of Zero, Five, or Six</a></li><li class="jb"><a class="postid326" href="https://www.modernescpp.com/index.php/c-core-guidelines-class-rules">C++ Core Guidelines: Class Rules</a></li><li class="jb"><a class="postid325" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-2">Which pdf bundle should I provide?</a></li><li class="jb"><a class="postid324" href="https://www.modernescpp.com/index.php/c-core-guidelines-semantic-of-function-parameter-and-return-values">C++ Core Guidelines: Semantic of Function Parameters and Return Values</a></li><li class="jb"><a class="postid323" href="https://www.modernescpp.com/index.php/c-core-guidelines-how-to-pass-function-parameters">C++ Core Guidelines: The Rules for in, out, in-out, consume, and forward Function Parameter</a></li><li class="jb"><a class="postid321" href="https://www.modernescpp.com/index.php/concurrency-with-modern-c-is-95-complete-including-all-source-files">"Concurrency with Modern C++" is 95% complete; Including all Source Files</a></li></ul></li><li class="jb"><span onclick="fjb(1,57,false)" class="jb"><span id="jb_1a_57">►</span> July</span> (6)<ul class="jb" id="jb_1_57" style="display: none"><li class="jb"><a class="postid320" href="https://www.modernescpp.com/index.php/c-core-guidelines-functions">C++ Core Guidelines: Function Definitions</a></li><li class="jb"><a class="postid319" href="https://www.modernescpp.com/index.php/c-core-guideline-the-guidelines-support-library">C++ Core Guideline: The Guideline Support Library </a></li><li class="jb"><a class="postid318" href="https://www.modernescpp.com/index.php/my-book-concurrency-with-modern-c-is-75-complete">My Book "Concurrency with Modern C++" is 75% complete</a></li><li class="jb"><a class="postid317" href="https://www.modernescpp.com/index.php/c-core-guidelines-interfaces-ii">C++ Core Guidelines: Interfaces II</a></li><li class="jb"><a class="postid316" href="https://www.modernescpp.com/index.php/c-core-guidelines-interfaces">C++ Core Guidelines: Interfaces I</a></li><li class="jb"><a class="postid315" href="https://www.modernescpp.com/index.php/my-book-concurrency-with-modern-c-is-50-complete">My Book "Concurrency with Modern C++" is 50% complete</a></li></ul></li><li class="jb"><span onclick="fjb(1,58,false)" class="jb"><span id="jb_1a_58">►</span> June</span> (9)<ul class="jb" id="jb_1_58" style="display: none"><li class="jb"><a class="postid314" href="https://www.modernescpp.com/index.php/c-core-guidelines-the-philosophy">C++ Core Guidelines: The Philosophy</a></li><li class="jb"><a class="postid313" href="https://www.modernescpp.com/index.php/get-the-current-pdf-bundle-multithreading-the-high-level-interface">Get the Current Pdf Bundle: "Multithreading: The High-Level Interface"</a></li><li class="jb"><a class="postid312" href="https://www.modernescpp.com/index.php/my-new-book-concurrency-with-modern-c">My Book "Concurrency with Modern C++" is 30% complete</a></li><li class="jb"><a class="postid311" href="https://www.modernescpp.com/index.php/why-do-we-need-guidlines-for-modern-c">Why do we need Guidelines for Modern C++?</a></li><li class="jb"><a class="postid310" href="https://www.modernescpp.com/index.php/what-is-modern-c">What is Modern C++?</a></li><li class="jb"><a class="postid309" href="https://www.modernescpp.com/index.php/the-winners-are">The Winner is: Multithreading: The high-level Interface</a></li><li class="jb"><a class="postid308" href="https://www.modernescpp.com/index.php/aba-a-is-not-the-same-as-a">ABA - A is not the same as A</a></li><li class="jb"><a class="postid307" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide-make-your-cross">Which pdf bundle should I provide? Make your cross!</a></li><li class="jb"><a class="postid306" href="https://www.modernescpp.com/index.php/blocking-and-non-blocking">Blocking and Non-Blocking Algorithms</a></li></ul></li><li class="jb"><span onclick="fjb(1,59,false)" class="jb"><span id="jb_1a_59">►</span> May</span> (5)<ul class="jb" id="jb_1_59" style="display: none"><li class="jb"><a class="postid305" href="https://www.modernescpp.com/index.php/looking-for-proofreaders-for-my-new-book-concurrency-with-modern-c">Looking for Proofreaders for my new Book: Concurrency with Modern C++</a></li><li class="jb"><a class="postid304" href="https://www.modernescpp.com/index.php/malicious-race-conditions">Malicious Race Conditions and Data Races</a></li><li class="jb"><a class="postid303" href="https://www.modernescpp.com/index.php/race-condition-versus-data-race">Race Conditions versus Data Races</a></li><li class="jb"><a class="postid302" href="https://www.modernescpp.com/index.php/c-17-the-improved-interface-of-the-associative-containers">C++17: Improved Associative Containers and Uniform Container Access</a></li><li class="jb"><a class="postid301" href="https://www.modernescpp.com/index.php/c-17-new-algorithm-of-the-standard-template-library">C++17: New Parallel Algorithms of the Standard Template Library</a></li></ul></li><li class="jb"><span onclick="fjb(1,60,false)" class="jb"><span id="jb_1a_60">►</span> April</span> (7)<ul class="jb" id="jb_1_60" style="display: none"><li class="jb"><a class="postid300" href="https://www.modernescpp.com/index.php/get-the-current-pdf-bundle">Get the Current Pdf Bundle: Concurrency with C++17 and C++20</a></li><li class="jb"><a class="postid299" href="https://www.modernescpp.com/index.php/c-17-constructed-in-place">C++17 has a Visitor</a></li><li class="jb"><a class="postid298" href="https://www.modernescpp.com/index.php/the-winners-of-the-next-pdf-bundle">The Winners of the Next Pdf Bundles</a></li><li class="jb"><a class="postid297" href="https://www.modernescpp.com/index.php/c-17-avoid-copying-with-std-string-view">C++17 - Avoid Copying with std::string_view </a></li><li class="jb"><a class="postid296" href="https://www.modernescpp.com/index.php/which-pdf-bundle-should-i-provide">Which pdf bundle should I provide?</a></li><li class="jb"><a class="postid295" href="https://www.modernescpp.com/index.php/c-17-more-details-about-the-library">C++17- std::byte and std::filesystem</a></li><li class="jb"><a class="postid293" href="https://www.modernescpp.com/index.php/c-17-more-details-to-the-core-language">C++17- More Details about the Core Language</a></li></ul></li><li class="jb"><span onclick="fjb(1,61,false)" class="jb"><span id="jb_1a_61">►</span> March</span> (11)<ul class="jb" id="jb_1_61" style="display: none"><li class="jb"><a class="postid292" href="https://www.modernescpp.com/index.php/c-17-what-s-new-in-the-library">C++17 - What's New in the Library?</a></li><li class="jb"><a class="postid291" href="https://www.modernescpp.com/index.php/how-to-get-your-pdf-bundle">How to get your pdf bundle?</a></li><li class="jb"><a class="postid290" href="https://www.modernescpp.com/index.php/cpp17-core">C++17 - What's New in the Core Language?</a></li><li class="jb"><a class="postid289" href="https://www.modernescpp.com/index.php/and-the-winners-are-the-c-memory-model-das-c-speichermodell">And the Winners are: The C++ Memory Model/Das C++ Speichermodell</a></li><li class="jb"><a class="postid288" href="https://www.modernescpp.com/index.php/defintion-of-concepts">Defining Concepts</a></li><li class="jb"><a class="postid287" href="https://www.modernescpp.com/index.php/placeholders-the-second">Placeholders - The Second</a></li><li class="jb"><a class="postid286" href="https://www.modernescpp.com/index.php/concepts-placeholders">Concepts - Placeholders</a></li><li class="jb"><a class="postid285" href="https://www.modernescpp.com/index.php/task-blocks">Task Blocks</a></li><li class="jb"><a class="postid284" href="https://www.modernescpp.com/index.php/transactional-memory">Transactional Memory</a></li><li class="jb"><a class="postid283" href="https://www.modernescpp.com/index.php/done-words-about-the-future">I'm Done - Geschafft:  Words about the Future of my Blogs</a></li><li class="jb"><a class="postid282" href="https://www.modernescpp.com/index.php/pdf-bundles">Pdf Bundles</a></li></ul></li><li class="jb"><span onclick="fjb(1,62,false)" class="jb"><span id="jb_1a_62">►</span> February</span> (15)<ul class="jb" id="jb_1_62" style="display: none"><li class="jb"><a class="postid281" href="https://www.modernescpp.com/index.php/coroutines">Coroutines</a></li><li class="jb"><a class="postid280" href="https://www.modernescpp.com/index.php/latches-and-barriers">Latches And Barriers</a></li><li class="jb"><a class="postid279" href="https://www.modernescpp.com/index.php/std-future-extensions">std::future Extensions</a></li><li class="jb"><a class="postid278" href="https://www.modernescpp.com/index.php/and-the-winners-are">And the Winners are</a></li><li class="jb"><a class="postid277" href="https://www.modernescpp.com/index.php/atomic-smart-pointers">Atomic Smart Pointers</a></li><li class="jb"><a class="postid276" href="https://www.modernescpp.com/index.php/parallel-algorithm-of-the-standard-template-library">Parallel Algorithms of the Standard Template Library</a></li><li class="jb"><a class="postid275" href="https://www.modernescpp.com/index.php/multithreading-in-c-17-and-c-20">Multithreading with C++17 and C++20</a></li><li class="jb"><a class="postid274" href="https://www.modernescpp.com/index.php/expression-templates">Expression Templates</a></li><li class="jb"><a class="postid273" href="https://www.modernescpp.com/index.php/c-is-still-lazy">C++ is Lazy: CRTP</a></li><li class="jb"><a class="postid272" href="https://www.modernescpp.com/index.php/six-voucher-to-win">Six Vouchers to Win</a></li><li class="jb"><a class="postid271" href="https://www.modernescpp.com/index.php/monads-in-c">Monads in C++</a></li><li class="jb"><a class="postid270" href="https://www.modernescpp.com/index.php/concepts-lite">Concepts</a></li><li class="jb"><a class="postid269" href="https://www.modernescpp.com/index.php/the-new-ranges-library">The New Ranges Library </a></li><li class="jb"><a class="postid268" href="https://www.modernescpp.com/index.php/fold-expressions">Fold Expressions</a></li><li class="jb"><a class="postid267" href="https://www.modernescpp.com/index.php/recursion-list-manipulation-and-lazy-evaluation">Recursion, List Manipulation, and Lazy Evaluation</a></li></ul></li><li class="jb"><span onclick="fjb(1,63,false)" class="jb"><span id="jb_1a_63">►</span> January</span> (16)<ul class="jb" id="jb_1_63" style="display: none"><li class="jb"><a class="postid266" href="https://www.modernescpp.com/index.php/pure-functions">Pure Functions</a></li><li class="jb"><a class="postid265" href="https://www.modernescpp.com/index.php/immutable-data">Immutable Data</a></li><li class="jb"><a class="postid264" href="https://www.modernescpp.com/index.php/higher-order-functions">Higher-Order Functions</a></li><li class="jb"><a class="postid263" href="https://www.modernescpp.com/index.php/first-class-functions">First-Class Functions</a></li><li class="jb"><a class="postid261" href="https://www.modernescpp.com/index.php/the-definition-of-functional-programming">The Definition of Functional Programming</a></li><li class="jb"><a class="postid259" href="https://www.modernescpp.com/index.php/functional-in-c-17-and-c-20">Functional in C++17 and C++20</a></li><li class="jb"><a class="postid258" href="https://www.modernescpp.com/index.php/functional-in-c-dispatch-table">Functional in C++11 and C++14: Dispatch Table and Generic Lambdas</a></li><li class="jb"><a class="postid257" href="https://www.modernescpp.com/index.php/functional-in-tr1-and-c-11">Functional in TR1 and C++11</a></li><li class="jb"><a class="postid256" href="https://www.modernescpp.com/index.php/functional-in-c-98">Functional in C++98</a></li><li class="jb"><a class="postid255" href="https://www.modernescpp.com/index.php/objectoriented-generic-and-functional-programming">Object-Oriented, Generic, and Functional Programming</a></li><li class="jb"><a class="postid254" href="https://www.modernescpp.com/index.php/memory-pool-allocators-with-jonathan-mueller">Memory Pool Allocators by Jonathan Müller</a></li><li class="jb"><a class="postid253" href="https://www.modernescpp.com/index.php/pros-and-cons-of-the-various-memory-management-strategies">Pros and Cons of the various Memory Allocation Strategies</a></li><li class="jb"><a class="postid252" href="https://www.modernescpp.com/index.php/strategies-for-the-allocation-of-memory">Strategies for the Allocation of Memory</a></li><li class="jb"><a class="postid251" href="https://www.modernescpp.com/index.php/improvements-of-this-blog">Improvements of this Blog</a></li><li class="jb"><a class="postid250" href="https://www.modernescpp.com/index.php/memory-management-with-std-allocator">Memory Management with std::allocator</a></li><li class="jb"><a class="postid249" href="https://www.modernescpp.com/index.php/overloading-operator-new-and-delete-2">Overloading Operator new and delete 2</a></li></ul></li></ul></li><li class="jb"><span onclick="fjb(0,7,false)" class="jb"><span id="jb_0a_7">►</span> 2016</span> (97)<ul class="jb" id="jb_0_7" style="display: none"><li class="jb"><span onclick="fjb(1,64,false)" class="jb"><span id="jb_1a_64">►</span> December</span> (16)<ul class="jb" id="jb_1_64" style="display: none"><li class="jb"><a class="postid248" href="https://www.modernescpp.com/index.php/overloading-operator-new-and-delete">Overloading Operator new and delete 1</a></li><li class="jb"><a class="postid247" href="https://www.modernescpp.com/index.php/explicit-memory-management">Explicit Memory Management</a></li><li class="jb"><a class="postid246" href="https://www.modernescpp.com/index.php/garbage-collectio-no-thanks">Garbage Collection - No Thanks</a></li><li class="jb"><a class="postid245" href="https://www.modernescpp.com/index.php/perfect-forwarding">Perfect Forwarding</a></li><li class="jb"><a class="postid244" href="https://www.modernescpp.com/index.php/time-for-wishes">Time for Wishes</a></li><li class="jb"><a class="postid243" href="https://www.modernescpp.com/index.php/move-semantic-tow-nice-properties">Move Semantis: Two Nice Properties</a></li><li class="jb"><a class="postid242" href="https://www.modernescpp.com/index.php/copy-versus-move-semantic-a-few-numbers">Copy versus Move Semantics: A few Numbers</a></li><li class="jb"><a class="postid241" href="https://www.modernescpp.com/index.php/std-array-dynamic-memory-no-thanks">std::array - Dynamic Memory, no Thanks </a></li><li class="jb"><a class="postid240" href="https://www.modernescpp.com/index.php/automatic-memory-management-with-containers">Automatic Memory Management of the STL Containers</a></li><li class="jb"><a class="postid239" href="https://www.modernescpp.com/index.php/std-weak-ptr">std::weak_ptr</a></li><li class="jb"><a class="postid238" href="https://www.modernescpp.com/index.php/specialities-of-std-shared-ptr">Specialities of std::shared_ptr</a></li><li class="jb"><a class="postid237" href="https://www.modernescpp.com/index.php/std-shared-ptr">std::shared_ptr</a></li><li class="jb"><a class="postid236" href="https://www.modernescpp.com/index.php/std-unique-ptr">std::unique_ptr</a></li><li class="jb"><a class="postid235" href="https://www.modernescpp.com/index.php/memory-and-performance-overhead-of-smart-pointer">Memory and Performance Overhead of Smart Pointers</a></li><li class="jb"><a class="postid234" href="https://www.modernescpp.com/index.php/careful-handling-of-resources">Careful Handling of Resources</a></li><li class="jb"><a class="postid233" href="https://www.modernescpp.com/index.php/generalized-plain-old-data">Generalized Plain Old Data</a></li></ul></li><li class="jb"><span onclick="fjb(1,65,false)" class="jb"><span id="jb_1a_65">►</span> November</span> (12)<ul class="jb" id="jb_1_65" style="display: none"><li class="jb"><a class="postid232" href="https://www.modernescpp.com/index.php/buckets-capacity-and-load-factor">Buckets, Capacity, and Load Factor</a></li><li class="jb"><a class="postid231" href="https://www.modernescpp.com/index.php/hash-functions">Hash Functions </a></li><li class="jb"><a class="postid230" href="https://www.modernescpp.com/index.php/associative-containers-a-simple-performance-comparison">Associative Containers - A simple Performance Comparison</a></li><li class="jb"><a class="postid229" href="https://www.modernescpp.com/index.php/hash-tables">Hash Tables</a></li><li class="jb"><a class="postid228" href="https://www.modernescpp.com/index.php/type-traits-performance-matters">Type-Traits: Performance Matters</a></li><li class="jb"><a class="postid227" href="https://www.modernescpp.com/index.php/constexpr-functions">constexpr Functions</a></li><li class="jb"><a class="postid226" href="https://www.modernescpp.com/index.php/constexpr-variables-and-objects">constexpr - Variables and Objects</a></li><li class="jb"><a class="postid225" href="https://www.modernescpp.com/index.php/constant-expressions-with-constexpr">Constant Expressions with constexpr</a></li><li class="jb"><a class="postid224" href="https://www.modernescpp.com/index.php/inline">inline</a></li><li class="jb"><a class="postid223" href="https://www.modernescpp.com/index.php/the-null-pointer-constant-nullptr">The Null Pointer Constant nullptr</a></li><li class="jb"><a class="postid222" href="https://www.modernescpp.com/index.php/override-and-final">override and final</a></li><li class="jb"><a class="postid221" href="https://www.modernescpp.com/index.php/strongly-typed-enums">Strongly-Typed Enums</a></li></ul></li><li class="jb"><span onclick="fjb(1,66,false)" class="jb"><span id="jb_1a_66">►</span> October</span> (12)<ul class="jb" id="jb_1_66" style="display: none"><li class="jb"><a class="postid220" href="https://www.modernescpp.com/index.php/raw-and-cooked">Raw and Cooked</a></li><li class="jb"><a class="postid219" href="https://www.modernescpp.com/index.php/user-defined-literals">User-Defined Literals</a></li><li class="jb"><a class="postid218" href="https://www.modernescpp.com/index.php/i-m-proudly-present-the-c-standard-library-2">Published at Leanpub: The C++ Standard Library</a></li><li class="jb"><a class="postid217" href="https://www.modernescpp.com/index.php/i-m-proudly-present-the-c-standard-library">I'm proud to present: The C++ Standard Library</a></li><li class="jb"><a class="postid216" href="https://www.modernescpp.com/index.php/compare-and-modify-types">Compare and Modify Types</a></li><li class="jb"><a class="postid215" href="https://www.modernescpp.com/index.php/check-types">Check Types</a></li><li class="jb"><a class="postid214" href="https://www.modernescpp.com/index.php/more-and-more-save">More and More Save</a></li><li class="jb"><a class="postid213" href="https://www.modernescpp.com/index.php/statically-checked">Statically Checked</a></li><li class="jb"><a class="postid212" href="https://www.modernescpp.com/index.php/initialization">{}-Initialization</a></li><li class="jb"><a class="postid211" href="https://www.modernescpp.com/index.php/automatically-inititialized">auto-matically inititialized</a></li><li class="jb"><a class="postid209" href="https://www.modernescpp.com/index.php/facts">Facts</a></li><li class="jb"><a class="postid208" href="https://www.modernescpp.com/index.php/myths">Myths</a></li></ul></li><li class="jb"><span onclick="fjb(1,67,false)" class="jb"><span id="jb_1a_67">►</span> September</span> (10)<ul class="jb" id="jb_1_67" style="display: none"><li class="jb"><a class="postid207" href="https://www.modernescpp.com/index.php/requirements-of-embedded-programming">Requirements of Embedded Programming</a></li><li class="jb"><a class="postid206" href="https://www.modernescpp.com/index.php/sleep-and-wait">Sleep and wait</a></li><li class="jb"><a class="postid205" href="https://www.modernescpp.com/index.php/the-three-clocks">The Three Clocks</a></li><li class="jb"><a class="postid204" href="https://www.modernescpp.com/index.php/time-duration">Time Duration</a></li><li class="jb"><a class="postid203" href="https://www.modernescpp.com/index.php/time-point">Time Point</a></li><li class="jb"><a class="postid202" href="https://www.modernescpp.com/index.php/the-time-library">The time Library</a></li><li class="jb"><a class="postid201" href="https://www.modernescpp.com/index.php/my-conclusion-summation-of-a-vector-in-three-variants">My Conclusion: Summation of a Vector in three Variants</a></li><li class="jb"><a class="postid200" href="https://www.modernescpp.com/index.php/multithreaded-summation-with-minimal-synchronization">Multithreaded: Summation with Minimal Synchronization</a></li><li class="jb"><a class="postid199" href="https://www.modernescpp.com/index.php/multithreaded-summation-of-a-vector">Multithreaded: Summation of a Vector</a></li><li class="jb"><a class="postid198" href="https://www.modernescpp.com/index.php/single-threaded-sum-of-the-elements-of-a-vector">Single Threaded: Summation of a Vector</a></li></ul></li><li class="jb"><span onclick="fjb(1,68,false)" class="jb"><span id="jb_1a_68">►</span> August</span> (9)<ul class="jb" id="jb_1_68" style="display: none"><li class="jb"><a class="postid197" href="https://www.modernescpp.com/index.php/thread-safe-initialization-of-a-singleton">Thread-Safe Initialization of a Singleton</a></li><li class="jb"><a class="postid196" href="https://www.modernescpp.com/index.php/ongoing-optimization-relaxed-semantic-with-cppmem">Ongoing Optimization: Relaxed Semantic with CppMem</a></li><li class="jb"><a class="postid195" href="https://www.modernescpp.com/index.php/ongoing-optimization-a-data-race-with-cppmem">Ongoing Optimization: A Data Race with CppMem</a></li><li class="jb"><a class="postid194" href="https://www.modernescpp.com/index.php/ongoing-optimization-acquire-release-semantic-with-cppmem">Ongoing Optimization: Acquire-Release Semantic with CppMem</a></li><li class="jb"><a class="postid193" href="https://www.modernescpp.com/index.php/ongoing-optiimization-sequential-consistency-with-cppmem">Ongoing Optimization: Sequential Consistency with CppMem</a></li><li class="jb"><a class="postid192" href="https://www.modernescpp.com/index.php/ongoing-optimization-locks">Ongoing Optimization: Locks and Volatile with CppMem</a></li><li class="jb"><a class="postid191" href="https://www.modernescpp.com/index.php/ongoing-optimization-2">Ongoing Optimization: Unsynchronized Access with CppMem</a></li><li class="jb"><a class="postid190" href="https://www.modernescpp.com/index.php/do-you-wan-t-to-proofread-a-book">Looking for Proofreaders for my New C++ Book</a></li><li class="jb"><a class="postid189" href="https://www.modernescpp.com/index.php/ongoing-optimization">Ongoing Optimization</a></li></ul></li><li class="jb"><span onclick="fjb(1,69,false)" class="jb"><span id="jb_1a_69">►</span> July</span> (10)<ul class="jb" id="jb_1_69" style="display: none"><li class="jb"><a class="postid188" href="https://www.modernescpp.com/index.php/cppmem-an-overview">CppMem - An Overview</a></li><li class="jb"><a class="postid187" href="https://www.modernescpp.com/index.php/relaxed-semantic">Relaxed Semantic</a></li><li class="jb"><a class="postid186" href="https://www.modernescpp.com/index.php/acquire-release-fences">Acquire-Release Fences</a></li><li class="jb"><a class="postid185" href="https://www.modernescpp.com/index.php/fences-as-memory-barriers">Fences are Memory Barriers</a></li><li class="jb"><a class="postid184" href="https://www.modernescpp.com/index.php/acquire-release-semantic-the-typical-misunderstanding">Acquire-Release Semantic - The typical Misunderstanding</a></li><li class="jb"><a class="postid183" href="https://www.modernescpp.com/index.php/100-posts-anniversary-quo-vadis-modernes-c">100 Posts Anniversary - Quo vadis Modernes C++?</a></li><li class="jb"><a class="postid182" href="https://www.modernescpp.com/index.php/memory-order-consume">memory_order_consume</a></li><li class="jb"><a class="postid181" href="https://www.modernescpp.com/index.php/transivity-of-the-acquire-release-semantic">Transitivity of the Acquire-Release Semantic</a></li><li class="jb"><a class="postid180" href="https://www.modernescpp.com/index.php/acquire-release-semantic">Acquire-Release Semantic</a></li><li class="jb"><a class="postid179" href="https://www.modernescpp.com/index.php/sequential-consistency-applied">Sequential Consistency applied</a></li></ul></li><li class="jb"><span onclick="fjb(1,70,false)" class="jb"><span id="jb_1a_70">►</span> June</span> (12)<ul class="jb" id="jb_1_70" style="display: none"><li class="jb"><a class="postid178" href="https://www.modernescpp.com/index.php/synchronization-and-ordering-constraints">Synchronization and Ordering Constraints</a></li><li class="jb"><a class="postid177" href="https://www.modernescpp.com/index.php/the-atomic-boolean">The Atomic Boolean</a></li><li class="jb"><a class="postid176" href="https://www.modernescpp.com/index.php/atomics">Atomics</a></li><li class="jb"><a class="postid175" href="https://www.modernescpp.com/index.php/the-facebook-group-modernes-c">The Facebook Group Modernes C++</a></li><li class="jb"><a class="postid174" href="https://www.modernescpp.com/index.php/the-atomic-flag">The Atomic Flag</a></li><li class="jb"><a class="postid173" href="https://www.modernescpp.com/index.php/sequential-consistency">Sequential Consistency</a></li><li class="jb"><a class="postid172" href="https://www.modernescpp.com/index.php/c-memory-model">C++ Memory Model</a></li><li class="jb"><a class="postid171" href="https://www.modernescpp.com/index.php/thread-synchronization-with-condition-variables-or-tasks">Thread Synchronization with Condition Variables or Tasks</a></li><li class="jb"><a class="postid170" href="https://www.modernescpp.com/index.php/modern-c">Modernes C++</a></li><li class="jb"><a class="postid169" href="https://www.modernescpp.com/index.php/the-special-futures">The Special Futures</a></li><li class="jb"><a class="postid168" href="https://www.modernescpp.com/index.php/promise-and-future">Promise and Future</a></li><li class="jb"><a class="postid167" href="https://www.modernescpp.com/index.php/asynchronous-callable-wrappers">Asynchronous Callable Wrappers</a></li></ul></li><li class="jb"><span onclick="fjb(1,71,false)" class="jb"><span id="jb_1a_71">►</span> May</span> (9)<ul class="jb" id="jb_1_71" style="display: none"><li class="jb"><a class="postid166" href="https://www.modernescpp.com/index.php/asynchronous-function-calls">Asynchronous Function Calls</a></li><li class="jb"><a class="postid165" href="https://www.modernescpp.com/index.php/tasks">Tasks</a></li><li class="jb"><a class="postid164" href="https://www.modernescpp.com/index.php/condition-variables">Condition Variables</a></li><li class="jb"><a class="postid163" href="https://www.modernescpp.com/index.php/thread-local-data">Thread-Local Data</a></li><li class="jb"><a class="postid162" href="https://www.modernescpp.com/index.php/thread-safe-initialization-of-data">Thread-Safe Initialization of Data</a></li><li class="jb"><a class="postid161" href="https://www.modernescpp.com/index.php/reader-writer-locks">Reader-Writer Locks</a></li><li class="jb"><a class="postid160" href="https://www.modernescpp.com/index.php/prefer-locks-to-mutexes">Prefer Locks to Mutexes</a></li><li class="jb"><a class="postid159" href="https://www.modernescpp.com/index.php/source-code-repository">Source Code Repository</a></li><li class="jb"><a class="postid158" href="https://www.modernescpp.com/index.php/the-risk-of-mutexes">The Risks of Mutexes</a></li></ul></li><li class="jb"><span onclick="fjb(1,72,false)" class="jb"><span id="jb_1a_72">►</span> April</span> (7)<ul class="jb" id="jb_1_72" style="display: none"><li class="jb"><a class="postid157" href="https://www.modernescpp.com/index.php/threads-sharing-data">Threads Sharing Data</a></li><li class="jb"><a class="postid156" href="https://www.modernescpp.com/index.php/threads-lifetime">Threads Lifetime</a></li><li class="jb"><a class="postid155" href="https://www.modernescpp.com/index.php/data-for-threads">Thread Arguments</a></li><li class="jb"><a class="postid154" href="https://www.modernescpp.com/index.php/for-the-proofreaders-and-the-curious-people">For the Proofreaders and the Curious People</a></li><li class="jb"><a class="postid153" href="https://www.modernescpp.com/index.php/thread-creation">Thread Creation</a></li><li class="jb"><a class="postid152" href="https://www.modernescpp.com/index.php/multithreading-in-modern-c">Multithreading in Modern C++</a></li><li class="jb"><a class="postid64" href="https://www.modernescpp.com/index.php/warum-einen-blog-zu-modernem-c">Why my Blog in English?</a></li></ul></li></ul></li></ul>
+<script type="text/javascript">
+
+</script>
+</div></div></div><div class="t3-module module " id="Mod133"><div class="module-inner"><h3 class="module-title "><span>Source Code</span></h3><div class="module-ct"><ul class="nav nav-pills nav-stacked menu">
+<li class="item-350"><a href="https://github.com/RainerGrimm/ModernesCppSource" class="">GitHub </a></li></ul>
+</div></div></div><div class="t3-module module " id="Mod110"><div class="module-inner"><div class="module-ct"><script src="./Semaphores in C++20 - ModernesCpp.com_files/jquery.min.js(1).download" type="text/javascript"></script>
+
+	
+
+
+
+<script type="text/javascript">
+
+
+    (function(w2b){
+
+        w2b(document).ready(function(){
+
+            var $dur = "medium"; // Duration of Animation
+
+            w2b("#slidesocialconnect").css({right: -38, "top" : 100 })
+
+            w2b("#slidesocialconnect").hover(function () {
+
+                w2b(this).stop().animate({
+
+                    right: 0
+
+                }, $dur);
+
+            }, function () {
+
+                w2b(this).stop().animate({
+
+                    right: -38
+                }, $dur);
+
+            });
+
+            w2b("#slidesocialconnect").show();
+
+        });
+
+    })(jQuery);
+
+
+</script>
+
+    <div id="slidesocialconnect" style="background-image: url(&quot;&quot;); right: -38px; top: 100px;">
+
+    <div class="sharebadge" style="background-image:url(&#39;https://www.modernescpp.com/modules/mod_slidesocialconnect/vertical-right.png&#39;);"></div>
+    
+    <div class="soclinks"><div class="" style=" z-index:1000;"><a rel="nofollow" href="http://www.facebook.com/rainer.grimm.31" target="_blank"><img style="opacity:1.0;
+filter:alpha(opacity=100); width: 32px; height: 32px; margin:2px;" src="./Semaphores in C++20 - ModernesCpp.com_files/facebook.png" alt="Facebook" title="Follow us on Facebook"></a></div><div class="" style=" z-index:1000;"><a rel="nofollow" href="https://plus.google.com/109576694736160795401?prsrc=3" target="_blank"><img style="opacity:1.0;
+filter:alpha(opacity=100); width: 32px; height: 32px; margin:2px;" src="./Semaphores in C++20 - ModernesCpp.com_files/googleplus.png" alt="Googleplus" title="Follow us on Googleplus"></a></div><div class="" style=" z-index:1000;"><a rel="nofollow" href="https://www.linkedin.com/in/rainergrimm" target="_blank"><img style="opacity:1.0;
+filter:alpha(opacity=100); width: 32px; height: 32px; margin:2px;" src="./Semaphores in C++20 - ModernesCpp.com_files/linkedin.png" alt="Linkedin" title="Follow us on Linkedin"></a></div><div class="" style=" z-index:1000;"><a rel="nofollow" href="https://twitter.com/rainer_grimm" target="_blank"><img style="opacity:1.0;
+filter:alpha(opacity=100); width: 32px; height: 32px; margin:2px;" src="./Semaphores in C++20 - ModernesCpp.com_files/twitter.png" alt="Twitter" title="Follow us on Twitter"></a></div><div class="" style=" z-index:1000;"><a rel="nofollow" href="https://www.xing.com/profile/Rainer_Grimm12" target="_blank"><img style="opacity:1.0;
+filter:alpha(opacity=100); width: 32px; height: 32px; margin:2px;" src="./Semaphores in C++20 - ModernesCpp.com_files/xing.png" alt="Xing" title="Follow us on Xing"></a></div></div><div style="clear: both;"></div><div style="margin-left: 10px; text-align: center; font-size: 5px; color: #999999;"><p><a style="color: #999999;" href="http://www.huntersspeak.com/" title="Hunting">Hunting</a></p></div>
+</div>
+
+
+
+	</div></div></div><div class="t3-module module " id="Mod134"><div class="module-inner"><h3 class="module-title "><span>Most Popular Posts</span></h3><div class="module-ct">
+<ul class="menu jb_mostpopular">
+			<li>
+				<!--a href="https://www.modernescpp.com/index.php/thread-safe-initialization-of-a-singleton" >1)</a-->
+				<a href="https://www.modernescpp.com/index.php/thread-safe-initialization-of-a-singleton">
+					Thread-Safe Initialization of a Singleton					&nbsp;(306798 hits)				</a>
+							</li>
+						<li>
+				<!--a href="https://www.modernescpp.com/index.php/c-core-guidelines-passing-smart-pointer" >2)</a-->
+				<a href="https://www.modernescpp.com/index.php/c-core-guidelines-passing-smart-pointer">
+					C++ Core Guidelines: Passing Smart Pointers					&nbsp;(278719 hits)				</a>
+							</li>
+						<li>
+				<!--a href="https://www.modernescpp.com/index.php/c-core-guidelines-be-aware-of-the-traps-of-condition-variables" >3)</a-->
+				<a href="https://www.modernescpp.com/index.php/c-core-guidelines-be-aware-of-the-traps-of-condition-variables">
+					C++ Core Guidelines: Be Aware of the Traps of Condition Variables					&nbsp;(257357 hits)				</a>
+							</li>
+						<li>
+				<!--a href="https://www.modernescpp.com/index.php/c-17-avoid-copying-with-std-string-view" >4)</a-->
+				<a href="https://www.modernescpp.com/index.php/c-17-avoid-copying-with-std-string-view">
+					C++17 - Avoid Copying with std::string_view 					&nbsp;(242986 hits)				</a>
+							</li>
+						<li>
+				<!--a href="https://www.modernescpp.com/index.php/what-is-modern-c" >5)</a-->
+				<a href="https://www.modernescpp.com/index.php/what-is-modern-c">
+					What is Modern C++?					&nbsp;(227522 hits)				</a>
+							</li>
+			</ul></div></div></div><div class="t3-module module " id="Mod132"><div class="module-inner"><h3 class="module-title "><span>Visitors</span></h3><div class="module-ct"><div class="visitorcounter ">
+                        <p>
+                Today                <span class="floatright">616</span>
+            </p>
+                            <p>
+                Yesterday                <span class="floatright">6489</span>
+            </p>
+                            <p>
+                Week                <span class="floatright">26871</span>
+            </p>
+                            <p>
+                Month                <span class="floatright">109915</span>
+            </p>
+                            <p>
+                All                <span class="floatright">9007619</span>
+            </p>
+                                        <p class="whoisonline">
+            Currently are 206&nbsp;guests and no members online        </p>
+                        <p class="small">
+            <a href="https://kubik-rubik.de/" target="_blank" title="Kubik-Rubik Joomla! Extensions - Qualitative and reliable extensions for Joomla!">Kubik-Rubik Joomla! Extensions</a>
+        </p>
+    </div>
+</div></div></div><div class="t3-module module " id="Mod138"><div class="module-inner"><h3 class="module-title "><span>Latest comments</span></h3><div class="module-ct"><ul class="jcomments-latest">
+	
+			<li>
+				<h4>
+							<a href="https://www.modernescpp.com/index.php/component/jaggyblog/expression-templates">Expression Templates</a>
+					</h4>
+		
+		
+				<span class="author">John Melas</span>
+				
+		<div class="comment rounded ">
+					<div>
+				Thank you for this post. I've seen implementations of expression templates using CRTP but this approach ...								<p class="jcomments-latest-readmore">
+					<a href="https://www.modernescpp.com/index.php/component/jaggyblog/expression-templates#comment-78035">Read more...</a>
+				</p>
+							</div>
+		</div>
+
+				<span class="comment-separator">&nbsp;</span>
+			</li>
+			<li>
+				<h4>
+							<a href="https://www.modernescpp.com/index.php/component/jaggyblog/more-about-dynamic-and-static-polymorhism">More about Dynamic and Static Polymorphism</a>
+					</h4>
+		
+		
+				<span class="author">Rud Merriam</span>
+				
+		<div class="comment rounded ">
+					<div>
+				The "overhead" of a virtual function call is misleading when examined by itself as the performance ...								<p class="jcomments-latest-readmore">
+					<a href="https://www.modernescpp.com/index.php/component/jaggyblog/more-about-dynamic-and-static-polymorhism#comment-78034">Read more...</a>
+				</p>
+							</div>
+		</div>
+
+				<span class="comment-separator">&nbsp;</span>
+			</li>
+			<li>
+				<h4>
+							<a href="https://www.modernescpp.com/index.php/component/jaggyblog/expression-templates">Expression Templates</a>
+					</h4>
+		
+		
+				<span class="author">Jim Stevens</span>
+				
+		<div class="comment rounded ">
+					<div>
+				The constructor: MyVector(const std::size_t n, const double initialValue) Why is the second argument ...								<p class="jcomments-latest-readmore">
+					<a href="https://www.modernescpp.com/index.php/component/jaggyblog/expression-templates#comment-78033">Read more...</a>
+				</p>
+							</div>
+		</div>
+
+				<span class="comment-separator">&nbsp;</span>
+			</li>
+			<li>
+				<h4>
+							<a href="https://www.modernescpp.com/index.php/component/jaggyblog/c-core-guidelines-be-aware-of-the-traps-of-condition-variables">C++ Core Guidelines: Be Aware of the Traps of Condition Variables</a>
+					</h4>
+		
+		
+				<span class="author">kmatt</span>
+				
+		<div class="comment rounded ">
+					<div>
+				"This wouldn't have happened if dataReady had been protected by a mutex. Because of the synchronisation ...								<p class="jcomments-latest-readmore">
+					<a href="https://www.modernescpp.com/index.php/component/jaggyblog/c-core-guidelines-be-aware-of-the-traps-of-condition-variables#comment-78032">Read more...</a>
+				</p>
+							</div>
+		</div>
+
+				<span class="comment-separator">&nbsp;</span>
+			</li>
+			<li>
+				<h4>
+							<a href="https://www.modernescpp.com/index.php/component/jaggyblog/compare-and-modify-types">Compare and Modify Types</a>
+					</h4>
+		
+		
+				<span class="author">Sz.</span>
+				
+		<div class="comment rounded ">
+					<div>
+				"Now I'm a little bit pedantic. ... At compile time there is no state." A duly pedantic response ...								<p class="jcomments-latest-readmore">
+					<a href="https://www.modernescpp.com/index.php/component/jaggyblog/compare-and-modify-types#comment-78031">Read more...</a>
+				</p>
+							</div>
+		</div>
+
+			</li>
+		</ul>
+
+</div></div></div>
+		</div>
+		<!-- //SIDEBAR 2 -->
+	
+	</div>
+</div> 
+
+
+  
+<!-- NAV HELPER -->
+<nav class="wrap t3-navhelper ">
+	<div class="container">
+		
+<ol class="breadcrumb ">
+	<li class="active">You are here: &nbsp;</li><li><a href="https://www.modernescpp.com/index.php" class="pathway">Home</a><span class="divider"><img src="./Semaphores in C++20 - ModernesCpp.com_files/arrow.png" alt=""></span></li><li><span>Semaphores in C++20</span></li></ol>
+
+	</div>
+</nav>
+<!-- //NAV HELPER -->
+
+	
+<!-- BACK TOP TOP BUTTON -->
+<div id="back-to-top" data-spy="affix" data-offset-top="300" class="back-to-top hidden-xs hidden-sm affix">
+  <button class="btn btn-primary" title="Back to Top"><i class="fa fa-caret-up"></i></button>
+</div>
+<script type="text/javascript">
+(function($) {
+	// Back to top
+	$('#back-to-top').on('click', function(){
+		$("html, body").animate({scrollTop: 0}, 500);
+		return false;
+	});
+    $(window).load(function(){
+        // hide button to top if the document height not greater than window height*2;using window load for more accurate calculate.    
+        if ((parseInt($(window).height())*2)>(parseInt($(document).height()))) {
+            $('#back-to-top').hide();
+        } 
+    });
+})(jQuery);
+</script>
+<!-- BACK TO TOP BUTTON -->
+
+<!-- FOOTER -->
+<footer id="t3-footer" class="wrap t3-footer">
+
+	
+	<section class="t3-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 copyright ">
+					<div class="module">
+	<small>Copyright © 2022 ModernesCpp.com. All Rights Reserved. Designed by <a href="http://www.joomlart.com/" title="Visit Joomlart.com!">JoomlArt.com</a>.</small>
+	<small><a href="https://www.joomla.org/">Joomla!</a> is Free Software released under the <a href="https://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License.</a></small>
+</div>
+          <small>
+            <a href="http://twitter.github.io/bootstrap/" title="Bootstrap by Twitter" target="_blank">Bootstrap</a> is a front-end framework of Twitter, Inc. Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" title="MIT License" target="_blank">MIT License.</a>
+          </small>
+          <small>
+            <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> font licensed under <a href="http://scripts.sil.org/OFL">SIL OFL 1.1</a>.
+          </small>
+				</div>
+							</div>
+		</div>
+	</section>
+
+</footer>
+<!-- //FOOTER -->
+
+</div>
+
+
+
+<iframe name="oauth2relay658489155" id="oauth2relay658489155" src="./Semaphores in C++20 - ModernesCpp.com_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

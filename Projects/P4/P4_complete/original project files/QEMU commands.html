@@ -1,0 +1,220 @@
+
+<!-- saved from url=(0051)https://pdos.csail.mit.edu/6.828/2010/labguide.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>6.828 lab tools guide</title>
+    <link rel="stylesheet" href="./QEMU commands_files/labs.css" type="text/css">
+  </head>
+<body>
+<h1>6.828 lab tools guide</h1>
+
+Familiarity with your environment is crucial for productive
+development and debugging.  This page gives a brief overview of the
+JOS environment and useful GDB and QEMU commands.  Don't take our word
+for it, though.  Read the GDB and QEMU manuals.  These are powerful
+tools that are worth knowing how to use.
+
+<p>Jump: <a href="https://pdos.csail.mit.edu/6.828/2010/labguide.html#make">JOS makefile</a>, <a href="https://pdos.csail.mit.edu/6.828/2010/labguide.html#gdb">GDB
+commands</a>, <a href="https://pdos.csail.mit.edu/6.828/2010/labguide.html#qemu">QEMU commands</a></p>
+
+<h2 id="make">JOS makefile</h2>
+
+The JOS GNUmakefile includes a number of phony targets for running JOS
+in various ways:
+
+<dl>
+  <dt><kbd>make qemu</kbd></dt>
+  <dd>Build everything and start qemu with the VGA console in a new
+  window and the serial console in your terminal.  To exit, either
+  close the VGA window or press <tt>Ctrl-c</tt> or <tt>Ctrl-a x</tt>
+  in your terminal.</dd>
+
+  <dt><kbd>make qemu-nox</kbd></dt>
+  <dd>Like <tt>make qemu</tt>, but run with only the serial console.
+  To exit, press <tt>Ctrl-a x</tt>.  This is particularly useful over
+  SSH connections to Athena dialups because the VGA window consumes a
+  lot of bandwidth.</dd>
+
+  <dt><kbd>make qemu-gdb</kbd></dt>
+  <dd>Like <tt>make qemu</tt>, but pauses at the first machine
+  instruction and waits for a GDB connection.  Run <kbd>gdb</kbd> from
+  your lab directory to connect to QEMU.  We provide a
+  <tt>.gdbinit</tt> file that should automatically point GDB at QEMU
+  and switch between 16-bit and 32-bit mode as appropriate.  Exiting
+  GDB will shut down QEMU.</dd>
+
+  <dt><kbd>make qemu-nox-gdb</kbd></dt>
+  <dd>A combination of the <tt>qemu-nox</tt> and <tt>qemu-gdb</tt>
+  targets.</dd>
+
+  <dt><kbd>make run-<i>name</i></kbd></dt>
+  <dd>(Lab 3+) Run user program <i>name</i>.  For example, <tt>make
+  run-hello</tt> runs <tt>user/hello.c</tt>.</dd>
+
+  <dt><kbd>make run-<i>name</i>-nox</kbd>,
+      <kbd>run-<i>name</i>-gdb</kbd>,
+      <kbd>run-<i>name</i>-gdb-nox</kbd>, </dt>
+  <dd>(Lab 3+) Variants of <tt>run-<i>name</i></tt> that correspond to
+  the variants of the <tt>qemu</tt> target.</dd>
+</dl>
+
+Make usually prints out every command being executed.  JOS suppresses
+this, but if make is giving you trouble, you can revert to its usual
+behavior using <kbd>make V=</kbd>.  Similarly, the grade scripts have
+a verbose mode, which you can invoke using <kbd>sh
+./grade-lab<i>N</i>.sh -v</kbd>.
+
+<p>When building JOS, the makefile also produces some additional
+output files that may prove useful while debugging:</p>
+
+<dl>
+  <dt><tt>obj/boot/boot.asm</tt>, <tt>obj/kern/kernel.asm</tt>,
+  <tt>obj/user/hello.asm</tt>, etc.</dt>
+  <dd>Assembly code listings for the bootloader, kernel, and user
+  programs.</dd>
+
+  <dt><tt>obj/kern/kernel</tt>, <tt>obj/user/hello</tt>, etc</dt>
+  <dd>Linked ELF images of the kernel and user programs.  These
+  contain symbol information that can be used by GDB.</dd>
+</dl>
+
+<h2 id="gdb">GDB commands</h2>
+
+<p>See the <a href="http://sourceware.org/gdb/current/onlinedocs/gdb/">GDB
+manual</a> for a full guide to GDB commands.  Here are some
+particularly useful commands for 6.828, some of which don't typically
+come up outside of OS development.</p>
+
+<dl>
+  <dt><kbd>Ctrl-c</kbd></dt>
+  <dd>Halt the machine and break in to GDB at the current
+  instruction.</dd>
+
+  <dt><kbd>c</kbd> (or <kbd>continue</kbd>)</dt>
+  <dd>Continue execution until the next breakpoint or <tt>Ctrl-c</tt>.</dd>
+
+  <dt><kbd>si</kbd> (or <kbd>stepi</kbd>)</dt>
+  <dd>Execute one machine instruction.</dd>
+
+  <dt><kbd>b *<i>addr</i></kbd> (or <kbd>breakpoint</kbd>)</dt>
+  <dd>Set a breakpoint at the EIP <i>addr</i>.  Used without the
+  <tt>*</tt>, <tt>b</tt> expects the name of a function, or a
+  file:line to place a breakpoint on.</dd>
+
+  <dt><kbd>set print pretty</kbd></dt>
+  <dd>Enable pretty-printing of arrays and structs.</dd>
+
+  <dt><kbd>info registers</kbd></dt>
+  <dd>Print the general purpose registers, <tt>eip</tt>,
+  <tt>eflags</tt>, and the segment selectors.  For a much more
+  thorough dump of the machine register state, see QEMU's own <tt>info
+  registers</tt> command.</dd>
+
+  <dt><kbd>x/<i>N</i>x <i>addr</i></kbd></dt>
+  <dd>Display a hex dump of <i>N</i> words starting at virtual address
+  <i>addr</i>.  If <i>N</i> is omitted, it defaults to 1.  <i>addr</i>
+  can be any expression.</dd>
+
+  <dt><kbd>x/<i>N</i>i <i>addr</i></kbd></dt>
+  <dd>Display the <i>N</i> assembly instructions starting at
+  <i>addr</i>.  Using <tt>$eip</tt> as <i>addr</i> will display the
+  instructions at the current instruction pointer.</dd>
+
+  <dt><kbd>symbol-file <i>file</i></kbd></dt>
+  <dd>(Lab 3+) Switch to symbol file <i>file</i>.  When GDB attaches
+  to QEMU, it has no notion of the process boundaries within the
+  virtual machine, so we have to tell it which symbols to use.  By
+  default, we configure GDB to use the kernel symbol file,
+  <tt>obj/kern/kernel</tt>.  If the machine is running user code, say
+  <tt>hello.c</tt>, you can switch to the hello symbol file using
+  <tt>symbol-file obj/user/hello</tt>.</dd>
+</dl>
+
+<h2 id="qemu">QEMU commands</h2>
+
+<p>QEMU includes a built-in monitor that can inspect and modify the
+machine state in useful ways.  To enter the monitor, press <kbd>Ctrl-a
+c</kbd> in the terminal running QEMU.  Press <kbd>Ctrl-a c</kbd> again
+to switch back to the serial console.</p>
+
+<p>For a complete reference to the monitor commands, see the <a href="http://wiki.qemu.org/download/qemu-doc.html#pcsys_005fmonitor">QEMU
+manual</a>.  Here are some particularly useful commands:</p>
+
+<dl>
+  <dt><kbd>xp/<i>N</i>x <i>paddr</i></kbd></dt>
+  <dd>Display a hex dump of <i>N</i> words starting at <i>physical</i>
+  address <i>paddr</i>.  If <i>N</i> is omitted, it defaults to 1.
+  This is the physical memory analogue of GDB's <tt>x</tt>
+  command.</dd>
+
+  <dt><kbd>info registers</kbd></dt>
+  <dd>Display a full dump of the machine's internal register state.
+  In particular, this includes the machine's <i>hidden</i> segment
+  state for the segment selectors and the local, global, and interrupt
+  descriptor tables, plus the task register.  This hidden state is the
+  information the virtual CPU read from the GDT/LDT when the segment
+  selector was loaded.  Here's the CS when running in the JOS kernel
+  in lab 1 and the meaning of each field:
+
+  <pre>CS =0008 10000000 ffffffff 10cf9a00 DPL=0 CS32 [-R-]</pre>
+  <dl>
+    <dt><tt>CS =0008</tt></dt>
+    <dd>The visible part of the code selector.  We're using segment
+    0x8.  This also tells us we're referring to the global descriptor
+    table (0x8&amp;4=0), and our CPL (current privilege level) is
+    0x8&amp;3=0.</dd>
+    <dt><tt>10000000</tt></dt>
+    <dd>The base of this segment.  Linear address = logical address +
+    0x10000000.</dd>
+    <dt><tt>ffffffff</tt></dt>
+    <dd>The limit of this segment.  Linear addresses above 0xffffffff
+    will result in segment violation exceptions.</dd>
+    <dt><tt>10cf9a00</tt></dt>
+    <dd>The raw flags of this segment, which QEMU helpfully decodes
+    for us in the next few fields.</dd>
+    <dt><tt>DPL=0</tt></dt>
+    <dd>The privilege level of this segment.  Only code running with
+    privilege level 0 can load this segment.</dd>
+    <dt><tt>CS32</tt></dt>
+    <dd>This is a 32-bit code segment.  Other values include
+    <tt>DS</tt> for data segments (not to be confused with the DS
+    register), and <tt>LDT</tt> for local descriptor tables.</dd>
+    <dt><tt>[-R-]</tt></dt>
+    <dd>This segment is read-only.</dd>
+  </dl>
+  </dd>
+
+  <dt><kbd>info mem</kbd></dt>
+  <dd>(Lab 2+) Display mapped virtual memory and permissions.  For
+  example,
+
+  <pre>ef7c0000-ef800000 00040000 urw
+efbf8000-efc00000 00008000 -rw</pre>
+
+  tells us that the 0x00040000 bytes of memory from 0xef7c0000 to
+  0xef800000 are mapped read/write and user-accessible, while the
+  memory from 0xefbf8000 to 0xefc00000 is mapped read/write, but only
+  kernel-accessible.
+  </dd>
+
+  <dt><kbd>info pg</kbd></dt>
+  <dd>(Lab 2+) Display the current page table structure.  The output
+  is similar to <tt>info mem</tt>, but distinguishes page directory
+  entries and page table entries and gives the permissions for each
+  separately.  Unbroken sequences of PDE's or PTE's with identical
+  permissions are compressed into a single line, where the number in
+  parenthesis gives the number of PDE's or PTE's in hex.  For example,
+
+  <pre>PDE(001) 00000000-00400000 00400000 urw
+ |-- PTE(000008) 00200000-00208000 00008000 urw
+PDE(001) 00800000-00c00000 00400000 urw
+ |-- PTE(000006) 00800000-00806000 00006000 urw</pre>
+
+ This shows two page directory entries, spanning 0x00000000 to
+ 0x00400000 and 0x00800000 to 0x00c00000, respectively.  The first PDE
+ contains a sequence of 0x8 PTE's spanning 0x00008000 bytes of virtual
+ memory from 0x00200000 to 0x00208000.
+  </dd>
+</dl>
+
+
+</body></html>

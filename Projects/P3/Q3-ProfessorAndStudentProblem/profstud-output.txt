@@ -1,0 +1,61 @@
+./profstud 1
+Student 0 : The student is ready to ask a question.
+Professor wants to be asked a question.
+Student 0 : The student is asking a question.
+Student 0 : The student is done asking a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 0 : The student receives the answer and leaves
+
+./profstud 2
+Student 0 : The student is ready to ask a question.
+Professor wants to be asked a question.
+Student 0 : The student is asking a question.
+Student 0 : The student is done asking a question.
+Student 1 : The student is ready to ask a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 0 : The student receives the answer and leaves
+Professor wants to be asked a question.
+Student 1 : The student is asking a question.
+Student 1 : The student is done asking a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 1 : The student receives the answer and leaves
+
+./profstud 5
+Student 0 : The student is ready to ask a question.
+Professor wants to be asked a question.
+Student 0 : The student is asking a question.
+Student 0 : The student is done asking a question.
+Student 2 : The student is ready to ask a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 3 : The student is ready to ask a question.
+Student 0 : The student receives the answer and leaves
+Student 4 : The student is ready to ask a question.
+Professor wants to be asked a question.
+Student 1 : The student is ready to ask a question.
+Student 2 : The student is asking a question.
+Student 2 : The student is done asking a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 2 : The student receives the answer and leaves
+Professor wants to be asked a question.
+Student 3 : The student is asking a question.
+Student 3 : The student is done asking a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 3 : The student receives the answer and leaves
+Professor wants to be asked a question.
+Student 4 : The student is asking a question.
+Student 4 : The student is done asking a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 4 : The student receives the answer and leaves
+Professor wants to be asked a question.
+Student 1 : The student is asking a question.
+Student 1 : The student is done asking a question.
+The professor is answering the question.
+Professor is finished with an answer.
+Student 1 : The student receives the answer and leaves

@@ -1,0 +1,45 @@
+.autotoc
+{
+  border: 1px solid #AAAAAA;
+  background-color: #F3F3F3;
+  padding: 0.5em;
+  float: left;
+}
+
+.autotoc > span
+{
+  font-weight: bold;
+}
+
+.autotoc > span + span
+{
+  margin-left: 0.3em;
+  font-weight: normal;
+}
+
+.autotoc ul
+{
+  padding: 0;
+  margin: 0 0 0 0.9em;
+}
+
+.autotoc > ul
+{
+  margin: 0;
+}
+
+.autotoc li
+{
+  margin: 0;
+  list-style: none !important;
+}
+
+.autotoc a
+{
+  text-decoration: none;
+}
+
+.autotoc a:hover
+{
+  text-decoration: underline;
+}
